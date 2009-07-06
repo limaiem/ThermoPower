@@ -1,0 +1,284 @@
+<HTML>
+<HEAD>
+<TITLE>ThermoPower.Examples.HRB.Simulators</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Simulation models for the HRB example&quot;">
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Simulators<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Examples.HRB.Simulators"></A><A HREF="ThermoPower_Examples_HRB.html#ThermoPower.Examples.HRB"
+>ThermoPower.Examples.HRB</A>.Simulators</H2>
+<B>Simulation models for the HRB example</B>
+<P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="ThermoPower.Examples.HRB.Simulators.OpenLoopSimulatorS.png" ALT="ThermoPower.Examples.HRB.Simulators.OpenLoopSimulator" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Examples_HRB_Simulators.html#ThermoPower.Examples.HRB.Simulators.OpenLoopSimulator"
+>OpenLoopSimulator</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Examples.HRB.Simulators.OpenLoopSimulatorS.png" ALT="ThermoPower.Examples.HRB.Simulators.OpenLoopSimulatorHtc" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Examples_HRB_Simulators.html#ThermoPower.Examples.HRB.Simulators.OpenLoopSimulatorHtc"
+>OpenLoopSimulatorHtc</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Examples.HRB.Simulators.OpenLoopSimulatorS.png" ALT="ThermoPower.Examples.HRB.Simulators.OpenLoopSimulatorSimplified" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Examples_HRB_Simulators.html#ThermoPower.Examples.HRB.Simulators.OpenLoopSimulatorSimplified"
+>OpenLoopSimulatorSimplified</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_Examples_HRB_Simulators.html#ThermoPower.Examples.HRB.Simulators.ClosedLoopSimulator"
+>ClosedLoopSimulator</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_Examples_HRB_Simulators.html#ThermoPower.Examples.HRB.Simulators.ClosedLoopDigitalSimulator"
+>ClosedLoopDigitalSimulator</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_Examples_HRB_Simulators.html#ThermoPower.Examples.HRB.Simulators.ClosedLoopDigitalSimulatorSimplified"
+>ClosedLoopDigitalSimulatorSimplified</A>
+</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE OpenLoopSimulator<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Examples.HRB.Simulators.OpenLoopSimulatorI.png" ALT="ThermoPower.Examples.HRB.Simulators.OpenLoopSimulator" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Examples.HRB.Simulators.OpenLoopSimulator"></A><A HREF="ThermoPower_Examples_HRB_Simulators.html#ThermoPower.Examples.HRB.Simulators"
+>ThermoPower.Examples.HRB.Simulators</A>.OpenLoopSimulator</H2>
+<IMG SRC="ThermoPower.Examples.HRB.Simulators.OpenLoopSimulatorD.png" ALT="ThermoPower.Examples.HRB.Simulators.OpenLoopSimulator">
+<H3>Information</H3>
+<PRE></pre>
+This model allows to simulate an open loop transient, starting from the guess initial conditions set inside the HRB model.</p>
+<p>Simulate for 150 s. After about 50 s, the plant reaches a steady state. At time t = 50 s, the water valve is closed by 10%. At time t = 100 s, the gas flow rate is increased by 100%.
+<pre></PRE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>input <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>GasFlowRateInput</TD><TD>&nbsp;</TD></TR>
+<TR><TD>input <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>ValveOpeningInput</TD><TD>&nbsp;</TD></TR>
+<TR><TD>output <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>RealOutput</A></TD><TD>TGoutOutput</TD><TD>&nbsp;</TD></TR>
+<TR><TD>output <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>RealOutput</A></TD><TD>TWoutOutput</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> OpenLoopSimulator
+  <A HREF="ThermoPower_Examples_HRB.html#ThermoPower.Examples.HRB.HRBPlant"
+>HRBPlant</A> Plant;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Step"
+>Modelica.Blocks.Sources.Step</A> ValveOpening(
+    height=-.1,
+    offset=1,
+    startTime=50);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> GasFlowRate(          offset=10,
+    height=1,
+    startTime=100);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Math.html#Modelica.Blocks.Math.Add"
+>Modelica.Blocks.Math.Add</A> Add1;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> GasFlowRateInput;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> ValveOpeningInput;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Math.html#Modelica.Blocks.Math.Add"
+>Modelica.Blocks.Math.Add</A> Add2;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> TGoutOutput;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> TWoutOutput;
+<font color="blue">equation </font>
+  <font color="red">connect</font>(Plant.GasOut_T, TGoutOutput);
+  <font color="red">connect</font>(Plant.WaterOut_T, TWoutOutput);
+  <font color="red">connect</font>(Add1.u2, GasFlowRate.y);
+  <font color="red">connect</font>(Add1.u1, GasFlowRateInput);
+  <font color="red">connect</font>(Plant.GasFlowRate, Add1.y);
+  <font color="red">connect</font>(Plant.ValveOpening, Add2.y);
+  <font color="red">connect</font>(Add2.u2, ValveOpening.y);
+  <font color="red">connect</font>(Add2.u1, ValveOpeningInput);
+<font color="blue">end </font>OpenLoopSimulator;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE OpenLoopSimulatorHtc<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Examples.HRB.Simulators.OpenLoopSimulatorI.png" ALT="ThermoPower.Examples.HRB.Simulators.OpenLoopSimulatorHtc" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Examples.HRB.Simulators.OpenLoopSimulatorHtc"></A><A HREF="ThermoPower_Examples_HRB_Simulators.html#ThermoPower.Examples.HRB.Simulators"
+>ThermoPower.Examples.HRB.Simulators</A>.OpenLoopSimulatorHtc</H2>
+<IMG SRC="ThermoPower.Examples.HRB.Simulators.OpenLoopSimulatorD.png" ALT="ThermoPower.Examples.HRB.Simulators.OpenLoopSimulatorHtc">
+<H3>Information</H3>
+<PRE></pre>
+This model extends <tt>OpenLoopSimulatorSS</tt>, by computing the heat transfer coefficient to obtain an initial value of the gas outlet temperature equal to 125 degrees Celsius. This is performed by setting the <tt>fixed</tt> attribute of the <tt>Plant.Boiler.gamma_nom</tt> parameter to <tt>false</tt>, and by adding a corresponding initial equation to set the desired value of <tt>Plant.GasOut.T.</tt></p>
+<p>Simulate for 150 s. The transient starts at steady state, with the desired values of the heat transfer coefficient and gas outlet temperature. At time t = 50 s, the water valve is closed by 10%. At time t = 100 s, the gas flow rate is increased by 100%.
+<pre></PRE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>input <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>GasFlowRateInput</TD><TD>&nbsp;</TD></TR>
+<TR><TD>input <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>ValveOpeningInput</TD><TD>&nbsp;</TD></TR>
+<TR><TD>output <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>RealOutput</A></TD><TD>TGoutOutput</TD><TD>&nbsp;</TD></TR>
+<TR><TD>output <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>RealOutput</A></TD><TD>TWoutOutput</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> OpenLoopSimulatorHtc
+  <font color="blue">extends </font><A HREF="ThermoPower_Examples_HRB_Simulators.html#ThermoPower.Examples.HRB.Simulators.OpenLoopSimulator"
+>OpenLoopSimulator</A>(Plant(Boiler(gamma_nom(fixed=false))));
+<font color="blue">initial </font><font color="blue">equation </font>
+  Plant.GasOut.T =<font color="red"> Modelica.SIunits.Conversions.from_degC</font>(125);
+<font color="blue">end </font>OpenLoopSimulatorHtc;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE OpenLoopSimulatorSimplified<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Examples.HRB.Simulators.OpenLoopSimulatorI.png" ALT="ThermoPower.Examples.HRB.Simulators.OpenLoopSimulatorSimplified" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Examples.HRB.Simulators.OpenLoopSimulatorSimplified"></A><A HREF="ThermoPower_Examples_HRB_Simulators.html#ThermoPower.Examples.HRB.Simulators"
+>ThermoPower.Examples.HRB.Simulators</A>.OpenLoopSimulatorSimplified</H2>
+<IMG SRC="ThermoPower.Examples.HRB.Simulators.OpenLoopSimulatorD.png" ALT="ThermoPower.Examples.HRB.Simulators.OpenLoopSimulatorSimplified">
+<H3>Information</H3>
+<PRE></pre>
+This model extends <tt>OpenLoopSimulatorSS</tt>, with some modifiers to obtain a simplified version: the water medium model is replaced by a simpler one, the gas medium is assumed at fixed composition, and static balances are assumed for the gas side.</p>
+<pre></PRE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>input <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>GasFlowRateInput</TD><TD>&nbsp;</TD></TR>
+<TR><TD>input <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>ValveOpeningInput</TD><TD>&nbsp;</TD></TR>
+<TR><TD>output <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>RealOutput</A></TD><TD>TGoutOutput</TD><TD>&nbsp;</TD></TR>
+<TR><TD>output <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>RealOutput</A></TD><TD>TWoutOutput</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> OpenLoopSimulatorSimplified
+  <font color="blue">extends </font><A HREF="ThermoPower_Examples_HRB_Simulators.html#ThermoPower.Examples.HRB.Simulators.OpenLoopSimulator"
+>OpenLoopSimulator</A>(
+    Plant(<font color="blue">redeclare </font><font color="blue">package</font> WaterMedium = <A HREF="ThermoPower_Media_LiquidWaterConstant.html#ThermoPower.Media.LiquidWaterConstant"
+>Media.LiquidWaterConstant</A>,
+          <font color="blue">redeclare </font><font color="blue">package</font> GasMedium =
+            <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Media_IdealGases_MixtureGases_CombustionAir.html#Modelica.Media.IdealGases.MixtureGases.CombustionAir"
+>Modelica.Media.IdealGases.MixtureGases.CombustionAir</A>(fixedX=true),
+          Boiler(StaticGasBalances=true)));
+<font color="blue">end </font>OpenLoopSimulatorSimplified;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ClosedLoopSimulator<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Examples.HRB.Simulators.ClosedLoopSimulator"></A><A HREF="ThermoPower_Examples_HRB_Simulators.html#ThermoPower.Examples.HRB.Simulators"
+>ThermoPower.Examples.HRB.Simulators</A>.ClosedLoopSimulator</H2>
+<IMG SRC="ThermoPower.Examples.HRB.Simulators.ClosedLoopSimulatorD.png" ALT="ThermoPower.Examples.HRB.Simulators.ClosedLoopSimulator">
+<H3>Information</H3>
+<PRE></pre>
+This model simulates a simple continuous-time control system for the HRB. The water outlet temperature is controlled to the set point by a PI controller, despite the disturbances on the water flow rate.</p>
+<p>Simulate for 300 s. the system starts at steady state; at t = 50 s, the water flow rate is reduced by 10%; at t = 150 s, the water temperature set point is increased by 10 K.
+<pre></PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> ClosedLoopSimulator
+
+  <A HREF="ThermoPower_Examples_HRB.html#ThermoPower.Examples.HRB.HRBPlant"
+>HRBPlant</A> Plant;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Step"
+>Modelica.Blocks.Sources.Step</A> ValveOpening(
+    offset=1,
+    startTime=50,
+    height=-.1);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous.PI"
+>Modelica.Blocks.Continuous.PI</A> TempController(k=0.3, T=12);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Math.html#Modelica.Blocks.Math.Feedback"
+>Modelica.Blocks.Math.Feedback</A> Feedback1;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Step"
+>Modelica.Blocks.Sources.Step</A> TWOutSetPoint(
+    offset=330,
+    height=10,
+    startTime=150);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(ValveOpening.y, Plant.ValveOpening);
+  <font color="red">connect</font>(TempController.y, Plant.GasFlowRate);
+  <font color="red">connect</font>(Feedback1.y, TempController.u);
+  <font color="red">connect</font>(Plant.WaterOut_T, Feedback1.u2);
+  <font color="red">connect</font>(TWOutSetPoint.y, Feedback1.u1);
+<font color="blue">initial </font><font color="blue">equation </font>
+  <font color="darkgreen">// Control system</font>
+  <font color="red">der</font>(TempController.x)=0;
+<font color="blue">end </font>ClosedLoopSimulator;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ClosedLoopDigitalSimulator<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Examples.HRB.Simulators.ClosedLoopDigitalSimulator"></A><A HREF="ThermoPower_Examples_HRB_Simulators.html#ThermoPower.Examples.HRB.Simulators"
+>ThermoPower.Examples.HRB.Simulators</A>.ClosedLoopDigitalSimulator</H2>
+<IMG SRC="ThermoPower.Examples.HRB.Simulators.ClosedLoopDigitalSimulatorD.png" ALT="ThermoPower.Examples.HRB.Simulators.ClosedLoopDigitalSimulator">
+<H3>Information</H3>
+<PRE></pre>
+This model simulates simple digital control system for the HRB. The water outlet temperature is controlled to the set point by a PI controller, despite the disturbances on the water flow rate.</p>
+<p>Simulate for 300 s. the system starts at steady state; at t = 50 s, the water flow rate is reduced by 10%; at t = 150 s, the water temperature set point is increased by 10 K.
+<pre></PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> ClosedLoopDigitalSimulator
+  <A HREF="ThermoPower_Examples_HRB.html#ThermoPower.Examples.HRB.HRBPlant"
+>HRBPlant</A> Plant;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Step"
+>Modelica.Blocks.Sources.Step</A> ValveOpening(
+    height=-.1,
+    offset=1,
+    startTime=50);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Step"
+>Modelica.Blocks.Sources.Step</A> TWOutSetPoint(
+    offset=330,
+    height=10,
+    startTime=150);
+  <A HREF="ThermoPower_Examples_HRB.html#ThermoPower.Examples.HRB.DigitalPI"
+>DigitalPI</A> DigitalPI1(
+    Kp=0.3,
+    Ti=12,
+    CSmax=11,
+    CSmin=5,
+    samplePeriod=0.4,
+    CSstart=6.2,
+    StartSteadyState=true);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(ValveOpening.y, Plant.ValveOpening);
+  <font color="red">connect</font>(DigitalPI1.CSport, Plant.GasFlowRate);
+  <font color="red">connect</font>(TWOutSetPoint.y, DigitalPI1.SPport);
+  <font color="red">connect</font>(Plant.WaterOut_T, DigitalPI1.PVport);
+<font color="blue">end </font>ClosedLoopDigitalSimulator;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ClosedLoopDigitalSimulatorSimplified<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Examples.HRB.Simulators.ClosedLoopDigitalSimulatorSimplified"></A><A HREF="ThermoPower_Examples_HRB_Simulators.html#ThermoPower.Examples.HRB.Simulators"
+>ThermoPower.Examples.HRB.Simulators</A>.ClosedLoopDigitalSimulatorSimplified</H2>
+<IMG SRC="ThermoPower.Examples.HRB.Simulators.ClosedLoopDigitalSimulatorD.png" ALT="ThermoPower.Examples.HRB.Simulators.ClosedLoopDigitalSimulatorSimplified">
+<H3>Information</H3>
+<PRE></pre>
+This model extends <tt>ClosedLoopDigitalSimulatorSS</tt>, with some modifiers to obtain a simplified version: the water medium model is replaced by a simpler one, the gas medium is assumed at fixed composition, and static balances are assumed for the gas side.</p>
+<p>These simplifications allow to run the simulation much faster than the original version.
+<pre></PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> ClosedLoopDigitalSimulatorSimplified
+  <font color="blue">extends </font><A HREF="ThermoPower_Examples_HRB_Simulators.html#ThermoPower.Examples.HRB.Simulators.ClosedLoopDigitalSimulator"
+>ClosedLoopDigitalSimulator</A>(
+    Plant(<font color="blue">redeclare </font><font color="blue">package</font> WaterMedium = <A HREF="ThermoPower_Media_LiquidWaterConstant.html#ThermoPower.Media.LiquidWaterConstant"
+>Media.LiquidWaterConstant</A>,
+          <font color="blue">redeclare </font><font color="blue">package</font> GasMedium =
+            <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Media_IdealGases_MixtureGases_CombustionAir.html#Modelica.Media.IdealGases.MixtureGases.CombustionAir"
+>Modelica.Media.IdealGases.MixtureGases.CombustionAir</A>(fixedX=true),
+          Boiler(StaticGasBalances=true)));
+<font color="blue">end </font>ClosedLoopDigitalSimulatorSimplified;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Tue Jul 07 01:22:15 2009.
+</address></BODY>
+</HTML>

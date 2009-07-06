@@ -1,0 +1,349 @@
+<HTML>
+<HEAD>
+<TITLE>ThermoPower.PowerPlants.ElectricGeneratorGroup.Examples.OldSwingEquation</TITLE>
+<META name="HTML-Generator" content="Dymola">
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE OldSwingEquation<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.PowerPlants.ElectricGeneratorGroup.Examples.OldSwingEquation"></A><A HREF="ThermoPower_PowerPlants_ElectricGeneratorGroup_Examples.html#ThermoPower.PowerPlants.ElectricGeneratorGroup.Examples"
+>ThermoPower.PowerPlants.ElectricGeneratorGroup.Examples</A>.OldSwingEquation</H2>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="ThermoPower.PowerPlants.ElectricGeneratorGroup.Examples.OldSwingEquation.SingleShaft_SES.png" ALT="ThermoPower.PowerPlants.ElectricGeneratorGroup.Examples.OldSwingEquation.SingleShaft_SE" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_PowerPlants_ElectricGeneratorGroup_Examples_OldSwingEquation.html#ThermoPower.PowerPlants.ElectricGeneratorGroup.Examples.OldSwingEquation.SingleShaft_SE"
+>SingleShaft_SE</A>
+</TD><TD>Alternator group in configuration single-shaft (one generator)</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.PowerPlants.ElectricGeneratorGroup.Examples.OldSwingEquation.DoubleShaft_SES.png" ALT="ThermoPower.PowerPlants.ElectricGeneratorGroup.Examples.OldSwingEquation.DoubleShaft_SE" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_PowerPlants_ElectricGeneratorGroup_Examples_OldSwingEquation.html#ThermoPower.PowerPlants.ElectricGeneratorGroup.Examples.OldSwingEquation.DoubleShaft_SE"
+>DoubleShaft_SE</A>
+</TD><TD>Alternator group in configuration double-shaft (two generator)</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.PowerPlants.ElectricGeneratorGroup.Examples.OldSwingEquation.TripleShaft_SES.png" ALT="ThermoPower.PowerPlants.ElectricGeneratorGroup.Examples.OldSwingEquation.TripleShaft_SE" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_PowerPlants_ElectricGeneratorGroup_Examples_OldSwingEquation.html#ThermoPower.PowerPlants.ElectricGeneratorGroup.Examples.OldSwingEquation.TripleShaft_SE"
+>TripleShaft_SE</A>
+</TD><TD>Alternator group in configuration triple-shaft (three generator)</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SingleShaft_SE<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.PowerPlants.ElectricGeneratorGroup.Examples.OldSwingEquation.SingleShaft_SEI.png" ALT="ThermoPower.PowerPlants.ElectricGeneratorGroup.Examples.OldSwingEquation.SingleShaft_SE" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.PowerPlants.ElectricGeneratorGroup.Examples.OldSwingEquation.SingleShaft_SE"></A><A HREF="ThermoPower_PowerPlants_ElectricGeneratorGroup_Examples_OldSwingEquation.html#ThermoPower.PowerPlants.ElectricGeneratorGroup.Examples.OldSwingEquation"
+>ThermoPower.PowerPlants.ElectricGeneratorGroup.Examples.OldSwingEquation</A>.SingleShaft_SE</H2>
+<B>Alternator group in configuration single-shaft (one generator)</B><p>
+<IMG SRC="ThermoPower.PowerPlants.ElectricGeneratorGroup.Examples.OldSwingEquation.SingleShaft_SED.png" ALT="ThermoPower.PowerPlants.ElectricGeneratorGroup.Examples.OldSwingEquation.SingleShaft_SE">
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Frequency"
+>Frequency</A></TD><TD>fn</TD><TD>50</TD><TD>Nominal frequency of the grid [Hz]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Power</A></TD><TD>Pn</TD><TD>&nbsp;</TD><TD>Nominal power installed on the grid [W]</TD></TR>
+<TR><TD>Real</TD><TD>eta</TD><TD>1</TD><TD>Conversion efficiency of the electric generator</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MomentOfInertia"
+>MomentOfInertia</A></TD><TD>J_shaft</TD><TD>0</TD><TD>Total inertia of the system [kg.m2]</TD></TR>
+<TR><TD>Real</TD><TD>d_shaft</TD><TD>0</TD><TD>Damping constant of the shaft</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
+>AngularVelocity</A></TD><TD>omega_nom</TD><TD>2*Modelica.Constants.pi*fn/2</TD><TD>Nominal angular velocity of the shaft [rad/s]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Power</A></TD><TD>Pmax</TD><TD>&nbsp;</TD><TD>Outlet maximum power [W]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Angle</A></TD><TD>delta_start</TD><TD>&nbsp;</TD><TD>Loaded angle start value [rad]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_a"
+>Flange_a</A></TD><TD>shaft</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_PowerPlants_Buses.html#ThermoPower.PowerPlants.Buses.Sensors"
+>Sensors</A></TD><TD>SensorsBus</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_PowerPlants_Buses.html#ThermoPower.PowerPlants.Buses.Actuators"
+>Actuators</A></TD><TD>ActuatorsBus</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> SingleShaft_SE <font color="darkgreen">
+  &quot;Alternator group in configuration single-shaft (one generator)&quot;</font>
+  <font color="blue">extends </font><A HREF="ThermoPower_PowerPlants_ElectricGeneratorGroup_Interfaces.html#ThermoPower.PowerPlants.ElectricGeneratorGroup.Interfaces.SingleShaft"
+>ThermoPower.PowerPlants.ElectricGeneratorGroup.Interfaces.SingleShaft</A>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>SI.Power</A> Pmax <font color="darkgreen">&quot;Outlet maximum power&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Angle"
+>SI.Angle</A> delta_start <font color="darkgreen">&quot;Loaded angle start value&quot;</font>;
+
+  <A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.Grid"
+>Electrical.Grid</A> grid(fn=fn, Pn=Pn);
+  <A HREF="ThermoPower_PowerPlants_ElectricGeneratorGroup_Components.html#ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.PowerSensor"
+>Components.PowerSensor</A> powerSensor;
+  <A HREF="ThermoPower_PowerPlants_ElectricGeneratorGroup_Components.html#ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.FrequencySensor"
+>Components.FrequencySensor</A> frequencySensor;
+  <A HREF="ThermoPower_PowerPlants_ElectricGeneratorGroup_Components_OldElementsSwingEquation.html#ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.OldElementsSwingEquation.Generator_SE"
+>ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.OldElementsSwingEquation.Generator_SE</A>
+    generator_SE(
+    eta=eta,
+    Pmax=Pmax,
+    J=J_shaft,
+    delta_start=delta_start,
+    omega_nom=omega_nom);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(SensorsBus.power, powerSensor.W);
+  <font color="red">connect</font>(SensorsBus.frequency, frequencySensor.f);
+  <font color="red">connect</font>(generator_SE.shaft, shaft);
+  <font color="red">connect</font>(generator_SE.powerConnection, powerSensor.port_a);
+  <font color="red">connect</font>(powerSensor.port_b, grid.connection);
+  <font color="red">connect</font>(frequencySensor.port, generator_SE.powerConnection);
+<font color="blue">end </font>SingleShaft_SE;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE DoubleShaft_SE<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.PowerPlants.ElectricGeneratorGroup.Examples.OldSwingEquation.DoubleShaft_SEI.png" ALT="ThermoPower.PowerPlants.ElectricGeneratorGroup.Examples.OldSwingEquation.DoubleShaft_SE" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.PowerPlants.ElectricGeneratorGroup.Examples.OldSwingEquation.DoubleShaft_SE"></A><A HREF="ThermoPower_PowerPlants_ElectricGeneratorGroup_Examples_OldSwingEquation.html#ThermoPower.PowerPlants.ElectricGeneratorGroup.Examples.OldSwingEquation"
+>ThermoPower.PowerPlants.ElectricGeneratorGroup.Examples.OldSwingEquation</A>.DoubleShaft_SE</H2>
+<B>Alternator group in configuration double-shaft (two generator)</B><p>
+<IMG SRC="ThermoPower.PowerPlants.ElectricGeneratorGroup.Examples.OldSwingEquation.DoubleShaft_SED.png" ALT="ThermoPower.PowerPlants.ElectricGeneratorGroup.Examples.OldSwingEquation.DoubleShaft_SE">
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Frequency"
+>Frequency</A></TD><TD>fn</TD><TD>50</TD><TD>Nominal frequency of the grid [Hz]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Power</A></TD><TD>Pn</TD><TD>&nbsp;</TD><TD>Nominal power installed on the grid [W]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Generator-Shaft A</TD></TR>
+<TR><TD>Real</TD><TD>eta_A</TD><TD>1</TD><TD>Conversion efficiency of the electric generator</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MomentOfInertia"
+>MomentOfInertia</A></TD><TD>J_shaft_A</TD><TD>0</TD><TD>Total inertia of the steam turbogenerator [kg.m2]</TD></TR>
+<TR><TD>Real</TD><TD>d_shaft_A</TD><TD>0</TD><TD>Damping constant of the shaft</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
+>AngularVelocity</A></TD><TD>omega_nom_A</TD><TD>2*Modelica.Constants.pi*fn/2</TD><TD>Nominal angular velocity of the shaft [rad/s]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Power</A></TD><TD>Pmax_A</TD><TD>&nbsp;</TD><TD>Outlet maximum power [W]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Angle</A></TD><TD>delta_start_A</TD><TD>&nbsp;</TD><TD>Loaded angle start value [rad]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Generator-Shaft B</TD></TR>
+<TR><TD>Real</TD><TD>eta_B</TD><TD>1</TD><TD>Conversion efficiency of the electric generator</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MomentOfInertia"
+>MomentOfInertia</A></TD><TD>J_shaft_B</TD><TD>0</TD><TD>Total inertia of the steam turbogenerator [kg.m2]</TD></TR>
+<TR><TD>Real</TD><TD>d_shaft_B</TD><TD>0</TD><TD>Damping constant of the shaft</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
+>AngularVelocity</A></TD><TD>omega_nom_B</TD><TD>2*Modelica.Constants.pi*fn/2</TD><TD>Nominal angular velocity of the shaft [rad/s]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Power</A></TD><TD>Pmax_B</TD><TD>&nbsp;</TD><TD>Outlet maximum power [W]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Angle</A></TD><TD>delta_start_B</TD><TD>&nbsp;</TD><TD>Loaded angle start value [rad]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_a"
+>Flange_a</A></TD><TD>shaft_B</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_a"
+>Flange_a</A></TD><TD>shaft_A</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_PowerPlants_Buses.html#ThermoPower.PowerPlants.Buses.Sensors"
+>Sensors</A></TD><TD>SensorsBus</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_PowerPlants_Buses.html#ThermoPower.PowerPlants.Buses.Actuators"
+>Actuators</A></TD><TD>ActuatorsBus</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> DoubleShaft_SE <font color="darkgreen">
+  &quot;Alternator group in configuration double-shaft (two generator)&quot;</font>
+  <font color="blue">extends </font><A HREF="ThermoPower_PowerPlants_ElectricGeneratorGroup_Interfaces.html#ThermoPower.PowerPlants.ElectricGeneratorGroup.Interfaces.DoubleShaft"
+>ThermoPower.PowerPlants.ElectricGeneratorGroup.Interfaces.DoubleShaft</A>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>SI.Power</A> Pmax_A <font color="darkgreen">&quot;Outlet maximum power&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Angle"
+>SI.Angle</A> delta_start_A <font color="darkgreen">&quot;Loaded angle start value&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>SI.Power</A> Pmax_B <font color="darkgreen">&quot;Outlet maximum power&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Angle"
+>SI.Angle</A> delta_start_B <font color="darkgreen">&quot;Loaded angle start value&quot;</font>;
+
+  <A HREF="ThermoPower_PowerPlants_ElectricGeneratorGroup_Components.html#ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.PowerSensor"
+>Components.PowerSensor</A> powerSensor_A;
+  <A HREF="ThermoPower_PowerPlants_ElectricGeneratorGroup_Components.html#ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.FrequencySensor"
+>Components.FrequencySensor</A> frequencySensor_A;
+  <A HREF="ThermoPower_PowerPlants_ElectricGeneratorGroup_Components.html#ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.PowerSensor"
+>Components.PowerSensor</A> powerSensor_B;
+  <A HREF="ThermoPower_PowerPlants_ElectricGeneratorGroup_Components.html#ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.FrequencySensor"
+>Components.FrequencySensor</A> frequencySensor_B;
+  <A HREF="ThermoPower_PowerPlants_ElectricGeneratorGroup_Components.html#ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.Grid_2in"
+>ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.Grid_2in</A> grid(
+      Pn=Pn, fn=fn);
+  <A HREF="ThermoPower_PowerPlants_ElectricGeneratorGroup_Components_OldElementsSwingEquation.html#ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.OldElementsSwingEquation.Generator_SE"
+>Components.OldElementsSwingEquation.Generator_SE</A> generator_SE_A(
+    eta=eta_A,
+    Pmax=Pmax_A,
+    J=J_shaft_A,
+    delta_start=delta_start_A,
+    omega_nom=omega_nom_A);
+  <A HREF="ThermoPower_PowerPlants_ElectricGeneratorGroup_Components_OldElementsSwingEquation.html#ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.OldElementsSwingEquation.Generator_SE"
+>ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.OldElementsSwingEquation.Generator_SE</A>
+    generator_SE_B(
+    eta=eta_B,
+    Pmax=Pmax_B,
+    J=J_shaft_B,
+    delta_start=delta_start_B,
+    omega_nom=omega_nom_B);
+
+<font color="blue">equation </font>
+  <font color="red">connect</font>(SensorsBus.power_shaftA, powerSensor_A.W);
+  <font color="red">connect</font>(SensorsBus.power_shaftB, powerSensor_B.W);
+  <font color="red">connect</font>(SensorsBus.frequency_shaftA, frequencySensor_A.f);
+  <font color="red">connect</font>(SensorsBus.frequency_shaftB, frequencySensor_B.f);
+  <font color="red">connect</font>(powerSensor_B.port_b, grid.connection_B);
+  <font color="red">connect</font>(grid.connection_A, powerSensor_A.port_b);
+  <font color="red">connect</font>(generator_SE_B.powerConnection, powerSensor_B.port_a);
+  <font color="red">connect</font>(frequencySensor_B.port, generator_SE_B.powerConnection);
+  <font color="red">connect</font>(powerSensor_A.port_a, generator_SE_A.powerConnection);
+  <font color="red">connect</font>(frequencySensor_A.port, generator_SE_A.powerConnection);
+  <font color="red">connect</font>(generator_SE_A.shaft, shaft_A);
+  <font color="red">connect</font>(generator_SE_B.shaft, shaft_B);
+<font color="blue">end </font>DoubleShaft_SE;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TripleShaft_SE<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.PowerPlants.ElectricGeneratorGroup.Examples.OldSwingEquation.TripleShaft_SEI.png" ALT="ThermoPower.PowerPlants.ElectricGeneratorGroup.Examples.OldSwingEquation.TripleShaft_SE" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.PowerPlants.ElectricGeneratorGroup.Examples.OldSwingEquation.TripleShaft_SE"></A><A HREF="ThermoPower_PowerPlants_ElectricGeneratorGroup_Examples_OldSwingEquation.html#ThermoPower.PowerPlants.ElectricGeneratorGroup.Examples.OldSwingEquation"
+>ThermoPower.PowerPlants.ElectricGeneratorGroup.Examples.OldSwingEquation</A>.TripleShaft_SE</H2>
+<B>Alternator group in configuration triple-shaft (three generator)</B><p>
+<IMG SRC="ThermoPower.PowerPlants.ElectricGeneratorGroup.Examples.OldSwingEquation.TripleShaft_SED.png" ALT="ThermoPower.PowerPlants.ElectricGeneratorGroup.Examples.OldSwingEquation.TripleShaft_SE">
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Frequency"
+>Frequency</A></TD><TD>fn</TD><TD>50</TD><TD>Nominal frequency of the grid [Hz]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Power</A></TD><TD>Pn</TD><TD>&nbsp;</TD><TD>Nominal power installed on the grid [W]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Generator-Shaft A</TD></TR>
+<TR><TD>Real</TD><TD>eta_A</TD><TD>1</TD><TD>Conversion efficiency of the electric generator</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MomentOfInertia"
+>MomentOfInertia</A></TD><TD>J_shaft_A</TD><TD>0</TD><TD>Total inertia of the steam turbogenerator [kg.m2]</TD></TR>
+<TR><TD>Real</TD><TD>d_shaft_A</TD><TD>0</TD><TD>Damping constant of the shaft</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
+>AngularVelocity</A></TD><TD>omega_nom_A</TD><TD>2*Modelica.Constants.pi*fn/2</TD><TD>Nominal angular velocity of the shaft [rad/s]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Power</A></TD><TD>Pmax_A</TD><TD>&nbsp;</TD><TD>Outlet maximum power [W]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Angle</A></TD><TD>delta_start_A</TD><TD>&nbsp;</TD><TD>Loaded angle start value [rad]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Generator-Shaft B</TD></TR>
+<TR><TD>Real</TD><TD>eta_B</TD><TD>1</TD><TD>Conversion efficiency of the electric generator</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MomentOfInertia"
+>MomentOfInertia</A></TD><TD>J_shaft_B</TD><TD>0</TD><TD>Total inertia of the steam turbogenerator [kg.m2]</TD></TR>
+<TR><TD>Real</TD><TD>d_shaft_B</TD><TD>0</TD><TD>Damping constant of the shaft</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
+>AngularVelocity</A></TD><TD>omega_nom_B</TD><TD>2*Modelica.Constants.pi*fn/2</TD><TD>Nominal angular velocity of the shaft [rad/s]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Power</A></TD><TD>Pmax_B</TD><TD>&nbsp;</TD><TD>Outlet maximum power [W]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Angle</A></TD><TD>delta_start_B</TD><TD>&nbsp;</TD><TD>Loaded angle start value [rad]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Generator-Shaft C</TD></TR>
+<TR><TD>Real</TD><TD>eta_C</TD><TD>1</TD><TD>Conversion efficiency of the electric generator</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MomentOfInertia"
+>MomentOfInertia</A></TD><TD>J_shaft_C</TD><TD>0</TD><TD>Total inertia of the steam turbogenerator [kg.m2]</TD></TR>
+<TR><TD>Real</TD><TD>d_shaft_C</TD><TD>0</TD><TD>Damping constant of the shaft</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
+>AngularVelocity</A></TD><TD>omega_nom_C</TD><TD>2*Modelica.Constants.pi*fn/2</TD><TD>Nominal angular velocity of the shaft [rad/s]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Power</A></TD><TD>Pmax_C</TD><TD>&nbsp;</TD><TD>Outlet maximum power [W]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Angle</A></TD><TD>delta_start_C</TD><TD>&nbsp;</TD><TD>Loaded angle start value [rad]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_a"
+>Flange_a</A></TD><TD>shaft_B</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_a"
+>Flange_a</A></TD><TD>shaft_A</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_a"
+>Flange_a</A></TD><TD>shaft_C</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_PowerPlants_Buses.html#ThermoPower.PowerPlants.Buses.Sensors"
+>Sensors</A></TD><TD>SensorsBus</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_PowerPlants_Buses.html#ThermoPower.PowerPlants.Buses.Actuators"
+>Actuators</A></TD><TD>ActuatorsBus</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TripleShaft_SE <font color="darkgreen">
+  &quot;Alternator group in configuration triple-shaft (three generator)&quot;</font>
+  <font color="blue">extends </font><A HREF="ThermoPower_PowerPlants_ElectricGeneratorGroup_Interfaces.html#ThermoPower.PowerPlants.ElectricGeneratorGroup.Interfaces.TripleShaft"
+>ThermoPower.PowerPlants.ElectricGeneratorGroup.Interfaces.TripleShaft</A>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>SI.Power</A> Pmax_A <font color="darkgreen">&quot;Outlet maximum power&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Angle"
+>SI.Angle</A> delta_start_A <font color="darkgreen">&quot;Loaded angle start value&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>SI.Power</A> Pmax_B <font color="darkgreen">&quot;Outlet maximum power&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Angle"
+>SI.Angle</A> delta_start_B <font color="darkgreen">&quot;Loaded angle start value&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>SI.Power</A> Pmax_C <font color="darkgreen">&quot;Outlet maximum power&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Angle"
+>SI.Angle</A> delta_start_C <font color="darkgreen">&quot;Loaded angle start value&quot;</font>;
+
+  <A HREF="ThermoPower_PowerPlants_ElectricGeneratorGroup_Components.html#ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.PowerSensor"
+>Components.PowerSensor</A> powerSensor_A;
+  <A HREF="ThermoPower_PowerPlants_ElectricGeneratorGroup_Components.html#ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.FrequencySensor"
+>Components.FrequencySensor</A> frequencySensor_A;
+  <A HREF="ThermoPower_PowerPlants_ElectricGeneratorGroup_Components.html#ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.PowerSensor"
+>Components.PowerSensor</A> powerSensor_B;
+  <A HREF="ThermoPower_PowerPlants_ElectricGeneratorGroup_Components.html#ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.FrequencySensor"
+>Components.FrequencySensor</A> frequencySensor_B;
+  <A HREF="ThermoPower_PowerPlants_ElectricGeneratorGroup_Components.html#ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.PowerSensor"
+>Components.PowerSensor</A> powerSensor_C;
+  <A HREF="ThermoPower_PowerPlants_ElectricGeneratorGroup_Components.html#ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.FrequencySensor"
+>Components.FrequencySensor</A> frequencySensor_C;
+  <A HREF="ThermoPower_PowerPlants_ElectricGeneratorGroup_Components.html#ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.Grid_3in"
+>Components.Grid_3in</A> grid_3in(Pn=Pn, fn=fn);
+  <A HREF="ThermoPower_PowerPlants_ElectricGeneratorGroup_Components_OldElementsSwingEquation.html#ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.OldElementsSwingEquation.Generator_SE"
+>ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.OldElementsSwingEquation.Generator_SE</A>
+    generator_SE_A(
+    eta=eta_A,
+    Pmax=Pmax_A,
+    J=J_shaft_A,
+    delta_start=delta_start_A,
+    omega_nom=omega_nom_A);
+  <A HREF="ThermoPower_PowerPlants_ElectricGeneratorGroup_Components_OldElementsSwingEquation.html#ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.OldElementsSwingEquation.Generator_SE"
+>ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.OldElementsSwingEquation.Generator_SE</A>
+    generator_SE_B(
+    eta=eta_B,
+    Pmax=Pmax_B,
+    J=J_shaft_B,
+    delta_start=delta_start_B,
+    omega_nom=omega_nom_B);
+  <A HREF="ThermoPower_PowerPlants_ElectricGeneratorGroup_Components_OldElementsSwingEquation.html#ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.OldElementsSwingEquation.Generator_SE"
+>ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.OldElementsSwingEquation.Generator_SE</A>
+    generator_SE_B1(
+    eta=eta_C,
+    Pmax=Pmax_C,
+    J=J_shaft_C,
+    delta_start=delta_start_C,
+    omega_nom=omega_nom_C);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(SensorsBus.power_shaftC, powerSensor_C.W);
+  <font color="red">connect</font>(SensorsBus.frequency_shaftC, frequencySensor_C.f);
+  <font color="red">connect</font>(SensorsBus.power_shaftB, powerSensor_B.W);
+  <font color="red">connect</font>(SensorsBus.frequency_shaftB, frequencySensor_B.f);
+  <font color="red">connect</font>(SensorsBus.power_shaftA, powerSensor_A.W);
+  <font color="red">connect</font>(SensorsBus.frequency_shaftA, frequencySensor_A.f);
+  <font color="red">connect</font>(generator_SE_B1.powerConnection, powerSensor_C.port_a);
+  <font color="red">connect</font>(frequencySensor_C.port, generator_SE_B1.powerConnection);
+  <font color="red">connect</font>(powerSensor_B.port_a, generator_SE_B.powerConnection);
+  <font color="red">connect</font>(frequencySensor_B.port, generator_SE_B.powerConnection);
+  <font color="red">connect</font>(powerSensor_A.port_a, generator_SE_A.powerConnection);
+  <font color="red">connect</font>(frequencySensor_A.port, generator_SE_A.powerConnection);
+  <font color="red">connect</font>(generator_SE_A.shaft, shaft_A);
+  <font color="red">connect</font>(generator_SE_B.shaft, shaft_B);
+  <font color="red">connect</font>(generator_SE_B1.shaft, shaft_C);
+  <font color="red">connect</font>(grid_3in.connection_A, powerSensor_A.port_b);
+  <font color="red">connect</font>(grid_3in.connection_B, powerSensor_B.port_b);
+  <font color="red">connect</font>(grid_3in.connection_C, powerSensor_C.port_b);
+<font color="blue">end </font>TripleShaft_SE;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Tue Jul 07 01:25:40 2009.
+</address></BODY>
+</HTML>

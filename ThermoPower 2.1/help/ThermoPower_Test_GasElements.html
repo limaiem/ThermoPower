@@ -1,0 +1,1666 @@
+<HTML>
+<HEAD>
+<TITLE>ThermoPower.Test.GasElements</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Test for Gas package elements except Flow1D models&quot;">
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE GasElements<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Test.GasElements"></A><A HREF="ThermoPower_Test.html#ThermoPower.Test"
+>ThermoPower.Test</A>.GasElements</H2>
+<B>Test for Gas package elements except Flow1D models</B>
+<P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="ThermoPower_Test_GasElements.html#ThermoPower.Test.GasElements.TestGasPlenum"
+>TestGasPlenum</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_Test_GasElements.html#ThermoPower.Test.GasElements.TestGasHeader"
+>TestGasHeader</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_Test_GasElements.html#ThermoPower.Test.GasElements.TestGasMixer"
+>TestGasMixer</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_Test_GasElements.html#ThermoPower.Test.GasElements.TestCC"
+>TestCC</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_Test_GasElements.html#ThermoPower.Test.GasElements.TestGasPressDrop"
+>TestGasPressDrop</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_Test_GasElements.html#ThermoPower.Test.GasElements.TestGasValveOpPoint"
+>TestGasValveOpPoint</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_Test_GasElements.html#ThermoPower.Test.GasElements.TestGasValve"
+>TestGasValve</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_Test_GasElements.html#ThermoPower.Test.GasElements.TestCompressorConstSpeed"
+>TestCompressorConstSpeed</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_Test_GasElements.html#ThermoPower.Test.GasElements.TestCompressorInertia"
+>TestCompressorInertia</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_Test_GasElements.html#ThermoPower.Test.GasElements.TestGasTurbine"
+>TestGasTurbine</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_Test_GasElements.html#ThermoPower.Test.GasElements.TestGasTurbineStodola"
+>TestGasTurbineStodola</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_Test_GasElements.html#ThermoPower.Test.GasElements.TestTurboJetInertia"
+>TestTurboJetInertia</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_Test_GasElements.html#ThermoPower.Test.GasElements.TestTurboJetConstSpeed"
+>TestTurboJetConstSpeed</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_Test_GasElements.html#ThermoPower.Test.GasElements.TestGT_ISO"
+>TestGT_ISO</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_Test_GasElements.html#ThermoPower.Test.GasElements.TestGT"
+>TestGT</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_Test_GasElements.html#ThermoPower.Test.GasElements.TestFanMech"
+>TestFanMech</A>
+</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TestGasPlenum<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Test.GasElements.TestGasPlenum"></A><A HREF="ThermoPower_Test_GasElements.html#ThermoPower.Test.GasElements"
+>ThermoPower.Test.GasElements</A>.TestGasPlenum</H2>
+<IMG SRC="ThermoPower.Test.GasElements.TestGasPlenumD.png" ALT="ThermoPower.Test.GasElements.TestGasPlenum">
+<H3>Information</H3>
+<PRE></pre>
+This model tests the <tt>Plenum</tt> model.
+<p>Simulate for 1 s. The model starts at steady state. At t = 0.3 the inlet pressure is increased. At t = 0.6 the valve is partially closed.
+<pre></PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TestGasPlenum
+  <font color="blue">package</font> Medium=<A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Media_IdealGases_MixtureGases_CombustionAir.html#Modelica.Media.IdealGases.MixtureGases.CombustionAir"
+>Modelica.Media.IdealGases.MixtureGases.CombustionAir</A>;
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.ValveLin"
+>Gas.ValveLin</A> ValveLin1(<font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium, Kv=2.5e-5);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> Ramp1(
+    offset=1,
+    height=-.3,
+    duration=0.01,
+    startTime=0.6);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.SourceP"
+>Gas.SourceP</A> SourceP1(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    p0=5e5,
+    T=450);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.Plenum"
+>Gas.Plenum</A> Plenum1(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    Tstart=400,
+    initOpt=ThermoPower.Choices.Init.Options.steadyState,
+    inlet(w(start=1.5)),
+    pstart=4e5,
+    V=0.1);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> Ramp2(
+    startTime=0.3,
+    height=3e5,
+    offset=5e5,
+    duration=0.01);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.SinkP"
+>Gas.SinkP</A> SinkP1(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    p0=2e5,
+    T=300);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.PressDrop"
+>Gas.PressDrop</A> PressDrop1(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    pstart=4e5,
+    dpnom=2e5,
+    Tstart=400,
+    rhonom=3,
+    A=1,
+    wnom=1.5,
+    FFtype=ThermoPower.Choices.PressDrop.FFtypes.OpPoint);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(Ramp1.y, ValveLin1.cmd);
+  <font color="red">connect</font>(ValveLin1.outlet, Plenum1.inlet);
+  <font color="red">connect</font>(Ramp2.y, SourceP1.in_p);
+  <font color="red">connect</font>(SourceP1.flange, ValveLin1.inlet);
+  <font color="red">connect</font>(Plenum1.outlet, PressDrop1.inlet);
+  <font color="red">connect</font>(PressDrop1.outlet, SinkP1.flange);
+<font color="blue">end </font>TestGasPlenum;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TestGasHeader<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Test.GasElements.TestGasHeader"></A><A HREF="ThermoPower_Test_GasElements.html#ThermoPower.Test.GasElements"
+>ThermoPower.Test.GasElements</A>.TestGasHeader</H2>
+<IMG SRC="ThermoPower.Test.GasElements.TestGasHeaderD.png" ALT="ThermoPower.Test.GasElements.TestGasHeader">
+<H3>Information</H3>
+<PRE></pre>
+This model tests the <tt>Header</tt> model.
+
+<p>Simulate for 1 s. The model starts at steady state. At t=0.1 the valve is partially closed.
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>Xnom[Medium.nX]</TD><TD>{0.3,0.7}</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TestGasHeader
+  <font color="blue">package</font> Medium=<A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Media_IdealGases_MixtureGases_AirSteam.html#Modelica.Media.IdealGases.MixtureGases.AirSteam"
+>Modelica.Media.IdealGases.MixtureGases.AirSteam</A>;
+  <font color="blue">parameter </font>Real Xnom[Medium.nX]={0.3,0.7};
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.Header"
+>Gas.Header</A> Header1(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    Xstart=Xnom,
+    Tmstart=300,
+    gamma=0.5,
+    Cm=1,
+    Tstart=450,
+    S=0.1,
+    pstart=4e5,
+    initOpt=ThermoPower.Choices.Init.Options.steadyState,
+    V=1);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.ValveLin"
+>Gas.ValveLin</A> ValveLin1(<font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium, Kv=0.3e-3);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.SinkP"
+>Gas.SinkP</A> SinkP2(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    Xnom=Xnom,
+    p0=2e5,
+    T=350);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.PressDrop"
+>Gas.PressDrop</A> PressDrop1(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    Xstart=Xnom,
+    rhonom=5,
+    pstart=5e5,
+    Tstart=450,
+    wnom=1,
+    dpnom=1e5,
+    FFtype=ThermoPower.Choices.PressDrop.FFtypes.OpPoint);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Step"
+>Modelica.Blocks.Sources.Step</A> Step1(
+    offset=1,
+    height=-.3,
+    startTime=0.1);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.SourceW"
+>Gas.SourceW</A> SourceW1(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    Xnom=Xnom,
+    w0=5,
+    p0=5e5,
+    T=450);
+<font color="blue">initial </font><font color="blue">equation </font>
+
+<font color="blue">equation </font>
+  <font color="red">connect</font>(ValveLin1.outlet, SinkP2.flange);
+  <font color="red">connect</font>(PressDrop1.outlet, Header1.inlet);
+  <font color="red">connect</font>(Header1.outlet, ValveLin1.inlet);
+  <font color="red">connect</font>(Step1.y, ValveLin1.cmd);
+  <font color="red">connect</font>(SourceW1.flange, PressDrop1.inlet);
+<font color="blue">end </font>TestGasHeader;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TestGasMixer<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Test.GasElements.TestGasMixer"></A><A HREF="ThermoPower_Test_GasElements.html#ThermoPower.Test.GasElements"
+>ThermoPower.Test.GasElements</A>.TestGasMixer</H2>
+<IMG SRC="ThermoPower.Test.GasElements.TestGasMixerD.png" ALT="ThermoPower.Test.GasElements.TestGasMixer">
+<H3>Information</H3>
+<PRE></pre>
+This model tests the <tt>Mixer</tt> model.
+<p>
+Simulate for 20 s. At time t=1 the first inlet flow rate is reduced. At time t=8 the second inlet flow rate is reduced. At time t=15, the outlet valve is partially closed.
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>wext</TD><TD>10</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TestGasMixer
+  <font color="blue">package</font> Medium=<A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Media_IdealGases_MixtureGases_CombustionAir.html#Modelica.Media.IdealGases.MixtureGases.CombustionAir"
+>Modelica.Media.IdealGases.MixtureGases.CombustionAir</A>;
+  <font color="blue">parameter </font>Real wext=10;
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.Mixer"
+>Gas.Mixer</A> Mixer1(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    Tmstart=300,
+    gamma=0.8,
+    S=1,
+    V=3,
+    Tstart=450,
+    pstart=4e5,
+    initOpt=ThermoPower.Choices.Init.Options.steadyState);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.PressDrop"
+>Gas.PressDrop</A> PressDrop1(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    A=0.1,
+    dpnom=1e5,
+    rhonom=3.5,
+    wnom=wext,
+    pstart=4e5,
+    Tstart=400,
+    FFtype=ThermoPower.Choices.PressDrop.FFtypes.OpPoint);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.SinkP"
+>Gas.SinkP</A> SinkP1(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    p0=1e5,
+    T=350);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.SourceW"
+>Gas.SourceW</A> SourceW2(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    w0=15,
+    p0=4e5,
+    T=350,
+    Xnom={0.5,0.5});
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Step"
+>Modelica.Blocks.Sources.Step</A> Step1(
+    height=-.2,
+    offset=1.5,
+    startTime=15);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.Valve"
+>Gas.Valve</A> Valve1(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    Tstart=400,
+    dpnom=2e5,
+    pnom=3e5,
+    wnom=wext,
+    Av=5e-4,
+    CvData=ThermoPower.Choices.Valve.CvTypes.OpPoint);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> Ramp1(
+    offset=wext,
+    height=-1,
+    duration=0.1,
+    startTime=8);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> Ramp2(
+    height=-1,
+    offset=5,
+    duration=0.1,
+    startTime=1);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.SourceW"
+>Gas.SourceW</A> SourceW1(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    p0=4e5,
+    T=450);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(Mixer1.out, PressDrop1.inlet);
+  <font color="red">connect</font>(SourceW2.flange, Mixer1.in2);
+  <font color="red">connect</font>(PressDrop1.outlet, Valve1.inlet);
+  <font color="red">connect</font>(Valve1.outlet, SinkP1.flange);
+  <font color="red">connect</font>(Step1.y, Valve1.theta);
+  <font color="red">connect</font>(Ramp1.y, SourceW2.in_w0);
+  <font color="red">connect</font>(SourceW1.flange, Mixer1.in1);
+  <font color="red">connect</font>(Ramp2.y, SourceW1.in_w0);
+<font color="blue">end </font>TestGasMixer;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TestCC<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Test.GasElements.TestCC"></A><A HREF="ThermoPower_Test_GasElements.html#ThermoPower.Test.GasElements"
+>ThermoPower.Test.GasElements</A>.TestCC</H2>
+<IMG SRC="ThermoPower.Test.GasElements.TestCCD.png" ALT="ThermoPower.Test.GasElements.TestCC">
+<H3>Information</H3>
+<PRE></pre>
+This model tests the <tt>CombustionChamber</tt> model. The model start at steady state. At time t = 0.5, the fuel flow rate is reduced by 10%.
+
+<p>Simulate for 5s.
+<pre></PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TestCC
+
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.SourceW"
+>ThermoPower.Gas.SourceW</A> Wcompressor(<font color="blue">redeclare </font><font color="blue">package</font> Medium =
+        <A HREF="ThermoPower_Media_Air.html#ThermoPower.Media.Air"
+>ThermoPower.Media.Air</A>,
+    w0=158,
+    T=616.95);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.CombustionChamber"
+>ThermoPower.Gas.CombustionChamber</A> CombustionChamber1(
+    initOpt=ThermoPower.Choices.Init.Options.steadyState,
+    HH=41.6e6,
+    pstart=11.2e5,
+    V=0.1,
+    S=0.1);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.SourceW"
+>ThermoPower.Gas.SourceW</A> Wfuel(<font color="blue">redeclare </font><font color="blue">package</font> Medium =
+        <A HREF="ThermoPower_Media_NaturalGas.html#ThermoPower.Media.NaturalGas"
+>ThermoPower.Media.NaturalGas</A>);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.PressDrop"
+>ThermoPower.Gas.PressDrop</A> PressDrop1(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = <A HREF="ThermoPower_Media_FlueGas.html#ThermoPower.Media.FlueGas"
+>ThermoPower.Media.FlueGas</A>,
+    FFtype=ThermoPower.Choices.PressDrop.FFtypes.OpPoint,
+    rhonom=3.3,
+    wnom=158.9,
+    pstart=11.2e5,
+    dpnom=0.426e5);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.SensT"
+>ThermoPower.Gas.SensT</A> SensT1(<font color="blue">redeclare </font><font color="blue">package</font> Medium =
+        <A HREF="ThermoPower_Media_FlueGas.html#ThermoPower.Media.FlueGas"
+>ThermoPower.Media.FlueGas</A>);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Step"
+>Modelica.Blocks.Sources.Step</A> Step1(
+    startTime=0.5,
+    height=-0.3,
+    offset=3.1);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.ValveLin"
+>ThermoPower.Gas.ValveLin</A> ValveLin1(<font color="blue">redeclare </font><font color="blue">package</font> Medium =
+        <A HREF="ThermoPower_Media_FlueGas.html#ThermoPower.Media.FlueGas"
+>ThermoPower.Media.FlueGas</A>, Kv=161.1/9.77e5);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.SinkP"
+>ThermoPower.Gas.SinkP</A> SinkP1(<font color="blue">redeclare </font><font color="blue">package</font> Medium =
+        <A HREF="ThermoPower_Media_FlueGas.html#ThermoPower.Media.FlueGas"
+>ThermoPower.Media.FlueGas</A>);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> Constant1;
+<font color="blue">equation </font>
+  <font color="red">connect</font>(Wfuel.flange, CombustionChamber1.inf);
+  <font color="red">connect</font>(Wcompressor.flange, CombustionChamber1.ina);
+  <font color="red">connect</font>(CombustionChamber1.out, PressDrop1.inlet);
+  <font color="red">connect</font>(PressDrop1.outlet, SensT1.inlet);
+  <font color="red">connect</font>(Step1.y, Wfuel.in_w0);
+  <font color="red">connect</font>(ValveLin1.outlet, SinkP1.flange);
+  <font color="red">connect</font>(SensT1.outlet, ValveLin1.inlet);
+  <font color="red">connect</font>(Constant1.y, ValveLin1.cmd);
+<font color="blue">end </font>TestCC;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TestGasPressDrop<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Test.GasElements.TestGasPressDrop"></A><A HREF="ThermoPower_Test_GasElements.html#ThermoPower.Test.GasElements"
+>ThermoPower.Test.GasElements</A>.TestGasPressDrop</H2>
+<IMG SRC="ThermoPower.Test.GasElements.TestGasPressDropD.png" ALT="ThermoPower.Test.GasElements.TestGasPressDrop">
+<H3>Information</H3>
+<PRE></pre>
+This model tests the <tt>PressDrop</tt>, <tt>PressDropLin</tt> and <tt>Valve</tt> models, testing various conditions, such as different friction coefficients in <tt>PressDrop</tt> and different flow coefficients in <tt>Valve</tt>, by setting the <tt>FFtype</tt> and <tt>CvData</tt> respectively on different value. Reverse flow conditions are also tested.
+<p>Simulate for 10 seconds. At time t=2 the valve is partially closed.
+<pre></PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TestGasPressDrop
+  <font color="blue">package</font> Medium=<A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Media_IdealGases_MixtureGases_CombustionAir.html#Modelica.Media.IdealGases.MixtureGases.CombustionAir"
+>Modelica.Media.IdealGases.MixtureGases.CombustionAir</A>;
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.SourceP"
+>Gas.SourceP</A> SourceP1(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    T=400,
+    p0=5e5);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Step"
+>Modelica.Blocks.Sources.Step</A> Step1(
+    startTime=2,
+    height=-.3,
+    offset=1);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.PressDropLin"
+>Gas.PressDropLin</A> PressDropLin1(<font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium, R=5.5e4);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.SinkP"
+>Gas.SinkP</A> SinkP1(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    T=300,
+    p0=3e5);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.PressDrop"
+>Gas.PressDrop</A> PressDrop1(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    dpnom=2e5,
+    pstart=5e5,
+    Tstart=400,
+    rhonom=3,
+    wnom=1,
+    FFtype=ThermoPower.Choices.PressDrop.FFtypes.OpPoint);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.Valve"
+>Gas.Valve</A> Valve1(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    dpnom=1.5e5,
+    pnom=2.5e5,
+    Av=20e-4,
+    wnom=1,
+    CvData=ThermoPower.Choices.Valve.CvTypes.Av);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Sine"
+>Modelica.Blocks.Sources.Sine</A> Sine1(
+    phase=0,
+    offset=5e5,
+    startTime=0.1,
+    freqHz=0.2,
+    amplitude=3e5);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.SourceP"
+>Gas.SourceP</A> SourceP2(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    T=400,
+    p0=5e5);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Step"
+>Modelica.Blocks.Sources.Step</A> Step2(
+    startTime=2,
+    height=-.3,
+    offset=1);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.PressDropLin"
+>Gas.PressDropLin</A> PressDropLin2(<font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium, R=0.5e5);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.SinkP"
+>Gas.SinkP</A> SinkP2(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    T=300,
+    p0=3e5);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.PressDrop"
+>Gas.PressDrop</A> PressDrop2(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    dpnom=2e5,
+    pstart=5e5,
+    Tstart=400,
+    rhonom=3,
+    wnom=1,
+    Kf=8e5,
+    FFtype=ThermoPower.Choices.PressDrop.FFtypes.Kf);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.Valve"
+>Gas.Valve</A> Valve2(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    dpnom=1.5e5,
+    pnom=2.5e5,
+    Av=20e-4,
+    wnom=1,
+    CvData=ThermoPower.Choices.Valve.CvTypes.OpPoint);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Sine"
+>Modelica.Blocks.Sources.Sine</A> Sine2(
+    phase=0,
+    startTime=0.1,
+    freqHz=0.2,
+    amplitude=5e5,
+    offset=7e5);
+<font color="darkgreen">//initial equation </font>
+<font color="darkgreen">//Valve2.w=1;</font>
+
+<font color="blue">equation </font>
+  <font color="red">connect</font>(PressDrop1.outlet, PressDropLin1.inlet);
+  <font color="red">connect</font>(PressDrop1.inlet, SourceP1.flange);
+  <font color="red">connect</font>(Valve1.outlet, SinkP1.flange);
+  <font color="red">connect</font>(Step1.y, Valve1.theta);
+  <font color="red">connect</font>(PressDropLin1.outlet, Valve1.inlet);
+  <font color="red">connect</font>(Sine1.y, SourceP1.in_p);
+  <font color="red">connect</font>(PressDrop2.outlet,PressDropLin2. inlet);
+  <font color="red">connect</font>(PressDrop2.inlet,SourceP2. flange);
+  <font color="red">connect</font>(Valve2.outlet,SinkP2. flange);
+  <font color="red">connect</font>(Step2.y,Valve2. theta);
+  <font color="red">connect</font>(PressDropLin2.outlet,Valve2. inlet);
+  <font color="red">connect</font>(Sine2.y, SourceP2.in_p);
+<font color="blue">end </font>TestGasPressDrop;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TestGasValveOpPoint<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Test.GasElements.TestGasValveOpPoint"></A><A HREF="ThermoPower_Test_GasElements.html#ThermoPower.Test.GasElements"
+>ThermoPower.Test.GasElements</A>.TestGasValveOpPoint</H2>
+<IMG SRC="ThermoPower.Test.GasElements.TestGasValveOpPointD.png" ALT="ThermoPower.Test.GasElements.TestGasValveOpPoint">
+<H3>Information</H3>
+<PRE></pre>
+This models tests the Valve model in different operating conditions. The valve flow coefficients are set by the initial operating point; this means that four additional initial equations are needed to fully specify the flow coefficients.
+<p>Simulate for 4 s. The valves are partially closed at t = 0.3 and t = 0.7.
+<pre></PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TestGasValveOpPoint
+
+  <font color="blue">package</font> Medium=<A HREF="ThermoPower_Media_Air.html#ThermoPower.Media.Air"
+>Media.Air</A>;
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.SourceP"
+>Gas.SourceP</A> SourceP1(<font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium, p0=5e5);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.SinkP"
+>Gas.SinkP</A> SinkP1(<font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium, p0=2.5e5);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.Valve"
+>Gas.Valve</A> Valve1(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    pnom=5e5,
+    dpnom=1e5,
+    wnom=1,
+    CvData=ThermoPower.Choices.Valve.CvTypes.OpPoint);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.Valve"
+>Gas.Valve</A> Valve2(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    pnom=4e5,
+    dpnom=1.5e5,
+    wnom=1,
+    CheckValve=false,
+    CvData=ThermoPower.Choices.Valve.CvTypes.OpPoint);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Sine"
+>Modelica.Blocks.Sources.Sine</A> Sine1(
+    amplitude=2e5,
+    offset=3.5e5,
+    freqHz=.4);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Step"
+>Modelica.Blocks.Sources.Step</A> Step1(
+    offset=1,
+    startTime=0.3,
+    height=-.5);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Step"
+>Modelica.Blocks.Sources.Step</A> Step2(
+    height=-.3,
+    offset=1,
+    startTime=0.7);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.SourceP"
+>Gas.SourceP</A> SourceP2(<font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium, p0=5e5);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.SinkP"
+>Gas.SinkP</A> SinkP2(<font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium, p0=2.5e5);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.Valve"
+>Gas.Valve</A> Valve3(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    pnom=5e5,
+    dpnom=1e5,
+    wnom=1,
+    CvData=ThermoPower.Choices.Valve.CvTypes.OpPoint);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.Valve"
+>Gas.Valve</A> Valve4(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    pnom=4e5,
+    dpnom=1.5e5,
+    wnom=1,
+    CheckValve=true,
+    CvData=ThermoPower.Choices.Valve.CvTypes.OpPoint);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Sine"
+>Modelica.Blocks.Sources.Sine</A> Sine2(
+    amplitude=2e5,
+    offset=3.5e5,
+    freqHz=.4);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Step"
+>Modelica.Blocks.Sources.Step</A> Step3(
+    offset=1,
+    startTime=0.3,
+    height=-.8);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Step"
+>Modelica.Blocks.Sources.Step</A> Step4(
+    height=-.3,
+    offset=1,
+    startTime=0.7);
+<font color="darkgreen">/*initial equation
+  Valve1.w=1;
+  Valve2.Av=0.25*Valve1.Av;
+  Valve3.w=1;
+  Valve4.inlet.p=4e5;*/</font>
+
+<font color="blue">equation </font>
+  <font color="red">connect</font>(SourceP1.flange, Valve1.inlet);
+  <font color="red">connect</font>(Valve1.outlet, Valve2.inlet);
+  <font color="red">connect</font>(Valve2.outlet, SinkP1.flange);
+  <font color="red">connect</font>(Step1.y, Valve1.theta);
+  <font color="red">connect</font>(Step2.y, Valve2.theta);
+  <font color="red">connect</font>(Sine1.y, SinkP1.in_p);
+  <font color="red">connect</font>(SourceP2.flange,Valve3. inlet);
+  <font color="red">connect</font>(Valve3.outlet,Valve4. inlet);
+  <font color="red">connect</font>(Valve4.outlet,SinkP2. flange);
+  <font color="red">connect</font>(Step3.y, Valve3.theta);
+  <font color="red">connect</font>(Step4.y, Valve4.theta);
+  <font color="red">connect</font>(Sine2.y, SinkP2.in_p);
+<font color="blue">end </font>TestGasValveOpPoint;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TestGasValve<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Test.GasElements.TestGasValve"></A><A HREF="ThermoPower_Test_GasElements.html#ThermoPower.Test.GasElements"
+>ThermoPower.Test.GasElements</A>.TestGasValve</H2>
+<IMG SRC="ThermoPower.Test.GasElements.TestGasValveD.png" ALT="ThermoPower.Test.GasElements.TestGasValve">
+<H3>Information</H3>
+<PRE></pre>
+This model tests the <tt>Valve</tt> model, in each possible configuration, i.e. with all the <tt>CvData</tt> options except <tt>OpPoint</tt>, as well as <tt>CheckValve</tt>.
+
+<p>Simulate for 10 s. At time t=1, t=3 and t=6 the valves are partially closed.
+<pre></PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TestGasValve
+  <font color="blue">package</font> Medium=<A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Media_IdealGases_MixtureGases_CombustionAir.html#Modelica.Media.IdealGases.MixtureGases.CombustionAir"
+>Modelica.Media.IdealGases.MixtureGases.CombustionAir</A>;
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.SourceP"
+>Gas.SourceP</A> SourceP1(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    T=500,
+    p0=5e5);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.SinkP"
+>Gas.SinkP</A> SinkP1(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    T=350,
+    p0=2.5e5);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.Valve"
+>Gas.Valve</A> V1(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    dpnom=1e5,
+    wnom=0.5,
+    Tstart=500,
+    pnom=5e5,
+    Cv=165,
+    CvData=ThermoPower.Choices.Valve.CvTypes.Cv);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Step"
+>Modelica.Blocks.Sources.Step</A> S2(
+    offset=1,
+    startTime=6,
+    height=-.5);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.Valve"
+>Gas.Valve</A> V2(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    dpnom=1e5,
+    wnom=0.5,
+    Tstart=500,
+    pnom=4e5,
+    Av=30e-4,
+    CvData=ThermoPower.Choices.Valve.CvTypes.Av);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.Valve"
+>Gas.Valve</A> V3(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    wnom=0.5,
+    Tstart=500,
+    dpnom=0.5e5,
+    pnom=3e5,
+    Kv=132,
+    CvData=ThermoPower.Choices.Valve.CvTypes.Kv);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Step"
+>Modelica.Blocks.Sources.Step</A> S3(
+    offset=1,
+    height=-.3,
+    startTime=3);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Step"
+>Modelica.Blocks.Sources.Step</A> S4(
+    offset=1,
+    startTime=1,
+    height=-.6);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Sine"
+>Modelica.Blocks.Sources.Sine</A> Sine2(
+    freqHz=0.5,
+    offset=4e5,
+    amplitude=2e5);
+
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.SourceP"
+>Gas.SourceP</A> SourceP2(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    T=500,
+    p0=5e5);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.SinkP"
+>Gas.SinkP</A> SinkP2(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    T=350,
+    p0=2e5);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Step"
+>Modelica.Blocks.Sources.Step</A> S6(
+    offset=1,
+    startTime=6,
+    height=-.3);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.Valve"
+>Gas.Valve</A> V6(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    CheckValve=false,
+    Tstart=500,
+    pnom=5e5,
+    dpnom=1.5e5,
+    Av=12e-4,
+    CvData=ThermoPower.Choices.Valve.CvTypes.Av);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Step"
+>Modelica.Blocks.Sources.Step</A> S7(
+    offset=1,
+    startTime=1,
+    height=-.5);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Step"
+>Modelica.Blocks.Sources.Step</A> S8(
+    offset=1,
+    startTime=3,
+    height=-.5);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.Valve"
+>Gas.Valve</A> V7(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    Tstart=500,
+    dpnom=0.5e5,
+    CheckValve=false,
+    pnom=3.5e5,
+    Kv=102,
+    CvData=ThermoPower.Choices.Valve.CvTypes.Kv);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.Valve"
+>Gas.Valve</A> V8(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    Tstart=500,
+    pnom=3e5,
+    dpnom=1e5,
+    Cv=122,
+    CheckValve=true,
+    CvData=ThermoPower.Choices.Valve.CvTypes.Cv);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Sine"
+>Modelica.Blocks.Sources.Sine</A> Sine1(
+    freqHz=0.5,
+    amplitude=2e5,
+    offset=4e5);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(S2.y,V1. theta);
+  <font color="red">connect</font>(V1.outlet,V2. inlet);
+  <font color="red">connect</font>(S3.y,V2. theta);
+  <font color="red">connect</font>(S4.y,V3. theta);
+  <font color="red">connect</font>(V3.outlet, SinkP1.flange);
+  <font color="red">connect</font>(V2.outlet,V3. inlet);
+  <font color="red">connect</font>(Sine2.y, SinkP1.in_p);
+  <font color="red">connect</font>(SourceP1.flange,V1. inlet);
+  <font color="red">connect</font>(S6.y,V6. theta);
+  <font color="red">connect</font>(V6.outlet,V7. inlet);
+  <font color="red">connect</font>(V7.outlet,V8. inlet);
+  <font color="red">connect</font>(V8.outlet,SinkP2. flange);
+  <font color="red">connect</font>(S8.y,V8. theta);
+  <font color="red">connect</font>(S7.y,V7. theta);
+  <font color="red">connect</font>(Sine1.y,SinkP2. in_p);
+  <font color="red">connect</font>(SourceP2.flange,V6. inlet);
+<font color="blue">end </font>TestGasValve;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TestCompressorConstSpeed<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Test.GasElements.TestCompressorConstSpeed"></A><A HREF="ThermoPower_Test_GasElements.html#ThermoPower.Test.GasElements"
+>ThermoPower.Test.GasElements</A>.TestCompressorConstSpeed</H2>
+<IMG SRC="ThermoPower.Test.GasElements.TestCompressorConstSpeedD.png" ALT="ThermoPower.Test.GasElements.TestCompressorConstSpeed">
+<H3>Information</H3>
+<PRE></pre>
+This model test the <tt>Compressor</tt> model at constant speed.
+
+<p>Simulate for 2s.
+
+<pre></PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TestCompressorConstSpeed
+<font color="blue">package</font> Medium=<A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Media_IdealGases_MixtureGases_CombustionAir.html#Modelica.Media.IdealGases.MixtureGases.CombustionAir"
+>Modelica.Media.IdealGases.MixtureGases.CombustionAir</A>;
+<font color="blue">protected </font>
+   <font color="blue">parameter </font>Real tableEta[6,4]=[0,95,100,105;
+                                 1,82.5e-2,81e-2,80.5e-2;
+                                 2,84e-2,82.9e-2,82e-2;
+                                 3,83.2e-2,82.2e-2,81.5e-2;
+                                 4,82.5e-2,81.2e-2,79e-2;
+                                 5,79.5e-2,78e-2,76.5e-2];
+   <font color="blue">parameter </font>Real tablePhic[6,4]=[0,95,100,105;
+                                 1,38.3e-3,43e-3,46.8e-3;
+                                 2,39.3e-3,43.8e-3,47.9e-3;
+                                 3,40.6e-3,45.2e-3,48.4e-3;
+                                 4,41.6e-3,46.1e-3,48.9e-3;
+                                 5,42.3e-3,46.6e-3,49.3e-3];
+
+   <font color="blue">parameter </font>Real tablePR[6,4]=[0,95,100,105;
+                                1,22.6,27,32;
+                                2,22,26.6,30.8;
+                                3,20.8,25.5,29;
+                                4,19,24.3,27.1;
+                                5,17,21.5,24.2];
+
+<font color="blue">public </font>
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.SourceP"
+>ThermoPower.Gas.SourceP</A> SourceP1(<font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    p0=0.35e5,
+    T=244.4);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.SinkP"
+>ThermoPower.Gas.SinkP</A> SinkP1(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    p0=8.3e5,
+    T=691.4);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.Compressor"
+>ThermoPower.Gas.Compressor</A> Compressor(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    pstart_in=0.35e5,
+    pstart_out=8.3e5,
+    Tstart_in=244.4,
+    Tstart_out=691.4,
+    tablePhic=tablePhic,
+    tableEta=tableEta,
+    tablePR=tablePR,
+    Table=ThermoPower.Choices.TurboMachinery.TableTypes.matrix,
+    Ndesign=523.3,
+    Tdes_in=244.4);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.ConstantSpeed"
+>Modelica.Mechanics.Rotational.ConstantSpeed</A> ConstantSpeed1(w_fixed=523.3);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(SourceP1.flange, Compressor.inlet);
+  <font color="red">connect</font>(Compressor.outlet, SinkP1.flange);
+  <font color="red">connect</font>(ConstantSpeed1.flange, Compressor.shaft_a);
+<font color="blue">end </font>TestCompressorConstSpeed;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TestCompressorInertia<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Test.GasElements.TestCompressorInertia"></A><A HREF="ThermoPower_Test_GasElements.html#ThermoPower.Test.GasElements"
+>ThermoPower.Test.GasElements</A>.TestCompressorInertia</H2>
+<IMG SRC="ThermoPower.Test.GasElements.TestCompressorInertiaD.png" ALT="ThermoPower.Test.GasElements.TestCompressorInertia">
+<H3>Information</H3>
+<PRE></pre>
+This model test the <tt>Compressor</tt> model with an inertial load. Boundary conditions and data refer to an turbojet engine at 11.000 m.
+
+<p>Simulate for 2 seconds. The compressor slows down.
+<pre></PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TestCompressorInertia
+<font color="blue">package</font> Medium=<A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Media_IdealGases_MixtureGases_CombustionAir.html#Modelica.Media.IdealGases.MixtureGases.CombustionAir"
+>Modelica.Media.IdealGases.MixtureGases.CombustionAir</A>;
+<font color="blue">protected </font>
+   <font color="blue">parameter </font>Real tableEta[6,4]=[0,95,100,105;
+                                 1,82.5e-2,81e-2,80.5e-2;
+                                 2,84e-2,82.9e-2,82e-2;
+                                 3,83.2e-2,82.2e-2,81.5e-2;
+                                 4,82.5e-2,81.2e-2,79e-2;
+                                 5,79.5e-2,78e-2,76.5e-2];
+   <font color="blue">parameter </font>Real tablePhic[6,4]=[0,95,100,105;
+                                 1,38.3e-3,43e-3,46.8e-3;
+                                 2,39.3e-3,43.8e-3,47.9e-3;
+                                 3,40.6e-3,45.2e-3,48.4e-3;
+                                 4,41.6e-3,46.1e-3,48.9e-3;
+                                 5,42.3e-3,46.6e-3,49.3e-3];
+
+   <font color="blue">parameter </font>Real tablePR[6,4]=[0,95,100,105;
+                                1,22.6,27,32;
+                                2,22,26.6,30.8;
+                                3,20.8,25.5,29;
+                                4,19,24.3,27.1;
+                                5,17,21.5,24.2];
+
+<font color="blue">public </font>
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.SourceP"
+>ThermoPower.Gas.SourceP</A> SourceP1(<font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    p0=0.35e5,
+    T=244.4);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.SinkP"
+>ThermoPower.Gas.SinkP</A> SinkP1(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    p0=8.3e5,
+    T=691.4);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Inertia"
+>Modelica.Mechanics.Rotational.Inertia</A> Inertia1(J=10000);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.Compressor"
+>ThermoPower.Gas.Compressor</A> Compressor(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    pstart_in=0.35e5,
+    pstart_out=8.3e5,
+    Tstart_in=244.4,
+    Tstart_out=691.4,
+    tablePhic=tablePhic,
+    tableEta=tableEta,
+    tablePR=tablePR,
+    Table=ThermoPower.Choices.TurboMachinery.TableTypes.matrix,
+    explicitIsentropicEnthalpy=false,
+    Ndesign=523.3,
+    Tdes_in=244.4);
+<font color="blue">initial </font><font color="blue">equation </font>
+  Inertia1.w=523.3;
+
+<font color="blue">equation </font>
+  <font color="red">connect</font>(SourceP1.flange, Compressor.inlet);
+  <font color="red">connect</font>(Compressor.outlet, SinkP1.flange);
+  <font color="red">connect</font>(Compressor.shaft_b, Inertia1.flange_a);
+<font color="blue">end </font>TestCompressorInertia;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TestGasTurbine<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Test.GasElements.TestGasTurbine"></A><A HREF="ThermoPower_Test_GasElements.html#ThermoPower.Test.GasElements"
+>ThermoPower.Test.GasElements</A>.TestGasTurbine</H2>
+<IMG SRC="ThermoPower.Test.GasElements.TestGasTurbineD.png" ALT="ThermoPower.Test.GasElements.TestGasTurbine">
+<H3>Information</H3>
+<PRE></pre>
+This model test the Turbine model with an inertial load. Boundary conditions and data refer to an turbojet engine at 11.000 m.
+
+<p>Simulate for 5 seconds.
+<pre></PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TestGasTurbine
+<font color="blue">package</font> Medium=<A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Media_IdealGases_MixtureGases_CombustionAir.html#Modelica.Media.IdealGases.MixtureGases.CombustionAir"
+>Modelica.Media.IdealGases.MixtureGases.CombustionAir</A>;
+<font color="blue">protected </font>
+  <font color="blue">parameter </font>Real tablePhic[5,4]=[1,90,100,110;
+                                 2.36,4.68e-3,4.68e-3,4.68e-3;
+                                 2.88,4.68e-3,4.68e-3,4.68e-3;
+                                 3.56,4.68e-3,4.68e-3,4.68e-3;
+                                 4.46,4.68e-3,4.68e-3,4.68e-3];
+  <font color="blue">parameter </font>Real tableEta[5,4]=[1,90,100,110;
+                                2.36,89e-2,89.5e-2,89.3e-2;
+                                2.88,90e-2,90.6e-2,90.5e-2;
+                                3.56,90.5e-2,90.6e-2,90.5e-2;
+                                4.46,90.2e-2,90.3e-2,90e-2];
+<font color="blue">public </font>
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.SourceP"
+>ThermoPower.Gas.SourceP</A> SourceP1(<font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    T=1270,
+    p0=7.85e5);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Inertia"
+>Modelica.Mechanics.Rotational.Inertia</A> Inertia1(J=10000);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.Turbine"
+>Gas.Turbine</A> Turbine1(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    tablePhic=tablePhic,
+    tableEta=tableEta,
+    pstart_in=7.85e5,
+    pstart_out=1.52e5,
+    Tstart_in=1270,
+    Tstart_out=883,
+    Ndesign=523.3,
+    Tdes_in=1400,
+    Table=ThermoPower.Choices.TurboMachinery.TableTypes.matrix);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.SinkP"
+>Gas.SinkP</A> SinkP1(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    p0=1.52e5,
+    T=883);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(SourceP1.flange, Turbine1.inlet);
+  <font color="red">connect</font>(Turbine1.outlet, SinkP1.flange);
+<font color="blue">initial </font><font color="blue">equation </font>
+Inertia1.w=523.3;
+
+<font color="blue">equation </font>
+  <font color="red">connect</font>(Turbine1.shaft_b, Inertia1.flange_a);
+<font color="blue">end </font>TestGasTurbine;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TestGasTurbineStodola<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Test.GasElements.TestGasTurbineStodola"></A><A HREF="ThermoPower_Test_GasElements.html#ThermoPower.Test.GasElements"
+>ThermoPower.Test.GasElements</A>.TestGasTurbineStodola</H2>
+<IMG SRC="ThermoPower.Test.GasElements.TestGasTurbineStodolaD.png" ALT="ThermoPower.Test.GasElements.TestGasTurbineStodola">
+<H3>Information</H3>
+<PRE></pre>
+This model test the Turbine model based on the Stodola's law at constant speed. Boundary conditions and data refer to an turbojet engine at 11.000 m.
+<p>Simulate for 5 seconds.
+<pre></PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TestGasTurbineStodola
+<font color="blue">package</font> Medium=<A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Media_IdealGases_MixtureGases_CombustionAir.html#Modelica.Media.IdealGases.MixtureGases.CombustionAir"
+>Modelica.Media.IdealGases.MixtureGases.CombustionAir</A>;
+
+<font color="blue">protected </font>
+  <font color="blue">parameter </font>Real tableEta[5,4]=[1,90,100,110;
+                                7,89e-2,89.5e-2,89.3e-2;
+                                10,90e-2,90.6e-2,90.5e-2;
+                                12,90.5e-2,90.6e-2,90.5e-2;
+                                15,90.2e-2,90.3e-2,90e-2];
+<font color="blue">public </font>
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.SourceP"
+>ThermoPower.Gas.SourceP</A> SourceP1(<font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    T=1270,
+    p0=7.85e5);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Inertia"
+>Modelica.Mechanics.Rotational.Inertia</A> Inertia1(J=10000);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.TurbineStodola"
+>Gas.TurbineStodola</A> Turbine1(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    pstart_in=7.85e5,
+    pstart_out=1.52e5,
+    Tstart_in=1270,
+    Tstart_out=883,
+    K=4.75e-3,
+    Table=ThermoPower.Choices.TurboMachinery.TableTypes.matrix,
+    tableEta=tableEta,
+    fixedEta=true,
+    Ndesign=523.3,
+    Tdes_in=1400,
+    wnom=104);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.SinkP"
+>Gas.SinkP</A> SinkP1(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    p0=1.52e5,
+    T=883);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.ConstantSpeed"
+>Modelica.Mechanics.Rotational.ConstantSpeed</A> ConstantSpeed1(w_fixed=523.3);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(SourceP1.flange, Turbine1.inlet);
+  <font color="red">connect</font>(Turbine1.outlet, SinkP1.flange);
+  <font color="red">connect</font>(Turbine1.shaft_b, Inertia1.flange_a);
+  <font color="red">connect</font>(ConstantSpeed1.flange, Turbine1.shaft_a);
+<font color="blue">end </font>TestGasTurbineStodola;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TestTurboJetInertia<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Test.GasElements.TestTurboJetInertia"></A><A HREF="ThermoPower_Test_GasElements.html#ThermoPower.Test.GasElements"
+>ThermoPower.Test.GasElements</A>.TestTurboJetInertia</H2>
+<IMG SRC="ThermoPower.Test.GasElements.TestTurboJetInertiaD.png" ALT="ThermoPower.Test.GasElements.TestTurboJetInertia">
+<H3>Information</H3>
+<PRE></pre>
+This is the full model of a turbojet-type engine at 11.000m [1].
+
+<p>Simulate the model for 20s. At time t = 1 the fuel flow rate is reduced by 10%; the engine slows down accordingly.
+<p><b>References:</b></p>
+<ol>
+<li>P. P. Walsh, P. Fletcher: <i>Gas Turbine Performance</i>, 2nd ed., Oxford, Blackwell, 2004, pp. 646.
+</ol>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SpecificEnthalpy</A></TD><TD>HH</TD><TD>&nbsp;</TD><TD>Fuel lower heat value [J/kg]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TestTurboJetInertia
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SpecificEnthalpy</A> HH(fixed=false, start=40e6) <font color="darkgreen">
+    &quot;Fuel lower heat value&quot;</font>;
+<font color="blue">protected </font>
+   <font color="blue">parameter </font>Real tableEtaC[6,4]=[0,95,100,105;
+                                 1,82.5e-2,81e-2,80.5e-2;
+                                 2,84e-2,82.9e-2,82e-2;
+                                 3,83.2e-2,82.2e-2,81.5e-2;
+                                 4,82.5e-2,81.2e-2,79e-2;
+                                 5,79.5e-2,78e-2,76.5e-2];
+   <font color="blue">parameter </font>Real tablePhicC[6,4]=[0,95,100,105;
+                                 1,38.3e-3,43e-3,46.8e-3;
+                                 2,39.3e-3,43.8e-3,47.9e-3;
+                                 3,40.6e-3,45.2e-3,48.4e-3;
+                                 4,41.6e-3,46.1e-3,48.9e-3;
+                                 5,42.3e-3,46.6e-3,49.3e-3];
+
+   <font color="blue">parameter </font>Real tablePR[6,4]=[0,95,100,105;
+                                1,22.6,27,32;
+                                2,22,26.6,30.8;
+                                3,20.8,25.5,29;
+                                4,19,24.3,27.1;
+                                5,17,21.5,24.2];
+   <font color="blue">parameter </font>Real tableEtaT[5,4]=[1,90,100,110;
+                                2.36,89e-2,89.5e-2,89.3e-2;
+                                2.88,90e-2,90.6e-2,90.5e-2;
+                                3.56,90.5e-2,90.6e-2,90.5e-2;
+                                4.46,90.2e-2,90.3e-2,90e-2];
+<font color="blue">public </font>
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.Compressor"
+>ThermoPower.Gas.Compressor</A> Compressor1(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = <A HREF="ThermoPower_Media_Air.html#ThermoPower.Media.Air"
+>Media.Air</A>,
+    pstart_in=0.343e5,
+    Tstart_in=244.4,
+    explicitIsentropicEnthalpy=true,
+    Tstart_out=600,
+    pstart_out=8.29e5,
+    Ndesign=523.3,
+    Tdes_in=244.4,
+    Table=ThermoPower.Choices.TurboMachinery.TableTypes.matrix,
+    tablePhic=tablePhicC,
+    tableEta=tableEtaC,
+    tablePR=tablePR);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.TurbineStodola"
+>ThermoPower.Gas.TurbineStodola</A> Turbine1(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = <A HREF="ThermoPower_Media_FlueGas.html#ThermoPower.Media.FlueGas"
+>Media.FlueGas</A>,
+    pstart_in=7.85e5,
+    pstart_out=1.52e5,
+    Tstart_out=800,
+    Tstart_in=1390,
+    Ndesign=523.3,
+    Tdes_in=1400,
+    fixedEta=false,
+    wnom=104,
+    Table=ThermoPower.Choices.TurboMachinery.TableTypes.matrix,
+    tableEta=tableEtaT);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.CombustionChamber"
+>ThermoPower.Gas.CombustionChamber</A> CombustionChamber1(
+    gamma=1,
+    Cm=1,
+    pstart=8.11e5,
+    V=0.05,
+    S=0.05,
+    Tstart=1370,
+    initOpt=ThermoPower.Choices.Init.Options.steadyState,
+    HH=HH);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.SourceP"
+>ThermoPower.Gas.SourceP</A> SourceP1(<font color="blue">redeclare </font><font color="blue">package</font> Medium =
+        <A HREF="ThermoPower_Media_Air.html#ThermoPower.Media.Air"
+>Media.Air</A>,
+    T=244.4,
+    p0=0.3447e5);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.SinkP"
+>ThermoPower.Gas.SinkP</A> SinkP1(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = <A HREF="ThermoPower_Media_FlueGas.html#ThermoPower.Media.FlueGas"
+>Media.FlueGas</A>,
+    p0=1.52e5,
+    T=800);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.SourceW"
+>ThermoPower.Gas.SourceW</A> SourceW1(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = <A HREF="ThermoPower_Media_NaturalGas.html#ThermoPower.Media.NaturalGas"
+>Media.NaturalGas</A>,
+    w0=2.02,
+    p0=8.11e5,
+    T=300);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Inertia"
+>Modelica.Mechanics.Rotational.Inertia</A> Inertia1(J=50);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.PressDrop"
+>Gas.PressDrop</A> PressDrop1(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = <A HREF="ThermoPower_Media_FlueGas.html#ThermoPower.Media.FlueGas"
+>Media.FlueGas</A>,
+    FFtype=ThermoPower.Choices.PressDrop.FFtypes.OpPoint,
+    A=1,
+    pstart=8.11e5,
+    dpnom=0.26e5,
+    wnom=102,
+    Tstart=1370,
+    rhonom=2);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.PressDrop"
+>Gas.PressDrop</A> PressDrop2(
+    FFtype=ThermoPower.Choices.PressDrop.FFtypes.OpPoint,
+    A=1,
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = <A HREF="ThermoPower_Media_Air.html#ThermoPower.Media.Air"
+>Media.Air</A>,
+    wnom=100,
+    Tstart=600,
+    pstart=8.29e5,
+    dpnom=0.18e5,
+    rhonom=4.7);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.PressDrop"
+>Gas.PressDrop</A> PressDrop3(
+    FFtype=ThermoPower.Choices.PressDrop.FFtypes.OpPoint,
+    A=1,
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = <A HREF="ThermoPower_Media_Air.html#ThermoPower.Media.Air"
+>Media.Air</A>,
+    wnom=100,
+    pstart=0.3447e5,
+    Tstart=244.4,
+    dpnom=170,
+    rhonom=0.48);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Step"
+>Modelica.Blocks.Sources.Step</A> Step1(
+    height=-0.2,
+    offset=2.02,
+    startTime=1);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(SourceW1.flange, CombustionChamber1.inf);
+  <font color="red">connect</font>(Compressor1.shaft_b, Inertia1.flange_a);
+  <font color="red">connect</font>(Inertia1.flange_b, Turbine1.shaft_a);
+  <font color="red">connect</font>(CombustionChamber1.out, PressDrop1.inlet);
+  <font color="red">connect</font>(PressDrop1.outlet, Turbine1.inlet);
+  <font color="red">connect</font>(Compressor1.outlet, PressDrop2.inlet);
+  <font color="red">connect</font>(PressDrop2.outlet, CombustionChamber1.ina);
+  <font color="red">connect</font>(PressDrop3.outlet, Compressor1.inlet);
+  <font color="red">connect</font>(SourceP1.flange, PressDrop3.inlet);
+  <font color="red">connect</font>(Turbine1.outlet, SinkP1.flange);
+<font color="blue">initial </font><font color="blue">equation </font>
+  Inertia1.phi = 0;
+  Inertia1.w = 523;
+  <font color="red">der</font>(Inertia1.w) = 0;
+
+<font color="blue">equation </font>
+  <font color="red">connect</font>(Step1.y, SourceW1.in_w0);
+<font color="blue">end </font>TestTurboJetInertia;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TestTurboJetConstSpeed<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Test.GasElements.TestTurboJetConstSpeed"></A><A HREF="ThermoPower_Test_GasElements.html#ThermoPower.Test.GasElements"
+>ThermoPower.Test.GasElements</A>.TestTurboJetConstSpeed</H2>
+<IMG SRC="ThermoPower.Test.GasElements.TestTurboJetConstSpeedD.png" ALT="ThermoPower.Test.GasElements.TestTurboJetConstSpeed">
+<H3>Information</H3>
+<PRE></pre>
+This is a simplified model of a turbojet-type engine at 11.000m [1], at costant speed.
+<p>Simulate the model for 20s. At time t = 1 the fuel flow rate is reduced by 10%; the engine slows down accordingly.
+<p><b>References:</b></p>
+<ol>
+<li>P. P. Walsh, P. Fletcher: <i>Gas Turbine Performance</i>, 2nd ed., Oxford, Blackwell, 2004, pp. 646.
+</ol>
+<pre></PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TestTurboJetConstSpeed
+<font color="blue">protected </font>
+  <font color="blue">parameter </font>Real tableEtaC[6,4]=[0,95,100,105;
+                                 1,82.5e-2,81e-2,80.5e-2;
+                                 2,84e-2,82.9e-2,82e-2;
+                                 3,83.2e-2,82.2e-2,81.5e-2;
+                                 4,82.5e-2,81.2e-2,79e-2;
+                                 5,79.5e-2,78e-2,76.5e-2];
+  <font color="blue">parameter </font>Real tablePhicC[6,4]=[0,95,100,105;
+                                 1,38.3e-3,43e-3,46.8e-3;
+                                 2,39.3e-3,43.8e-3,47.9e-3;
+                                 3,40.6e-3,45.2e-3,48.4e-3;
+                                 4,41.6e-3,46.1e-3,48.9e-3;
+                                 5,42.3e-3,46.6e-3,49.3e-3];
+  <font color="blue">parameter </font>Real tablePR[6,4]=[0,95,100,105;
+                                1,22.6,27,32;
+                                2,22,26.6,30.8;
+                                3,20.8,25.5,29;
+                                4,19,24.3,27.1;
+                                5,17,21.5,24.2];
+  <font color="blue">parameter </font>Real tablePhicT[5,4]=[1,90,100,110;
+                                 2.36,4.68e-3,4.68e-3,4.68e-3;
+                                 2.88,4.68e-3,4.68e-3,4.68e-3;
+                                 3.56,4.68e-3,4.68e-3,4.68e-3;
+                                 4.46,4.68e-3,4.68e-3,4.68e-3];
+  <font color="blue">parameter </font>Real tableEtaT[5,4]=[1,90,100,110;
+                                2.36,89e-2,89.5e-2,89.3e-2;
+                                2.88,90e-2,90.6e-2,90.5e-2;
+                                3.56,90.5e-2,90.6e-2,90.5e-2;
+                                4.46,90.2e-2,90.3e-2,90e-2];
+<font color="blue">public </font>
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.Compressor"
+>ThermoPower.Gas.Compressor</A> Compressor1(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = <A HREF="ThermoPower_Media_Air.html#ThermoPower.Media.Air"
+>Media.Air</A>,
+    tablePhic=tablePhicC,
+    tableEta=tableEtaC,
+    pstart_in=0.343e5,
+    pstart_out=8.3e5,
+    Tstart_in=244.4,
+    tablePR=tablePR,
+    Table=ThermoPower.Choices.TurboMachinery.TableTypes.matrix,
+    Tstart_out=600.4,
+    explicitIsentropicEnthalpy=true,
+    Ndesign=523.3,
+    Tdes_in=244.4);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.Turbine"
+>ThermoPower.Gas.Turbine</A> Turbine1(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = <A HREF="ThermoPower_Media_FlueGas.html#ThermoPower.Media.FlueGas"
+>Media.FlueGas</A>,
+    pstart_in=7.85e5,
+    pstart_out=1.52e5,
+    tablePhic=tablePhicT,
+    tableEta=tableEtaT,
+    Table=ThermoPower.Choices.TurboMachinery.TableTypes.matrix,
+    Tstart_out=800,
+    Ndesign=523.3,
+    Tdes_in=1400,
+    Tstart_in=1370);
+
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.CombustionChamber"
+>ThermoPower.Gas.CombustionChamber</A> CombustionChamber1(
+    gamma=1,
+    Cm=1,
+    pstart=8.11e5,
+    Tstart=1370,
+    V=0.05,
+    S=0.05,
+    initOpt=ThermoPower.Choices.Init.Options.steadyState,
+    HH=41.6e6);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.SourceP"
+>ThermoPower.Gas.SourceP</A> SourceP1(<font color="blue">redeclare </font><font color="blue">package</font> Medium =
+        <A HREF="ThermoPower_Media_Air.html#ThermoPower.Media.Air"
+>Media.Air</A>,
+    p0=0.343e5,
+    T=244.4);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.SinkP"
+>ThermoPower.Gas.SinkP</A> SinkP1(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = <A HREF="ThermoPower_Media_FlueGas.html#ThermoPower.Media.FlueGas"
+>Media.FlueGas</A>,
+    p0=1.52e5,
+    T=800);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.SourceW"
+>ThermoPower.Gas.SourceW</A> SourceW1(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = <A HREF="ThermoPower_Media_NaturalGas.html#ThermoPower.Media.NaturalGas"
+>Media.NaturalGas</A>,
+    w0=2.02,
+    p0=8.11e5,
+    T=300);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Inertia"
+>Modelica.Mechanics.Rotational.Inertia</A> Inertia1(J=50);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.PressDrop"
+>Gas.PressDrop</A> PressDrop1(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = <A HREF="ThermoPower_Media_FlueGas.html#ThermoPower.Media.FlueGas"
+>Media.FlueGas</A>,
+    FFtype=ThermoPower.Choices.PressDrop.FFtypes.OpPoint,
+    A=1,
+    pstart=8.11e5,
+    dpnom=0.26e5,
+    wnom=102,
+    Tstart=1370,
+    rhonom=2);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.PressDrop"
+>Gas.PressDrop</A> PressDrop2(
+    pstart=8.3e5,
+    FFtype=ThermoPower.Choices.PressDrop.FFtypes.OpPoint,
+    A=1,
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = <A HREF="ThermoPower_Media_Air.html#ThermoPower.Media.Air"
+>Media.Air</A>,
+    dpnom=0.19e5,
+    wnom=100,
+    rhonom=4.7,
+    Tstart=600);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.ConstantSpeed"
+>Modelica.Mechanics.Rotational.ConstantSpeed</A> ConstantSpeed1(w_fixed=523.33);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(SourceW1.flange, CombustionChamber1.inf);
+  <font color="red">connect</font>(Turbine1.outlet, SinkP1.flange);
+  <font color="red">connect</font>(Compressor1.shaft_b, Inertia1.flange_a);
+  <font color="red">connect</font>(Inertia1.flange_b, Turbine1.shaft_a);
+  <font color="red">connect</font>(SourceP1.flange, Compressor1.inlet);
+  <font color="red">connect</font>(CombustionChamber1.out, PressDrop1.inlet);
+  <font color="red">connect</font>(PressDrop1.outlet, Turbine1.inlet);
+  <font color="red">connect</font>(Compressor1.outlet, PressDrop2.inlet);
+  <font color="red">connect</font>(PressDrop2.outlet, CombustionChamber1.ina);
+  <font color="red">connect</font>(ConstantSpeed1.flange, Compressor1.shaft_a);
+<font color="blue">end </font>TestTurboJetConstSpeed;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TestGT_ISO<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Test.GasElements.TestGT_ISO"></A><A HREF="ThermoPower_Test_GasElements.html#ThermoPower.Test.GasElements"
+>ThermoPower.Test.GasElements</A>.TestGT_ISO</H2>
+<IMG SRC="ThermoPower.Test.GasElements.TestGT_ISOD.png" ALT="ThermoPower.Test.GasElements.TestGT_ISO">
+<H3>Information</H3>
+<PRE></pre>
+This model tests <tt>GTunit_ISO</tt>.
+
+<p>Simulate for 2 s. The model start at steady state. At time t = 1, the fuel flow rate is reduced by 30%. The net power output GT.Pout goes from 4.5 MW to 2.7 MW.
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>tableData[8, 4]</TD><TD>[1.3e6, 7e6, 11.6, 18.75; 1....</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TestGT_ISO
+
+  <font color="blue">parameter </font>Real tableData[8,4]=[  1.3e6,   7e6,    11.6,  18.75;
+                              1.85e6,  8.2e6,  12,    18.7;
+                              2e6,     8.5e6,  12.1,  18.65;
+                              3e6,    10.8e6,  12.7,  18.6;
+                              3.5e6,  12.1e6,  13,    18.55;
+                              4e6,    13.4e6,  13.2,  18.5;
+                              4.5e6,  14.75e6, 13.5,  18.45;
+                              4.8e6,  15.5e6,  13.6,  18.43];
+ <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.GTunit_ISO"
+>ThermoPower.Gas.GTunit_ISO</A> GT(
+    tableData=tableData,
+    Table=ThermoPower.Choices.TurboMachinery.TableTypes.matrix,
+    pstart=0.9735e5,
+    Tstart=285.5,
+    constantCompositionExhaust=true,
+    HH=47.92e6);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.SourceP"
+>ThermoPower.Gas.SourceP</A> SourceP1(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = <A HREF="ThermoPower_Media_Air.html#ThermoPower.Media.Air"
+>ThermoPower.Media.Air</A>,
+    p0=1.011e5,
+    T=288.15);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.SinkP"
+>ThermoPower.Gas.SinkP</A> SinkP1(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = <A HREF="ThermoPower_Media_FlueGas.html#ThermoPower.Media.FlueGas"
+>ThermoPower.Media.FlueGas</A>,
+    p0=1e5,
+    T=526 + 273);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.ConstantSpeed"
+>Modelica.Mechanics.Rotational.ConstantSpeed</A> ConstantSpeed1(w_fixed=1819.6);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.SourceW"
+>ThermoPower.Gas.SourceW</A> SourceW1(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = <A HREF="ThermoPower_Media_NaturalGas.html#ThermoPower.Media.NaturalGas"
+>ThermoPower.Media.NaturalGas</A>,
+    T=291.44,
+    p0=13.27e5,
+    w0=0.317);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.PressDrop"
+>Gas.PressDrop</A> PressDrop1(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = <A HREF="ThermoPower_Media_Air.html#ThermoPower.Media.Air"
+>ThermoPower.Media.Air</A>,
+    pstart=1.011e5,
+    Tstart=288.15,
+    FFtype=ThermoPower.Choices.PressDrop.FFtypes.OpPoint,
+    dpnom=0.0375e5,
+    rhonom=1.2,
+    wnom=18.6);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Step"
+>Modelica.Blocks.Sources.Step</A> Step1(
+    height=-0.1,
+    offset=0.317,
+    startTime=1);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(SourceW1.flange, GT.Fuel_in);
+  <font color="red">connect</font>(SourceP1.flange, PressDrop1.inlet);
+  <font color="red">connect</font>(PressDrop1.outlet, GT.Air_in);
+  <font color="red">connect</font>(GT.FlueGas_out, SinkP1.flange);
+  <font color="red">connect</font>(GT.shaft_b, ConstantSpeed1.flange);
+  <font color="red">connect</font>(Step1.y, SourceW1.in_w0);
+<font color="blue">end </font>TestGT_ISO;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TestGT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Test.GasElements.TestGT"></A><A HREF="ThermoPower_Test_GasElements.html#ThermoPower.Test.GasElements"
+>ThermoPower.Test.GasElements</A>.TestGT</H2>
+<IMG SRC="ThermoPower.Test.GasElements.TestGTD.png" ALT="ThermoPower.Test.GasElements.TestGT">
+<H3>Information</H3>
+<PRE></pre>
+This model tests a simple power plant based on a <tt>GTunit</tt>.
+
+<p>Simulate for 2 s. The plant starts at steady states, and produces approximately 5 MW of power. At time t=1 the breaker opens, and the GT unit starts accelerating, with a time constant of 10 seconds.
+
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>tabW[11, 4]</TD><TD>[0, 233.15, 288.15, 313.15; ...</TD><TD>table for wia_iso=f(ZLPout_iso,Tsync)</TD></TR>
+<TR><TD>Real</TD><TD>tabPR[11, 4]</TD><TD>[0, 233.15, 288.15, 313.15; ...</TD><TD> table for PR=g(ZLPout_iso,Tsync)</TD></TR>
+<TR><TD>Real</TD><TD>tabHI[12, 4]</TD><TD>[0, 233.15, 288.15, 313.15; ...</TD><TD>table for HI_iso=h(ZLPout_iso,Tsync)</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TestGT
+
+
+  <font color="blue">parameter </font>Real tabW[11,4]=[0,        233.15,  288.15,   313.15;
+                             0.485e6,   20.443,  18.608,   17.498;
+                             0.97e6,    20.443,  18.596,   17.483;
+                             1.455e6,   20.443,  18.584,   17.467;
+                             1.94e6,    20.443,  18.572,   17.452;
+                             2.425e6,   20.443,  18.560,   17.437;
+                             2.91e6,    20.443,  18.548,   17.421;
+                             3.395e6,   20.443,  18.536,   17.406;
+                             3.88e6,    20.443,  18.524,   17.391;
+                             4.365e6,   20.443,  18.512,   17.375;
+                             4.85e6,    20.443,  18.500,   17.360] <font color="darkgreen">
+    &quot;table for wia_iso=f(ZLPout_iso,Tsync)&quot;</font>;
+  <font color="blue">parameter </font>Real tabPR[ 11,4]=[ 0,        233.15,   288.15,    313.15;
+                                0.485e6,   11.002,   10.766,    10.144;
+                                0.97e6,    12.084,    11.070,   10.453;
+                                1.455e6,   12.717,    11.374,   10.762;
+                                1.94e6,    13.166,    11.678,   11.070;
+                                2.425e6,   13.515,    11.981,   11.379;
+                                2.91e6,    13.799,    12.258,   11.687;
+                                3.395e6,   14.040,    12.589,   11.996;
+                                3.88e6,    14.248,    12.893,   12.305;
+                                4.365e6,   14.432,    13.196,   12.613;
+                                4.85e6,    14.597,    13.500,   12.922] <font color="darkgreen">
+    &quot; table for PR=g(ZLPout_iso,Tsync)&quot;</font>;
+  <font color="blue">parameter </font>Real tabHI[12,4]=[  0,         233.15,     288.15,     313.15;
+                                0.7275e6,   39e6,       39e6,       39e6;
+                                0.97e6,     31.2e6,     27.36e6,    28.08e6;
+                                1.12125e6,  26.52e6,    24.32e6,    24.96e6;
+                                1.455e6,    24.18e6,    22.344e6,   22.932e6;
+                                1.94e6,     21.06e6,    19.456e6,   19.968e6;
+                                2.425e6,    19.188e6,   17.936e6,   18.408e6;
+                                2.91e6,     17.784e6,   17.024e6,   17.472e6;
+                                3.395e6,    17.16e6,    16.416e6,   16.848e6;
+                                3.88e6,     16.38e6,    15.96e6,    16.38e6;
+                                4.365e6,    16.224e6,   15.58e6,    15.99e6;
+                                4.85e6,     16.224e6,   15.2e6,     15.6e6] <font color="darkgreen">
+    &quot;table for HI_iso=h(ZLPout_iso,Tsync)&quot;</font>;
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.GTunit"
+>ThermoPower.Gas.GTunit</A> GTunit(
+    pstart=0.999e5,
+    HH=42.53e6,
+    Tstart=280.55,
+    constantCompositionExhaust=true,
+    tableHI=tabHI,
+    tablePR=tabPR,
+    tableW=tabW,
+    Table=ThermoPower.Choices.TurboMachinery.TableTypes.matrix);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.SourceP"
+>ThermoPower.Gas.SourceP</A> SourceP1(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = <A HREF="ThermoPower_Media_Air.html#ThermoPower.Media.Air"
+>ThermoPower.Media.Air</A>,
+    p0=0.999e5,
+    T=280.55);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.SinkP"
+>ThermoPower.Gas.SinkP</A> SinkP1(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = <A HREF="ThermoPower_Media_FlueGas.html#ThermoPower.Media.FlueGas"
+>ThermoPower.Media.FlueGas</A>,
+    p0=1e5,
+    T=526 + 273);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Inertia"
+>Modelica.Mechanics.Rotational.Inertia</A> Inertia(J=1);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.SourceW"
+>ThermoPower.Gas.SourceW</A> SourceW1(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = <A HREF="ThermoPower_Media_NaturalGas.html#ThermoPower.Media.NaturalGas"
+>ThermoPower.Media.NaturalGas</A>,
+    T=291.44,
+    p0=12.5e5,
+    w0=0.365);
+  <A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.Generator"
+>Electrical.Generator</A> Generator(Np=2, eta=0.98);
+  <A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.Breaker"
+>Electrical.Breaker</A> Breaker;
+  <A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.Grid"
+>Electrical.Grid</A> Grid(Pn=1e9);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.IdealGear"
+>Modelica.Mechanics.Rotational.IdealGear</A> IdealGear1(ratio=(17372/60)/25);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.BooleanStep"
+>Modelica.Blocks.Sources.BooleanStep</A> BooleanStep1(startTime=1, startValue=true);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(SourceW1.flange, GTunit.Fuel_in);
+  <font color="red">connect</font>(SourceP1.flange, GTunit.Air_in);
+  <font color="red">connect</font>(GTunit.FlueGas_out, SinkP1.flange);
+  <font color="red">connect</font>(Generator.powerConnection, Breaker.connection1);
+  <font color="red">connect</font>(Breaker.connection2, Grid.connection);
+  <font color="red">connect</font>(GTunit.shaft_b, Inertia.flange_a);
+  <font color="red">connect</font>(Inertia.flange_b, IdealGear1.flange_a);
+  <font color="red">connect</font>(IdealGear1.flange_b, Generator.shaft);
+  <font color="red">connect</font>(BooleanStep1.y, Breaker.closed);
+<font color="blue">initial </font><font color="blue">equation </font>
+  Inertia.phi = 0;
+  <font color="red">der</font>(Inertia.w) = 0;
+
+<font color="blue">end </font>TestGT;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TestFanMech<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Test.GasElements.TestFanMech"></A><A HREF="ThermoPower_Test_GasElements.html#ThermoPower.Test.GasElements"
+>ThermoPower.Test.GasElements</A>.TestFanMech</H2>
+<IMG SRC="ThermoPower.Test.GasElements.TestFanMechD.png" ALT="ThermoPower.Test.GasElements.TestFanMech">
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TestFanMech
+
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.FanMech"
+>Gas.FanMech</A> FanMech1(<font color="blue">redeclare </font><font color="blue">package</font> Medium =
+        <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Media_Air_SimpleAir.html#Modelica.Media.Air.SimpleAir"
+>Modelica.Media.Air.SimpleAir</A>,
+    rho0=1.23,
+    n0=590,
+    pin_start=1e5,
+    bladePos0=0.8,
+    pout_start=1e5 + 5000,
+    <font color="blue">redeclare </font><font color="blue">function</font> flowCharacteristic = <A HREF="ThermoPower_Test_GasElements.html#ThermoPower.Test.GasElements.TestFanMech.flowChar"
+>flowChar</A>,
+    q_single_start=144);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.SinkP"
+>Gas.SinkP</A> SinkP1(<font color="blue">redeclare </font><font color="blue">package</font> Medium = <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Media_Air_SimpleAir.html#Modelica.Media.Air.SimpleAir"
+>Modelica.Media.Air.SimpleAir</A>);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.SourceP"
+>Gas.SourceP</A> SourceP1(<font color="blue">redeclare </font><font color="blue">package</font> Medium =
+        <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Media_Air_SimpleAir.html#Modelica.Media.Air.SimpleAir"
+>Modelica.Media.Air.SimpleAir</A>);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.ConstantSpeed"
+>Modelica.Mechanics.Rotational.ConstantSpeed</A> ConstantSpeed1(w_fixed=
+        <font color="red">Modelica.SIunits.Conversions.from_rpm</font>(590));
+  <font color="blue">function</font> flowChar = <A HREF="ThermoPower_Functions_FanCharacteristics.html#ThermoPower.Functions.FanCharacteristics.quadraticFlowBlades"
+>Functions.FanCharacteristics.quadraticFlowBlades</A> (
+    bladePos_nom={0.30, 0.35, 0.40, 0.45, 0.50, 0.55, 0.60, 0.65, 0.70, 0.75, 0.80, 0.85},
+    q_nom =      [   0,    0,  100,  300,  470,  620,  760,  900, 1000, 1100, 1300, 1500;
+                    70,  125,  310,  470,  640,  820, 1000, 1200, 1400, 1570, 1700, 1900;
+                   100,  200,  370,  530,  700,  900, 1100, 1300, 1500, 1750, 2000, 2300],
+    H_nom =      [3100, 3800, 3700, 3850, 4200, 4350, 4700, 4900, 5300, 5600, 5850, 6200;
+                  2000, 3000, 3000, 3000, 3000, 3200, 3200, 3300, 3600, 4200, 5000, 5500;
+                  1000, 2000, 2000, 2000, 2000, 1750, 1750, 2000, 2350, 2500, 2850, 3200]);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> Ramp1(
+    startTime=1,
+    height=0.55,
+    duration=9,
+    offset=0.30);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Step"
+>Modelica.Blocks.Sources.Step</A> Step1(
+    startTime=15,
+    height=-1,
+    offset=1);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Inertia"
+>Modelica.Mechanics.Rotational.Inertia</A> Inertia1(w(start=<font color="red">Modelica.SIunits.Conversions.from_rpm</font>(590)),
+      J=10000);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.PressDrop"
+>Gas.PressDrop</A> PressDrop1(
+    wnom=2000*1.229,
+    FFtype=ThermoPower.Choices.PressDrop.FFtypes.OpPoint,
+    dpnom=6000,
+    rhonom=1.229,
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Media_Air_SimpleAir.html#Modelica.Media.Air.SimpleAir"
+>Modelica.Media.Air.SimpleAir</A>);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Clutch"
+>Modelica.Mechanics.Rotational.Clutch</A> Clutch1(fn_max=1e6);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(SourceP1.flange, FanMech1.infl);
+  <font color="red">connect</font>(Ramp1.y, FanMech1.in_bladePos);
+  <font color="red">connect</font>(FanMech1.MechPort, Inertia1.flange_a);
+  <font color="red">connect</font>(PressDrop1.outlet, SinkP1.flange);
+  <font color="red">connect</font>(FanMech1.outfl, PressDrop1.inlet);
+  <font color="red">connect</font>(Inertia1.flange_b, Clutch1.flange_a);
+  <font color="red">connect</font>(Clutch1.flange_b, ConstantSpeed1.flange);
+  <font color="red">connect</font>(Step1.y, Clutch1.f_normalized);
+<font color="blue">end </font>TestFanMech;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE flowChar<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Test.GasElements.TestFanMech.flowCharI.png" ALT="ThermoPower.Test.GasElements.TestFanMech.flowChar" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Test.GasElements.TestFanMech.flowChar"></A><A HREF="ThermoPower_Test_GasElements.html#ThermoPower.Test.GasElements.TestFanMech"
+>ThermoPower.Test.GasElements.TestFanMech</A>.flowChar</H2>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.VolumeFlowRate"
+>VolumeFlowRate</A></TD><TD>q_flow</TD><TD>&nbsp;</TD><TD>Volumetric flow rate [m3/s]</TD></TR>
+<TR><TD>Real</TD><TD>bladePos</TD><TD>1</TD><TD>Blade position</TD></TR>
+<TR><TD>Real</TD><TD>bladePos_nom[:]</TD><TD>{0.30,0.35,0.40,0.45,0.50,0....</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.VolumeFlowRate"
+>VolumeFlowRate</A></TD><TD>q_nom[3, :]</TD><TD>[0, 0, 100, 300, 470, 620, 7...</TD><TD>Volume flow rate for three operating points at N_pos blade positionings [m3/s]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Height"
+>Height</A></TD><TD>H_nom[3, :]</TD><TD>[3100, 3800, 3700, 3850, 420...</TD><TD>Specific work for three operating points at N_pos blade positionings [m]</TD></TR>
+<TR><TD>Real</TD><TD>slope_s</TD><TD>0</TD><TD>Slope of flow characteristic at stalling conditions (must be negative) [(J/kg)/(m3/s)]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.SpecificEnergy"
+>SpecificEnergy</A></TD><TD>H</TD><TD>Specific Energy [J/kg]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> flowChar = <A HREF="ThermoPower_Functions_FanCharacteristics.html#ThermoPower.Functions.FanCharacteristics.quadraticFlowBlades"
+>Functions.FanCharacteristics.quadraticFlowBlades</A> (
+  bladePos_nom={0.30, 0.35, 0.40, 0.45, 0.50, 0.55, 0.60, 0.65, 0.70, 0.75, 0.80, 0.85},
+  q_nom =      [   0,    0,  100,  300,  470,  620,  760,  900, 1000, 1100, 1300, 1500;
+                  70,  125,  310,  470,  640,  820, 1000, 1200, 1400, 1570, 1700, 1900;
+                 100,  200,  370,  530,  700,  900, 1100, 1300, 1500, 1750, 2000, 2300],
+  H_nom =      [3100, 3800, 3700, 3850, 4200, 4350, 4700, 4900, 5300, 5600, 5850, 6200;
+                2000, 3000, 3000, 3000, 3000, 3200, 3200, 3300, 3600, 4200, 5000, 5500;
+                1000, 2000, 2000, 2000, 2000, 1750, 1750, 2000, 2350, 2500, 2850, 3200]);
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Tue Jul 07 01:26:08 2009.
+</address></BODY>
+</HTML>

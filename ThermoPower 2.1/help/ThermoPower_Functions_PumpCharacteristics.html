@@ -1,0 +1,455 @@
+<HTML>
+<HEAD>
+<TITLE>ThermoPower.Functions.PumpCharacteristics</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Functions for pump characteristics&quot;">
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PumpCharacteristics<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Functions.PumpCharacteristics"></A><A HREF="ThermoPower_Functions.html#ThermoPower.Functions"
+>ThermoPower.Functions</A>.PumpCharacteristics</H2>
+<B>Functions for pump characteristics</B>
+<P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="ThermoPower.Functions.PumpCharacteristics.baseFlowS.png" ALT="ThermoPower.Functions.PumpCharacteristics.baseFlow" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Functions_PumpCharacteristics.html#ThermoPower.Functions.PumpCharacteristics.baseFlow"
+>baseFlow</A>
+</TD><TD>Base class for pump flow characteristics</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Functions.PumpCharacteristics.baseFlowS.png" ALT="ThermoPower.Functions.PumpCharacteristics.basePower" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Functions_PumpCharacteristics.html#ThermoPower.Functions.PumpCharacteristics.basePower"
+>basePower</A>
+</TD><TD>Base class for pump power consumption characteristics</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Functions.PumpCharacteristics.baseFlowS.png" ALT="ThermoPower.Functions.PumpCharacteristics.baseEfficiency" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Functions_PumpCharacteristics.html#ThermoPower.Functions.PumpCharacteristics.baseEfficiency"
+>baseEfficiency</A>
+</TD><TD>Base class for efficiency characteristics</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Functions.PumpCharacteristics.baseFlowS.png" ALT="ThermoPower.Functions.PumpCharacteristics.linearFlow" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Functions_PumpCharacteristics.html#ThermoPower.Functions.PumpCharacteristics.linearFlow"
+>linearFlow</A>
+</TD><TD>Linear flow characteristic</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Functions.PumpCharacteristics.baseFlowS.png" ALT="ThermoPower.Functions.PumpCharacteristics.quadraticFlow" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Functions_PumpCharacteristics.html#ThermoPower.Functions.PumpCharacteristics.quadraticFlow"
+>quadraticFlow</A>
+</TD><TD>Quadratic flow characteristic</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Functions.PumpCharacteristics.baseFlowS.png" ALT="ThermoPower.Functions.PumpCharacteristics.polynomialFlow" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Functions_PumpCharacteristics.html#ThermoPower.Functions.PumpCharacteristics.polynomialFlow"
+>polynomialFlow</A>
+</TD><TD>Polynomial flow characteristic</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Functions.PumpCharacteristics.baseFlowS.png" ALT="ThermoPower.Functions.PumpCharacteristics.constantPower" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Functions_PumpCharacteristics.html#ThermoPower.Functions.PumpCharacteristics.constantPower"
+>constantPower</A>
+</TD><TD>Constant power consumption characteristic</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Functions.PumpCharacteristics.baseFlowS.png" ALT="ThermoPower.Functions.PumpCharacteristics.linearPower" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Functions_PumpCharacteristics.html#ThermoPower.Functions.PumpCharacteristics.linearPower"
+>linearPower</A>
+</TD><TD>Linear power consumption characteristic</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Functions.PumpCharacteristics.baseFlowS.png" ALT="ThermoPower.Functions.PumpCharacteristics.quadraticPower" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Functions_PumpCharacteristics.html#ThermoPower.Functions.PumpCharacteristics.quadraticPower"
+>quadraticPower</A>
+</TD><TD>Quadratic power consumption characteristic</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Functions.PumpCharacteristics.baseFlowS.png" ALT="ThermoPower.Functions.PumpCharacteristics.constantEfficiency" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Functions_PumpCharacteristics.html#ThermoPower.Functions.PumpCharacteristics.constantEfficiency"
+>constantEfficiency</A>
+</TD><TD>Constant efficiency characteristic</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE baseFlow<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Functions.PumpCharacteristics.baseFlowI.png" ALT="ThermoPower.Functions.PumpCharacteristics.baseFlow" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Functions.PumpCharacteristics.baseFlow"></A><A HREF="ThermoPower_Functions_PumpCharacteristics.html#ThermoPower.Functions.PumpCharacteristics"
+>ThermoPower.Functions.PumpCharacteristics</A>.baseFlow</H2>
+<B>Base class for pump flow characteristics</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.VolumeFlowRate"
+>VolumeFlowRate</A></TD><TD>q_flow</TD><TD>&nbsp;</TD><TD>Volumetric flow rate [m3/s]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Height"
+>Height</A></TD><TD>head</TD><TD>Pump head [m]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">partial </font><font color="blue">function</font> baseFlow <font color="darkgreen">&quot;Base class for pump flow characteristics&quot;</font>
+  <font color="blue">extends </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.VolumeFlowRate"
+>Modelica.SIunits.VolumeFlowRate</A> q_flow <font color="darkgreen">&quot;Volumetric flow rate&quot;</font>;
+  <font color="blue">output </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Height"
+>Modelica.SIunits.Height</A> head <font color="darkgreen">&quot;Pump head&quot;</font>;
+<font color="blue">end </font>baseFlow;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE basePower<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Functions.PumpCharacteristics.baseFlowI.png" ALT="ThermoPower.Functions.PumpCharacteristics.basePower" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Functions.PumpCharacteristics.basePower"></A><A HREF="ThermoPower_Functions_PumpCharacteristics.html#ThermoPower.Functions.PumpCharacteristics"
+>ThermoPower.Functions.PumpCharacteristics</A>.basePower</H2>
+<B>Base class for pump power consumption characteristics</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.VolumeFlowRate"
+>VolumeFlowRate</A></TD><TD>q_flow</TD><TD>&nbsp;</TD><TD>Volumetric flow rate [m3/s]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Power</A></TD><TD>consumption</TD><TD>Power consumption at nominal density [W]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">partial </font><font color="blue">function</font> basePower <font color="darkgreen">
+  &quot;Base class for pump power consumption characteristics&quot;</font>
+  <font color="blue">extends </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.VolumeFlowRate"
+>Modelica.SIunits.VolumeFlowRate</A> q_flow <font color="darkgreen">&quot;Volumetric flow rate&quot;</font>;
+  <font color="blue">output </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Modelica.SIunits.Power</A> consumption <font color="darkgreen">
+    &quot;Power consumption at nominal density&quot;</font>;
+<font color="blue">end </font>basePower;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE baseEfficiency<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Functions.PumpCharacteristics.baseFlowI.png" ALT="ThermoPower.Functions.PumpCharacteristics.baseEfficiency" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Functions.PumpCharacteristics.baseEfficiency"></A><A HREF="ThermoPower_Functions_PumpCharacteristics.html#ThermoPower.Functions.PumpCharacteristics"
+>ThermoPower.Functions.PumpCharacteristics</A>.baseEfficiency</H2>
+<B>Base class for efficiency characteristics</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.VolumeFlowRate"
+>VolumeFlowRate</A></TD><TD>q_flow</TD><TD>&nbsp;</TD><TD>Volumetric flow rate [m3/s]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>eta</TD><TD>Efficiency</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">partial </font><font color="blue">function</font> baseEfficiency <font color="darkgreen">
+  &quot;Base class for efficiency characteristics&quot;</font>
+  <font color="blue">extends </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.VolumeFlowRate"
+>Modelica.SIunits.VolumeFlowRate</A> q_flow <font color="darkgreen">&quot;Volumetric flow rate&quot;</font>;
+  <font color="blue">output </font>Real eta <font color="darkgreen">&quot;Efficiency&quot;</font>;
+<font color="blue">end </font>baseEfficiency;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE linearFlow<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Functions.PumpCharacteristics.baseFlowI.png" ALT="ThermoPower.Functions.PumpCharacteristics.linearFlow" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Functions.PumpCharacteristics.linearFlow"></A><A HREF="ThermoPower_Functions_PumpCharacteristics.html#ThermoPower.Functions.PumpCharacteristics"
+>ThermoPower.Functions.PumpCharacteristics</A>.linearFlow</H2>
+<B>Linear flow characteristic</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.VolumeFlowRate"
+>VolumeFlowRate</A></TD><TD>q_flow</TD><TD>&nbsp;</TD><TD>Volumetric flow rate [m3/s]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.VolumeFlowRate"
+>VolumeFlowRate</A></TD><TD>q_nom[2]</TD><TD>&nbsp;</TD><TD>Volume flow rate for two operating points (single pump) [m3/s]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Height"
+>Height</A></TD><TD>head_nom[2]</TD><TD>&nbsp;</TD><TD>Pump head for two operating points [m]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Height"
+>Height</A></TD><TD>head</TD><TD>Pump head [m]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> linearFlow <font color="darkgreen">&quot;Linear flow characteristic&quot;</font>
+  <font color="blue">extends </font><A HREF="ThermoPower_Functions_PumpCharacteristics.html#ThermoPower.Functions.PumpCharacteristics.baseFlow"
+>baseFlow</A>;
+  <font color="blue">input </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.VolumeFlowRate"
+>Modelica.SIunits.VolumeFlowRate</A> q_nom[2] <font color="darkgreen">
+    &quot;Volume flow rate for two operating points (single pump)&quot;</font>;
+  <font color="blue">input </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Height"
+>Modelica.SIunits.Height</A> head_nom[2] <font color="darkgreen">
+    &quot;Pump head for two operating points&quot;</font>;
+  <font color="darkgreen">/* Linear system to determine the coefficients:
+  head_nom[1] = c[1] + q_nom[1]*c[2];
+  head_nom[2] = c[1] + q_nom[2]*c[2];
+  */</font>
+<font color="blue">protected </font>
+  Real c[2] =<font color="red"> Modelica.Math.Matrices.solve</font>([<font color="red">ones</font>(2),q_nom],head_nom) <font color="darkgreen">
+    &quot;Coefficients of linear head curve&quot;</font>;
+<font color="blue">algorithm </font>
+  <font color="darkgreen">// Flow equation: head = q*c[1] + c[2];</font>
+  head :=  c[1] + q_flow*c[2];
+<font color="blue">end </font>linearFlow;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE quadraticFlow<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Functions.PumpCharacteristics.baseFlowI.png" ALT="ThermoPower.Functions.PumpCharacteristics.quadraticFlow" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Functions.PumpCharacteristics.quadraticFlow"></A><A HREF="ThermoPower_Functions_PumpCharacteristics.html#ThermoPower.Functions.PumpCharacteristics"
+>ThermoPower.Functions.PumpCharacteristics</A>.quadraticFlow</H2>
+<B>Quadratic flow characteristic</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.VolumeFlowRate"
+>VolumeFlowRate</A></TD><TD>q_flow</TD><TD>&nbsp;</TD><TD>Volumetric flow rate [m3/s]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.VolumeFlowRate"
+>VolumeFlowRate</A></TD><TD>q_nom[3]</TD><TD>&nbsp;</TD><TD>Volume flow rate for three operating points (single pump) [m3/s]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Height"
+>Height</A></TD><TD>head_nom[3]</TD><TD>&nbsp;</TD><TD>Pump head for three operating points [m]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Height"
+>Height</A></TD><TD>head</TD><TD>Pump head [m]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> quadraticFlow <font color="darkgreen">&quot;Quadratic flow characteristic&quot;</font>
+  <font color="blue">extends </font><A HREF="ThermoPower_Functions_PumpCharacteristics.html#ThermoPower.Functions.PumpCharacteristics.baseFlow"
+>baseFlow</A>;
+  <font color="blue">input </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.VolumeFlowRate"
+>Modelica.SIunits.VolumeFlowRate</A> q_nom[3] <font color="darkgreen">
+    &quot;Volume flow rate for three operating points (single pump)&quot;</font>;
+  <font color="blue">input </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Height"
+>Modelica.SIunits.Height</A> head_nom[3] <font color="darkgreen">
+    &quot;Pump head for three operating points&quot;</font>;
+<font color="blue">protected </font>
+  Real q_nom2[3] = {q_nom[1]^2,q_nom[2]^2, q_nom[3]^2} <font color="darkgreen">
+    &quot;Squared nominal flow rates&quot;</font>;
+  <font color="darkgreen">/* Linear system to determine the coefficients:
+  head_nom[1] = c[1] + q_nom[1]*c[2] + q_nom[1]^2*c[3];
+  head_nom[2] = c[1] + q_nom[2]*c[2] + q_nom[2]^2*c[3];
+  head_nom[3] = c[1] + q_nom[3]*c[2] + q_nom[3]^2*c[3];
+  */</font>
+  Real c[3] =<font color="red"> Modelica.Math.Matrices.solve</font>([<font color="red">ones</font>(3), q_nom, q_nom2],head_nom) <font color="darkgreen">
+    &quot;Coefficients of quadratic head curve&quot;</font>;
+<font color="blue">algorithm </font>
+  <font color="darkgreen">// Flow equation: head = c[1] + q_flow*c[2] + q_flow^2*c[3];</font>
+  head := c[1] + q_flow*c[2] + q_flow^2*c[3];
+<font color="blue">end </font>quadraticFlow;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE polynomialFlow<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Functions.PumpCharacteristics.baseFlowI.png" ALT="ThermoPower.Functions.PumpCharacteristics.polynomialFlow" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Functions.PumpCharacteristics.polynomialFlow"></A><A HREF="ThermoPower_Functions_PumpCharacteristics.html#ThermoPower.Functions.PumpCharacteristics"
+>ThermoPower.Functions.PumpCharacteristics</A>.polynomialFlow</H2>
+<B>Polynomial flow characteristic</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.VolumeFlowRate"
+>VolumeFlowRate</A></TD><TD>q_flow</TD><TD>&nbsp;</TD><TD>Volumetric flow rate [m3/s]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.VolumeFlowRate"
+>VolumeFlowRate</A></TD><TD>q_nom[:]</TD><TD>&nbsp;</TD><TD>Volume flow rate for N operating points (single pump) [m3/s]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Height"
+>Height</A></TD><TD>head_nom[:]</TD><TD>&nbsp;</TD><TD>Pump head for N operating points [m]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Height"
+>Height</A></TD><TD>head</TD><TD>Pump head [m]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> polynomialFlow <font color="darkgreen">&quot;Polynomial flow characteristic&quot;</font>
+  <font color="blue">extends </font><A HREF="ThermoPower_Functions_PumpCharacteristics.html#ThermoPower.Functions.PumpCharacteristics.baseFlow"
+>baseFlow</A>;
+  <font color="blue">input </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.VolumeFlowRate"
+>Modelica.SIunits.VolumeFlowRate</A> q_nom[:] <font color="darkgreen">
+    &quot;Volume flow rate for N operating points (single pump)&quot;</font>;
+  <font color="blue">input </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Height"
+>Modelica.SIunits.Height</A> head_nom[:] <font color="darkgreen">&quot;Pump head for N operating points&quot;</font>;
+  <font color="blue">constant </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.VolumeFlowRate"
+>VolumeFlowRate</A> q_eps = 1e-6 <font color="darkgreen">
+    &quot;Small coefficient to avoid numerical singularities&quot;</font>;
+<font color="blue">protected </font>
+  Integer N =<font color="red"> size</font>(q_nom,1) <font color="darkgreen">&quot;Number of nominal operating points&quot;</font>;
+  Real q_nom_pow[N,N] = {{q_nom[i]^(j-1) <font color="blue">for </font>j<font color="blue"> in </font>1:N} <font color="blue">for </font>i<font color="blue"> in </font>1:N} <font color="darkgreen">
+    &quot;Rows: different operating points; columns: increasing powers&quot;</font>;
+  <font color="darkgreen">/* Linear system to determine the coefficients (example N=3):
+  head_nom[1] = c[1] + q_nom[1]*c[2] + q_nom[1]^2*c[3];
+  head_nom[2] = c[1] + q_nom[2]*c[2] + q_nom[2]^2*c[3];
+  head_nom[3] = c[1] + q_nom[3]*c[2] + q_nom[3]^2*c[3];
+  */</font>
+  Real c[N] =<font color="red"> Modelica.Math.Matrices.solve</font>(q_nom_pow,head_nom) <font color="darkgreen">
+    &quot;Coefficients of polynomial head curve&quot;</font>;
+<font color="blue">algorithm </font>
+  <font color="darkgreen">// Flow equation (example N=3): head = c[1] + q_flow*c[2] + q_flow^2*c[3];</font>
+  <font color="darkgreen">// Note: the implementation is numerically efficient only for low values of N</font>
+  head :=<font color="red"> sum</font>((q_flow + q_eps)^(i-1)*c[i] <font color="blue">for </font>i<font color="blue"> in </font>1:N);
+<font color="blue">end </font>polynomialFlow;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE constantPower<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Functions.PumpCharacteristics.baseFlowI.png" ALT="ThermoPower.Functions.PumpCharacteristics.constantPower" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Functions.PumpCharacteristics.constantPower"></A><A HREF="ThermoPower_Functions_PumpCharacteristics.html#ThermoPower.Functions.PumpCharacteristics"
+>ThermoPower.Functions.PumpCharacteristics</A>.constantPower</H2>
+<B>Constant power consumption characteristic</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.VolumeFlowRate"
+>VolumeFlowRate</A></TD><TD>q_flow</TD><TD>&nbsp;</TD><TD>Volumetric flow rate [m3/s]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Power</A></TD><TD>power</TD><TD>0</TD><TD>Constant power consumption [W]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Power</A></TD><TD>consumption</TD><TD>Power consumption at nominal density [W]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> constantPower <font color="darkgreen">&quot;Constant power consumption characteristic&quot;</font>
+    <font color="blue">extends </font><A HREF="ThermoPower_Functions_PumpCharacteristics.html#ThermoPower.Functions.PumpCharacteristics.basePower"
+>basePower</A>;
+  <font color="blue">input </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Modelica.SIunits.Power</A> power = 0 <font color="darkgreen">&quot;Constant power consumption&quot;</font>;
+<font color="blue">algorithm </font>
+  consumption := power;
+<font color="blue">end </font>constantPower;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE linearPower<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Functions.PumpCharacteristics.baseFlowI.png" ALT="ThermoPower.Functions.PumpCharacteristics.linearPower" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Functions.PumpCharacteristics.linearPower"></A><A HREF="ThermoPower_Functions_PumpCharacteristics.html#ThermoPower.Functions.PumpCharacteristics"
+>ThermoPower.Functions.PumpCharacteristics</A>.linearPower</H2>
+<B>Linear power consumption characteristic</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.VolumeFlowRate"
+>VolumeFlowRate</A></TD><TD>q_flow</TD><TD>&nbsp;</TD><TD>Volumetric flow rate [m3/s]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.VolumeFlowRate"
+>VolumeFlowRate</A></TD><TD>q_nom[2]</TD><TD>&nbsp;</TD><TD>Volume flow rate for two operating points (single pump) [m3/s]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Power</A></TD><TD>W_nom[2]</TD><TD>&nbsp;</TD><TD>Power consumption for two operating points [W]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Power</A></TD><TD>consumption</TD><TD>Power consumption at nominal density [W]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> linearPower <font color="darkgreen">&quot;Linear power consumption characteristic&quot;</font>
+  <font color="blue">extends </font><A HREF="ThermoPower_Functions_PumpCharacteristics.html#ThermoPower.Functions.PumpCharacteristics.basePower"
+>basePower</A>;
+  <font color="blue">input </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.VolumeFlowRate"
+>Modelica.SIunits.VolumeFlowRate</A> q_nom[2] <font color="darkgreen">
+    &quot;Volume flow rate for two operating points (single pump)&quot;</font>;
+  <font color="blue">input </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Modelica.SIunits.Power</A> W_nom[2] <font color="darkgreen">
+    &quot;Power consumption for two operating points&quot;</font>;
+  <font color="darkgreen">/* Linear system to determine the coefficients:
+  W_nom[1] = c[1] + q_nom[1]*c[2];
+  W_nom[2] = c[1] + q_nom[2]*c[2];
+  */</font>
+<font color="blue">protected </font>
+  Real c[2] =<font color="red"> Modelica.Math.Matrices.solve</font>([<font color="red">ones</font>(2),q_nom],W_nom) <font color="darkgreen">
+    &quot;Coefficients of quadratic power consumption curve&quot;</font>;
+<font color="blue">algorithm </font>
+  consumption := c[1] + q_flow*c[2];
+<font color="blue">end </font>linearPower;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE quadraticPower<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Functions.PumpCharacteristics.baseFlowI.png" ALT="ThermoPower.Functions.PumpCharacteristics.quadraticPower" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Functions.PumpCharacteristics.quadraticPower"></A><A HREF="ThermoPower_Functions_PumpCharacteristics.html#ThermoPower.Functions.PumpCharacteristics"
+>ThermoPower.Functions.PumpCharacteristics</A>.quadraticPower</H2>
+<B>Quadratic power consumption characteristic</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.VolumeFlowRate"
+>VolumeFlowRate</A></TD><TD>q_flow</TD><TD>&nbsp;</TD><TD>Volumetric flow rate [m3/s]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.VolumeFlowRate"
+>VolumeFlowRate</A></TD><TD>q_nom[3]</TD><TD>&nbsp;</TD><TD>Volume flow rate for three operating points (single pump) [m3/s]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Power</A></TD><TD>W_nom[3]</TD><TD>&nbsp;</TD><TD>Power consumption for three operating points [W]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Power</A></TD><TD>consumption</TD><TD>Power consumption at nominal density [W]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> quadraticPower <font color="darkgreen">&quot;Quadratic power consumption characteristic&quot;</font>
+  <font color="blue">extends </font><A HREF="ThermoPower_Functions_PumpCharacteristics.html#ThermoPower.Functions.PumpCharacteristics.basePower"
+>basePower</A>;
+  <font color="blue">input </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.VolumeFlowRate"
+>Modelica.SIunits.VolumeFlowRate</A> q_nom[3] <font color="darkgreen">
+    &quot;Volume flow rate for three operating points (single pump)&quot;</font>;
+  <font color="blue">input </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Modelica.SIunits.Power</A> W_nom[3] <font color="darkgreen">
+    &quot;Power consumption for three operating points&quot;</font>;
+<font color="blue">protected </font>
+  Real q_nom2[3] = {q_nom[1]^2,q_nom[2]^2, q_nom[3]^2} <font color="darkgreen">
+    &quot;Squared nominal flow rates&quot;</font>;
+  <font color="darkgreen">/* Linear system to determine the coefficients:
+  W_nom[1] = c[1] + q_nom[1]*c[2] + q_nom[1]^2*c[3];
+  W_nom[2] = c[1] + q_nom[2]*c[2] + q_nom[2]^2*c[3];
+  W_nom[3] = c[1] + q_nom[3]*c[2] + q_nom[3]^2*c[3];
+  */</font>
+  Real c[3] =<font color="red"> Modelica.Math.Matrices.solve</font>([<font color="red">ones</font>(3),q_nom,q_nom2],W_nom) <font color="darkgreen">
+    &quot;Coefficients of quadratic power consumption curve&quot;</font>;
+<font color="blue">algorithm </font>
+  consumption := c[1] + q_flow*c[2] + q_flow^2*c[3];
+<font color="blue">end </font>quadraticPower;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE constantEfficiency<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Functions.PumpCharacteristics.baseFlowI.png" ALT="ThermoPower.Functions.PumpCharacteristics.constantEfficiency" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Functions.PumpCharacteristics.constantEfficiency"></A><A HREF="ThermoPower_Functions_PumpCharacteristics.html#ThermoPower.Functions.PumpCharacteristics"
+>ThermoPower.Functions.PumpCharacteristics</A>.constantEfficiency</H2>
+<B>Constant efficiency characteristic</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.VolumeFlowRate"
+>VolumeFlowRate</A></TD><TD>q_flow</TD><TD>&nbsp;</TD><TD>Volumetric flow rate [m3/s]</TD></TR>
+<TR><TD>Real</TD><TD>eta_nom</TD><TD>&nbsp;</TD><TD>Nominal efficiency</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>eta</TD><TD>Efficiency</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> constantEfficiency <font color="darkgreen">&quot;Constant efficiency characteristic&quot;</font>
+   <font color="blue">extends </font><A HREF="ThermoPower_Functions_PumpCharacteristics.html#ThermoPower.Functions.PumpCharacteristics.baseEfficiency"
+>baseEfficiency</A>;
+   <font color="blue">input </font>Real eta_nom <font color="darkgreen">&quot;Nominal efficiency&quot;</font>;
+<font color="blue">algorithm </font>
+  eta := eta_nom;
+<font color="blue">end </font>constantEfficiency;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Tue Jul 07 01:21:58 2009.
+</address></BODY>
+</HTML>

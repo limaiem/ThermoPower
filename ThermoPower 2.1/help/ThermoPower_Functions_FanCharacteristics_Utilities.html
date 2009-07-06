@@ -1,0 +1,133 @@
+<HTML>
+<HEAD>
+<TITLE>ThermoPower.Functions.FanCharacteristics.Utilities</TITLE>
+<META name="HTML-Generator" content="Dymola">
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Utilities<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Functions.FanCharacteristics.Utilities"></A><A HREF="ThermoPower_Functions_FanCharacteristics.html#ThermoPower.Functions.FanCharacteristics"
+>ThermoPower.Functions.FanCharacteristics</A>.Utilities</H2>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="ThermoPower.Functions.FanCharacteristics.Utilities.quadraticFlowBladesS.png" ALT="ThermoPower.Functions.FanCharacteristics.Utilities.quadraticFlowBlades" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Functions_FanCharacteristics_Utilities.html#ThermoPower.Functions.FanCharacteristics.Utilities.quadraticFlowBlades"
+>quadraticFlowBlades</A>
+</TD><TD>Quadratic flow characteristic, movable blades</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Functions.FanCharacteristics.Utilities.quadraticFlowBladesS.png" ALT="ThermoPower.Functions.FanCharacteristics.Utilities.quadraticFlowBladesCoeff" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Functions_FanCharacteristics_Utilities.html#ThermoPower.Functions.FanCharacteristics.Utilities.quadraticFlowBladesCoeff"
+>quadraticFlowBladesCoeff</A>
+</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE quadraticFlowBlades<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Functions.FanCharacteristics.Utilities.quadraticFlowBladesI.png" ALT="ThermoPower.Functions.FanCharacteristics.Utilities.quadraticFlowBlades" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Functions.FanCharacteristics.Utilities.quadraticFlowBlades"></A><A HREF="ThermoPower_Functions_FanCharacteristics_Utilities.html#ThermoPower.Functions.FanCharacteristics.Utilities"
+>ThermoPower.Functions.FanCharacteristics.Utilities</A>.quadraticFlowBlades</H2>
+<B>Quadratic flow characteristic, movable blades</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.VolumeFlowRate"
+>VolumeFlowRate</A></TD><TD>q_flow</TD><TD>&nbsp;</TD><TD>[m3/s]</TD></TR>
+<TR><TD>Real</TD><TD>bladePos</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Real</TD><TD>bladePos_nom[:]</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Real</TD><TD>c[:, :]</TD><TD>&nbsp;</TD><TD>Coefficients of quadratic specific work characteristic</TD></TR>
+<TR><TD>Real</TD><TD>slope_s</TD><TD>0</TD><TD>Slope of flow characteristic at stalling conditions (must be negative) [(J/kg)/(m3/s)]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.SpecificEnergy"
+>SpecificEnergy</A></TD><TD>H</TD><TD>Specific Energy [J/kg]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> quadraticFlowBlades <font color="darkgreen">
+  &quot;Quadratic flow characteristic, movable blades&quot;</font>
+  <font color="blue">extends </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.VolumeFlowRate"
+>Modelica.SIunits.VolumeFlowRate</A> q_flow;
+  <font color="blue">input </font>Real bladePos;
+  <font color="blue">input </font>Real bladePos_nom[:];
+  <font color="blue">input </font>Real c[:,:] <font color="darkgreen">&quot;Coefficients of quadratic specific work characteristic&quot;</font>;
+  <font color="blue">input </font>Real slope_s(unit = &quot;(J/kg)/(m3/s)&quot;, max = 0) = 0 <font color="darkgreen">
+    &quot;Slope of flow characteristic at stalling conditions (must be negative)&quot;</font>;
+  <font color="blue">output </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.SpecificEnergy"
+>SpecificEnergy</A> H <font color="darkgreen">&quot;Specific Energy&quot;</font>;
+<font color="blue">protected </font>
+  Integer N_pos=<font color="red">size</font>(bladePos_nom,1);
+  Integer i;
+  Real alpha;
+  Real q_s <font color="darkgreen">&quot;Volume flow rate at stalling conditions&quot;</font>;
+<font color="blue">algorithm </font>
+  <font color="darkgreen">// Flow equation: H = c[1] + q_flow*c[2] + q_flow^2*c[3];</font>
+  i := N_pos-1;
+  <font color="blue">while </font>bladePos &lt;= bladePos_nom[i]<font color="blue"> and </font>i &gt; 1<font color="blue"> loop</font>
+    i := i - 1;
+  <font color="blue">end while</font>;
+  alpha := (bladePos-bladePos_nom[i])/(bladePos_nom[i+1]-bladePos_nom[i]);
+  q_s :=(slope_s-((1 - alpha)*c[2, i] + alpha*c[2, i + 1]))/
+        (2*((1 - alpha)*c[3, i] + alpha*c[3, i + 1]));
+  H:= <font color="blue">if </font>q_flow &gt; q_s<font color="blue"> then </font>
+       ((1-alpha)*c[1,i] + alpha*c[1,i+1]) +
+       ((1-alpha)*c[2,i] + alpha*c[2,i+1])*q_flow +
+       ((1-alpha)*c[3,i] + alpha*c[3,i+1])*q_flow^2<font color="blue"> else </font>
+       ((1-alpha)*c[1,i] + alpha*c[1,i+1]) +
+       ((1-alpha)*c[2,i] + alpha*c[2,i+1])*q_s +
+       ((1-alpha)*c[3,i] + alpha*c[3,i+1])*q_s^2 +
+       (q_flow - q_s)*slope_s;
+<font color="blue">end </font>quadraticFlowBlades;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE quadraticFlowBladesCoeff<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Functions.FanCharacteristics.Utilities.quadraticFlowBladesI.png" ALT="ThermoPower.Functions.FanCharacteristics.Utilities.quadraticFlowBladesCoeff" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Functions.FanCharacteristics.Utilities.quadraticFlowBladesCoeff"></A><A HREF="ThermoPower_Functions_FanCharacteristics_Utilities.html#ThermoPower.Functions.FanCharacteristics.Utilities"
+>ThermoPower.Functions.FanCharacteristics.Utilities</A>.quadraticFlowBladesCoeff</H2>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>bladePos_nom[:]</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.VolumeFlowRate"
+>VolumeFlowRate</A></TD><TD>q_nom[3, :]</TD><TD>&nbsp;</TD><TD>Volume flow rate for three operating points at N_pos blade positionings [m3/s]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Height"
+>Height</A></TD><TD>H_nom[3, :]</TD><TD>&nbsp;</TD><TD>Specific work for three operating points at N_pos blade positionings [m]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>c[3, size(bladePos_nom, 1)]</TD><TD>Coefficients of quadratic specific work characteristic</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> quadraticFlowBladesCoeff
+  <font color="blue">extends </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font>Real bladePos_nom[:];
+  <font color="blue">input </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.VolumeFlowRate"
+>Modelica.SIunits.VolumeFlowRate</A> q_nom[3,:] <font color="darkgreen">
+    &quot;Volume flow rate for three operating points at N_pos blade positionings&quot;</font>;
+  <font color="blue">input </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Height"
+>Modelica.SIunits.Height</A> H_nom[3,:] <font color="darkgreen">
+    &quot;Specific work for three operating points at N_pos blade positionings&quot;</font>;
+  <font color="blue">output </font>Real c[3,<font color="red">size</font>(bladePos_nom,1)] <font color="darkgreen">
+    &quot;Coefficients of quadratic specific work characteristic&quot;</font>;
+<font color="blue">protected </font>
+  Integer N_pos=<font color="red">size</font>(bladePos_nom,1);
+  Real q_nom2[3];
+<font color="blue">algorithm </font>
+  <font color="blue">for </font>j<font color="blue"> in </font>1:N_pos<font color="blue"> loop</font>
+   q_nom2 := {q_nom[1, j]^2,q_nom[2, j]^2,q_nom[3, j]^2};
+   c[:,j] :=<font color="red"> Modelica.Math.Matrices.solve</font>([<font color="red">ones</font>(3),q_nom[:,j],q_nom2], H_nom[:,j]);
+  <font color="blue">end for</font>;
+<font color="blue">end </font>quadraticFlowBladesCoeff;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Tue Jul 07 01:21:59 2009.
+</address></BODY>
+</HTML>

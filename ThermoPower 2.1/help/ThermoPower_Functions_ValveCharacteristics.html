@@ -1,0 +1,219 @@
+<HTML>
+<HEAD>
+<TITLE>ThermoPower.Functions.ValveCharacteristics</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Functions for valve characteristics&quot;">
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ValveCharacteristics<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Functions.ValveCharacteristics"></A><A HREF="ThermoPower_Functions.html#ThermoPower.Functions"
+>ThermoPower.Functions</A>.ValveCharacteristics</H2>
+<B>Functions for valve characteristics</B>
+<P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="ThermoPower.Functions.PumpCharacteristics.baseFlowS.png" ALT="ThermoPower.Functions.ValveCharacteristics.baseFun" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Functions_ValveCharacteristics.html#ThermoPower.Functions.ValveCharacteristics.baseFun"
+>baseFun</A>
+</TD><TD>Base class for valve characteristics</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Functions.PumpCharacteristics.baseFlowS.png" ALT="ThermoPower.Functions.ValveCharacteristics.linear" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Functions_ValveCharacteristics.html#ThermoPower.Functions.ValveCharacteristics.linear"
+>linear</A>
+</TD><TD>Linear characteristic</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Functions.PumpCharacteristics.baseFlowS.png" ALT="ThermoPower.Functions.ValveCharacteristics.one" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Functions_ValveCharacteristics.html#ThermoPower.Functions.ValveCharacteristics.one"
+>one</A>
+</TD><TD>Constant characteristic</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Functions.PumpCharacteristics.baseFlowS.png" ALT="ThermoPower.Functions.ValveCharacteristics.quadratic" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Functions_ValveCharacteristics.html#ThermoPower.Functions.ValveCharacteristics.quadratic"
+>quadratic</A>
+</TD><TD>Quadratic characteristic</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Functions.PumpCharacteristics.baseFlowS.png" ALT="ThermoPower.Functions.ValveCharacteristics.equalPercentage" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Functions_ValveCharacteristics.html#ThermoPower.Functions.ValveCharacteristics.equalPercentage"
+>equalPercentage</A>
+</TD><TD>Equal percentage characteristic</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Functions.PumpCharacteristics.baseFlowS.png" ALT="ThermoPower.Functions.ValveCharacteristics.sinusoidal" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Functions_ValveCharacteristics.html#ThermoPower.Functions.ValveCharacteristics.sinusoidal"
+>sinusoidal</A>
+</TD><TD>Sinusoidal characteristic</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE baseFun<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Functions.ValveCharacteristics.baseFunI.png" ALT="ThermoPower.Functions.ValveCharacteristics.baseFun" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Functions.ValveCharacteristics.baseFun"></A><A HREF="ThermoPower_Functions_ValveCharacteristics.html#ThermoPower.Functions.ValveCharacteristics"
+>ThermoPower.Functions.ValveCharacteristics</A>.baseFun</H2>
+<B>Base class for valve characteristics</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>pos</TD><TD>&nbsp;</TD><TD>Stem position (per unit)</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>rc</TD><TD>Relative coefficient (per unit)</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">partial </font><font color="blue">function</font> baseFun <font color="darkgreen">&quot;Base class for valve characteristics&quot;</font>
+  <font color="blue">extends </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font>Real pos <font color="darkgreen">&quot;Stem position (per unit)&quot;</font>;
+  <font color="blue">output </font>Real rc <font color="darkgreen">&quot;Relative coefficient (per unit)&quot;</font>;
+<font color="blue">end </font>baseFun;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE linear<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Functions.ValveCharacteristics.baseFunI.png" ALT="ThermoPower.Functions.ValveCharacteristics.linear" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Functions.ValveCharacteristics.linear"></A><A HREF="ThermoPower_Functions_ValveCharacteristics.html#ThermoPower.Functions.ValveCharacteristics"
+>ThermoPower.Functions.ValveCharacteristics</A>.linear</H2>
+<B>Linear characteristic</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>pos</TD><TD>&nbsp;</TD><TD>Stem position (per unit)</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>rc</TD><TD>Relative coefficient (per unit)</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> linear <font color="darkgreen">&quot;Linear characteristic&quot;</font>
+  <font color="blue">extends </font><A HREF="ThermoPower_Functions_ValveCharacteristics.html#ThermoPower.Functions.ValveCharacteristics.baseFun"
+>baseFun</A>;
+<font color="blue">algorithm </font>
+  rc := pos;
+<font color="blue">end </font>linear;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE one<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Functions.ValveCharacteristics.baseFunI.png" ALT="ThermoPower.Functions.ValveCharacteristics.one" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Functions.ValveCharacteristics.one"></A><A HREF="ThermoPower_Functions_ValveCharacteristics.html#ThermoPower.Functions.ValveCharacteristics"
+>ThermoPower.Functions.ValveCharacteristics</A>.one</H2>
+<B>Constant characteristic</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>pos</TD><TD>&nbsp;</TD><TD>Stem position (per unit)</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>rc</TD><TD>Relative coefficient (per unit)</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> one <font color="darkgreen">&quot;Constant characteristic&quot;</font>
+  <font color="blue">extends </font><A HREF="ThermoPower_Functions_ValveCharacteristics.html#ThermoPower.Functions.ValveCharacteristics.baseFun"
+>baseFun</A>;
+<font color="blue">algorithm </font>
+  rc := 1;
+<font color="blue">end </font>one;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE quadratic<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Functions.ValveCharacteristics.baseFunI.png" ALT="ThermoPower.Functions.ValveCharacteristics.quadratic" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Functions.ValveCharacteristics.quadratic"></A><A HREF="ThermoPower_Functions_ValveCharacteristics.html#ThermoPower.Functions.ValveCharacteristics"
+>ThermoPower.Functions.ValveCharacteristics</A>.quadratic</H2>
+<B>Quadratic characteristic</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>pos</TD><TD>&nbsp;</TD><TD>Stem position (per unit)</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>rc</TD><TD>Relative coefficient (per unit)</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> quadratic <font color="darkgreen">&quot;Quadratic characteristic&quot;</font>
+  <font color="blue">extends </font><A HREF="ThermoPower_Functions_ValveCharacteristics.html#ThermoPower.Functions.ValveCharacteristics.baseFun"
+>baseFun</A>;
+<font color="blue">algorithm </font>
+  rc := pos*pos;
+<font color="blue">end </font>quadratic;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE equalPercentage<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Functions.ValveCharacteristics.baseFunI.png" ALT="ThermoPower.Functions.ValveCharacteristics.equalPercentage" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Functions.ValveCharacteristics.equalPercentage"></A><A HREF="ThermoPower_Functions_ValveCharacteristics.html#ThermoPower.Functions.ValveCharacteristics"
+>ThermoPower.Functions.ValveCharacteristics</A>.equalPercentage</H2>
+<B>Equal percentage characteristic</B><p>
+<H3>Information</H3>
+<PRE></pre>
+This characteristic is such that the relative change of the flow coefficient is proportional to the change in the stem position:
+<p> d(rc)/d(pos) = k d(pos).
+<p> The constant k is expressed in terms of the rangeability, i.e. the ratio between the maximum and the minimum useful flow coefficient:
+<p> rangeability = exp(k) = rc(1.0)/rc(0.0).
+<p> The theoretical characteristic has a non-zero opening when pos = 0; the implemented characteristic is modified so that the valve closes linearly when pos &lt delta.
+<pre></PRE>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>pos</TD><TD>&nbsp;</TD><TD>Stem position (per unit)</TD></TR>
+<TR><TD>Real</TD><TD>rangeability</TD><TD>20</TD><TD>Rangeability</TD></TR>
+<TR><TD>Real</TD><TD>delta</TD><TD>0.01</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>rc</TD><TD>Relative coefficient (per unit)</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> equalPercentage <font color="darkgreen">&quot;Equal percentage characteristic&quot;</font>
+  <font color="blue">extends </font><A HREF="ThermoPower_Functions_ValveCharacteristics.html#ThermoPower.Functions.ValveCharacteristics.baseFun"
+>baseFun</A>;
+  <font color="blue">input </font>Real rangeability = 20 <font color="darkgreen">&quot;Rangeability&quot;</font>;
+  <font color="blue">input </font>Real delta = 0.01;
+<font color="blue">algorithm </font>
+  rc := <font color="blue">if </font>pos &gt; delta<font color="blue"> then </font>rangeability^(pos-1)<font color="blue"> else </font>
+          pos/delta*rangeability^(delta-1);
+<font color="blue">end </font>equalPercentage;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE sinusoidal<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Functions.ValveCharacteristics.baseFunI.png" ALT="ThermoPower.Functions.ValveCharacteristics.sinusoidal" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Functions.ValveCharacteristics.sinusoidal"></A><A HREF="ThermoPower_Functions_ValveCharacteristics.html#ThermoPower.Functions.ValveCharacteristics"
+>ThermoPower.Functions.ValveCharacteristics</A>.sinusoidal</H2>
+<B>Sinusoidal characteristic</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>pos</TD><TD>&nbsp;</TD><TD>Stem position (per unit)</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>rc</TD><TD>Relative coefficient (per unit)</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> sinusoidal <font color="darkgreen">&quot;Sinusoidal characteristic&quot;</font>
+  <font color="blue">extends </font><A HREF="ThermoPower_Functions_ValveCharacteristics.html#ThermoPower.Functions.ValveCharacteristics.baseFun"
+>baseFun</A>;
+<font color="blue">import </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Math.html#Modelica.Math"
+>Modelica.Math</A>.*;
+<font color="blue">import </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Constants.html#Modelica.Constants"
+>Modelica.Constants</A>.*;
+<font color="blue">algorithm </font>
+  rc :=<font color="red"> sin</font>(pos*pi/2);
+<font color="blue">end </font>sinusoidal;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Tue Jul 07 01:21:58 2009.
+</address></BODY>
+</HTML>

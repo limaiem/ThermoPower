@@ -1,0 +1,631 @@
+<HTML>
+<HEAD>
+<TITLE>ThermoPower.Examples.HRB</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Heat recovery boiler models&quot;">
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE HRB<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Examples.HRB"></A><A HREF="ThermoPower_Examples.html#ThermoPower.Examples"
+>ThermoPower.Examples</A>.HRB</H2>
+<B>Heat recovery boiler models</B>
+<P>
+<H3>Information</H3>
+<PRE></pre>
+This package contains models of a simple Heat Recovery Boiler. Different simulation models are provided, demonstrating how to initialise and run open-loop as well as closed loop simulations.
+<pre></PRE><P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="ThermoPower.Examples.HRB.HeatExchangerS.png" ALT="ThermoPower.Examples.HRB.HeatExchanger" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Examples_HRB.html#ThermoPower.Examples.HRB.HeatExchanger"
+>HeatExchanger</A>
+</TD><TD>Base class for heat exchanger fluid - gas</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Examples.HRB.HRBPlantS.png" ALT="ThermoPower.Examples.HRB.HRBPlant" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Examples_HRB.html#ThermoPower.Examples.HRB.HRBPlant"
+>HRBPlant</A>
+</TD><TD>Simple plant model with HRB</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Examples.HRB.Flow1DGashtcS.png" ALT="ThermoPower.Examples.HRB.Flow1DGashtc" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Examples_HRB.html#ThermoPower.Examples.HRB.Flow1DGashtc"
+>Flow1DGashtc</A>
+</TD><TD>Gas flow model with h.t.c. computation</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Examples.HRB.DigitalPIS.png" ALT="ThermoPower.Examples.HRB.DigitalPI" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Examples_HRB.html#ThermoPower.Examples.HRB.DigitalPI"
+>DigitalPI</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Examples.HRB.SimulatorsS.png" ALT="ThermoPower.Examples.HRB.Simulators" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Examples_HRB_Simulators.html#ThermoPower.Examples.HRB.Simulators"
+>Simulators</A>
+</TD><TD>Simulation models for the HRB example</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE HeatExchanger<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Examples.HRB.HeatExchangerI.png" ALT="ThermoPower.Examples.HRB.HeatExchanger" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Examples.HRB.HeatExchanger"></A><A HREF="ThermoPower_Examples_HRB.html#ThermoPower.Examples.HRB"
+>ThermoPower.Examples.HRB</A>.HeatExchanger</H2>
+<B>Base class for heat exchanger fluid - gas</B><p>
+<IMG SRC="ThermoPower.Examples.HRB.HeatExchangerD.png" ALT="ThermoPower.Examples.HRB.HeatExchanger">
+<H3>Information</H3>
+<PRE></pre>
+This is the model of a very simple heat exchanger. The modelling assumptions are as follows:
+<ul>
+<li> The boiler contains <tt>Nr</tt> rows of tubes, connected in series; each one is made of <tt>Nt</tt> identical tubes in parallel.
+<li>Each tube has a length <tt>L</tt>, internal and external diameters <tt>Dint</tt> and <tt>Dext</tt>, and is made of a metal having density <tt>rhom</tt> and a specific heat capacity of <tt>cm</tt>.
+<li>The series connection of the tubes is discretised with <tt>Nr+1</tt> nodes, so that each cell between two nodes corresponds to a single row.
+<li>The gas flow is also discretised with <tt>Nr+1</tt> nodes, so that each gas cell interacts with a single tube row.
+<li>The gas flows through a volume having a (net) cross-section <tt>Sb</tt> and a (net) lenght <tt>Lb</tt>.
+<li>Mass and energy dynamic balances are assumed for the water side.
+<li>The mass and energy balances for the gas side are either static or dynamic, depending on the value of the <tt>StaticGasBalances</tt> parameter.
+<li>The fluid in the water side remains liquid throughout the boiler.
+<li>The heat transfer coefficient on the water side is computed by Dittus-Boelter's correlation.
+<li>The external heat transfer coefficient is computed according to the simple law declared <tt>Flow1DGasHT</tt>. To change that correlation, it is only necessary to change equations in that model.
+</ul>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Boolean</TD><TD>StaticGasBalances</TD><TD>true</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Integer</TD><TD>Nr</TD><TD>2</TD><TD>Number of tube rows</TD></TR>
+<TR><TD>Integer</TD><TD>Nt</TD><TD>2</TD><TD>Number of parallel tubes in each row</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>Lt</TD><TD>&nbsp;</TD><TD>Length of a tube in a row [m]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>Dint</TD><TD>&nbsp;</TD><TD>Internal diameter of each tube [m]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>Dext</TD><TD>&nbsp;</TD><TD>External diameter of each tube [m]</TD></TR>
+<TR><TD><A HREF="ThermoPower.html#ThermoPower.Density"
+>Density</A></TD><TD>rhom</TD><TD>&nbsp;</TD><TD>Density of the tube metal walls [kg/m3]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.SpecificHeatCapacity"
+>SpecificHeatCapacity</A></TD><TD>cm</TD><TD>&nbsp;</TD><TD>Specific heat capacity of the tube metal walls [J/(kg.K)]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Area"
+>Area</A></TD><TD>Sb</TD><TD>&nbsp;</TD><TD>Cross-section of the boiler [m2]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>Lb</TD><TD>&nbsp;</TD><TD>Length of the boiler [m]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Area"
+>Area</A></TD><TD>St</TD><TD>Dext*pi*Lt*Nt*Nr</TD><TD>Total area of the heat exchange surface [m2]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.CoefficientOfHeatTransfer"
+>CoefficientOfHeatTransfer</A></TD><TD>gamma_nom</TD><TD>150</TD><TD>Nominal heat transfer coefficient [W/(m2.K)]</TD></TR>
+<TR><TD><A HREF="ThermoPower_Water.html#ThermoPower.Water.Flow1DDB"
+>Flow1DDB</A></TD><TD>WaterSide</TD><TD>redeclare Water.Flow1DDB Wat...</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="ThermoPower_Gas.html#ThermoPower.Gas.FlangeA"
+>FlangeA</A></TD><TD>gasIn</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_Gas.html#ThermoPower.Gas.FlangeB"
+>FlangeB</A></TD><TD>gasOut</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_Water.html#ThermoPower.Water.FlangeA"
+>FlangeA</A></TD><TD>waterIn</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_Water.html#ThermoPower.Water.FlangeB"
+>FlangeB</A></TD><TD>waterOut</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> HeatExchanger <font color="darkgreen">&quot;Base class for heat exchanger fluid - gas&quot;</font>
+  <font color="blue">constant </font>Real pi=Modelica.Constants.pi;
+  <font color="blue">replaceable </font><font color="blue">package</font> GasMedium =
+      <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Media_IdealGases_MixtureGases_CombustionAir.html#Modelica.Media.IdealGases.MixtureGases.CombustionAir"
+>Modelica.Media.IdealGases.MixtureGases.CombustionAir</A> <font color="blue">extends </font>
+    Modelica.Media.Interfaces.PartialMedium;
+  <font color="blue">replaceable </font><font color="blue">package</font> WaterMedium=Water.StandardWater <font color="blue">extends </font>
+    Modelica.Media.Interfaces.PartialMedium;
+  <font color="blue">parameter </font>Boolean StaticGasBalances = true;
+  <font color="blue">parameter </font>Integer Nr=2 <font color="darkgreen">&quot;Number of tube rows&quot;</font>;
+  <font color="blue">parameter </font>Integer Nt=2 <font color="darkgreen">&quot;Number of parallel tubes in each row&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A> Lt <font color="darkgreen">&quot;Length of a tube in a row&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A> Dint <font color="darkgreen">&quot;Internal diameter of each tube&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A> Dext <font color="darkgreen">&quot;External diameter of each tube&quot;</font>;
+  <font color="blue">parameter </font><A HREF="ThermoPower.html#ThermoPower.Density"
+>Density</A> rhom <font color="darkgreen">&quot;Density of the tube metal walls&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.SpecificHeatCapacity"
+>SpecificHeatCapacity</A> cm <font color="darkgreen">
+    &quot;Specific heat capacity of the tube metal walls&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Area"
+>Area</A> Sb <font color="darkgreen">&quot;Cross-section of the boiler&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A> Lb <font color="darkgreen">&quot;Length of the boiler&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Area"
+>Area</A> St= Dext*pi*Lt*Nt*Nr <font color="darkgreen">&quot;Total area of the heat exchange surface&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.CoefficientOfHeatTransfer"
+>CoefficientOfHeatTransfer</A> gamma_nom = 150 <font color="darkgreen">
+    &quot;Nominal heat transfer coefficient&quot;</font>;
+
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.FlangeA"
+>Gas.FlangeA</A> gasIn(<font color="blue">redeclare </font><font color="blue">package</font> Medium = <A HREF="ThermoPower_Examples_HRB_GasMedium.html#ThermoPower.Examples.HRB.HeatExchanger.GasMedium"
+>GasMedium</A>);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.FlangeB"
+>Gas.FlangeB</A> gasOut(<font color="blue">redeclare </font><font color="blue">package</font> Medium = <A HREF="ThermoPower_Examples_HRB_GasMedium.html#ThermoPower.Examples.HRB.HeatExchanger.GasMedium"
+>GasMedium</A>);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.FlangeA"
+>Water.FlangeA</A> waterIn(<font color="blue">redeclare </font><font color="blue">package</font> Medium = <A HREF="ThermoPower_Examples_HRB_WaterMedium.html#ThermoPower.Examples.HRB.HeatExchanger.WaterMedium"
+>WaterMedium</A>);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.FlangeB"
+>Water.FlangeB</A> waterOut(<font color="blue">redeclare </font><font color="blue">package</font> Medium = <A HREF="ThermoPower_Examples_HRB_WaterMedium.html#ThermoPower.Examples.HRB.HeatExchanger.WaterMedium"
+>WaterMedium</A>);
+  <font color="blue">replaceable </font><A HREF="ThermoPower_Water.html#ThermoPower.Water.Flow1DDB"
+>Water.Flow1DDB</A> WaterSide(<font color="blue">redeclare </font><font color="blue">package</font> Medium=<A HREF="ThermoPower_Examples_HRB_WaterMedium.html#ThermoPower.Examples.HRB.HeatExchanger.WaterMedium"
+>WaterMedium</A>,       Nt=Nt,
+    A=pi*Dint^2/4,
+    omega=pi*Dint,
+    Dhyd=Dint,
+    wnom=20,
+    FFtype=2,
+    Cfnom=0.005,
+    L=Lt*Nr,
+    N=Nr + 1,
+    hstartin=1e5,
+    hstartout=2.7e5,
+    initOpt=ThermoPower.Choices.Init.Options.steadyState)
+                     <font color="blue">extends </font>Water.Flow1D;
+  <A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.ConvHT_htc"
+>Thermal.ConvHT_htc</A> WaterMetalHT(N=Nr + 1);
+  <A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.MetalTube"
+>Thermal.MetalTube</A> TubeWalls(
+    rint=Dint/2,
+    rext=Dext/2,
+    rhomcm=rhom*cm,
+    lambda=20,
+    L=Lt*Nr,
+    N=Nr + 1,
+    Tstart1=300,
+    TstartN=340,
+    initOpt=ThermoPower.Choices.Init.Options.steadyState) <font color="darkgreen">&quot;Tube&quot;</font>;
+  <A HREF="ThermoPower_Examples_HRB.html#ThermoPower.Examples.HRB.Flow1DGashtc"
+>ThermoPower.Examples.HRB.Flow1DGashtc</A> GasSide(
+                      <font color="blue">redeclare </font><font color="blue">package</font> Medium = <A HREF="ThermoPower_Examples_HRB_GasMedium.html#ThermoPower.Examples.HRB.HeatExchanger.GasMedium"
+>GasMedium</A>,
+    L=Lb,
+    omega=St/Lb,
+    wnom=10,
+    gamma_nom(start=gamma_nom) = gamma_nom,
+    A=Sb,
+    Dhyd=St/Lb,
+    N=Nr + 1,
+    FFtype=ThermoPower.Choices.Flow1D.FFtypes.NoFriction,
+    Tstartin=670,
+    Tstartout=370,
+    QuasiStatic=StaticGasBalances,
+    initOpt=ThermoPower.Choices.Init.Options.steadyState,
+    kw=0.6);
+  <A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.CounterCurrent"
+>Thermal.CounterCurrent</A> CounterCurrent1(N=Nr + 1);
+  <A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.ConvHT_htc"
+>Thermal.ConvHT_htc</A> ConvHT_htc1(N=Nr + 1);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(WaterMetalHT.fluidside,WaterSide. wall);
+  <font color="red">connect</font>(TubeWalls.int,WaterMetalHT. otherside);
+  <font color="red">connect</font>(CounterCurrent1.side2,TubeWalls. ext);
+  <font color="red">connect</font>(CounterCurrent1.side1,ConvHT_htc1. otherside);
+  <font color="red">connect</font>(ConvHT_htc1.fluidside,GasSide. wall);
+  <font color="red">connect</font>(GasSide.infl, gasIn);
+  <font color="red">connect</font>(GasSide.outfl, gasOut);
+  <font color="red">connect</font>(WaterSide.outfl, waterOut);
+  <font color="red">connect</font>(WaterSide.infl, waterIn);
+<font color="blue">end </font>HeatExchanger;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE HRBPlant<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Examples.HRB.HRBPlantI.png" ALT="ThermoPower.Examples.HRB.HRBPlant" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Examples.HRB.HRBPlant"></A><A HREF="ThermoPower_Examples_HRB.html#ThermoPower.Examples.HRB"
+>ThermoPower.Examples.HRB</A>.HRBPlant</H2>
+<B>Simple plant model with HRB</B><p>
+<IMG SRC="ThermoPower.Examples.HRB.HRBPlantD.png" ALT="ThermoPower.Examples.HRB.HRBPlant">
+<H3>Information</H3>
+<PRE></pre>
+Very simple plant model, providing boundary conditions to the <tt>HRB</tt> model.
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Time"
+>Time</A></TD><TD>Ts</TD><TD>4</TD><TD>Temperature sensor time constant [s]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>input <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>ValveOpening</TD><TD>&nbsp;</TD></TR>
+<TR><TD>output <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>RealOutput</A></TD><TD>WaterOut_T</TD><TD>&nbsp;</TD></TR>
+<TR><TD>output <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>RealOutput</A></TD><TD>WaterIn_T</TD><TD>&nbsp;</TD></TR>
+<TR><TD>output <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>RealOutput</A></TD><TD>GasOut_T</TD><TD>&nbsp;</TD></TR>
+<TR><TD>output <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>RealOutput</A></TD><TD>GasIn_T</TD><TD>&nbsp;</TD></TR>
+<TR><TD>input <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>GasFlowRate</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> HRBPlant <font color="darkgreen">&quot;Simple plant model with HRB&quot;</font>
+  <font color="blue">replaceable </font><font color="blue">package</font> GasMedium =
+      <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Media_IdealGases_MixtureGases_CombustionAir.html#Modelica.Media.IdealGases.MixtureGases.CombustionAir"
+>Modelica.Media.IdealGases.MixtureGases.CombustionAir</A> <font color="blue">extends </font>
+    Modelica.Media.Interfaces.PartialMedium;
+  <font color="blue">replaceable </font><font color="blue">package</font> WaterMedium=<A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Media_Water_WaterIF97_ph.html#Modelica.Media.Water.WaterIF97_ph"
+>Modelica.Media.Water.WaterIF97_ph</A> <font color="blue">extends </font>
+    Modelica.Media.Interfaces.PartialMedium;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Time"
+>Time</A> Ts = 4 <font color="darkgreen">&quot;Temperature sensor time constant&quot;</font>;
+  <A HREF="ThermoPower_Examples_HRB.html#ThermoPower.Examples.HRB.HeatExchanger"
+>HeatExchanger</A> Boiler(
+    <font color="blue">redeclare </font><font color="blue">package</font> GasMedium = GasMedium,
+    Nr=10,
+    Nt=100,
+    Lt=3,
+    Dint=0.01,
+    Dext=0.012,
+    rhom=7800,
+    cm=650,
+    Sb=8,
+    Lb=2,
+    <font color="blue">redeclare </font><font color="blue">package</font> WaterMedium = WaterMedium,
+    StaticGasBalances=false,
+    WaterSide(pstartout=3.95e5, pstartin=5e5));
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.ValveLin"
+>Water.ValveLin</A> Valve(Kv=20/4e5, <font color="blue">redeclare </font><font color="blue">package</font> Medium = <A HREF="ThermoPower_Examples_HRB_WaterMedium.html#ThermoPower.Examples.HRB.HRBPlant.WaterMedium"
+>WaterMedium</A>);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SinkP"
+>Water.SinkP</A> SinkP1(p0=1e5, <font color="blue">redeclare </font><font color="blue">package</font> Medium = <A HREF="ThermoPower_Examples_HRB_WaterMedium.html#ThermoPower.Examples.HRB.HRBPlant.WaterMedium"
+>WaterMedium</A>);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.SourceW"
+>Gas.SourceW</A> SourceW2(       <font color="blue">redeclare </font><font color="blue">package</font> Medium = <A HREF="ThermoPower_Examples_HRB_GasMedium.html#ThermoPower.Examples.HRB.HRBPlant.GasMedium"
+>GasMedium</A>,
+    p0=1e5,
+    T=670,
+    w0=10);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.SinkP"
+>Gas.SinkP</A> SinkP2(<font color="blue">redeclare </font><font color="blue">package</font> Medium = <A HREF="ThermoPower_Examples_HRB_GasMedium.html#ThermoPower.Examples.HRB.HRBPlant.GasMedium"
+>GasMedium</A>,
+    T=300);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.PressDropLin"
+>Gas.PressDropLin</A> PressDropLin1(<font color="blue">redeclare </font><font color="blue">package</font> Medium = <A HREF="ThermoPower_Examples_HRB_GasMedium.html#ThermoPower.Examples.HRB.HRBPlant.GasMedium"
+>GasMedium</A>, R=
+        1000/10);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SensT"
+>Water.SensT</A> WaterIn(<font color="blue">redeclare </font><font color="blue">package</font> Medium = <A HREF="ThermoPower_Examples_HRB_WaterMedium.html#ThermoPower.Examples.HRB.HRBPlant.WaterMedium"
+>WaterMedium</A>);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SensT"
+>Water.SensT</A> WaterOut(<font color="blue">redeclare </font><font color="blue">package</font> Medium = <A HREF="ThermoPower_Examples_HRB_WaterMedium.html#ThermoPower.Examples.HRB.HRBPlant.WaterMedium"
+>WaterMedium</A>);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.SensT"
+>Gas.SensT</A> GasOut(<font color="blue">redeclare </font><font color="blue">package</font> Medium = <A HREF="ThermoPower_Examples_HRB_GasMedium.html#ThermoPower.Examples.HRB.HRBPlant.GasMedium"
+>GasMedium</A>);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.SensT"
+>Gas.SensT</A> GasIn(<font color="blue">redeclare </font><font color="blue">package</font> Medium = <A HREF="ThermoPower_Examples_HRB_GasMedium.html#ThermoPower.Examples.HRB.HRBPlant.GasMedium"
+>GasMedium</A>);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SourceP"
+>Water.SourceP</A> SourceP1(p0=5e5, <font color="blue">redeclare </font><font color="blue">package</font> Medium = <A HREF="ThermoPower_Examples_HRB_WaterMedium.html#ThermoPower.Examples.HRB.HRBPlant.WaterMedium"
+>WaterMedium</A>);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> ValveOpening;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> WaterOut_T;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> WaterIn_T;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> GasOut_T;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> GasIn_T;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> GasFlowRate;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous.FirstOrder"
+>Modelica.Blocks.Continuous.FirstOrder</A> GasFlowActuator(k=1, T=1,
+    y_start=5,
+    initType=Modelica.Blocks.Types.Init.SteadyState);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous.FirstOrder"
+>Modelica.Blocks.Continuous.FirstOrder</A> WaterInTSensor(k=1, T=Ts,
+    initType=Modelica.Blocks.Types.Init.SteadyState,
+    y_start=296);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous.FirstOrder"
+>Modelica.Blocks.Continuous.FirstOrder</A> WaterOutTSensor(k=1, T=Ts,
+    initType=Modelica.Blocks.Types.Init.SteadyState,
+    y_start=330);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous.FirstOrder"
+>Modelica.Blocks.Continuous.FirstOrder</A> GasInTSensor(k=1, T=Ts,
+    initType=Modelica.Blocks.Types.Init.SteadyState,
+    y_start=670);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous.FirstOrder"
+>Modelica.Blocks.Continuous.FirstOrder</A> GasOutTSensor(k=1, T=Ts,
+    initType=Modelica.Blocks.Types.Init.SteadyState,
+    y_start=350);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous.FirstOrder"
+>Modelica.Blocks.Continuous.FirstOrder</A> ValveOpeningActuator(k=1, T=1,
+    initType=Modelica.Blocks.Types.Init.SteadyState,
+    y_start=1);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(GasFlowActuator.y, SourceW2.in_w0);
+  <font color="red">connect</font>(GasInTSensor.u, GasIn.T);
+  <font color="red">connect</font>(GasOut.T, GasOutTSensor.u);
+  <font color="red">connect</font>(GasOutTSensor.y, GasOut_T);
+  <font color="red">connect</font>(WaterIn.T, WaterInTSensor.u);
+  <font color="red">connect</font>(WaterOut.T, WaterOutTSensor.u);
+  <font color="red">connect</font>(WaterOutTSensor.y, WaterOut_T);
+  <font color="red">connect</font>(GasInTSensor.y, GasIn_T);
+  <font color="red">connect</font>(Valve.cmd, ValveOpeningActuator.y);
+  <font color="red">connect</font>(WaterInTSensor.y, WaterIn_T);
+<font color="blue">initial </font><font color="blue">equation </font>
+  <font color="red">der</font>(GasFlowActuator.y)=0;
+  <font color="red">der</font>(GasInTSensor.y)=0;
+  <font color="red">der</font>(GasOutTSensor.y)=0;
+  <font color="red">der</font>(ValveOpeningActuator.y)=0;
+  <font color="red">der</font>(WaterInTSensor.y)=0;
+  <font color="red">der</font>(WaterOutTSensor.y)=0;
+
+<font color="blue">equation </font>
+  <font color="red">connect</font>(WaterOut.inlet, Boiler.waterOut);
+  <font color="red">connect</font>(Boiler.gasIn, GasIn.outlet);
+  <font color="red">connect</font>(GasOut.inlet, Boiler.gasOut);
+  <font color="red">connect</font>(Boiler.waterIn, WaterIn.outlet);
+  <font color="red">connect</font>(SourceP1.flange, WaterIn.inlet);
+  <font color="red">connect</font>(WaterOut.outlet, Valve.inlet);
+  <font color="red">connect</font>(Valve.outlet, SinkP1.flange);
+  <font color="red">connect</font>(PressDropLin1.outlet, SinkP2.flange);
+  <font color="red">connect</font>(GasOut.outlet, PressDropLin1.inlet);
+  <font color="red">connect</font>(SourceW2.flange, GasIn.inlet);
+  <font color="red">connect</font>(GasFlowActuator.u, GasFlowRate);
+  <font color="red">connect</font>(ValveOpeningActuator.u, ValveOpening);
+<font color="blue">end </font>HRBPlant;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Flow1DGashtc<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Examples.HRB.Flow1DGashtcI.png" ALT="ThermoPower.Examples.HRB.Flow1DGashtc" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Examples.HRB.Flow1DGashtc"></A><A HREF="ThermoPower_Examples_HRB.html#ThermoPower.Examples.HRB"
+>ThermoPower.Examples.HRB</A>.Flow1DGashtc</H2>
+<B>Gas flow model with h.t.c. computation</B><p>
+<IMG SRC="ThermoPower.Examples.HRB.Flow1DGashtcD.png" ALT="ThermoPower.Examples.HRB.Flow1DGashtc">
+<H3>Information</H3>
+<PRE></pre>
+This model extends <tt>Gas.Flow1D</tt> by adding the computation of the heat transfer coefficient, which is proportional to the mass flow rate, raised to the power of <tt>kw</tt>.
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD colspan="2">replaceable package Medium</TD><TD>Media.GenericGas</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Integer</TD><TD>N</TD><TD>2</TD><TD>Number of nodes for thermal variables</TD></TR>
+<TR><TD>Integer</TD><TD>Nt</TD><TD>1</TD><TD>Number of tubes in parallel</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Distance"
+>Distance</A></TD><TD>L</TD><TD>&nbsp;</TD><TD>Tube length [m]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Position"
+>Position</A></TD><TD>H</TD><TD>0</TD><TD>Elevation of outlet over inlet [m]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Area"
+>Area</A></TD><TD>A</TD><TD>&nbsp;</TD><TD>Cross-sectional area (single tube) [m2]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>omega</TD><TD>&nbsp;</TD><TD>Perimeter of heat transfer surface (single tube) [m]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>Dhyd</TD><TD>&nbsp;</TD><TD>Hydraulic Diameter (single tube) [m]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>MassFlowRate</A></TD><TD>wnom</TD><TD>&nbsp;</TD><TD>Nominal mass flowrate (total) [kg/s]</TD></TR>
+<TR><TD><A HREF="ThermoPower_Choices_Flow1D_FFtypes.html#ThermoPower.Choices.Flow1D.FFtypes.Temp"
+>Temp</A></TD><TD>FFtype</TD><TD>&nbsp;</TD><TD>Friction Factor Type</TD></TR>
+<TR><TD>Real</TD><TD>Kfnom</TD><TD>0</TD><TD>Nominal hydraulic resistance coefficient</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>dpnom</TD><TD>0</TD><TD>Nominal pressure drop [Pa]</TD></TR>
+<TR><TD><A HREF="ThermoPower.html#ThermoPower.Density"
+>Density</A></TD><TD>rhonom</TD><TD>0</TD><TD>Nominal inlet density [kg/m3]</TD></TR>
+<TR><TD>Real</TD><TD>Cfnom</TD><TD>0</TD><TD>Nominal Fanning friction factor</TD></TR>
+<TR><TD>Real</TD><TD>e</TD><TD>0</TD><TD>Relative roughness (ratio roughness/diameter)</TD></TR>
+<TR><TD>Boolean</TD><TD>DynamicMomentum</TD><TD>false</TD><TD>Inertial phenomena accounted for</TD></TR>
+<TR><TD>Boolean</TD><TD>UniformComposition</TD><TD>true</TD><TD>Uniform gas composition is assumed</TD></TR>
+<TR><TD>Boolean</TD><TD>QuasiStatic</TD><TD>false</TD><TD>Quasi-static model (mass, energy and momentum static balances</TD></TR>
+<TR><TD>Integer</TD><TD>HydraulicCapacitance</TD><TD>2</TD><TD>1: Upstream, 2: Downstream</TD></TR>
+<TR><TD>Boolean</TD><TD>avoidInletEnthalpyDerivative</TD><TD>true</TD><TD>Avoid inlet enthalpy derivative</TD></TR>
+<TR><TD>Real</TD><TD>wnf</TD><TD>0.01</TD><TD>Fraction of nominal flow rate at which linear friction equals turbulent friction</TD></TR>
+<TR><TD>Real</TD><TD>Kfc</TD><TD>1</TD><TD>Friction factor correction coefficient</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.CoefficientOfHeatTransfer"
+>CoefficientOfHeatTransfer</A></TD><TD>gamma_nom</TD><TD>&nbsp;</TD><TD>Nominal h.t.c. coefficient [W/(m2.K)]</TD></TR>
+<TR><TD>Real</TD><TD>kw</TD><TD>&nbsp;</TD><TD>Exponent of the mass flow rate in the h.t.c. correlation</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Initialisation</B></TD></TR>
+<TR><TD><A HREF="ThermoPower.html#ThermoPower.AbsoluteTemperature"
+>AbsoluteTemperature</A></TD><TD>Tstartin</TD><TD>300</TD><TD>Inlet temperature start value [K]</TD></TR>
+<TR><TD><A HREF="ThermoPower.html#ThermoPower.AbsoluteTemperature"
+>AbsoluteTemperature</A></TD><TD>Tstartout</TD><TD>300</TD><TD>Outlet temperature start value [K]</TD></TR>
+<TR><TD><A HREF="ThermoPower.html#ThermoPower.AbsoluteTemperature"
+>AbsoluteTemperature</A></TD><TD>Tstart[N]</TD><TD>linspace(Tstartin, Tstartout...</TD><TD>Start value of temperature vector (initialized by default) [K]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>pstart</TD><TD>101325</TD><TD>Pressure start value [Pa]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MassFraction"
+>MassFraction</A></TD><TD>Xstart[nX]</TD><TD>Medium.reference_X</TD><TD>Start gas composition [1]</TD></TR>
+<TR><TD><A HREF="ThermoPower_Choices_Init_Options.html#ThermoPower.Choices.Init.Options.Temp"
+>Temp</A></TD><TD>initOpt</TD><TD>Choices.Init.Options.noInit</TD><TD>Initialisation option</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="ThermoPower_Gas.html#ThermoPower.Gas.FlangeA"
+>FlangeA</A></TD><TD>infl</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_Gas.html#ThermoPower.Gas.FlangeB"
+>FlangeB</A></TD><TD>outfl</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Flow1DGashtc <font color="darkgreen">&quot;Gas flow model with h.t.c. computation&quot;</font>
+  <font color="blue">extends </font><A HREF="ThermoPower_Gas.html#ThermoPower.Gas.Flow1D"
+>Gas.Flow1D</A>( <font color="blue">redeclare </font><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.DHThtc"
+>ThermoPower.Thermal.DHThtc</A> wall);
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.CoefficientOfHeatTransfer"
+>Modelica.SIunits.CoefficientOfHeatTransfer</A> gamma_nom <font color="darkgreen">
+    &quot;Nominal h.t.c. coefficient&quot;</font>;
+  <font color="blue">parameter </font>Real kw <font color="darkgreen">&quot;Exponent of the mass flow rate in the h.t.c. correlation&quot;</font>;
+<font color="blue">equation </font>
+  <font color="blue">for </font>j<font color="blue"> in </font>1:N<font color="blue"> loop</font>
+    wall.gamma[j] = gamma_nom*<font color="red">noEvent</font>(<font color="red">abs</font>(infl.w/wnom)^kw);
+  <font color="blue">end for</font>;
+<font color="blue">end </font>Flow1DGashtc;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE DigitalPI<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Examples.HRB.DigitalPII.png" ALT="ThermoPower.Examples.HRB.DigitalPI" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Examples.HRB.DigitalPI"></A><A HREF="ThermoPower_Examples_HRB.html#ThermoPower.Examples.HRB"
+>ThermoPower.Examples.HRB</A>.DigitalPI</H2>
+<IMG SRC="ThermoPower.Examples.HRB.DigitalPID.png" ALT="ThermoPower.Examples.HRB.DigitalPI">
+<H3>Information</H3>
+<PRE></pre>
+This is the model of a digital PI controller, complete with auto/man and tracking functionalies.
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Time"
+>Time</A></TD><TD>samplePeriod</TD><TD>0.1</TD><TD>Sample period of component [s]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Time"
+>Time</A></TD><TD>startTime</TD><TD>0</TD><TD>First sample time instant [s]</TD></TR>
+<TR><TD>Real</TD><TD>Kp</TD><TD>&nbsp;</TD><TD>Gain</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Time"
+>Time</A></TD><TD>Ti</TD><TD>&nbsp;</TD><TD>Integral time [s]</TD></TR>
+<TR><TD>Real</TD><TD>b</TD><TD>1</TD><TD>Set-point weight (proportional action)</TD></TR>
+<TR><TD>Real</TD><TD>CSmax</TD><TD>&nbsp;</TD><TD>Control signal saturation upper bound</TD></TR>
+<TR><TD>Real</TD><TD>CSmin</TD><TD>&nbsp;</TD><TD>Control signal saturation lower bound</TD></TR>
+<TR><TD>Real</TD><TD>CSstart</TD><TD>0</TD><TD>Control signal initial value</TD></TR>
+<TR><TD>Boolean</TD><TD>StartSteadyState</TD><TD>false</TD><TD>True=steady state initial equations activated</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Time"
+>Time</A></TD><TD>Ts</TD><TD>samplePeriod</TD><TD>Sampling Time [s]</TD></TR>
+<TR><TD>Real</TD><TD>alpha</TD><TD>(Kp*b*2*Ti + Kp*Ts)/(2*Ti)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Real</TD><TD>beta</TD><TD>(-Kp*b*2*Ti + Kp*Ts)/(2*Ti)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Real</TD><TD>gamma</TD><TD>(-Kp*2*Ti - Kp*Ts)/(2*Ti)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Real</TD><TD>delta</TD><TD>(Kp*2*Ti - Kp*Ts)/(2*Ti)</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>input <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInput"
+>BooleanInput</A></TD><TD>MANswitch</TD><TD>&nbsp;</TD></TR>
+<TR><TD>input <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>SPport</TD><TD>&nbsp;</TD></TR>
+<TR><TD>output <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>RealOutput</A></TD><TD>CSport</TD><TD>&nbsp;</TD></TR>
+<TR><TD>input <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>MANport</TD><TD>&nbsp;</TD></TR>
+<TR><TD>input <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>PVport</TD><TD>&nbsp;</TD></TR>
+<TR><TD>input <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInput"
+>BooleanInput</A></TD><TD>TRKswitch</TD><TD>&nbsp;</TD></TR>
+<TR><TD>input <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>TRKport</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> DigitalPI
+  <font color="blue">extends </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.DiscreteBlock"
+>Modelica.Blocks.Interfaces.DiscreteBlock</A>;
+  <font color="blue">parameter </font>Real Kp <font color="darkgreen">&quot;Gain&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Time"
+>Modelica.SIunits.Time</A> Ti(min=0) <font color="darkgreen">&quot;Integral time&quot;</font>;
+  <font color="blue">parameter </font>Real b(min=0) = 1 <font color="darkgreen">&quot;Set-point weight (proportional action)&quot;</font>;
+  <font color="blue">parameter </font>Real CSmax <font color="darkgreen">&quot;Control signal saturation upper bound&quot;</font>;
+  <font color="blue">parameter </font>Real CSmin <font color="darkgreen">&quot;Control signal saturation lower bound&quot;</font>;
+  <font color="blue">parameter </font>Real CSstart(
+    min=CSmin,
+    max=CSmax) = 0 <font color="darkgreen">&quot;Control signal initial value&quot;</font>;
+  <font color="blue">parameter </font>Boolean StartSteadyState=false <font color="darkgreen">
+    &quot;True=steady state initial equations activated&quot;</font>;
+
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInput"
+>Modelica.Blocks.Interfaces.BooleanInput</A> MANswitch;
+  Real SP <font color="darkgreen">&quot;Set-Point (input)&quot;</font>;
+  Real PV <font color="darkgreen">&quot;Process Value (input)&quot;</font>;
+  <font color="blue">discrete </font>Real CS(start=CSstart) <font color="darkgreen">&quot;Control Signal (output)&quot;</font>;
+  Boolean Man;
+  Boolean Trk;
+  <font color="blue">discrete </font>Real CSwind <font color="darkgreen">&quot;Control Signal auxiliary variable for anti-wind up&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Time"
+>Modelica.SIunits.Time</A> Ts=samplePeriod <font color="darkgreen">&quot;Sampling Time&quot;</font>;
+  <font color="blue">parameter </font>Real alpha=(Kp*b*2*Ti + Kp*Ts)/(2*Ti);
+  <font color="blue">parameter </font>Real beta=(-Kp*b*2*Ti + Kp*Ts)/(2*Ti);
+  <font color="blue">parameter </font>Real gamma=(-Kp*2*Ti - Kp*Ts)/(2*Ti);
+  <font color="blue">parameter </font>Real delta=(Kp*2*Ti - Kp*Ts)/(2*Ti);
+<font color="blue">public </font>
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> SPport;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> CSport;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> MANport;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> PVport;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInput"
+>Modelica.Blocks.Interfaces.BooleanInput</A> TRKswitch;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> TRKport;
+<font color="blue">equation </font>
+  <font color="blue">if </font><font color="red">cardinality</font>(MANswitch) == 0<font color="blue"> then</font>
+    MANswitch = false;
+  <font color="blue">end if</font>;
+
+  <font color="blue">if </font><font color="red">cardinality</font>(TRKswitch) == 0<font color="blue"> then</font>
+    TRKswitch = false;
+  <font color="blue">end if</font>;
+
+  <font color="blue">if </font><font color="red">cardinality</font>(MANport) == 0<font color="blue"> then</font>
+    MANport = 0;
+  <font color="blue">end if</font>;
+
+  <font color="blue">if </font><font color="red">cardinality</font>(TRKport) == 0<font color="blue"> then</font>
+    TRKport = 0;
+  <font color="blue">end if</font>;
+
+  <font color="blue">when </font>{<font color="red">initial</font>(),sampleTrigger}<font color="blue"> then</font>
+    Man =MANswitch;
+    Trk =TRKswitch;
+    <font color="blue">if </font>Man<font color="blue"> then</font>
+      <font color="blue">if </font>MANport &gt;= CSmax<font color="blue"> then</font>
+        CS = CSmax;
+        CSport = CSmax;
+      <font color="blue">elseif </font>MANport &lt;= CSmin<font color="blue"> then</font>
+        CS = CSmin;
+        CSport = CSmin;
+      <font color="blue">else</font>
+        CS = MANport;
+        CSport = MANport;
+      <font color="blue">end if</font>;
+    <font color="blue">else</font>
+      <font color="blue">if </font>(Trk<font color="blue"> and </font><font color="blue">not </font>Man)<font color="blue"> then</font>
+        <font color="blue">if </font>TRKport &gt;= CSmax<font color="blue"> then</font>
+          CS = CSmax;
+          CSport = CSmax;
+        <font color="blue">elseif </font>TRKport &lt;= CSmin<font color="blue"> then</font>
+          CS = CSmin;
+          CSport = CSmin;
+        <font color="blue">else</font>
+          CS = TRKport;
+          CSport = TRKport;
+        <font color="blue">end if</font>;
+      <font color="blue">else</font>
+        <font color="blue">if </font>CSwind &gt;= CSmax<font color="blue"> then</font>
+          CS = CSmax;
+          CSport = CSmax;
+        <font color="blue">elseif </font>CSwind &lt;= CSmin<font color="blue"> then</font>
+          CS = CSmin;
+          CSport = CSmin;
+        <font color="blue">else</font>
+          CS = CSwind;
+          CSport = CS;
+        <font color="blue">end if</font>;
+      <font color="blue">end if</font>;
+    <font color="blue">end if</font>;
+    CSwind =<font color="red"> pre</font>(CS) + alpha*SP + beta*<font color="red">pre</font>(SP) + gamma*PV + delta*<font color="red">pre</font>(PV);
+    SP =SPport;
+    PV =PVport;
+  <font color="blue">end when</font>;
+<font color="blue">initial </font><font color="blue">equation </font>
+  <font color="blue">if </font>StartSteadyState<font color="blue"> then</font>
+    <font color="red">pre</font>(CS) = CS;
+    <font color="red">pre</font>(PV) = PV;
+    <font color="red">pre</font>(SP) = SP;
+  <font color="blue">end if</font>;
+<font color="blue">end </font>DigitalPI;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Tue Jul 07 01:22:14 2009.
+</address></BODY>
+</HTML>

@@ -1,0 +1,117 @@
+<HTML>
+<HEAD>
+<TITLE>ThermoPower.PowerPlants.GasTurbine.Interfaces</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Interface definitions&quot;">
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Interfaces<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.PowerPlants.GasTurbine.Interfaces"></A><A HREF="ThermoPower_PowerPlants_GasTurbine.html#ThermoPower.PowerPlants.GasTurbine"
+>ThermoPower.PowerPlants.GasTurbine</A>.Interfaces</H2>
+<B>Interface definitions</B>
+<P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="ThermoPower.PowerPlants.GasTurbine.Interfaces.GasTurbineS.png" ALT="ThermoPower.PowerPlants.GasTurbine.Interfaces.GasTurbine" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_PowerPlants_GasTurbine_Interfaces.html#ThermoPower.PowerPlants.GasTurbine.Interfaces.GasTurbine"
+>GasTurbine</A>
+</TD><TD>Base class for Gas Turbine</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.PowerPlants.GasTurbine.Interfaces.GasTurbineSimplifiedS.png" ALT="ThermoPower.PowerPlants.GasTurbine.Interfaces.GasTurbineSimplified" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_PowerPlants_GasTurbine_Interfaces.html#ThermoPower.PowerPlants.GasTurbine.Interfaces.GasTurbineSimplified"
+>GasTurbineSimplified</A>
+</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE GasTurbine<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.PowerPlants.GasTurbine.Interfaces.GasTurbineI.png" ALT="ThermoPower.PowerPlants.GasTurbine.Interfaces.GasTurbine" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.PowerPlants.GasTurbine.Interfaces.GasTurbine"></A><A HREF="ThermoPower_PowerPlants_GasTurbine_Interfaces.html#ThermoPower.PowerPlants.GasTurbine.Interfaces"
+>ThermoPower.PowerPlants.GasTurbine.Interfaces</A>.GasTurbine</H2>
+<B>Base class for Gas Turbine</B><p>
+<IMG SRC="ThermoPower.PowerPlants.GasTurbine.Interfaces.GasTurbineD.png" ALT="ThermoPower.PowerPlants.GasTurbine.Interfaces.GasTurbine">
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="ThermoPower_Gas.html#ThermoPower.Gas.FlangeA"
+>FlangeA</A></TD><TD>FuelInlet</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_Gas.html#ThermoPower.Gas.FlangeA"
+>FlangeA</A></TD><TD>AirInlet</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_Gas.html#ThermoPower.Gas.FlangeB"
+>FlangeB</A></TD><TD>FlueGasOutlet</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_b"
+>Flange_b</A></TD><TD>shaft_b</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_a"
+>Flange_a</A></TD><TD>shaft_a</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_PowerPlants_Buses.html#ThermoPower.PowerPlants.Buses.Sensors"
+>Sensors</A></TD><TD>SensorsBus</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_PowerPlants_Buses.html#ThermoPower.PowerPlants.Buses.Actuators"
+>Actuators</A></TD><TD>ActuatorsBus</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">partial </font><font color="blue">model</font> GasTurbine <font color="darkgreen">&quot;Base class for Gas Turbine&quot;</font>
+  <font color="blue">replaceable </font><font color="blue">package</font> FlueGasMedium = <A HREF="ThermoPower_Media_FlueGas.html#ThermoPower.Media.FlueGas"
+>ThermoPower.Media.FlueGas</A> <font color="blue">extends </font>
+    Modelica.Media.Interfaces.PartialMedium;
+  <font color="blue">replaceable </font><font color="blue">package</font> AirMedium = <A HREF="ThermoPower_Media_Air.html#ThermoPower.Media.Air"
+>ThermoPower.Media.Air</A> <font color="blue">extends </font>
+    Modelica.Media.Interfaces.PartialMedium;
+  <font color="blue">replaceable </font><font color="blue">package</font> FuelMedium = <A HREF="ThermoPower_Media_NaturalGas.html#ThermoPower.Media.NaturalGas"
+>ThermoPower.Media.NaturalGas</A> <font color="blue">extends </font>
+    Modelica.Media.Interfaces.PartialMedium;
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.FlangeA"
+>ThermoPower.Gas.FlangeA</A> FuelInlet(<font color="blue">redeclare </font><font color="blue">package</font> Medium = <A HREF="ThermoPower_PowerPlants_GasTurbine_Interfaces_FuelMedium.html#ThermoPower.PowerPlants.GasTurbine.Interfaces.GasTurbine.FuelMedium"
+>FuelMedium</A>);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.FlangeA"
+>ThermoPower.Gas.FlangeA</A> AirInlet(<font color="blue">redeclare </font><font color="blue">package</font> Medium = <A HREF="ThermoPower_PowerPlants_GasTurbine_Interfaces_AirMedium.html#ThermoPower.PowerPlants.GasTurbine.Interfaces.GasTurbine.AirMedium"
+>AirMedium</A>);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.FlangeB"
+>ThermoPower.Gas.FlangeB</A> FlueGasOutlet(<font color="blue">redeclare </font><font color="blue">package</font> Medium =
+        <A HREF="ThermoPower_PowerPlants_GasTurbine_Interfaces_FlueGasMedium.html#ThermoPower.PowerPlants.GasTurbine.Interfaces.GasTurbine.FlueGasMedium"
+>FlueGasMedium</A>);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_b"
+>Modelica.Mechanics.Rotational.Interfaces.Flange_b</A> shaft_b;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_a"
+>Modelica.Mechanics.Rotational.Interfaces.Flange_a</A> shaft_a;
+  <A HREF="ThermoPower_PowerPlants_Buses.html#ThermoPower.PowerPlants.Buses.Sensors"
+>ThermoPower.PowerPlants.Buses.Sensors</A> SensorsBus;
+  <A HREF="ThermoPower_PowerPlants_Buses.html#ThermoPower.PowerPlants.Buses.Actuators"
+>ThermoPower.PowerPlants.Buses.Actuators</A> ActuatorsBus;
+<font color="blue">end </font>GasTurbine;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE GasTurbineSimplified<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.PowerPlants.GasTurbine.Interfaces.GasTurbineSimplifiedI.png" ALT="ThermoPower.PowerPlants.GasTurbine.Interfaces.GasTurbineSimplified" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.PowerPlants.GasTurbine.Interfaces.GasTurbineSimplified"></A><A HREF="ThermoPower_PowerPlants_GasTurbine_Interfaces.html#ThermoPower.PowerPlants.GasTurbine.Interfaces"
+>ThermoPower.PowerPlants.GasTurbine.Interfaces</A>.GasTurbineSimplified</H2>
+<IMG SRC="ThermoPower.PowerPlants.GasTurbine.Interfaces.GasTurbineSimplifiedD.png" ALT="ThermoPower.PowerPlants.GasTurbine.Interfaces.GasTurbineSimplified">
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="ThermoPower_Gas.html#ThermoPower.Gas.FlangeB"
+>FlangeB</A></TD><TD>flueGasOut</TD><TD>&nbsp;</TD></TR>
+<TR><TD>input <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>GTLoad</TD><TD>GT unit load in p.u.</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">partial </font><font color="blue">model</font> GasTurbineSimplified
+  <font color="blue">replaceable </font><font color="blue">package</font> FlueGasMedium = <A HREF="ThermoPower_Media_FlueGas.html#ThermoPower.Media.FlueGas"
+>ThermoPower.Media.FlueGas</A>
+    <font color="blue">extends </font>Modelica.Media.Interfaces.PartialMedium;
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.FlangeB"
+>ThermoPower.Gas.FlangeB</A> flueGasOut(<font color="blue">redeclare </font><font color="blue">package</font> Medium =
+        <A HREF="ThermoPower_PowerPlants_GasTurbine_Interfaces_FlueGasMedium.html#ThermoPower.PowerPlants.GasTurbine.Interfaces.GasTurbineSimplified.FlueGasMedium"
+>FlueGasMedium</A>);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> GTLoad <font color="darkgreen">&quot;GT unit load in p.u.&quot;</font>;
+<font color="blue">end </font>GasTurbineSimplified;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Tue Jul 07 01:22:27 2009.
+</address></BODY>
+</HTML>

@@ -1,0 +1,309 @@
+<HTML>
+<HEAD>
+<TITLE>ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.OldElementsSwingEquation</TITLE>
+<META name="HTML-Generator" content="Dymola">
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE OldElementsSwingEquation<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.OldElementsSwingEquation"></A><A HREF="ThermoPower_PowerPlants_ElectricGeneratorGroup_Components.html#ThermoPower.PowerPlants.ElectricGeneratorGroup.Components"
+>ThermoPower.PowerPlants.ElectricGeneratorGroup.Components</A>.OldElementsSwingEquation</H2>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.OldElementsSwingEquation.Generator_SES.png" ALT="ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.OldElementsSwingEquation.Generator_SE" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_PowerPlants_ElectricGeneratorGroup_Components_OldElementsSwingEquation.html#ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.OldElementsSwingEquation.Generator_SE"
+>Generator_SE</A>
+</TD><TD>Electric generator inclusive of approximate swing equation</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.OldElementsSwingEquation.Generator_SES.png" ALT="ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.OldElementsSwingEquation.Generator_SE_com" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_PowerPlants_ElectricGeneratorGroup_Components_OldElementsSwingEquation.html#ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.OldElementsSwingEquation.Generator_SE_com"
+>Generator_SE_com</A>
+</TD><TD>Electric generator inclusive of complex swing equation</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.OldElementsSwingEquation.Generator_SE_BreakerS.png" ALT="ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.OldElementsSwingEquation.Generator_SE_Breaker" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_PowerPlants_ElectricGeneratorGroup_Components_OldElementsSwingEquation.html#ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.OldElementsSwingEquation.Generator_SE_Breaker"
+>Generator_SE_Breaker</A>
+</TD><TD>Electic generator inclusive of approximate swing equation and breaker for connection grid</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Generator_SE<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.OldElementsSwingEquation.Generator_SEI.png" ALT="ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.OldElementsSwingEquation.Generator_SE" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.OldElementsSwingEquation.Generator_SE"></A><A HREF="ThermoPower_PowerPlants_ElectricGeneratorGroup_Components_OldElementsSwingEquation.html#ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.OldElementsSwingEquation"
+>ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.OldElementsSwingEquation</A>.Generator_SE</H2>
+<B>Electric generator inclusive of approximate swing equation</B><p>
+<IMG SRC="ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.OldElementsSwingEquation.Generator_SED.png" ALT="ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.OldElementsSwingEquation.Generator_SE">
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>eta</TD><TD>1</TD><TD>Conversion efficiency</TD></TR>
+<TR><TD>Integer</TD><TD>Np</TD><TD>2</TD><TD>Number of couple of electrical poles</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Power</A></TD><TD>Pmax</TD><TD>&nbsp;</TD><TD>Output maximum power [W]</TD></TR>
+<TR><TD>Real</TD><TD>J</TD><TD>&nbsp;</TD><TD>Moment of inertia of the system-shaft</TD></TR>
+<TR><TD>Real</TD><TD>r</TD><TD>0.3</TD><TD>Damping of the system</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
+>AngularVelocity</A></TD><TD>omega_nom</TD><TD>&nbsp;</TD><TD>Nominal angulary velocity of shaft [rad/s]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Angle</A></TD><TD>delta_start</TD><TD>&nbsp;</TD><TD>Loaded angle start value [rad]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.PowerConnection"
+>PowerConnection</A></TD><TD>powerConnection</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_a"
+>Flange_a</A></TD><TD>shaft</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Generator_SE <font color="darkgreen">
+  &quot;Electric generator inclusive of approximate swing equation&quot;</font>
+  <font color="darkgreen">//Parameter</font>
+  <font color="blue">parameter </font>Real eta=1 <font color="darkgreen">&quot;Conversion efficiency&quot;</font>;
+  <font color="blue">parameter </font>Integer Np=2 <font color="darkgreen">&quot;Number of couple of electrical poles&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>SI.Power</A> Pmax <font color="darkgreen">&quot;Output maximum power&quot;</font>;
+  <font color="blue">parameter </font>Real J <font color="darkgreen">&quot;Moment of inertia of the system-shaft&quot;</font>;
+  <font color="blue">parameter </font>Real r=0.3 <font color="darkgreen">&quot;Damping of the system&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
+>SI.AngularVelocity</A> omega_nom <font color="darkgreen">&quot;Nominal angulary velocity of shaft&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Angle"
+>SI.Angle</A> delta_start <font color="darkgreen">&quot;Loaded angle start value&quot;</font>;
+
+  <font color="darkgreen">//Variable  </font>
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
+>SI.AngularVelocity</A> omega <font color="darkgreen">&quot;Shaft angular velocity&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits.AngularVelocity_rpm"
+>SI.Conversions.NonSIunits.AngularVelocity_rpm</A> n <font color="darkgreen">&quot;Rotational speed&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Angle"
+>SI.Angle</A> delta(start=delta_start) <font color="darkgreen">&quot;Loaded angle&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
+>SI.AngularVelocity</A> d_delta <font color="darkgreen">&quot;Variation of loaded angle&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
+>SI.AngularVelocity</A> omegaGrid <font color="darkgreen">&quot;Angulary velocity in the grid&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>SI.Power</A> Pe <font color="darkgreen">&quot;Outlet electric power&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>SI.Power</A> Pm <font color="darkgreen">&quot;Inlet mechanical power&quot;</font>;
+  Real M <font color="darkgreen">&quot;Auxiliary variable&quot;</font>;
+  Real D <font color="darkgreen">&quot;Auxiliary variable&quot;</font>;
+
+  <font color="darkgreen">//Connector</font>
+  <A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.PowerConnection"
+>Electrical.PowerConnection</A> powerConnection;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_a"
+>Modelica.Mechanics.Rotational.Interfaces.Flange_a</A> shaft;
+
+<font color="blue">equation </font>
+  M=J/(Np^2)*omega_nom*Np;
+  D=2*r*<font color="red">sqrt</font>(Pmax*J*omega_nom*Np/(Np^2));
+  omega=<font color="red">der</font>(shaft.phi);
+  Pm=omega*shaft.tau;
+  n =<font color="red"> Modelica.SIunits.Conversions.to_rpm</font>(omega) <font color="darkgreen">&quot;Rotational speed in rpm&quot;</font>;
+  omegaGrid = 2*Modelica.Constants.pi*powerConnection.f;
+  powerConnection.W = - Pe;
+
+  <font color="darkgreen">//Definition of loaded angle</font>
+  d_delta = omega*Np - omegaGrid;
+  <font color="red">der</font>(delta) = d_delta;
+
+  <font color="darkgreen">//Swing Equation  </font>
+  M*<font color="red">der</font>(d_delta) + D*d_delta = Pm - Pe/eta;
+  Pe = Pmax*<font color="red">Modelica.Math.sin</font>(delta);
+
+<font color="blue">end </font>Generator_SE;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Generator_SE_com<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.OldElementsSwingEquation.Generator_SEI.png" ALT="ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.OldElementsSwingEquation.Generator_SE_com" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.OldElementsSwingEquation.Generator_SE_com"></A><A HREF="ThermoPower_PowerPlants_ElectricGeneratorGroup_Components_OldElementsSwingEquation.html#ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.OldElementsSwingEquation"
+>ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.OldElementsSwingEquation</A>.Generator_SE_com</H2>
+<B>Electric generator inclusive of complex swing equation</B><p>
+<IMG SRC="ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.OldElementsSwingEquation.Generator_SED.png" ALT="ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.OldElementsSwingEquation.Generator_SE_com">
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>eta</TD><TD>1</TD><TD>Conversion efficiency</TD></TR>
+<TR><TD>Integer</TD><TD>Np</TD><TD>2</TD><TD>Number of couple of electrical poles</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Power</A></TD><TD>Pmax</TD><TD>&nbsp;</TD><TD>Output maximum power [W]</TD></TR>
+<TR><TD>Real</TD><TD>J</TD><TD>&nbsp;</TD><TD>Moment of inertia of the system-shaft</TD></TR>
+<TR><TD>Real</TD><TD>r</TD><TD>0.3</TD><TD>Damping of the system</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Angle</A></TD><TD>delta_start</TD><TD>&nbsp;</TD><TD>Start value of loaded angle [rad]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.PowerConnection"
+>PowerConnection</A></TD><TD>powerConnection</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_a"
+>Flange_a</A></TD><TD>shaft</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Generator_SE_com <font color="darkgreen">
+  &quot;Electric generator inclusive of complex swing equation&quot;</font>
+  <font color="blue">parameter </font>Real eta=1 <font color="darkgreen">&quot;Conversion efficiency&quot;</font>;
+  <font color="blue">parameter </font>Integer Np=2 <font color="darkgreen">&quot;Number of couple of electrical poles&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>SI.Power</A> Pmax <font color="darkgreen">&quot;Output maximum power&quot;</font>;
+  <font color="blue">parameter </font>Real J <font color="darkgreen">&quot;Moment of inertia of the system-shaft&quot;</font>;
+  <font color="blue">parameter </font>Real r=0.3 <font color="darkgreen">&quot;Damping of the system&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Angle"
+>SI.Angle</A> delta_start <font color="darkgreen">&quot;Start value of loaded angle&quot;</font>;
+
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
+>SI.AngularVelocity</A> omega <font color="darkgreen">&quot;Shaft angular velocity&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits.AngularVelocity_rpm"
+>SI.Conversions.NonSIunits.AngularVelocity_rpm</A> n <font color="darkgreen">&quot;Rotational speed&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Angle"
+>SI.Angle</A> delta(start=delta_start) <font color="darkgreen">&quot;Loaded angle&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
+>SI.AngularVelocity</A> d_delta <font color="darkgreen">&quot;Variation of loaded angle&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
+>SI.AngularVelocity</A> omegaGrid <font color="darkgreen">&quot;Angulary velocity in the grid&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>SI.Power</A> Pe <font color="darkgreen">&quot;Outlet electric power&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>SI.Power</A> Pm <font color="darkgreen">&quot;Inlet mechanical power&quot;</font>;
+  Real M <font color="darkgreen">&quot;Auxiliary variable&quot;</font>;
+  Real D <font color="darkgreen">&quot;Auxiliary variable&quot;</font>;
+
+  <A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.PowerConnection"
+>Electrical.PowerConnection</A> powerConnection;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_a"
+>Modelica.Mechanics.Rotational.Interfaces.Flange_a</A> shaft;
+
+<font color="blue">equation </font>
+  M=J/(Np^2)*omega*Np;
+  D=2*r*<font color="red">sqrt</font>(Pmax*J*omega*Np/(Np^2));
+  omega=<font color="red">der</font>(shaft.phi);
+  Pm=omega*shaft.tau;
+  n =<font color="red"> Modelica.SIunits.Conversions.to_rpm</font>(omega) <font color="darkgreen">&quot;Rotational speed in rpm&quot;</font>;
+  omegaGrid = 2*Modelica.Constants.pi*powerConnection.f;
+  powerConnection.W = - Pe;
+
+  <font color="darkgreen">//Definition of loaded angle  </font>
+  d_delta = omega*Np - omegaGrid;
+  <font color="red">der</font>(delta) = d_delta;
+
+  <font color="darkgreen">//Swing Equation    </font>
+  M*<font color="red">der</font>(d_delta) + D*d_delta = Pm - Pe;
+  Pe = Pmax*<font color="red">Modelica.Math.sin</font>(delta);
+
+<font color="blue">end </font>Generator_SE_com;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Generator_SE_Breaker<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.OldElementsSwingEquation.Generator_SE_BreakerI.png" ALT="ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.OldElementsSwingEquation.Generator_SE_Breaker" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.OldElementsSwingEquation.Generator_SE_Breaker"></A><A HREF="ThermoPower_PowerPlants_ElectricGeneratorGroup_Components_OldElementsSwingEquation.html#ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.OldElementsSwingEquation"
+>ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.OldElementsSwingEquation</A>.Generator_SE_Breaker</H2>
+<B>Electic generator inclusive of approximate swing equation and breaker for connection grid</B><p>
+<IMG SRC="ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.OldElementsSwingEquation.Generator_SE_BreakerD.png" ALT="ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.OldElementsSwingEquation.Generator_SE_Breaker">
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>eta</TD><TD>1</TD><TD>Conversion efficiency</TD></TR>
+<TR><TD>Integer</TD><TD>Np</TD><TD>2</TD><TD>Number of couple of electrical poles</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Power</A></TD><TD>Pmax</TD><TD>&nbsp;</TD><TD>Maximum power of generator [W]</TD></TR>
+<TR><TD>Real</TD><TD>J</TD><TD>&nbsp;</TD><TD>Moment of inertia of the system-shaft</TD></TR>
+<TR><TD>Real</TD><TD>r</TD><TD>0.3</TD><TD>Damping of the system</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
+>AngularVelocity</A></TD><TD>omega_nom</TD><TD>&nbsp;</TD><TD>Nominal angulary velocity of shaft [rad/s]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Angle</A></TD><TD>delta_start</TD><TD>&nbsp;</TD><TD>Loaded angle start value [rad]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
+>AngularVelocity</A></TD><TD>omega_start</TD><TD>&nbsp;</TD><TD>Angulaty velocity of shaft start value [rad/s]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.PowerConnection"
+>PowerConnection</A></TD><TD>powerConnection</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_a"
+>Flange_a</A></TD><TD>shaft</TD><TD>&nbsp;</TD></TR>
+<TR><TD>input <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInput"
+>BooleanInput</A></TD><TD>closed</TD><TD>&nbsp;</TD></TR>
+<TR><TD>output <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>RealOutput</A></TD><TD>delta_out</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Generator_SE_Breaker <font color="darkgreen">
+  &quot;Electic generator inclusive of approximate swing equation and breaker for connection grid&quot;</font>
+  <font color="darkgreen">//Parameters </font>
+  <font color="blue">parameter </font>Real eta=1 <font color="darkgreen">&quot;Conversion efficiency&quot;</font>;
+  <font color="blue">parameter </font>Integer Np=2 <font color="darkgreen">&quot;Number of couple of electrical poles&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>SI.Power</A> Pmax <font color="darkgreen">&quot;Maximum power of generator&quot;</font>;
+  <font color="blue">parameter </font>Real J <font color="darkgreen">&quot;Moment of inertia of the system-shaft&quot;</font>;
+  <font color="blue">parameter </font>Real r=0.3 <font color="darkgreen">&quot;Damping of the system&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
+>SI.AngularVelocity</A> omega_nom <font color="darkgreen">&quot;Nominal angulary velocity of shaft&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Angle"
+>SI.Angle</A> delta_start <font color="darkgreen">&quot;Loaded angle start value&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
+>SI.AngularVelocity</A> omega_start <font color="darkgreen">
+    &quot;Angulaty velocity of shaft start value&quot;</font>;
+
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
+>SI.AngularVelocity</A> omega(start=omega_start) <font color="darkgreen">&quot;Shaft angular velocity&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits.AngularVelocity_rpm"
+>SI.Conversions.NonSIunits.AngularVelocity_rpm</A> n <font color="darkgreen">&quot;Rotational speed&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Angle"
+>SI.Angle</A> delta(start=delta_start) <font color="darkgreen">&quot;Loaded angle&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
+>SI.AngularVelocity</A> d_delta <font color="darkgreen">&quot;Variation of loaded angle&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
+>SI.AngularVelocity</A> omegaGrid <font color="darkgreen">&quot;Angulary velocity in the grid&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>SI.Power</A> Pe <font color="darkgreen">&quot;Outlet electric power&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>SI.Power</A> Pm <font color="darkgreen">&quot;Inlet mechanical power&quot;</font>;
+  Real M <font color="darkgreen">&quot;Auxiliary variable&quot;</font>;
+  Real D <font color="darkgreen">&quot;Auxiliary variable&quot;</font>;
+
+  <A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.PowerConnection"
+>Electrical.PowerConnection</A> powerConnection;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_a"
+>Modelica.Mechanics.Rotational.Interfaces.Flange_a</A> shaft;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInput"
+>Modelica.Blocks.Interfaces.BooleanInput</A> closed;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> delta_out;
+<font color="blue">equation </font>
+  M=J/(Np^2)*omega_nom*Np;
+  D=2*r*<font color="red">sqrt</font>(Pmax*J*omega_nom*Np/(Np^2));
+  omega=<font color="red">der</font>(shaft.phi);
+  Pm=omega*shaft.tau;
+  n =<font color="red"> Modelica.SIunits.Conversions.to_rpm</font>(omega) <font color="darkgreen">&quot;Rotational speed in rpm&quot;</font>;
+  omegaGrid = 2*Modelica.Constants.pi*powerConnection.f;
+  powerConnection.W = - Pe;
+
+  <font color="darkgreen">//Definition loaded angle</font>
+  d_delta = omega*Np - omegaGrid;
+  <font color="red">der</font>(delta) = d_delta;
+
+  <font color="darkgreen">//swing equation</font>
+  M*<font color="red">der</font>(d_delta) + D*d_delta = Pm - Pe/eta;
+  <font color="blue">if </font>closed<font color="blue"> then</font>
+    Pe = Pmax*<font color="red">Modelica.Math.sin</font>(delta);
+  <font color="blue">else</font>
+    <font color="darkgreen">//Free turbine and not connection a grid</font>
+    Pe = 0;
+  <font color="blue">end if</font>;
+
+  <font color="darkgreen">//Output signal</font>
+  delta_out = delta -<font color="red"> integer</font>(delta/(2*Modelica.Constants.pi))*2*Modelica.Constants.pi;
+
+<font color="blue">end </font>Generator_SE_Breaker;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Tue Jul 07 01:25:22 2009.
+</address></BODY>
+</HTML>

@@ -1,0 +1,1204 @@
+<HTML>
+<HEAD>
+<TITLE>ThermoPower.Electrical</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Simplified models of electric power components&quot;">
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Electrical<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Electrical"></A><A HREF="ThermoPower.html#ThermoPower"
+>ThermoPower</A>.Electrical</H2>
+<B>Simplified models of electric power components</B>
+<P>
+<H3>Information</H3>
+<PRE></pre>
+<p>This package allows to describe the flow of active power between a synchronous generator and a grid, through simplified power transmission line models, assuming ideal voltage control. </p>
+<p>These models are meant to be used as simplified boundary conditions for a thermal power plant model, rather than for fully modular description of three-phase networks. Specialized libraries should be used for this purpose; bear in mind, however, that full three-phase models of electrical machinery and power lines could make the power plant simulation substantially heavier, if special numeric integration strategies are not adopted.
+<pre></PRE><P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="ThermoPower.Electrical.PowerConnectionS.png" ALT="ThermoPower.Electrical.PowerConnection" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.PowerConnection"
+>PowerConnection</A>
+</TD><TD>Electrical power connector</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Electrical.GridS.png" ALT="ThermoPower.Electrical.Grid" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.Grid"
+>Grid</A>
+</TD><TD>Ideal grid with finite droop</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Electrical.GeneratorS.png" ALT="ThermoPower.Electrical.Generator" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.Generator"
+>Generator</A>
+</TD><TD>Active power generator</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Electrical.BreakerS.png" ALT="ThermoPower.Electrical.Breaker" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.Breaker"
+>Breaker</A>
+</TD><TD>Circuit breaker</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Electrical.LoadS.png" ALT="ThermoPower.Electrical.Load" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.Load"
+>Load</A>
+</TD><TD>Electrical load</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Electrical.PowerSensorS.png" ALT="ThermoPower.Electrical.PowerSensor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.PowerSensor"
+>PowerSensor</A>
+</TD><TD>Measures power flow through the component</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Electrical.FrequencySensorS.png" ALT="ThermoPower.Electrical.FrequencySensor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.FrequencySensor"
+>FrequencySensor</A>
+</TD><TD>Measures the frequency at the connector</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Electrical.Network1portBaseS.png" ALT="ThermoPower.Electrical.Network1portBase" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.Network1portBase"
+>Network1portBase</A>
+</TD><TD>Base class for one-port network</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Electrical.NetworkGrid_eXS.png" ALT="ThermoPower.Electrical.NetworkGrid_eX" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.NetworkGrid_eX"
+>NetworkGrid_eX</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Electrical.NetworkGrid_PmaxS.png" ALT="ThermoPower.Electrical.NetworkGrid_Pmax" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.NetworkGrid_Pmax"
+>NetworkGrid_Pmax</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Electrical.Network2portBaseS.png" ALT="ThermoPower.Electrical.Network2portBase" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.Network2portBase"
+>Network2portBase</A>
+</TD><TD>Base class for network with two port</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Electrical.NetworkTwoGenerators_eXS.png" ALT="ThermoPower.Electrical.NetworkTwoGenerators_eX" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.NetworkTwoGenerators_eX"
+>NetworkTwoGenerators_eX</A>
+</TD><TD>Connection: generator(a) - generator(b); Parameters: voltages and reactances</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Electrical.NetworkTwoGenerators_eXS.png" ALT="ThermoPower.Electrical.NetworkTwoGenerators_Pmax" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.NetworkTwoGenerators_Pmax"
+>NetworkTwoGenerators_Pmax</A>
+</TD><TD>Connection: generator(a) - generator(b); Parameters: maximum power</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Electrical.NetworkGridTwoGeneratorsS.png" ALT="ThermoPower.Electrical.NetworkGridTwoGenerators" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.NetworkGridTwoGenerators"
+>NetworkGridTwoGenerators</A>
+</TD><TD>Base class for network with two port</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PowerConnection<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Electrical.PowerConnectionI.png" ALT="ThermoPower.Electrical.PowerConnection" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Electrical.PowerConnection"></A><A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical"
+>ThermoPower.Electrical</A>.PowerConnection</H2>
+<B>Electrical power connector</B><p>
+<H3>Contents</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>flow <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Power</A></TD><TD>W</TD><TD>Active power [W]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Frequency"
+>Frequency</A></TD><TD>f</TD><TD>Frequency [Hz]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">connector</font> PowerConnection <font color="darkgreen">&quot;Electrical power connector&quot;</font>
+  <font color="blue">flow </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Power</A> W <font color="darkgreen">&quot;Active power&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Frequency"
+>Frequency</A> f <font color="darkgreen">&quot;Frequency&quot;</font>;
+<font color="blue">end </font>PowerConnection;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Grid<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Electrical.GridI.png" ALT="ThermoPower.Electrical.Grid" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Electrical.Grid"></A><A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical"
+>ThermoPower.Electrical</A>.Grid</H2>
+<B>Ideal grid with finite droop</B><p>
+<IMG SRC="ThermoPower.Electrical.GridD.png" ALT="ThermoPower.Electrical.Grid">
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Frequency"
+>Frequency</A></TD><TD>fn</TD><TD>50</TD><TD>Nominal frequency [Hz]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Power</A></TD><TD>Pn</TD><TD>&nbsp;</TD><TD>Nominal power installed on the network [W]</TD></TR>
+<TR><TD>Real</TD><TD>droop</TD><TD>0.05</TD><TD>Network droop [pu]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.PowerConnection"
+>PowerConnection</A></TD><TD>connection</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Grid <font color="darkgreen">&quot;Ideal grid with finite droop&quot;</font>
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Frequency"
+>Frequency</A> fn=50 <font color="darkgreen">&quot;Nominal frequency&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Power</A> Pn <font color="darkgreen">&quot;Nominal power installed on the network&quot;</font>;
+  <font color="blue">parameter </font>Real droop(unit=&quot;pu&quot;)=0.05 <font color="darkgreen">&quot;Network droop&quot;</font>;
+  <A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.PowerConnection"
+>PowerConnection</A> connection;
+<font color="blue">equation </font>
+  connection.f = fn + droop*fn*connection.W/Pn;
+<font color="blue">end </font>Grid;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Generator<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Electrical.GeneratorI.png" ALT="ThermoPower.Electrical.Generator" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Electrical.Generator"></A><A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical"
+>ThermoPower.Electrical</A>.Generator</H2>
+<B>Active power generator</B><p>
+<IMG SRC="ThermoPower.Electrical.GeneratorD.png" ALT="ThermoPower.Electrical.Generator">
+<H3>Information</H3>
+<PRE></pre>
+<p>This model describes the conversion between mechanical power and electrical power in an ideal synchronous generator.
+The frequency in the electrical connector is the e.m.f. of generator.
+<p>It is possible to consider the generator inertia in the model, by setting the parameter <tt>J > 0</tt>.
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>eta</TD><TD>1</TD><TD>Conversion efficiency</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MomentOfInertia"
+>MomentOfInertia</A></TD><TD>J</TD><TD>0</TD><TD>Moment of inertia [kg.m2]</TD></TR>
+<TR><TD>Integer</TD><TD>Np</TD><TD>2</TD><TD>Number of electrical poles</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Initialization</B></TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Frequency"
+>Frequency</A></TD><TD>fstart</TD><TD>50</TD><TD>Start value of the electrical frequency [Hz]</TD></TR>
+<TR><TD><A HREF="ThermoPower_Choices_Init_Options.html#ThermoPower.Choices.Init.Options.Temp"
+>Temp</A></TD><TD>initOpt</TD><TD>ThermoPower.Choices.Init.Opt...</TD><TD>Initialization option</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.PowerConnection"
+>PowerConnection</A></TD><TD>powerConnection</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_a"
+>Flange_a</A></TD><TD>shaft</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Generator <font color="darkgreen">&quot;Active power generator&quot;</font>
+<font color="blue">import </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits"
+>Modelica.SIunits.Conversions.NonSIunits</A>.*;
+  <font color="blue">parameter </font>Real eta=1 <font color="darkgreen">&quot;Conversion efficiency&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MomentOfInertia"
+>Modelica.SIunits.MomentOfInertia</A> J=0 <font color="darkgreen">&quot;Moment of inertia&quot;</font>;
+  <font color="blue">parameter </font>Integer Np=2 <font color="darkgreen">&quot;Number of electrical poles&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Frequency"
+>Modelica.SIunits.Frequency</A> fstart=50 <font color="darkgreen">
+    &quot;Start value of the electrical frequency&quot;</font>;
+  <font color="blue">parameter </font><A HREF="ThermoPower_Choices_Init_Options.html#ThermoPower.Choices.Init.Options.Temp"
+>ThermoPower.Choices.Init.Options.Temp</A> initOpt=ThermoPower.Choices.Init.Options.noInit <font color="darkgreen">
+    &quot;Initialization option&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Modelica.SIunits.Power</A> Pm <font color="darkgreen">&quot;Mechanical power&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Modelica.SIunits.Power</A> Pe <font color="darkgreen">&quot;Electrical Power&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Modelica.SIunits.Power</A> Ploss <font color="darkgreen">&quot;Inertial power Loss&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Torque"
+>Modelica.SIunits.Torque</A> tau <font color="darkgreen">&quot;Torque at shaft&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
+>Modelica.SIunits.AngularVelocity</A> omega_m( start=2*Modelica.Constants.pi*fstart/Np) <font color="darkgreen">
+    &quot;Angular velocity of the shaft&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
+>Modelica.SIunits.AngularVelocity</A> omega_e <font color="darkgreen">
+    &quot;Angular velocity of the e.m.f. rotating frame&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits.AngularVelocity_rpm"
+>AngularVelocity_rpm</A> n <font color="darkgreen">&quot;Rotational speed&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Frequency"
+>Modelica.SIunits.Frequency</A> f <font color="darkgreen">&quot;Electrical frequency&quot;</font>;
+  <A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.PowerConnection"
+>PowerConnection</A> powerConnection;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_a"
+>Modelica.Mechanics.Rotational.Interfaces.Flange_a</A> shaft;
+<font color="blue">equation </font>
+  omega_m =<font color="red"> der</font>(shaft.phi) <font color="darkgreen">&quot;Mechanical boundary condition&quot;</font>;
+  omega_e = omega_m*Np;
+  f = omega_e/(2*Modelica.Constants.pi) <font color="darkgreen">&quot;Electrical frequency&quot;</font>;
+  n =<font color="red"> Modelica.SIunits.Conversions.to_rpm</font>(omega_m) <font color="darkgreen">&quot;Rotational speed in rpm&quot;</font>;
+  Pm = omega_m*tau;
+  <font color="blue">if </font>J&gt;0<font color="blue"> then</font>
+    Ploss = J*<font color="red">der</font>(omega_m)*omega_m;
+  <font color="blue">else</font>
+    Ploss = 0;
+  <font color="blue">end if</font>;
+  Pm = Pe/eta + Ploss <font color="darkgreen">&quot;Energy balance&quot;</font>;
+  <font color="darkgreen">// Boundary conditions</font>
+  f = powerConnection.f;
+  Pe = -powerConnection.W;
+  tau = shaft.tau;
+<font color="blue">initial </font><font color="blue">equation </font>
+  <font color="blue">if </font>initOpt == ThermoPower.Choices.Init.Options.noInit<font color="blue"> then</font>
+    <font color="darkgreen">// do nothing</font>
+  <font color="blue">elseif </font>initOpt == ThermoPower.Choices.Init.Options.steadyState<font color="blue"> then</font>
+    <font color="red">der</font>(omega_m) = 0;
+  <font color="blue">else</font>
+    <font color="red">assert</font>(false, &quot;Unsupported initialisation option&quot;);
+  <font color="blue">end if</font>;
+<font color="blue">end </font>Generator;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Breaker<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Electrical.BreakerI.png" ALT="ThermoPower.Electrical.Breaker" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Electrical.Breaker"></A><A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical"
+>ThermoPower.Electrical</A>.Breaker</H2>
+<B>Circuit breaker</B><p>
+<IMG SRC="ThermoPower.Electrical.BreakerD.png" ALT="ThermoPower.Electrical.Breaker">
+<H3>Information</H3>
+<PRE></pre>
+Ideal breaker model. Can only be used to connect a generator to a grid with finite droop. Otherwise, please consider the other models in this package.
+<pre></PRE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.PowerConnection"
+>PowerConnection</A></TD><TD>connection1</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.PowerConnection"
+>PowerConnection</A></TD><TD>connection2</TD><TD>&nbsp;</TD></TR>
+<TR><TD>input <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInput"
+>BooleanInput</A></TD><TD>closed</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Breaker <font color="darkgreen">&quot;Circuit breaker&quot;</font>
+  <A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.PowerConnection"
+>PowerConnection</A> connection1;
+  <A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.PowerConnection"
+>PowerConnection</A> connection2;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInput"
+>Modelica.Blocks.Interfaces.BooleanInput</A> closed;
+<font color="blue">equation </font>
+  connection1.W+connection2.W=0;
+  <font color="blue">if </font>closed<font color="blue"> then</font>
+    connection1.f=connection2.f;
+  <font color="blue">else</font>
+    connection1.W=0;
+  <font color="blue">end if</font>;
+<font color="blue">end </font>Breaker;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Load<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Electrical.LoadI.png" ALT="ThermoPower.Electrical.Load" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Electrical.Load"></A><A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical"
+>ThermoPower.Electrical</A>.Load</H2>
+<B>Electrical load</B><p>
+<IMG SRC="ThermoPower.Electrical.LoadD.png" ALT="ThermoPower.Electrical.Load">
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Power</A></TD><TD>Wn</TD><TD>&nbsp;</TD><TD>Nominal active power consumption [W]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Frequency"
+>Frequency</A></TD><TD>fn</TD><TD>50</TD><TD>Nominal frequency [Hz]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.PowerConnection"
+>PowerConnection</A></TD><TD>connection</TD><TD>&nbsp;</TD></TR>
+<TR><TD>input <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>powerConsumption</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Load <font color="darkgreen">&quot;Electrical load&quot;</font>
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Power</A> Wn <font color="darkgreen">&quot;Nominal active power consumption&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Frequency"
+>Frequency</A> fn=50 <font color="darkgreen">&quot;Nominal frequency&quot;</font>;
+  <font color="blue">replaceable </font><font color="blue">function</font> powerCurve = <A HREF="ThermoPower_Functions.html#ThermoPower.Functions.one"
+>Functions.one</A> <font color="darkgreen">
+    &quot;Normalised power consumption vs. frequency curve&quot;</font>;
+  <A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.PowerConnection"
+>PowerConnection</A> connection;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Power</A> W <font color="darkgreen">&quot;Actual power consumption&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Frequency"
+>Frequency</A> f <font color="darkgreen">&quot;Frequency&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> powerConsumption;
+<font color="blue">equation </font>
+  <font color="blue">if </font><font color="red">cardinality</font>(powerConsumption)==1<font color="blue"> then</font>
+    W=powerConsumption*<font color="red">powerCurve</font>((f-fn)/fn) <font color="darkgreen">
+      &quot;Power consumption determined by connector&quot;</font>;
+  <font color="blue">else</font>
+    powerConsumption=Wn <font color="darkgreen">&quot;Set the connector value (not used)&quot;</font>;
+    W=Wn*<font color="red">powerCurve</font>((f-fn)/fn) <font color="darkgreen">&quot;Power consumption determined by parameter&quot;</font>;
+  <font color="blue">end if</font>;
+  connection.f=f;
+  connection.W=W;
+<font color="blue">end </font>Load;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PowerSensor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Electrical.PowerSensorI.png" ALT="ThermoPower.Electrical.PowerSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Electrical.PowerSensor"></A><A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical"
+>ThermoPower.Electrical</A>.PowerSensor</H2>
+<B>Measures power flow through the component</B><p>
+<IMG SRC="ThermoPower.Electrical.PowerSensorD.png" ALT="ThermoPower.Electrical.PowerSensor">
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.PowerConnection"
+>PowerConnection</A></TD><TD>port_a</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.PowerConnection"
+>PowerConnection</A></TD><TD>port_b</TD><TD>&nbsp;</TD></TR>
+<TR><TD>output <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>RealOutput</A></TD><TD>W</TD><TD>Power flowing from port_a to port_b</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> PowerSensor <font color="darkgreen">&quot;Measures power flow through the component&quot;</font>
+  <A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.PowerConnection"
+>PowerConnection</A> port_a;
+  <A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.PowerConnection"
+>PowerConnection</A> port_b;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> W(
+      <font color="blue">redeclare </font><font color="blue">type</font> SignalType = <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Power</A>) <font color="darkgreen">&quot;Power flowing from port_a to port_b&quot;</font>;
+<font color="blue">equation </font>
+  port_a.W+port_b.W = 0;
+  port_a.f = port_b.f;
+  W = port_a.W;
+<font color="blue">end </font>PowerSensor;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE FrequencySensor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Electrical.FrequencySensorI.png" ALT="ThermoPower.Electrical.FrequencySensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Electrical.FrequencySensor"></A><A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical"
+>ThermoPower.Electrical</A>.FrequencySensor</H2>
+<B>Measures the frequency at the connector</B><p>
+<IMG SRC="ThermoPower.Electrical.FrequencySensorD.png" ALT="ThermoPower.Electrical.FrequencySensor">
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.PowerConnection"
+>PowerConnection</A></TD><TD>port</TD><TD>&nbsp;</TD></TR>
+<TR><TD>output <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>RealOutput</A></TD><TD>f</TD><TD>Frequency at the connector</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> FrequencySensor <font color="darkgreen">&quot;Measures the frequency at the connector&quot;</font>
+  <A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.PowerConnection"
+>PowerConnection</A> port;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> f(
+      <font color="blue">redeclare </font><font color="blue">type</font> SignalType = <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Frequency"
+>Frequency</A>) <font color="darkgreen">&quot;Frequency at the connector&quot;</font>;
+<font color="blue">equation </font>
+  port.W = 0;
+  f = port.f;
+<font color="blue">end </font>FrequencySensor;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Network1portBase<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Electrical.Network1portBaseI.png" ALT="ThermoPower.Electrical.Network1portBase" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Electrical.Network1portBase"></A><A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical"
+>ThermoPower.Electrical</A>.Network1portBase</H2>
+<B>Base class for one-port network</B><p>
+<IMG SRC="ThermoPower.Electrical.Network1portBaseD.png" ALT="ThermoPower.Electrical.Network1portBase">
+<H3>Information</H3>
+<PRE></pre>
+<p>Basic interface of the Network models with one electrical port for the connection to the generator, containing the common parameters, variables and connectors.</p>
+<p><b>Modelling options</b>
+<p>The net electrical power is defined by the following relationship:
+<ul><tt>Pe = C*sin(delta)</tt></ul>
+<p><tt>delta</tt> is the load angle, defined by the following relationship:
+<ul><tt>der(delta) = omega - omegaRef</tt></ul>
+<p>where <tt>omega</tt> is related to the frequency on the power connector (generator frequency), and <tt>omegaRef</tt> is the reference angular velocity of the network embedded in the model.
+<p>The electrical power losses are described by the variable <tt>Ploss</tt>.
+<p>If <tt>hasBreaker</tt> is true, the model provides a circuit breaker, controlled by the boolean input signal, to describe the connection/disconnection of the electrical port from the grid; otherwise it is assumed that the electrical port is always connected to the grid.
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Boolean</TD><TD>hasBreaker</TD><TD>false</TD><TD>Model includes a breaker controlled by external input</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Power</A></TD><TD>C</TD><TD>&nbsp;</TD><TD>Max. power transfer [W]</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Initialization</B></TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Angle</A></TD><TD>deltaStart</TD><TD>0</TD><TD>Start value of the load angle [rad]</TD></TR>
+<TR><TD><A HREF="ThermoPower_Choices_Init_Options.html#ThermoPower.Choices.Init.Options.Temp"
+>Temp</A></TD><TD>initOpt</TD><TD>ThermoPower.Choices.Init.Opt...</TD><TD>Initialization option</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.PowerConnection"
+>PowerConnection</A></TD><TD>powerConnection</TD><TD>&nbsp;</TD></TR>
+<TR><TD>input <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInput"
+>BooleanInput</A></TD><TD>closed</TD><TD>&nbsp;</TD></TR>
+<TR><TD>output <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>RealOutput</A></TD><TD>delta_out</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">partial </font><font color="blue">model</font> Network1portBase <font color="darkgreen">&quot;Base class for one-port network&quot;</font>
+  <font color="blue">parameter </font>Boolean hasBreaker = false <font color="darkgreen">
+    &quot;Model includes a breaker controlled by external input&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Modelica.SIunits.Angle</A> deltaStart=0 <font color="darkgreen">&quot;Start value of the load angle&quot;</font>;
+  <font color="blue">parameter </font><A HREF="ThermoPower_Choices_Init_Options.html#ThermoPower.Choices.Init.Options.Temp"
+>ThermoPower.Choices.Init.Options.Temp</A> initOpt=ThermoPower.Choices.Init.Options.noInit <font color="darkgreen">
+    &quot;Initialization option&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Modelica.SIunits.Power</A> C <font color="darkgreen">&quot;Max. power transfer&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Modelica.SIunits.Power</A> Pe <font color="darkgreen">&quot;Net electrical power&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Modelica.SIunits.Power</A> Ploss <font color="darkgreen">&quot;Electrical power loss&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
+>Modelica.SIunits.AngularVelocity</A> omega <font color="darkgreen">&quot;Angular velocity&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
+>Modelica.SIunits.AngularVelocity</A> omegaRef <font color="darkgreen">&quot;Angular velocity reference&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Modelica.SIunits.Angle</A> delta( stateSelect = StateSelect.prefer, start=deltaStart) <font color="darkgreen">
+    &quot;Load angle&quot;</font>;
+
+  <A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.PowerConnection"
+>PowerConnection</A> powerConnection;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInput"
+>Modelica.Blocks.Interfaces.BooleanInput</A> closed <font color="blue">if </font>hasBreaker;
+<font color="blue">protected </font>
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInput"
+>Modelica.Blocks.Interfaces.BooleanInput</A> closedInternal;
+<font color="blue">public </font>
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> delta_out;
+<font color="blue">equation </font>
+  <font color="darkgreen">// Load angle</font>
+  <font color="red">der</font>(delta) = omega - omegaRef;
+  <font color="darkgreen">// Power flow</font>
+  <font color="blue">if </font>closedInternal<font color="blue"> then</font>
+    Pe = C*<font color="red">Modelica.Math.sin</font>(delta);
+  <font color="blue">else</font>
+    Pe = 0;
+  <font color="blue">end if</font>;
+  <font color="darkgreen">// Boundary conditions</font>
+  Pe + Ploss = powerConnection.W;
+  omega = 2*Modelica.Constants.pi*powerConnection.f;
+  <font color="blue">if </font><font color="blue">not </font>hasBreaker<font color="blue"> then</font>
+    closedInternal = true;
+  <font color="blue">end if</font>;
+  <font color="red">connect</font>(closed, closedInternal);
+  <font color="darkgreen">//Output signal</font>
+  delta_out = delta;
+<font color="blue">initial </font><font color="blue">equation </font>
+  <font color="blue">if </font>initOpt == ThermoPower.Choices.Init.Options.noInit<font color="blue"> then</font>
+    <font color="darkgreen">// do nothing</font>
+  <font color="blue">elseif </font>initOpt == ThermoPower.Choices.Init.Options.steadyState<font color="blue"> then</font>
+    <font color="red">der</font>(delta) = 0;
+  <font color="blue">else</font>
+    <font color="red">assert</font>(false, &quot;Unsupported initialisation option&quot;);
+  <font color="blue">end if</font>;
+<font color="blue">end </font>Network1portBase;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE NetworkGrid_eX<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Electrical.NetworkGrid_eXI.png" ALT="ThermoPower.Electrical.NetworkGrid_eX" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Electrical.NetworkGrid_eX"></A><A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical"
+>ThermoPower.Electrical</A>.NetworkGrid_eX</H2>
+<IMG SRC="ThermoPower.Electrical.NetworkGrid_eXD.png" ALT="ThermoPower.Electrical.NetworkGrid_eX">
+<H3>Information</H3>
+<PRE></pre>
+<p>This model extends <tt>Network1portBase</tt> partial model, by defining the power coefficient <tt>C</tt> in terms of <tt>e</tt>, <tt>v</tt>, <tt>X</tt>, and <tt>Xline</tt>.
+<p>The power losses are represented by a linear dissipative term. It is possible to directly set the damping coefficient <tt>r</tt> of the generator/shaft system.
+If <tt>J</tt> is zero, zero damping is assumed by default. Note that <tt>J</tt> is only used to compute the dissipative term and should refer to the total inertia of the generator-shaft system; the network model does not add any inertial effects.
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Boolean</TD><TD>hasBreaker</TD><TD>false</TD><TD>Model includes a breaker controlled by external input</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Voltage</A></TD><TD>v</TD><TD>&nbsp;</TD><TD>Network voltage [V]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Frequency"
+>Frequency</A></TD><TD>fnom</TD><TD>50</TD><TD>Nominal frequency of network [Hz]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Reactance"
+>Reactance</A></TD><TD>Xline</TD><TD>&nbsp;</TD><TD>Line reactance [Ohm]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Generator</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Voltage</A></TD><TD>e</TD><TD>&nbsp;</TD><TD>e.m.f voltage [V]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Reactance"
+>Reactance</A></TD><TD>X</TD><TD>&nbsp;</TD><TD>Internal reactance [Ohm]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MomentOfInertia"
+>MomentOfInertia</A></TD><TD>J</TD><TD>0</TD><TD>Moment of inertia of the generator/shaft system (for damping term calculation only) [kg.m2]</TD></TR>
+<TR><TD>Real</TD><TD>r</TD><TD>0.2</TD><TD>Damping coefficient of the swing equation</TD></TR>
+<TR><TD>Integer</TD><TD>Np</TD><TD>2</TD><TD>Number of electrical poles</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Initialization</B></TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Angle</A></TD><TD>deltaStart</TD><TD>0</TD><TD>Start value of the load angle [rad]</TD></TR>
+<TR><TD><A HREF="ThermoPower_Choices_Init_Options.html#ThermoPower.Choices.Init.Options.Temp"
+>Temp</A></TD><TD>initOpt</TD><TD>ThermoPower.Choices.Init.Opt...</TD><TD>Initialization option</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.PowerConnection"
+>PowerConnection</A></TD><TD>powerConnection</TD><TD>&nbsp;</TD></TR>
+<TR><TD>input <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInput"
+>BooleanInput</A></TD><TD>closed</TD><TD>&nbsp;</TD></TR>
+<TR><TD>output <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>RealOutput</A></TD><TD>delta_out</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> NetworkGrid_eX
+  <font color="blue">extends </font><A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.Network1portBase"
+>ThermoPower.Electrical.Network1portBase</A>( <font color="blue">final </font>C = e*v/(X+Xline));
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> e <font color="darkgreen">&quot;e.m.f voltage&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> v <font color="darkgreen">&quot;Network voltage&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Frequency"
+>Modelica.SIunits.Frequency</A> fnom=50 <font color="darkgreen">&quot;Nominal frequency of network&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Reactance"
+>Modelica.SIunits.Reactance</A> X <font color="darkgreen">&quot;Internal reactance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Reactance"
+>Modelica.SIunits.Reactance</A> Xline <font color="darkgreen">&quot;Line reactance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MomentOfInertia"
+>Modelica.SIunits.MomentOfInertia</A> J=0 <font color="darkgreen">
+    &quot;Moment of inertia of the generator/shaft system (for damping term calculation only)&quot;</font>;
+  <font color="blue">parameter </font>Real r=0.2 <font color="darkgreen">&quot;Damping coefficient of the swing equation&quot;</font>;
+  <font color="blue">parameter </font>Integer Np=2 <font color="darkgreen">&quot;Number of electrical poles&quot;</font>;
+  Real D <font color="darkgreen">&quot;Electrical damping coefficient&quot;</font>;
+<font color="blue">equation </font>
+  <font color="darkgreen">// Definition of the reference angular velocity</font>
+  omegaRef = 2*Modelica.Constants.pi*fnom;
+  <font color="darkgreen">// Damping power loss</font>
+  <font color="blue">if </font>J&gt;0<font color="blue"> then</font>
+    D = 2*r*<font color="red">sqrt</font>(C*J*(2*Modelica.Constants.pi*fnom*Np)/(Np^2));
+  <font color="blue">else</font>
+    D = 0;
+  <font color="blue">end if</font>;
+  <font color="blue">if </font>closedInternal<font color="blue"> then</font>
+    Ploss = D*<font color="red">der</font>(delta);
+  <font color="blue">else</font>
+    Ploss = 0;
+  <font color="blue">end if</font>;
+<font color="blue">end </font>NetworkGrid_eX;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE NetworkGrid_Pmax<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Electrical.NetworkGrid_PmaxI.png" ALT="ThermoPower.Electrical.NetworkGrid_Pmax" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Electrical.NetworkGrid_Pmax"></A><A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical"
+>ThermoPower.Electrical</A>.NetworkGrid_Pmax</H2>
+<IMG SRC="ThermoPower.Electrical.NetworkGrid_eXD.png" ALT="ThermoPower.Electrical.NetworkGrid_Pmax">
+<H3>Information</H3>
+<PRE></pre>
+<p>This model extends <tt>Network1portBase</tt> partial model, by directly defining the maximum power that can be transferred between the electrical port and the grid <tt>Pmax</tt>.
+<p>The power losses are represented by a linear dissipative term. It is possible to directly set the damping coefficient <tt>r</tt> of the generator/shaft system.
+If <tt>J</tt> is zero, zero damping is assumed. Note that <tt>J</tt> is only used to compute the dissipative term and should refer to the total inertia of the generator-shaft system; the network model does not add any inertial effects.
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Boolean</TD><TD>hasBreaker</TD><TD>false</TD><TD>Model includes a breaker controlled by external input</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Power</A></TD><TD>Pmax</TD><TD>&nbsp;</TD><TD>Maximum power transfer [W]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Frequency"
+>Frequency</A></TD><TD>fnom</TD><TD>50</TD><TD>Nominal frequency of network [Hz]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Generator</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MomentOfInertia"
+>MomentOfInertia</A></TD><TD>J</TD><TD>0</TD><TD>Moment of inertia of the generator/shaft system (for damping term calculation) [kg.m2]</TD></TR>
+<TR><TD>Real</TD><TD>r</TD><TD>0.2</TD><TD>Electrical damping of generator/shaft system</TD></TR>
+<TR><TD>Integer</TD><TD>Np</TD><TD>2</TD><TD>Number of electrical poles</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Initialization</B></TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Angle</A></TD><TD>deltaStart</TD><TD>0</TD><TD>Start value of the load angle [rad]</TD></TR>
+<TR><TD><A HREF="ThermoPower_Choices_Init_Options.html#ThermoPower.Choices.Init.Options.Temp"
+>Temp</A></TD><TD>initOpt</TD><TD>ThermoPower.Choices.Init.Opt...</TD><TD>Initialization option</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.PowerConnection"
+>PowerConnection</A></TD><TD>powerConnection</TD><TD>&nbsp;</TD></TR>
+<TR><TD>input <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInput"
+>BooleanInput</A></TD><TD>closed</TD><TD>&nbsp;</TD></TR>
+<TR><TD>output <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>RealOutput</A></TD><TD>delta_out</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> NetworkGrid_Pmax
+  <font color="blue">extends </font><A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.Network1portBase"
+>ThermoPower.Electrical.Network1portBase</A>( <font color="blue">final </font>C = Pmax);
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Modelica.SIunits.Power</A> Pmax <font color="darkgreen">&quot;Maximum power transfer&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Frequency"
+>Modelica.SIunits.Frequency</A> fnom=50 <font color="darkgreen">&quot;Nominal frequency of network&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MomentOfInertia"
+>Modelica.SIunits.MomentOfInertia</A> J=0 <font color="darkgreen">
+    &quot;Moment of inertia of the generator/shaft system (for damping term calculation)&quot;</font>;
+  <font color="blue">parameter </font>Real r=0.2 <font color="darkgreen">&quot;Electrical damping of generator/shaft system&quot;</font>;
+  <font color="blue">parameter </font>Integer Np=2 <font color="darkgreen">&quot;Number of electrical poles&quot;</font>;
+  Real D <font color="darkgreen">&quot;Electrical damping coefficient&quot;</font>;
+<font color="blue">equation </font>
+  <font color="darkgreen">// Definition of the reference</font>
+  omegaRef = 2*Modelica.Constants.pi*fnom;
+  <font color="darkgreen">// Definition of damping power loss</font>
+  <font color="blue">if </font>J&gt;0<font color="blue"> then</font>
+    D = 2*r*<font color="red">sqrt</font>(C*J*(2*Modelica.Constants.pi*fnom*Np)/(Np^2));
+  <font color="blue">else</font>
+    D = 0;
+  <font color="blue">end if</font>;
+  <font color="blue">if </font>closedInternal<font color="blue"> then</font>
+    Ploss = D*<font color="red">der</font>(delta);
+  <font color="blue">else</font>
+    Ploss = 0;
+  <font color="blue">end if</font>;
+<font color="blue">end </font>NetworkGrid_Pmax;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Network2portBase<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Electrical.Network2portBaseI.png" ALT="ThermoPower.Electrical.Network2portBase" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Electrical.Network2portBase"></A><A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical"
+>ThermoPower.Electrical</A>.Network2portBase</H2>
+<B>Base class for network with two port</B><p>
+<IMG SRC="ThermoPower.Electrical.Network2portBaseD.png" ALT="ThermoPower.Electrical.Network2portBase">
+<H3>Information</H3>
+<PRE></pre>
+<p>Basic interface of the Network models with two electrical ports, containing the common parameters, variables and connectors.</p>
+<p><b>Modelling options</b>
+<p>The flow of electrical power from side A to side B is defined by the following relationship:
+<ul><tt>Pe_ab = C*sin(delta_ab)</tt></ul>
+<p>where
+<ul><tt>delta_ab = delta_a - delta_b</tt></ul>
+<p>is the relative load angle.</p>
+<p><tt>delta_a</tt> and <tt>delta_b</tt> are the phases of the rotating frames in the corresponding ports.
+<p>The electrical power loss on each side are described by the variables <tt>Ploss_a</tt> and <tt>Ploss_b</tt>.
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Power</A></TD><TD>C_ab</TD><TD>&nbsp;</TD><TD>Coefficient of Pe_ab [W]</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Initialization</B></TD></TR>
+<TR><TD><A HREF="ThermoPower_Choices_Init_Options.html#ThermoPower.Choices.Init.Options.Temp"
+>Temp</A></TD><TD>initOpt</TD><TD>ThermoPower.Choices.Init.Opt...</TD><TD>Initialization option</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.PowerConnection"
+>PowerConnection</A></TD><TD>powerConnection_a</TD><TD>A</TD></TR>
+<TR><TD><A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.PowerConnection"
+>PowerConnection</A></TD><TD>powerConnection_b</TD><TD>B</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">partial </font><font color="blue">model</font> Network2portBase <font color="darkgreen">&quot;Base class for network with two port&quot;</font>
+  <font color="blue">parameter </font><A HREF="ThermoPower_Choices_Init_Options.html#ThermoPower.Choices.Init.Options.Temp"
+>ThermoPower.Choices.Init.Options.Temp</A> initOpt=ThermoPower.Choices.Init.Options.noInit <font color="darkgreen">
+    &quot;Initialization option&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Modelica.SIunits.Power</A> C_ab <font color="darkgreen">&quot;Coefficient of Pe_ab&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Modelica.SIunits.Power</A> Pe_ab <font color="darkgreen">&quot;Exchanged electrical power from A to B&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Modelica.SIunits.Power</A> Pe_a <font color="darkgreen">&quot;Net electrical power side A&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Modelica.SIunits.Power</A> Pe_b <font color="darkgreen">&quot;Net electrical power side B&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Modelica.SIunits.Power</A> Ploss_a <font color="darkgreen">&quot;Electrical power loss side A&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Modelica.SIunits.Power</A> Ploss_b <font color="darkgreen">&quot;Electrical power loss side B&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
+>Modelica.SIunits.AngularVelocity</A> omega_a <font color="darkgreen">&quot;Angular velocity A&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
+>Modelica.SIunits.AngularVelocity</A> omega_b <font color="darkgreen">&quot;Angular velocity B&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Modelica.SIunits.Angle</A> delta_a <font color="darkgreen">&quot;Phase A&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Modelica.SIunits.Angle</A> delta_b <font color="darkgreen">&quot;Phase B&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Modelica.SIunits.Angle</A> delta_ab( stateSelect = StateSelect.prefer, start=deltaStart) <font color="darkgreen">
+    &quot;Load angle between A and B&quot;</font>;
+
+<font color="blue">protected </font>
+  <font color="blue">parameter </font>Real deltaStart = 0;
+<font color="blue">public </font>
+  <A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.PowerConnection"
+>PowerConnection</A> powerConnection_a <font color="darkgreen">&quot;A&quot;</font>;
+  <A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.PowerConnection"
+>PowerConnection</A> powerConnection_b <font color="darkgreen">&quot;B&quot;</font>;
+<font color="blue">protected </font>
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInput"
+>Modelica.Blocks.Interfaces.BooleanInput</A> closedInternal_gen_a;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInput"
+>Modelica.Blocks.Interfaces.BooleanInput</A> closedInternal_gen_b;
+<font color="blue">equation </font>
+  <font color="darkgreen">// Definition of load angles</font>
+  <font color="red">der</font>(delta_a) = omega_a;
+  <font color="red">der</font>(delta_b) = omega_b;
+  delta_ab = delta_a - delta_b;
+  <font color="darkgreen">// Definition of power flow</font>
+  <font color="blue">if </font>closedInternal_gen_a<font color="blue"> and </font>closedInternal_gen_b<font color="blue"> then</font>
+    Pe_ab = C_ab*<font color="red">Modelica.Math.sin</font>(delta_ab);
+  <font color="blue">else</font>
+    Pe_ab = 0;
+  <font color="blue">end if</font>;
+  <font color="darkgreen">// Boundary conditions</font>
+  Pe_a + Ploss_a = powerConnection_a.W;
+  Pe_b + Ploss_b = powerConnection_b.W;
+  omega_a = 2*Modelica.Constants.pi*powerConnection_a.f;
+  omega_b = 2*Modelica.Constants.pi*powerConnection_b.f;
+<font color="blue">initial </font><font color="blue">equation </font>
+  <font color="blue">if </font>initOpt == ThermoPower.Choices.Init.Options.noInit<font color="blue"> then</font>
+    <font color="darkgreen">// do nothing</font>
+  <font color="blue">elseif </font>initOpt == ThermoPower.Choices.Init.Options.steadyState<font color="blue"> then</font>
+    <font color="red">der</font>(delta_ab) = 0;
+  <font color="blue">else</font>
+    <font color="red">assert</font>(false, &quot;Unsupported initialisation option&quot;);
+  <font color="blue">end if</font>;
+<font color="blue">end </font>Network2portBase;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE NetworkTwoGenerators_eX<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Electrical.NetworkTwoGenerators_eXI.png" ALT="ThermoPower.Electrical.NetworkTwoGenerators_eX" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Electrical.NetworkTwoGenerators_eX"></A><A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical"
+>ThermoPower.Electrical</A>.NetworkTwoGenerators_eX</H2>
+<B>Connection: generator(a) - generator(b); Parameters: voltages and reactances</B><p>
+<IMG SRC="ThermoPower.Electrical.NetworkTwoGenerators_eXD.png" ALT="ThermoPower.Electrical.NetworkTwoGenerators_eX">
+<H3>Information</H3>
+<PRE></pre>
+<p>Simplified model of connection between two generators based on the swing equation. It completes <tt>Netowrk2portBase</tt> partial model, by defining the power coefficient <tt>C</tt> in terms of the parameters <tt>e_a</tt>, <tt>e_b</tt>, <tt>X_a</tt>, <tt>X_b</tt> and <tt>Xline</tt>.
+<p>The net electrical powers of two port coincides with the power <tt>P_ab</tt>.
+<p>The power losses are represented by a linear dissipative term. It is possible to directly set the damping coefficient <tt>r</tt> of the generator/shaft system.
+If <tt>J_a</tt> or <tt>J_b</tt> are zero, zero damping is assumed. Note that <tt>J_a</tt> and <tt>J_b</tt> are only used to compute the dissipative term and should each refer to the total inertia of the generator-shaft system; the network model does not add any inertial effects.
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Boolean</TD><TD>hasBreaker</TD><TD>false</TD><TD>Model includes a breaker controlled by external input</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Reactance"
+>Reactance</A></TD><TD>Xline</TD><TD>&nbsp;</TD><TD>Line reactance [Ohm]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Frequency"
+>Frequency</A></TD><TD>fnom</TD><TD>50</TD><TD>Nominal frequency of the network [Hz]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Generator side A</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Voltage</A></TD><TD>e_a</TD><TD>&nbsp;</TD><TD>e.m.f voltage (generator A) [V]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Reactance"
+>Reactance</A></TD><TD>X_a</TD><TD>&nbsp;</TD><TD>Internal reactance (generator A) [Ohm]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MomentOfInertia"
+>MomentOfInertia</A></TD><TD>J_a</TD><TD>0</TD><TD>Moment of inertia of the generator/shaft system A (for damping term calculation only) [kg.m2]</TD></TR>
+<TR><TD>Real</TD><TD>r_a</TD><TD>0.2</TD><TD>Electrical damping of generator/shaft system (generator A)</TD></TR>
+<TR><TD>Integer</TD><TD>Np_a</TD><TD>2</TD><TD>Number of electrical poles (generator A)</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Generator side B</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Voltage</A></TD><TD>e_b</TD><TD>&nbsp;</TD><TD>e.m.f voltage (generator B) [V]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Reactance"
+>Reactance</A></TD><TD>X_b</TD><TD>&nbsp;</TD><TD>Internal reactance (generator B) [Ohm]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MomentOfInertia"
+>MomentOfInertia</A></TD><TD>J_b</TD><TD>0</TD><TD>Moment of inertia of the generator/shaft system B (for damping term calculation only) [kg.m2]</TD></TR>
+<TR><TD>Real</TD><TD>r_b</TD><TD>0.2</TD><TD>Electrical damping of generator/shaft system (generator B)</TD></TR>
+<TR><TD>Integer</TD><TD>Np_b</TD><TD>2</TD><TD>Number of electrical poles (generator B)</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Initialization</B></TD></TR>
+<TR><TD><A HREF="ThermoPower_Choices_Init_Options.html#ThermoPower.Choices.Init.Options.Temp"
+>Temp</A></TD><TD>initOpt</TD><TD>ThermoPower.Choices.Init.Opt...</TD><TD>Initialization option</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Angle</A></TD><TD>deltaStart_ab</TD><TD>0</TD><TD>Start value of the load angle between side A and side B [rad]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.PowerConnection"
+>PowerConnection</A></TD><TD>powerConnection_a</TD><TD>A</TD></TR>
+<TR><TD><A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.PowerConnection"
+>PowerConnection</A></TD><TD>powerConnection_b</TD><TD>B</TD></TR>
+<TR><TD>input <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInput"
+>BooleanInput</A></TD><TD>closed</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> NetworkTwoGenerators_eX <font color="darkgreen">
+  &quot;Connection: generator(a) - generator(b); Parameters: voltages and reactances&quot;</font>
+  <font color="blue">extends </font><A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.Network2portBase"
+>ThermoPower.Electrical.Network2portBase</A>( deltaStart=deltaStart_ab,
+                                                  <font color="blue">final </font>C_ab = e_a*e_b/(X_a+X_b+Xline));
+  <font color="blue">parameter </font>Boolean hasBreaker = false <font color="darkgreen">
+    &quot;Model includes a breaker controlled by external input&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> e_a <font color="darkgreen">&quot;e.m.f voltage (generator A)&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> e_b <font color="darkgreen">&quot;e.m.f voltage (generator B)&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Reactance"
+>Modelica.SIunits.Reactance</A> X_a <font color="darkgreen">&quot;Internal reactance (generator A)&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Reactance"
+>Modelica.SIunits.Reactance</A> X_b <font color="darkgreen">&quot;Internal reactance (generator B)&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Reactance"
+>Modelica.SIunits.Reactance</A> Xline <font color="darkgreen">&quot;Line reactance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MomentOfInertia"
+>Modelica.SIunits.MomentOfInertia</A> J_a=0 <font color="darkgreen">
+    &quot;Moment of inertia of the generator/shaft system A (for damping term calculation only)&quot;</font>;
+  <font color="blue">parameter </font>Real r_a=0.2 <font color="darkgreen">
+    &quot;Electrical damping of generator/shaft system (generator A)&quot;</font>;
+  <font color="blue">parameter </font>Integer Np_a=2 <font color="darkgreen">&quot;Number of electrical poles (generator A)&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MomentOfInertia"
+>Modelica.SIunits.MomentOfInertia</A> J_b=0 <font color="darkgreen">
+    &quot;Moment of inertia of the generator/shaft system B (for damping term calculation only)&quot;</font>;
+  <font color="blue">parameter </font>Real r_b=0.2 <font color="darkgreen">
+    &quot;Electrical damping of generator/shaft system (generator B)&quot;</font>;
+  <font color="blue">parameter </font>Integer Np_b=2 <font color="darkgreen">&quot;Number of electrical poles (generator B)&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Frequency"
+>Modelica.SIunits.Frequency</A> fnom=50 <font color="darkgreen">
+    &quot;Nominal frequency of the network&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Modelica.SIunits.Angle</A> deltaStart_ab=0 <font color="darkgreen">
+    &quot;Start value of the load angle between side A and side B&quot;</font>;
+  Real D_a <font color="darkgreen">&quot;Electrical damping coefficient side A&quot;</font>;
+  Real D_b <font color="darkgreen">&quot;Electrical damping coefficient side B&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInput"
+>Modelica.Blocks.Interfaces.BooleanInput</A> closed <font color="blue">if </font>hasBreaker;
+<font color="blue">equation </font>
+  <font color="darkgreen">// Breaker and its connections (unique breaker =&gt; closedInternal_gen_a = closedInternal_gen_b)</font>
+  <font color="blue">if </font><font color="blue">not </font>hasBreaker<font color="blue"> then</font>
+    closedInternal_gen_a = true;
+    closedInternal_gen_b = true;
+  <font color="blue">end if</font>;
+  <font color="red">connect</font>(closed, closedInternal_gen_a);
+  <font color="red">connect</font>(closed, closedInternal_gen_b);
+
+  <font color="darkgreen">// Definitions of net powers</font>
+  Pe_a = Pe_ab;
+  Pe_a = -Pe_b;
+  <font color="darkgreen">// Definitions of damping power losses</font>
+  <font color="blue">if </font>J_a&gt;0<font color="blue"> then</font>
+    D_a = 2*r_a*<font color="red">sqrt</font>(C_ab*J_a*(2*Modelica.Constants.pi*fnom*Np_a)/(Np_a^2));
+  <font color="blue">else</font>
+    D_a = 0;
+  <font color="blue">end if</font>;
+  <font color="blue">if </font>J_b&gt;0<font color="blue"> then</font>
+    D_b = 2*r_b*<font color="red">sqrt</font>(C_ab*J_b*(2*Modelica.Constants.pi*fnom*Np_b)/(Np_b^2));
+  <font color="blue">else</font>
+    D_b = 0;
+  <font color="blue">end if</font>;
+  <font color="blue">if </font>closedInternal_gen_a<font color="blue"> then</font>
+    Ploss_a = D_a*<font color="red">der</font>(delta_ab);
+    Ploss_b = - D_b*<font color="red">der</font>(delta_ab);
+  <font color="blue">else</font>
+    Ploss_a = 0;
+    Ploss_b = 0;
+  <font color="blue">end if</font>;
+<font color="blue">end </font>NetworkTwoGenerators_eX;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE NetworkTwoGenerators_Pmax<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Electrical.NetworkTwoGenerators_eXI.png" ALT="ThermoPower.Electrical.NetworkTwoGenerators_Pmax" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Electrical.NetworkTwoGenerators_Pmax"></A><A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical"
+>ThermoPower.Electrical</A>.NetworkTwoGenerators_Pmax</H2>
+<B>Connection: generator(a) - generator(b); Parameters: maximum power</B><p>
+<IMG SRC="ThermoPower.Electrical.NetworkTwoGenerators_eXD.png" ALT="ThermoPower.Electrical.NetworkTwoGenerators_Pmax">
+<H3>Information</H3>
+<PRE></pre>
+<p>Simplified model of connection between two generators based on swing equation. It completes <tt>Netowrk2portBase</tt> partial model, defining the coefficient of the exchanged clean electrical power and the damping power losses.
+<p>The power coefficient is given by directly defining the maximum power that can be transferred between the electrical port and the grid <tt>Pmax</tt>.
+<p>The net electrical powers of two port coincide with the power <tt>P_ab</tt>.
+<p>The power losses are represented by a linear dissipative term. It is possible to directly set the damping coefficient <tt>r</tt> of the generator/shaft system.
+If <tt>J_a</tt> or <tt>J_b</tt> are zero, zero damping is assumed. Note that <tt>J_a</tt> and <tt>J_b</tt> are only used to compute the dissipative term and should each refer to the total inertia of the generator-shaft system; the network model does not add any inertial effects.
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Boolean</TD><TD>hasBreaker</TD><TD>false</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Power</A></TD><TD>Pmax</TD><TD>&nbsp;</TD><TD>Maximum power transfer [W]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Frequency"
+>Frequency</A></TD><TD>fnom</TD><TD>50</TD><TD>Nominal frequency of the network [Hz]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Generator side A</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MomentOfInertia"
+>MomentOfInertia</A></TD><TD>J_a</TD><TD>0</TD><TD>Moment of inertia of the generator/shaft system A (for damping term calculation only) [kg.m2]</TD></TR>
+<TR><TD>Real</TD><TD>r_a</TD><TD>0.2</TD><TD>Electrical damping of generator/shaft system (generator A)</TD></TR>
+<TR><TD>Integer</TD><TD>Np_a</TD><TD>2</TD><TD>Number of electrical poles (generator A)</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Generator side B</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MomentOfInertia"
+>MomentOfInertia</A></TD><TD>J_b</TD><TD>0</TD><TD>Moment of inertia of the generator/shaft system B (for damping term calculation only) [kg.m2]</TD></TR>
+<TR><TD>Real</TD><TD>r_b</TD><TD>0.2</TD><TD>Electrical damping of generator/shaft system (generator B)</TD></TR>
+<TR><TD>Integer</TD><TD>Np_b</TD><TD>2</TD><TD>Number of electrical poles (generator B)</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Initialization</B></TD></TR>
+<TR><TD><A HREF="ThermoPower_Choices_Init_Options.html#ThermoPower.Choices.Init.Options.Temp"
+>Temp</A></TD><TD>initOpt</TD><TD>ThermoPower.Choices.Init.Opt...</TD><TD>Initialization option</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Angle</A></TD><TD>deltaStart_ab</TD><TD>0</TD><TD>Start value of the load angle between side A and side B [rad]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.PowerConnection"
+>PowerConnection</A></TD><TD>powerConnection_a</TD><TD>A</TD></TR>
+<TR><TD><A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.PowerConnection"
+>PowerConnection</A></TD><TD>powerConnection_b</TD><TD>B</TD></TR>
+<TR><TD>input <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInput"
+>BooleanInput</A></TD><TD>closed</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> NetworkTwoGenerators_Pmax <font color="darkgreen">
+  &quot;Connection: generator(a) - generator(b); Parameters: maximum power&quot;</font>
+  <font color="blue">extends </font><A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.Network2portBase"
+>ThermoPower.Electrical.Network2portBase</A>( deltaStart=deltaStart_ab,
+                                                  <font color="blue">final </font>C_ab = Pmax);
+  <font color="blue">parameter </font>Boolean hasBreaker = false;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Modelica.SIunits.Power</A> Pmax <font color="darkgreen">&quot;Maximum power transfer&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MomentOfInertia"
+>Modelica.SIunits.MomentOfInertia</A> J_a=0 <font color="darkgreen">
+    &quot;Moment of inertia of the generator/shaft system A (for damping term calculation only)&quot;</font>;
+  <font color="blue">parameter </font>Real r_a=0.2 <font color="darkgreen">
+    &quot;Electrical damping of generator/shaft system (generator A)&quot;</font>;
+  <font color="blue">parameter </font>Integer Np_a=2 <font color="darkgreen">&quot;Number of electrical poles (generator A)&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MomentOfInertia"
+>Modelica.SIunits.MomentOfInertia</A> J_b=0 <font color="darkgreen">
+    &quot;Moment of inertia of the generator/shaft system B (for damping term calculation only)&quot;</font>;
+  <font color="blue">parameter </font>Real r_b=0.2 <font color="darkgreen">
+    &quot;Electrical damping of generator/shaft system (generator B)&quot;</font>;
+  <font color="blue">parameter </font>Integer Np_b=2 <font color="darkgreen">&quot;Number of electrical poles (generator B)&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Frequency"
+>Modelica.SIunits.Frequency</A> fnom=50 <font color="darkgreen">
+    &quot;Nominal frequency of the network&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Modelica.SIunits.Angle</A> deltaStart_ab=0 <font color="darkgreen">
+    &quot;Start value of the load angle between side A and side B&quot;</font>;
+  Real D_a <font color="darkgreen">&quot;Electrical damping coefficient side A&quot;</font>;
+  Real D_b <font color="darkgreen">&quot;Electrical damping coefficient side B&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInput"
+>Modelica.Blocks.Interfaces.BooleanInput</A> closed <font color="blue">if </font>hasBreaker;
+<font color="blue">equation </font>
+  <font color="darkgreen">// Breaker and its connections (unique breaker =&gt; closedInternal_gen_a = closedInternal_gen_b)</font>
+  <font color="blue">if </font><font color="blue">not </font>hasBreaker<font color="blue"> then</font>
+    closedInternal_gen_a = true;
+    closedInternal_gen_b = true;
+  <font color="blue">end if</font>;
+  <font color="red">connect</font>(closed, closedInternal_gen_a);
+  <font color="red">connect</font>(closed, closedInternal_gen_b);
+
+  <font color="darkgreen">// Definition of net powers</font>
+  Pe_a = Pe_ab;
+  Pe_a = -Pe_b;
+  <font color="darkgreen">// Definition of damping power losses</font>
+  <font color="blue">if </font>J_a&gt;0<font color="blue"> then</font>
+    D_a = 2*r_a*<font color="red">sqrt</font>(C_ab*J_a*(2*Modelica.Constants.pi*fnom*Np_a)/(Np_a^2));
+  <font color="blue">else</font>
+    D_a = 0;
+  <font color="blue">end if</font>;
+  <font color="blue">if </font>J_b&gt;0<font color="blue"> then</font>
+    D_b = 2*r_b*<font color="red">sqrt</font>(C_ab*J_b*(2*Modelica.Constants.pi*fnom*Np_b)/(Np_b^2));
+  <font color="blue">else</font>
+    D_b = 0;
+  <font color="blue">end if</font>;
+  <font color="blue">if </font>closedInternal_gen_a<font color="blue"> then</font>
+    Ploss_a = D_a*<font color="red">der</font>(delta_ab);
+    Ploss_b = - D_b*<font color="red">der</font>(delta_ab);
+  <font color="blue">else</font>
+    Ploss_a = 0;
+    Ploss_b = 0;
+  <font color="blue">end if</font>;
+<font color="blue">end </font>NetworkTwoGenerators_Pmax;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE NetworkGridTwoGenerators<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Electrical.NetworkGridTwoGeneratorsI.png" ALT="ThermoPower.Electrical.NetworkGridTwoGenerators" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Electrical.NetworkGridTwoGenerators"></A><A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical"
+>ThermoPower.Electrical</A>.NetworkGridTwoGenerators</H2>
+<B>Base class for network with two port</B><p>
+<IMG SRC="ThermoPower.Electrical.NetworkGridTwoGeneratorsD.png" ALT="ThermoPower.Electrical.NetworkGridTwoGenerators">
+<H3>Information</H3>
+<PRE></pre>
+<p>Simplified model of connection between two generators and the grid.
+<p>This model adds to <tt>Netowrk2portBase</tt> partial model, in more in comparison to the concepts expressed by the <tt>NetowrkTwoGenerators_eX</tt> model, two further electrical flows: from port_a to grid and from port_b to grid, so that to describe the interactions between two ports and the grid.
+<p>The clean electrical powers of two ports are defined by opportune combinations of the power flows introduced.
+<p>The power losses are represented by a linear dissipative term. It is possible to directly set the damping coefficient <tt>r</tt> of the generator/shaft system.
+If <tt>J_a</tt> or <tt>J_b</tt> are zero, zero damping is assumed. Note that <tt>J_a</tt> and <tt>J_b</tt> are only used to compute the dissipative term and should each refer to the total inertia of the generator-shaft system; the network model does not add any inertial effects.
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Boolean</TD><TD>hasBreaker</TD><TD>false</TD><TD>Model includes a breaker controlled by external input</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Voltage</A></TD><TD>v</TD><TD>&nbsp;</TD><TD>Network connection frame [V]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Reactance"
+>Reactance</A></TD><TD>Xline</TD><TD>&nbsp;</TD><TD>Line reactance [Ohm]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Frequency"
+>Frequency</A></TD><TD>fnom</TD><TD>50</TD><TD>Frequency of the network [Hz]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Generator side A</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Voltage</A></TD><TD>e_a</TD><TD>&nbsp;</TD><TD>e.m.f voltage (generator A) [V]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Reactance"
+>Reactance</A></TD><TD>X_a</TD><TD>&nbsp;</TD><TD>Internal reactance (generator A) [Ohm]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MomentOfInertia"
+>MomentOfInertia</A></TD><TD>J_a</TD><TD>0</TD><TD>Moment of inertia of the generator/shaft system A (for damping term calculation only) [kg.m2]</TD></TR>
+<TR><TD>Real</TD><TD>r_a</TD><TD>0.2</TD><TD>Electrical damping of generator/shaft system (generator A)</TD></TR>
+<TR><TD>Integer</TD><TD>Np_a</TD><TD>2</TD><TD>Number of electrical poles (generator A)</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Generator side B</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Voltage</A></TD><TD>e_b</TD><TD>&nbsp;</TD><TD>e.m.f voltage (generator B) [V]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Reactance"
+>Reactance</A></TD><TD>X_b</TD><TD>&nbsp;</TD><TD>Internal reactance (generator B) [Ohm]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MomentOfInertia"
+>MomentOfInertia</A></TD><TD>J_b</TD><TD>0</TD><TD>Moment of inertia of the generator/shaft system B (for damping term calculation only) [kg.m2]</TD></TR>
+<TR><TD>Real</TD><TD>r_b</TD><TD>0.2</TD><TD>Electrical damping of generator/shaft system (generator B)</TD></TR>
+<TR><TD>Integer</TD><TD>Np_b</TD><TD>2</TD><TD>Number of electrical poles (generator B)</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Initialization</B></TD></TR>
+<TR><TD><A HREF="ThermoPower_Choices_Init_Options.html#ThermoPower.Choices.Init.Options.Temp"
+>Temp</A></TD><TD>initOpt</TD><TD>ThermoPower.Choices.Init.Opt...</TD><TD>Initialization option</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.PowerConnection"
+>PowerConnection</A></TD><TD>powerConnection_a</TD><TD>A</TD></TR>
+<TR><TD><A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.PowerConnection"
+>PowerConnection</A></TD><TD>powerConnection_b</TD><TD>B</TD></TR>
+<TR><TD>input <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInput"
+>BooleanInput</A></TD><TD>closed_gen_a</TD><TD>&nbsp;</TD></TR>
+<TR><TD>input <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInput"
+>BooleanInput</A></TD><TD>closed_gen_b</TD><TD>&nbsp;</TD></TR>
+<TR><TD>input <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInput"
+>BooleanInput</A></TD><TD>closed_grid</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> NetworkGridTwoGenerators <font color="darkgreen">&quot;Base class for network with two port&quot;</font>
+  <font color="blue">extends </font><A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.Network2portBase"
+>ThermoPower.Electrical.Network2portBase</A>( <font color="blue">final </font>C_ab = e_a*e_b/(X_a+X_b));
+  <font color="blue">parameter </font>Boolean hasBreaker = false <font color="darkgreen">
+    &quot;Model includes a breaker controlled by external input&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> v <font color="darkgreen">&quot;Network connection frame&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> e_a <font color="darkgreen">&quot;e.m.f voltage (generator A)&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> e_b <font color="darkgreen">&quot;e.m.f voltage (generator B)&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Reactance"
+>Modelica.SIunits.Reactance</A> X_a <font color="darkgreen">&quot;Internal reactance (generator A)&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Reactance"
+>Modelica.SIunits.Reactance</A> X_b <font color="darkgreen">&quot;Internal reactance (generator B)&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Reactance"
+>Modelica.SIunits.Reactance</A> Xline <font color="darkgreen">&quot;Line reactance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MomentOfInertia"
+>Modelica.SIunits.MomentOfInertia</A> J_a=0 <font color="darkgreen">
+    &quot;Moment of inertia of the generator/shaft system A (for damping term calculation only)&quot;</font>;
+  <font color="blue">parameter </font>Real r_a=0.2 <font color="darkgreen">
+    &quot;Electrical damping of generator/shaft system (generator A)&quot;</font>;
+  <font color="blue">parameter </font>Integer Np_a=2 <font color="darkgreen">&quot;Number of electrical poles (generator A)&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MomentOfInertia"
+>Modelica.SIunits.MomentOfInertia</A> J_b=0 <font color="darkgreen">
+    &quot;Moment of inertia of the generator/shaft system B (for damping term calculation only)&quot;</font>;
+  <font color="blue">parameter </font>Real r_b=0.2 <font color="darkgreen">
+    &quot;Electrical damping of generator/shaft system (generator B)&quot;</font>;
+  <font color="blue">parameter </font>Integer Np_b=2 <font color="darkgreen">&quot;Number of electrical poles (generator B)&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Frequency"
+>Modelica.SIunits.Frequency</A> fnom=50 <font color="darkgreen">&quot;Frequency of the network&quot;</font>;
+  Real D_a <font color="darkgreen">&quot;Electrical damping coefficient side A&quot;</font>;
+  Real D_b <font color="darkgreen">&quot;Electrical damping coefficient side B&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Modelica.SIunits.Power</A> Pe_g <font color="darkgreen">&quot;Electrical Power provided to the grid&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Modelica.SIunits.Power</A> Pe_ag <font color="darkgreen">&quot;Power transferred from generator A to the grid&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Modelica.SIunits.Power</A> Pe_bg <font color="darkgreen">&quot;Power transferred from generator B to the grid&quot;</font>;
+  <font color="blue">final </font><font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Modelica.SIunits.Power</A> C_ag = e_a*v/(X_a+Xline) <font color="darkgreen">
+    &quot;Coefficient of Pe_ag&quot;</font>;
+  <font color="blue">final </font><font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Modelica.SIunits.Power</A> C_bg = e_b*v/(X_b+Xline) <font color="darkgreen">
+    &quot;Coefficient of Pe_bg&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
+>Modelica.SIunits.AngularVelocity</A> omegaRef <font color="darkgreen">&quot;Angular velocity reference&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Modelica.SIunits.Angle</A> delta_ag(  stateSelect = StateSelect.prefer) <font color="darkgreen">
+    &quot;Load angle between generator side A and the grid&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Modelica.SIunits.Angle</A> delta_bg <font color="darkgreen">
+    &quot;Load angle between generator side B and the grid&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Modelica.SIunits.Angle</A> delta_g <font color="darkgreen">&quot;Grid phase&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInput"
+>Modelica.Blocks.Interfaces.BooleanInput</A> closed_gen_a <font color="blue">if </font>
+                                                    hasBreaker;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInput"
+>Modelica.Blocks.Interfaces.BooleanInput</A> closed_gen_b <font color="blue">if </font>
+                                                    hasBreaker;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInput"
+>Modelica.Blocks.Interfaces.BooleanInput</A> closed_grid <font color="blue">if </font>
+                                                    hasBreaker;
+<font color="blue">protected </font>
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInput"
+>Modelica.Blocks.Interfaces.BooleanInput</A> closedInternal_grid;
+<font color="blue">equation </font>
+  <font color="darkgreen">// Load angles</font>
+  omegaRef = 2*Modelica.Constants.pi*fnom;
+  <font color="red">der</font>(delta_g) = omegaRef;
+  delta_ag = delta_a - delta_g;
+  delta_bg = delta_b - delta_g;
+  <font color="darkgreen">// Breakers and their connections</font>
+  <font color="blue">if </font><font color="blue">not </font>hasBreaker<font color="blue"> then</font>
+    closedInternal_gen_a = true;
+    closedInternal_gen_b = true;
+    closedInternal_grid = true;
+  <font color="blue">end if</font>;
+  <font color="red">connect</font>(closed_gen_a, closedInternal_gen_a);
+  <font color="red">connect</font>(closed_gen_b, closedInternal_gen_b);
+  <font color="red">connect</font>(closed_grid, closedInternal_grid);
+  <font color="darkgreen">// Coefficients of exchanged powers (power = zero if open breaker)</font>
+  <font color="blue">if </font>closedInternal_gen_a<font color="blue"> and </font>closedInternal_grid<font color="blue"> then</font>
+    Pe_ag = C_ag*<font color="red">Modelica.Math.sin</font>(delta_ag);
+  <font color="blue">else</font>
+    Pe_ag = 0;
+  <font color="blue">end if</font>;
+  <font color="blue">if </font>closedInternal_gen_b<font color="blue"> and </font>closedInternal_grid<font color="blue"> then</font>
+    Pe_bg = C_bg*<font color="red">Modelica.Math.sin</font>(delta_bg);
+  <font color="blue">else</font>
+    Pe_bg = 0;
+  <font color="blue">end if</font>;
+  <font color="blue">if </font>closedInternal_gen_a<font color="blue"> then</font>
+    Ploss_a = D_a*<font color="red">der</font>(delta_ag);
+  <font color="blue">else</font>
+    Ploss_a = 0;
+  <font color="blue">end if</font>;
+  <font color="blue">if </font>closedInternal_gen_b<font color="blue"> then</font>
+    Ploss_b = D_b*<font color="red">der</font>(delta_bg);
+  <font color="blue">else</font>
+    Ploss_b = 0;
+  <font color="blue">end if</font>;
+  <font color="darkgreen">// Net and exchanged powers</font>
+  Pe_a = Pe_ab + Pe_ag;
+  Pe_b = -Pe_ab + Pe_bg;
+  Pe_g = Pe_ag + Pe_bg;
+  <font color="darkgreen">// Damping power losses</font>
+  <font color="blue">if </font>J_a&gt;0<font color="blue"> then</font>
+    D_a = 2*r_a*<font color="red">sqrt</font>(C_ab*J_a*(2*Modelica.Constants.pi*fnom*Np_a)/(Np_a^2));
+  <font color="blue">else</font>
+    D_a = 0;
+  <font color="blue">end if</font>;
+  <font color="blue">if </font>J_b&gt;0<font color="blue"> then</font>
+    D_b = 2*r_b*<font color="red">sqrt</font>(C_ab*J_b*(2*Modelica.Constants.pi*fnom*Np_b)/(Np_b^2));
+  <font color="blue">else</font>
+    D_b = 0;
+  <font color="blue">end if</font>;
+<font color="blue">initial </font><font color="blue">equation </font>
+  <font color="blue">if </font>initOpt == Choices.Init.Options.noInit<font color="blue"> then</font>
+    <font color="darkgreen">// do nothing</font>
+  <font color="blue">elseif </font>initOpt == Choices.Init.Options.steadyState<font color="blue"> then</font>
+    <font color="red">der</font>(delta_ag) = 0;
+  <font color="blue">else</font>
+    <font color="red">assert</font>(false, &quot;Unsupported initialisation option&quot;);
+  <font color="blue">end if</font>;
+<font color="blue">end </font>NetworkGridTwoGenerators;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Tue Jul 07 01:21:59 2009.
+</address></BODY>
+</HTML>

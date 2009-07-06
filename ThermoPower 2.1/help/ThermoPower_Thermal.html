@@ -1,0 +1,1628 @@
+<HTML>
+<HEAD>
+<TITLE>ThermoPower.Thermal</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Thermal models of heat transfer&quot;">
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Thermal<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Thermal"></A><A HREF="ThermoPower.html#ThermoPower"
+>ThermoPower</A>.Thermal</H2>
+<B>Thermal models of heat transfer</B>
+<P>
+<H3>Information</H3>
+<PRE></pre>
+This package contains models of physical processes and components related to heat transfer phenomena.
+<p>All models with dynamic equations provide initialisation support. Set the <tt>initOpt</tt> parameter to the appropriate value:
+<ul>
+<li><tt>Choices.Init.Options.noInit</tt>: no initialisation
+<li><tt>Choices.Init.Options.steadyState</tt>: full steady-state initialisation
+</ul>
+The latter options can be useful when two or more components are connected directly so that they will have the same pressure or temperature, to avoid over-specified systems of initial equations.
+
+<pre></PRE><P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="ThermoPower.Thermal.MaterialPropertiesS.png" ALT="ThermoPower.Thermal.MaterialProperties" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Thermal_MaterialProperties.html#ThermoPower.Thermal.MaterialProperties"
+>MaterialProperties</A>
+</TD><TD>Thermal and mechanical properties of materials</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Thermal.HTS.png" ALT="ThermoPower.Thermal.HT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.HT"
+>HT</A>
+</TD><TD>Thermal port for lumped parameter heat transfer</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Thermal.HTS.png" ALT="ThermoPower.Thermal.HThtc" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.HThtc"
+>HThtc</A>
+</TD><TD>Thermal port for lumped parameter heat transfer with outgoing heat transfer coefficient</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Thermal.HTS.png" ALT="ThermoPower.Thermal.HThtc_in" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.HThtc_in"
+>HThtc_in</A>
+</TD><TD>Thermal port for lumped parameter heat transfer with incoming heat transfer coefficient</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Thermal.DHTS.png" ALT="ThermoPower.Thermal.DHT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.DHT"
+>DHT</A>
+</TD><TD>Distributed Heat Terminal</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Thermal.DHTS.png" ALT="ThermoPower.Thermal.DHThtc" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.DHThtc"
+>DHThtc</A>
+</TD><TD>Distributed Heat Terminal with heat transfer coefficient output</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Thermal.DHTS.png" ALT="ThermoPower.Thermal.DHThtc_in" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.DHThtc_in"
+>DHThtc_in</A>
+</TD><TD>Distributed Heat Terminal with heat transfer coefficient input</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Thermal.HThtc_HTS.png" ALT="ThermoPower.Thermal.HThtc_HT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.HThtc_HT"
+>HThtc_HT</A>
+</TD><TD>HThtc to HT adaptor</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Thermal.DHThtc_DHTS.png" ALT="ThermoPower.Thermal.DHThtc_DHT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.DHThtc_DHT"
+>DHThtc_DHT</A>
+</TD><TD>DHThtc to DHT adapter</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Thermal.HT_DHTS.png" ALT="ThermoPower.Thermal.HT_DHT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.HT_DHT"
+>HT_DHT</A>
+</TD><TD>HT to DHT adaptor</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Thermal.HT_DHTS.png" ALT="ThermoPower.Thermal.HThtc_DHThtc" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.HThtc_DHThtc"
+>HThtc_DHThtc</A>
+</TD><TD>HThtc to DHThtc adaptor</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Thermal.ConvHTLumpedS.png" ALT="ThermoPower.Thermal.ConvHTLumped" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.ConvHTLumped"
+>ConvHTLumped</A>
+</TD><TD>Lumped parameter convective heat transfer</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Thermal.ConvHTLumpedS.png" ALT="ThermoPower.Thermal.ConvHTLumped_htc" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.ConvHTLumped_htc"
+>ConvHTLumped_htc</A>
+</TD><TD>Lumped parameter convective heat transfer between a HT and a HThtc</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Thermal.ConvHTS.png" ALT="ThermoPower.Thermal.ConvHT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.ConvHT"
+>ConvHT</A>
+</TD><TD>1D Convective heat transfer</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Thermal.ConvHTS.png" ALT="ThermoPower.Thermal.ConvHT2N" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.ConvHT2N"
+>ConvHT2N</A>
+</TD><TD>1D Convective heat transfer between two DHT connectors with a different number of nodes</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Thermal.ConvHTS.png" ALT="ThermoPower.Thermal.ConvHT_htc" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.ConvHT_htc"
+>ConvHT_htc</A>
+</TD><TD>1D Convective heat transfer between a DHT and a DHT_htc</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Thermal.CounterCurrentS.png" ALT="ThermoPower.Thermal.CounterCurrent" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.CounterCurrent"
+>CounterCurrent</A>
+</TD><TD>Counter-current heat transfer adaptor for 1D heat transfer</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Thermal.HeatFlowDistributionS.png" ALT="ThermoPower.Thermal.HeatFlowDistribution" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.HeatFlowDistribution"
+>HeatFlowDistribution</A>
+</TD><TD>Same heat flow through two different surfaces</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Thermal.HeatSource1DS.png" ALT="ThermoPower.Thermal.HeatSource1D" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.HeatSource1D"
+>HeatSource1D</A>
+</TD><TD>Distributed Heat Flow Source</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Thermal.HeatSource1DS.png" ALT="ThermoPower.Thermal.TempSource1D" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.TempSource1D"
+>TempSource1D</A>
+</TD><TD>Distributed Temperature Source</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Thermal.TempSource1DlinS.png" ALT="ThermoPower.Thermal.TempSource1Dlin" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.TempSource1Dlin"
+>TempSource1Dlin</A>
+</TD><TD>Linearly Distributed Temperature Source</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Thermal.HeatSource1DhtcS.png" ALT="ThermoPower.Thermal.HeatSource1Dhtc" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.HeatSource1Dhtc"
+>HeatSource1Dhtc</A>
+</TD><TD>Distributed Heat Flow Source</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Thermal.MetalTubeS.png" ALT="ThermoPower.Thermal.MetalTube" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.MetalTube"
+>MetalTube</A>
+</TD><TD>Cylindrical metal tube - 1 radial node and N axial nodes</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Thermal.MetalTubeS.png" ALT="ThermoPower.Thermal.MetalWall" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.MetalWall"
+>MetalWall</A>
+</TD><TD>Generic metal wall - 1 radial node and N axial nodes</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Thermal.CylinderFourierS.png" ALT="ThermoPower.Thermal.CylinderFourier" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.CylinderFourier"
+>CylinderFourier</A>
+</TD><TD>Thermal model of a hollow cylinder by Fourier's equation - 1 axial node and Nr radial nodes</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Thermal.linspaceExtS.png" ALT="ThermoPower.Thermal.linspaceExt" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.linspaceExt"
+>linspaceExt</A>
+</TD><TD>Extended linspace handling also the N=1 case</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE HT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Thermal.HTI.png" ALT="ThermoPower.Thermal.HT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Thermal.HT"></A><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal"
+>ThermoPower.Thermal</A>.HT</H2>
+<B>Thermal port for lumped parameter heat transfer</B><p>
+<IMG SRC="ThermoPower.Thermal.HTD.png" ALT="ThermoPower.Thermal.HT">
+<H3>Contents</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T</TD><TD>Port temperature [K]</TD></TR>
+<TR><TD>flow <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.HeatFlowRate"
+>HeatFlowRate</A></TD><TD>Q_flow</TD><TD>Heat flow rate (positive if flowing from outside into the component) [W]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">connector</font> HT = <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a"
+>Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a</A> <font color="darkgreen">
+  &quot;Thermal port for lumped parameter heat transfer&quot;</font>;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE HThtc<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Thermal.HTI.png" ALT="ThermoPower.Thermal.HThtc" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Thermal.HThtc"></A><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal"
+>ThermoPower.Thermal</A>.HThtc</H2>
+<B>Thermal port for lumped parameter heat transfer with outgoing heat transfer coefficient</B><p>
+<IMG SRC="ThermoPower.Thermal.HTD.png" ALT="ThermoPower.Thermal.HThtc">
+<H3>Contents</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T</TD><TD>Port temperature [K]</TD></TR>
+<TR><TD>flow <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.HeatFlowRate"
+>HeatFlowRate</A></TD><TD>Q_flow</TD><TD>Heat flow rate (positive if flowing from outside into the component) [W]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.ThermalConductance"
+>ThermalConductance</A></TD><TD>G</TD><TD>Thermal conductance [W/K]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">connector</font> HThtc <font color="darkgreen">
+  &quot;Thermal port for lumped parameter heat transfer with outgoing heat transfer coefficient&quot;</font>
+  <font color="blue">extends </font><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.HT"
+>HT</A>;
+  <font color="blue">output </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.ThermalConductance"
+>ThermalConductance</A> G <font color="darkgreen">&quot;Thermal conductance&quot;</font>;
+<font color="blue">end </font>HThtc;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE HThtc_in<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Thermal.HTI.png" ALT="ThermoPower.Thermal.HThtc_in" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Thermal.HThtc_in"></A><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal"
+>ThermoPower.Thermal</A>.HThtc_in</H2>
+<B>Thermal port for lumped parameter heat transfer with incoming heat transfer coefficient</B><p>
+<IMG SRC="ThermoPower.Thermal.HTD.png" ALT="ThermoPower.Thermal.HThtc_in">
+<H3>Contents</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T</TD><TD>Port temperature [K]</TD></TR>
+<TR><TD>flow <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.HeatFlowRate"
+>HeatFlowRate</A></TD><TD>Q_flow</TD><TD>Heat flow rate (positive if flowing from outside into the component) [W]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.ThermalConductance"
+>ThermalConductance</A></TD><TD>G</TD><TD>Thermal conductance [W/K]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">connector</font> HThtc_in <font color="darkgreen">
+  &quot;Thermal port for lumped parameter heat transfer with incoming heat transfer coefficient&quot;</font>
+  <font color="blue">extends </font><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.HT"
+>HT</A>;
+  <font color="blue">input </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.ThermalConductance"
+>ThermalConductance</A> G <font color="darkgreen">&quot;Thermal conductance&quot;</font>;
+<font color="blue">end </font>HThtc_in;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE DHT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Thermal.DHTI.png" ALT="ThermoPower.Thermal.DHT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Thermal.DHT"></A><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal"
+>ThermoPower.Thermal</A>.DHT</H2>
+<B>Distributed Heat Terminal</B><p>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>N</TD><TD>2</TD><TD>Number of nodes</TD></TR>
+</TABLE>
+<H3>Contents</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>N</TD><TD>Number of nodes</TD></TR>
+<TR><TD><A HREF="ThermoPower.html#ThermoPower.AbsoluteTemperature"
+>AbsoluteTemperature</A></TD><TD>T[N]</TD><TD>Temperature at the nodes [K]</TD></TR>
+<TR><TD>flow <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.HeatFlux"
+>HeatFlux</A></TD><TD>phi[N]</TD><TD>Heat flux at the nodes [W/m2]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">connector</font> DHT <font color="darkgreen">&quot;Distributed Heat Terminal&quot;</font>
+  <font color="blue">parameter </font>Integer N(min=1)=2 <font color="darkgreen">&quot;Number of nodes&quot;</font>;
+  <A HREF="ThermoPower.html#ThermoPower.AbsoluteTemperature"
+>AbsoluteTemperature</A> T[N] <font color="darkgreen">&quot;Temperature at the nodes&quot;</font>;
+  <font color="blue">flow </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.HeatFlux"
+>HeatFlux</A> phi[N] <font color="darkgreen">&quot;Heat flux at the nodes&quot;</font>;
+<font color="blue">end </font>DHT;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE DHThtc<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Thermal.DHTI.png" ALT="ThermoPower.Thermal.DHThtc" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Thermal.DHThtc"></A><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal"
+>ThermoPower.Thermal</A>.DHThtc</H2>
+<B>Distributed Heat Terminal with heat transfer coefficient output</B><p>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>N</TD><TD>2</TD><TD>Number of nodes</TD></TR>
+</TABLE>
+<H3>Contents</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>N</TD><TD>Number of nodes</TD></TR>
+<TR><TD><A HREF="ThermoPower.html#ThermoPower.AbsoluteTemperature"
+>AbsoluteTemperature</A></TD><TD>T[N]</TD><TD>Temperature at the nodes [K]</TD></TR>
+<TR><TD>flow <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.HeatFlux"
+>HeatFlux</A></TD><TD>phi[N]</TD><TD>Heat flux at the nodes [W/m2]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.CoefficientOfHeatTransfer"
+>CoefficientOfHeatTransfer</A></TD><TD>gamma[N]</TD><TD>Heat transfer coefficient [W/(m2.K)]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">connector</font> DHThtc <font color="darkgreen">
+  &quot;Distributed Heat Terminal with heat transfer coefficient output&quot;</font>
+  <font color="blue">extends </font><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.DHT"
+>DHT</A>;
+  <font color="blue">output </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.CoefficientOfHeatTransfer"
+>CoefficientOfHeatTransfer</A> gamma[N] <font color="darkgreen">&quot;Heat transfer coefficient&quot;</font>;
+<font color="blue">end </font>DHThtc;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE DHThtc_in<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Thermal.DHTI.png" ALT="ThermoPower.Thermal.DHThtc_in" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Thermal.DHThtc_in"></A><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal"
+>ThermoPower.Thermal</A>.DHThtc_in</H2>
+<B>Distributed Heat Terminal with heat transfer coefficient input</B><p>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>N</TD><TD>2</TD><TD>Number of nodes</TD></TR>
+</TABLE>
+<H3>Contents</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>N</TD><TD>Number of nodes</TD></TR>
+<TR><TD><A HREF="ThermoPower.html#ThermoPower.AbsoluteTemperature"
+>AbsoluteTemperature</A></TD><TD>T[N]</TD><TD>Temperature at the nodes [K]</TD></TR>
+<TR><TD>flow <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.HeatFlux"
+>HeatFlux</A></TD><TD>phi[N]</TD><TD>Heat flux at the nodes [W/m2]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.CoefficientOfHeatTransfer"
+>CoefficientOfHeatTransfer</A></TD><TD>gamma[N]</TD><TD>Heat transfer coefficient [W/(m2.K)]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">connector</font> DHThtc_in <font color="darkgreen">
+  &quot;Distributed Heat Terminal with heat transfer coefficient input&quot;</font>
+  <font color="blue">extends </font><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.DHT"
+>DHT</A>;
+  <font color="blue">input </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.CoefficientOfHeatTransfer"
+>CoefficientOfHeatTransfer</A> gamma[N] <font color="darkgreen">&quot;Heat transfer coefficient&quot;</font>;
+<font color="blue">end </font>DHThtc_in;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE HThtc_HT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Thermal.HThtc_HTI.png" ALT="ThermoPower.Thermal.HThtc_HT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Thermal.HThtc_HT"></A><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal"
+>ThermoPower.Thermal</A>.HThtc_HT</H2>
+<B>HThtc to HT adaptor</B><p>
+<IMG SRC="ThermoPower.Thermal.HThtc_HTD.png" ALT="ThermoPower.Thermal.HThtc_HT">
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.HT"
+>HT</A></TD><TD>HT_port</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.HThtc_in"
+>HThtc_in</A></TD><TD>HThtc_port</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> HThtc_HT <font color="darkgreen">&quot;HThtc to HT adaptor&quot;</font>
+  <A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.HT"
+>HT</A> HT_port;
+  <A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.HThtc_in"
+>HThtc_in</A> HThtc_port;
+<font color="blue">equation </font>
+  HT_port.T = HThtc_port.T;
+  HT_port.Q_flow = HThtc_port.Q_flow;
+<font color="blue">end </font>HThtc_HT;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE DHThtc_DHT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Thermal.DHThtc_DHTI.png" ALT="ThermoPower.Thermal.DHThtc_DHT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Thermal.DHThtc_DHT"></A><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal"
+>ThermoPower.Thermal</A>.DHThtc_DHT</H2>
+<B>DHThtc to DHT adapter</B><p>
+<IMG SRC="ThermoPower.Thermal.DHThtc_DHTD.png" ALT="ThermoPower.Thermal.DHThtc_DHT">
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>N</TD><TD>2</TD><TD>Number of nodes</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.DHT"
+>DHT</A></TD><TD>DHT_port</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.DHThtc_in"
+>DHThtc_in</A></TD><TD>DHThtc_port</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> DHThtc_DHT <font color="darkgreen">&quot;DHThtc to DHT adapter&quot;</font>
+
+  <A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.DHT"
+>DHT</A> DHT_port(N=N);
+  <A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.DHThtc_in"
+>DHThtc_in</A> DHThtc_port(
+                      N=N);
+
+  <font color="blue">parameter </font>Integer N(min=1)=2 <font color="darkgreen">&quot;Number of nodes&quot;</font>;
+
+
+<font color="blue">equation </font>
+  DHT_port.T = DHThtc_port.T;
+  DHT_port.phi + DHThtc_port.phi =<font color="red"> zeros</font>(N);
+<font color="blue">end </font>DHThtc_DHT;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE HT_DHT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Thermal.HT_DHTI.png" ALT="ThermoPower.Thermal.HT_DHT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Thermal.HT_DHT"></A><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal"
+>ThermoPower.Thermal</A>.HT_DHT</H2>
+<B>HT to DHT adaptor</B><p>
+<IMG SRC="ThermoPower.Thermal.HT_DHTD.png" ALT="ThermoPower.Thermal.HT_DHT">
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>N</TD><TD>1</TD><TD>Number of nodes on DHT side</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Area"
+>Area</A></TD><TD>exchangeSurface</TD><TD>&nbsp;</TD><TD>Area of heat transfer surface [m2]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.HT"
+>HT</A></TD><TD>HT_port</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.DHT"
+>DHT</A></TD><TD>DHT_port</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> HT_DHT <font color="darkgreen">&quot;HT to DHT adaptor&quot;</font>
+  <font color="blue">parameter </font>Integer N = 1 <font color="darkgreen">&quot;Number of nodes on DHT side&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Area"
+>Area</A> exchangeSurface <font color="darkgreen">&quot;Area of heat transfer surface&quot;</font>;
+  <A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.HT"
+>HT</A> HT_port;
+  <A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.DHT"
+>DHT</A> DHT_port(N=N);
+<font color="blue">equation </font>
+  <font color="blue">for </font>i<font color="blue"> in </font>1:N<font color="blue"> loop</font>
+    DHT_port.T[i] = HT_port.T <font color="darkgreen">&quot;Uniform temperature distribution on DHT side&quot;</font>;
+  <font color="blue">end for</font>;
+  <font color="blue">if </font>N == 1<font color="blue"> then</font>
+    <font color="darkgreen">// Uniform flow distribution</font>
+    DHT_port.phi[1]*exchangeSurface + HT_port.Q_flow = 0 <font color="darkgreen">&quot;Energy balance&quot;</font>;
+  <font color="blue">else</font>
+    <font color="darkgreen">// Piecewise linear flow distribution</font>
+    <font color="red">sum</font>(DHT_port.phi[1:N-1]+DHT_port.phi[2:N])/2*exchangeSurface/(N-1) + HT_port.Q_flow = 0 <font color="darkgreen">
+      &quot;Energy balance&quot;</font>;
+  <font color="blue">end if</font>;
+<font color="blue">end </font>HT_DHT;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE HThtc_DHThtc<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Thermal.HThtc_DHThtcI.png" ALT="ThermoPower.Thermal.HThtc_DHThtc" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Thermal.HThtc_DHThtc"></A><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal"
+>ThermoPower.Thermal</A>.HThtc_DHThtc</H2>
+<B>HThtc to DHThtc adaptor</B><p>
+<IMG SRC="ThermoPower.Thermal.HThtc_DHThtcD.png" ALT="ThermoPower.Thermal.HThtc_DHThtc">
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>N</TD><TD>1</TD><TD>Number of nodes on DHT side</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Area"
+>Area</A></TD><TD>exchangeSurface</TD><TD>&nbsp;</TD><TD>Heat exchange surface [m2]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.HThtc_in"
+>HThtc_in</A></TD><TD>HT_port</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.DHThtc"
+>DHThtc</A></TD><TD>DHT_port</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> HThtc_DHThtc <font color="darkgreen">&quot;HThtc to DHThtc adaptor&quot;</font>
+  <font color="blue">parameter </font>Integer N = 1 <font color="darkgreen">&quot;Number of nodes on DHT side&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Area"
+>Area</A> exchangeSurface <font color="darkgreen">&quot;Heat exchange surface&quot;</font>;
+  <A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.HThtc_in"
+>HThtc_in</A> HT_port;
+  <A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.DHThtc"
+>DHThtc</A> DHT_port(<font color="blue">final </font>N=1);
+<font color="blue">equation </font>
+  <font color="blue">for </font>i<font color="blue"> in </font>1:N<font color="blue"> loop</font>
+    DHT_port.T[i] = HT_port.T <font color="darkgreen">&quot;Uniform temperature distribution on DHT side&quot;</font>;
+    DHT_port.gamma[i] = HT_port.G/exchangeSurface <font color="darkgreen">
+      &quot;Uniform h.t.c. distribution on DHT side&quot;</font>;
+  <font color="blue">end for</font>;
+  <font color="red">sum</font>(DHT_port.phi)*exchangeSurface/N +HT_port.Q_flow = 0 <font color="darkgreen">&quot;Energy balance&quot;</font>;
+<font color="blue">end </font>HThtc_DHThtc;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ConvHTLumped<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Thermal.ConvHTLumpedI.png" ALT="ThermoPower.Thermal.ConvHTLumped" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Thermal.ConvHTLumped"></A><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal"
+>ThermoPower.Thermal</A>.ConvHTLumped</H2>
+<B>Lumped parameter convective heat transfer</B><p>
+<IMG SRC="ThermoPower.Thermal.ConvHTLumpedD.png" ALT="ThermoPower.Thermal.ConvHTLumped">
+<H3>Information</H3>
+<PRE></pre>
+<p>Model of a simple convective heat transfer mechanism between two lumped parameter objects, with a constant heat transfer coefficient.
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.ThermalConductance"
+>ThermalConductance</A></TD><TD>G</TD><TD>&nbsp;</TD><TD>Constant thermal conductance [W/K]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.HT"
+>HT</A></TD><TD>side1</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.HT"
+>HT</A></TD><TD>side2</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> ConvHTLumped <font color="darkgreen">&quot;Lumped parameter convective heat transfer&quot;</font>
+  <font color="blue">extends </font><A HREF="ThermoPower_Icons.html#ThermoPower.Icons.HeatFlow"
+>Icons.HeatFlow</A>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.ThermalConductance"
+>ThermalConductance</A> G <font color="darkgreen">&quot;Constant thermal conductance&quot;</font>;
+  <A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.HT"
+>HT</A> side1;
+  <A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.HT"
+>HT</A> side2;
+<font color="blue">equation </font>
+  side1.Q_flow = G*(side1.T - side2.T) <font color="darkgreen">&quot;Convective heat transfer&quot;</font>;
+  side1.Q_flow = - side2.Q_flow <font color="darkgreen">&quot;Energy balance&quot;</font>;
+<font color="blue">end </font>ConvHTLumped;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ConvHTLumped_htc<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Thermal.ConvHTLumped_htcI.png" ALT="ThermoPower.Thermal.ConvHTLumped_htc" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Thermal.ConvHTLumped_htc"></A><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal"
+>ThermoPower.Thermal</A>.ConvHTLumped_htc</H2>
+<B>Lumped parameter convective heat transfer between a HT and a HThtc</B><p>
+<IMG SRC="ThermoPower.Thermal.ConvHTLumped_htcD.png" ALT="ThermoPower.Thermal.ConvHTLumped_htc">
+<H3>Information</H3>
+<PRE></pre>
+<p>Model of a simple convective heat transfer mechanism between two lumped parameter objects. The heat transfer coefficient is supplied by the <tt>fluidside</tt> connector.
+<pre></PRE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.HT"
+>HT</A></TD><TD>otherside</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.HThtc_in"
+>HThtc_in</A></TD><TD>fluidside</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> ConvHTLumped_htc <font color="darkgreen">
+  &quot;Lumped parameter convective heat transfer between a HT and a HThtc&quot;</font>
+  <font color="blue">extends </font><A HREF="ThermoPower_Icons.html#ThermoPower.Icons.HeatFlow"
+>Icons.HeatFlow</A>;
+  <A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.HT"
+>HT</A> otherside;
+  <A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.HThtc_in"
+>HThtc_in</A> fluidside;
+<font color="blue">equation </font>
+  fluidside.Q_flow = fluidside.G*(fluidside.T - otherside.T) <font color="darkgreen">
+    &quot;Convective heat transfer&quot;</font>;
+  fluidside.Q_flow + otherside.Q_flow = 0 <font color="darkgreen">&quot;Energy balance&quot;</font>;
+<font color="blue">end </font>ConvHTLumped_htc;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ConvHT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Thermal.ConvHTI.png" ALT="ThermoPower.Thermal.ConvHT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Thermal.ConvHT"></A><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal"
+>ThermoPower.Thermal</A>.ConvHT</H2>
+<B>1D Convective heat transfer</B><p>
+<IMG SRC="ThermoPower.Thermal.ConvHTD.png" ALT="ThermoPower.Thermal.ConvHT">
+<H3>Information</H3>
+<PRE></pre>
+<p>Model of a simple convective heat transfer mechanism between two 1D objects, with a constant heat transfer coefficient.
+<p>Node <tt>j</tt> on side 1 interacts with node <tt>j</tt> on side 2.
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>N</TD><TD>2</TD><TD>Number of Nodes</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.CoefficientOfHeatTransfer"
+>CoefficientOfHeatTransfer</A></TD><TD>gamma</TD><TD>&nbsp;</TD><TD>Constant heat transfer coefficient [W/(m2.K)]</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Initialisation</B></TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>Tstart11</TD><TD>300</TD><TD>Temperature start value - side 1 node 1 [K]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>Tstart1N</TD><TD>300</TD><TD>Temperature start value - side 1 node N [K]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>Tstart1[N]</TD><TD>ThermoPower.Thermal.linspace...</TD><TD>Start value of temperature vector - side 1 (initialized by default) [K]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>Tstart21</TD><TD>300</TD><TD>Temperature start value - side 2 node 1 [K]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>Tstart2N</TD><TD>300</TD><TD>Temperature start value - side 2 node N [K]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>Tstart2[N]</TD><TD>ThermoPower.Thermal.linspace...</TD><TD>Start value of temperature vector - side 2 (initialized by default) [K]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.DHT"
+>DHT</A></TD><TD>side1</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.DHT"
+>DHT</A></TD><TD>side2</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> ConvHT <font color="darkgreen">&quot;1D Convective heat transfer&quot;</font>
+  <font color="blue">extends </font><A HREF="ThermoPower_Icons.html#ThermoPower.Icons.HeatFlow"
+>Icons.HeatFlow</A>;
+  <font color="blue">parameter </font>Integer N=2 <font color="darkgreen">&quot;Number of Nodes&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.CoefficientOfHeatTransfer"
+>CoefficientOfHeatTransfer</A> gamma <font color="darkgreen">
+    &quot;Constant heat transfer coefficient&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A> Tstart11=300 <font color="darkgreen">&quot;Temperature start value - side 1 node 1&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A> Tstart1N=300 <font color="darkgreen">&quot;Temperature start value - side 1 node N&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A> Tstart1[N] =<font color="red"> ThermoPower.Thermal.linspaceExt</font>(Tstart11,Tstart1N,N) <font color="darkgreen">
+    &quot;Start value of temperature vector - side 1 (initialized by default)&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A> Tstart21=300 <font color="darkgreen">&quot;Temperature start value - side 2 node 1&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A> Tstart2N=300 <font color="darkgreen">&quot;Temperature start value - side 2 node N&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A> Tstart2[N] =<font color="red"> ThermoPower.Thermal.linspaceExt</font>(Tstart21,Tstart2N,N) <font color="darkgreen">
+    &quot;Start value of temperature vector - side 2 (initialized by default)&quot;</font>;
+  <A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.DHT"
+>DHT</A> side1(N=N, T(start=Tstart1));
+  <A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.DHT"
+>DHT</A> side2(N=N, T(start=Tstart2));
+<font color="blue">equation </font>
+  side1.phi = gamma*(side1.T - side2.T) <font color="darkgreen">&quot;Convective heat transfer&quot;</font>;
+  side1.phi = - side2.phi <font color="darkgreen">&quot;Energy balance&quot;</font>;
+<font color="blue">end </font>ConvHT;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ConvHT2N<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Thermal.ConvHTI.png" ALT="ThermoPower.Thermal.ConvHT2N" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Thermal.ConvHT2N"></A><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal"
+>ThermoPower.Thermal</A>.ConvHT2N</H2>
+<B>1D Convective heat transfer between two DHT connectors with a different number of nodes</B><p>
+<IMG SRC="ThermoPower.Thermal.ConvHTD.png" ALT="ThermoPower.Thermal.ConvHT2N">
+<H3>Information</H3>
+<PRE></pre>
+<p>Model of a simple convective heat transfer mechanism between two 1D objects having (possibly) different nodes, with a constant heat transfer coefficient.
+<p>The heat flux through each node of side with a larger number of nodes is computed as a function of the difference between the node temperatures and the corresponding temperatures on the other side, obtained by linear interpolation.
+<p>The corresponding heat flux on the side with fewer nodes is computed so that the averaged heat flux around those nodes is equal to the averaged heat flux on the corresponding intervals on the other side.
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>N1</TD><TD>2</TD><TD>Number of nodes on side 1</TD></TR>
+<TR><TD>Integer</TD><TD>N2</TD><TD>2</TD><TD>Number of nodes on side 2</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.CoefficientOfHeatTransfer"
+>CoefficientOfHeatTransfer</A></TD><TD>gamma</TD><TD>&nbsp;</TD><TD>Constant heat transfer coefficient [W/(m2.K)]</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Initialisation</B></TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>Tstart11</TD><TD>300</TD><TD>Temperature start value - side 1 node 1 [K]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>Tstart1N</TD><TD>300</TD><TD>Temperature start value - side 1 node N [K]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>Tstart1[N1]</TD><TD>ThermoPower.Thermal.linspace...</TD><TD>Start value of temperature vector - side 1 (initialized by default) [K]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>Tstart21</TD><TD>300</TD><TD>Temperature start value - side 2 node 1 [K]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>Tstart2N</TD><TD>300</TD><TD>Temperature start value - side 2 node N [K]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>Tstart2[N2]</TD><TD>ThermoPower.Thermal.linspace...</TD><TD>Start value of temperature vector - side 2 (initialized by default) [K]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.DHT"
+>DHT</A></TD><TD>side1</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.DHT"
+>DHT</A></TD><TD>side2</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> ConvHT2N <font color="darkgreen">
+  &quot;1D Convective heat transfer between two DHT connectors with a different number of nodes&quot;</font>
+  <font color="blue">extends </font><A HREF="ThermoPower_Icons.html#ThermoPower.Icons.HeatFlow"
+>Icons.HeatFlow</A>;
+  <font color="blue">parameter </font>Integer N1(min=1)=2 <font color="darkgreen">&quot;Number of nodes on side 1&quot;</font>;
+  <font color="blue">parameter </font>Integer N2(min=1)=2 <font color="darkgreen">&quot;Number of nodes on side 2&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.CoefficientOfHeatTransfer"
+>CoefficientOfHeatTransfer</A> gamma <font color="darkgreen">
+    &quot;Constant heat transfer coefficient&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A> Tstart11=300 <font color="darkgreen">&quot;Temperature start value - side 1 node 1&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A> Tstart1N=300 <font color="darkgreen">&quot;Temperature start value - side 1 node N&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A> Tstart1[N1] =<font color="red"> ThermoPower.Thermal.linspaceExt</font>(Tstart11,Tstart1N,N1) <font color="darkgreen">
+    &quot;Start value of temperature vector - side 1 (initialized by default)&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A> Tstart21=300 <font color="darkgreen">&quot;Temperature start value - side 2 node 1&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A> Tstart2N=300 <font color="darkgreen">&quot;Temperature start value - side 2 node N&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A> Tstart2[N2] =<font color="red"> ThermoPower.Thermal.linspaceExt</font>(Tstart21,Tstart2N,N2) <font color="darkgreen">
+    &quot;Start value of temperature vector - side 2 (initialized by default)&quot;</font>;
+  <A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.DHT"
+>DHT</A> side1(N=N1, T(start=Tstart1));
+  <A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.DHT"
+>DHT</A> side2(N=N2, T(start=Tstart2));
+<font color="blue">protected </font>
+  Real G1[N2, N1] <font color="darkgreen">&quot;Temperature weight matrix - side 1&quot;</font>;
+  Real G2[N1, N2] <font color="darkgreen">&quot;Temperature weight matrix - side 2&quot;</font>;
+  Real H1[<font color="red">min</font>(N1,N2), N1] <font color="darkgreen">&quot;Heat flux weight matrix - side 1&quot;</font>;
+  Real H2[<font color="red">min</font>(N1,N2), N2] <font color="darkgreen">&quot;Heat flux weight matrix - side 2&quot;</font>;
+
+  <font color="blue">function</font> compHm <font color="darkgreen">&quot;Computes matrix H - side with more nodes&quot;</font>
+    <font color="blue">input </font>Integer Nm <font color="darkgreen">&quot;Number of nodes on the side with more nodes&quot;</font>;
+    <font color="blue">input </font>Integer Nf <font color="darkgreen">&quot;Number of nodes on the side with fewer nodes&quot;</font>;
+    <font color="blue">output </font>Real H[Nf,Nm] <font color="darkgreen">&quot;Temperature weight matrix&quot;</font>;
+  <font color="blue">algorithm </font>
+    H:=<font color="red">zeros</font>(Nf, Nm);
+    <font color="darkgreen">// Flux on the first semi-cell, few nodes side</font>
+    H[1,:] := <font color="red">fluxWeights</font>(Nm, 0, 0.5/(Nf-1));
+    <font color="darkgreen">// Flux on the central cells, few nodes side</font>
+    <font color="blue">for </font>i<font color="blue"> in </font>2:Nf-1<font color="blue"> loop</font>
+      H[i,:] := <font color="red">fluxWeights</font>(Nm, (i-1.5)/(Nf-1),(i-0.5)/(Nf-1));
+    <font color="blue">end for</font>;
+    <font color="darkgreen">// Flux on the last semi-cell, few nodes side</font>
+    H[Nf,:] := <font color="red">fluxWeights</font>(Nm, 1-0.5/(Nf-1), 1);
+  <font color="blue">end </font>compHm;
+
+  <font color="blue">function</font> fluxWeights <font color="darkgreen">&quot;Returns the vector of the weights of the nodal fluxes
+     (more nodes side) corresponding to the given boundaries&quot;</font>
+    <font color="blue">input </font>Integer Nm <font color="darkgreen">&quot;Number of nodes on the side with more nodes&quot;</font>;
+    <font color="blue">input </font>Real lb <font color="darkgreen">&quot;Left boundary, normalised&quot;</font>;
+    <font color="blue">input </font>Real rb <font color="darkgreen">&quot;Right boundary, normalised&quot;</font>;
+    <font color="blue">output </font>Real v[Nm] <font color="darkgreen">&quot;Flux weight vector&quot;</font>;
+  <font color="blue">protected </font>
+    Integer lbi <font color="darkgreen">&quot;Index of the leftmost involved node&quot;</font>;
+    Integer rbi <font color="darkgreen">&quot;Index of the rightmost involved node&quot;</font>;
+    Real h <font color="darkgreen">&quot;Width of the inner cells&quot;</font>;
+    Real hl <font color="darkgreen">&quot;Width of the leftmost cell&quot;</font>;
+    Real hr <font color="darkgreen">&quot;Width of the rightmost cell&quot;</font>;
+  <font color="blue">algorithm </font>
+    v:=<font color="red">zeros</font>(Nm);
+    <font color="darkgreen">// Index of the rightmost and leftmost involved nodes</font>
+    lbi :=1 + <font color="red">integer</font>(<font color="red">floor</font>(lb*(Nm - 1) - 1e-6));
+    rbi :=1 + <font color="red">integer</font>(<font color="red">ceil</font>(rb*(Nm - 1) + 1e-6));
+    <font color="darkgreen">// Width of the inner, leftmost and rightmost cells</font>
+    h  := 1/(Nm-1);
+    hl := lbi*h - lb;
+    hr := rb - (rbi - 2)*h;
+    <font color="darkgreen">// Coefficients of the contribution of the leftmost partial cell flow</font>
+    <font color="blue">if </font><font color="red">abs</font>(hl) &gt; 1e-6<font color="blue"> then</font>
+      v[lbi]   := (hl/h)/2*hl;
+      v[lbi+1] := ((h-hl)/h+1)/2*hl;
+    <font color="blue">end if</font>;
+    <font color="darkgreen">// Coefficients of the contribution of the rightmost partial cell flow</font>
+    <font color="blue">if </font><font color="red">abs</font>(hr) &gt; 1e-6<font color="blue"> then</font>
+      v[rbi-1] := (1+(h-hr)/h)/2*hr;
+      v[rbi]   := (hr/h)/2*hr;
+    <font color="blue">end if</font>;
+    <font color="darkgreen">// Coefficients of the additional contributions of the internal cells</font>
+    <font color="blue">for </font>i<font color="blue"> in </font>lbi+1:rbi-2<font color="blue"> loop</font>
+      v[i]   := v[i]   + h/2;
+      v[i+1] := v[i+1] + h/2;
+    <font color="blue">end for</font>;
+    <font color="darkgreen">// Coefficients are scaled to get the average flux from the flow</font>
+    v := v/(rb-lb);
+  <font color="blue">end </font>fluxWeights;
+
+  <font color="blue">function</font> compHf <font color="darkgreen">&quot;Computes matrix H - side with fewer nodes&quot;</font>
+    <font color="blue">input </font>Integer Nf <font color="darkgreen">&quot;Number of nodes on the side with fewer nodes&quot;</font>;
+    <font color="blue">output </font>Real H[Nf,Nf] <font color="darkgreen">&quot;Heat flux weight matrix&quot;</font>;
+  <font color="blue">algorithm </font>
+    H := <font color="red">zeros</font>(Nf,Nf);
+    <font color="darkgreen">// Flux on the first semi-cell is average(phi[1],average(phi[1],phi[2]))</font>
+    H[1,1:2]:={3/4, 1/4};
+    <font color="darkgreen">// Flux on the central cells is the average between the flux on the left</font>
+    <font color="darkgreen">// semi-cell average(average(phi[i-1],phi[i]),phi[i]) and the flux on the right</font>
+    <font color="darkgreen">// semi-cell average(phi[i],average(phi[i],phi[i+1]))</font>
+    <font color="blue">for </font>i<font color="blue"> in </font>2:Nf-1<font color="blue"> loop</font>
+      H[i, i-1:i+1] := {1/8, 3/4, 1/8};
+    <font color="blue">end for</font>;
+    <font color="darkgreen">// Flux on the last semi-cell is average(average(phi[Nf-1],phi[Nf]), phi[Nf])</font>
+    H[Nf,Nf-1:Nf]:={1/4, 3/4};
+  <font color="blue">end </font>compHf;
+
+  <font color="blue">function</font> compG <font color="darkgreen">&quot;Computes matrix G&quot;</font>
+    <font color="blue">input </font>Integer Nm <font color="darkgreen">&quot;Number of nodes on the side with more nodes&quot;</font>;
+    <font color="blue">input </font>Integer Nf <font color="darkgreen">&quot;Number of nodes on the side with fewer nodes&quot;</font>;
+    <font color="blue">output </font>Real G[Nm,Nf] <font color="darkgreen">&quot;Temperature weight matrix&quot;</font>;
+  <font color="blue">protected </font>
+    Integer firstNode <font color="darkgreen">
+      &quot;Number of the left corresponding node on the side with fewer nodes&quot;</font>;
+    Integer lastNode <font color="darkgreen">
+      &quot;Number of the right corresponding node on the side with fewer nodes&quot;</font>;
+    Real w <font color="darkgreen">&quot;Temperature weight of the left corresponding node &quot;</font>;
+  <font color="blue">algorithm </font>
+    G := <font color="red">zeros</font>(Nm,Nf);
+    G[1,1] := 1 <font color="darkgreen">&quot;Temperature of first node&quot;</font>;
+    G[Nm, Nf] := 1 <font color="darkgreen">&quot;Temperature of last node&quot;</font>;
+    <font color="darkgreen">// Temperature of internal nodes by interpolation</font>
+    <font color="blue">for </font>i<font color="blue"> in </font>2:Nm-1<font color="blue"> loop</font>
+      firstNode := 1+<font color="red">div</font>((Nf-1)*(i-1), Nm-1);
+      lastNode := 1+firstNode;
+      w :=1 - <font color="red">mod</font>((Nf - 1)*(i - 1), Nm - 1)/(Nm - 1);
+      G[i, firstNode] := w;
+      G[i, lastNode] := 1 - w;
+    <font color="blue">end for</font>;
+  <font color="blue">end </font>compG;
+
+  <font color="blue">function</font> compG1 <font color="darkgreen">&quot;Computes matrix G1&quot;</font>
+    <font color="blue">input </font>Integer N1;
+    <font color="blue">input </font>Integer N2;
+    <font color="blue">output </font>Real G1[N2,N1];
+  <font color="blue">algorithm </font>
+    G1 := <font color="blue">if </font>N1 == N2<font color="blue"> then </font><font color="red">identity</font>(N1)<font color="blue"> else </font>
+          <font color="blue">if </font>N1 &gt; N2<font color="blue"> then </font> <font color="red">zeros</font>(N2,N1)<font color="blue"> else </font>
+          <font color="red">compG</font>(<font color="red">max</font>(N1,N2),<font color="red">min</font>(N1,N2));
+  <font color="blue">end </font>compG1;
+
+  <font color="blue">function</font> compG2 <font color="darkgreen">&quot;Computes matrix G2&quot;</font>
+    <font color="blue">input </font>Integer N1;
+    <font color="blue">input </font>Integer N2;
+    <font color="blue">output </font>Real G2[N1,N2];
+  <font color="blue">algorithm </font>
+    G2 := <font color="blue">if </font>N1 == N2<font color="blue"> then </font><font color="red">identity</font>(N1)<font color="blue"> else </font>
+          <font color="blue">if </font>N1 &gt; N2<font color="blue"> then </font><font color="red">compG</font>(<font color="red">max</font>(N1,N2),<font color="red">min</font>(N1,N2))<font color="blue"> else </font>
+          <font color="red">zeros</font>(N1,N2);
+  <font color="blue">end </font>compG2;
+
+  <font color="blue">function</font> compH1 <font color="darkgreen">&quot;Computes matrix H1&quot;</font>
+    <font color="blue">input </font>Integer N1;
+    <font color="blue">input </font>Integer N2;
+    <font color="blue">output </font>Real H1[<font color="red">min</font>(N1,N2),N1];
+  <font color="blue">algorithm </font>
+    H1 := <font color="blue">if </font>N1 == N2<font color="blue"> then </font><font color="red">identity</font>(N1)<font color="blue"> else </font>
+          <font color="blue">if </font>N1 &gt; N2<font color="blue"> then </font> <font color="red">compHm</font>(<font color="red">max</font>(N1,N2),<font color="red">min</font>(N1,N2))<font color="blue"> else </font>
+          <font color="red">compHf</font>(<font color="red">min</font>(N1,N2));
+  <font color="blue">end </font>compH1;
+
+  <font color="blue">function</font> compH2 <font color="darkgreen">&quot;Computes matrix H2&quot;</font>
+    <font color="blue">input </font>Integer N1;
+    <font color="blue">input </font>Integer N2;
+    <font color="blue">output </font>Real H2[<font color="red">min</font>(N1,N2),N2];
+  <font color="blue">algorithm </font>
+    H2 := <font color="blue">if </font>N1 == N2<font color="blue"> then </font><font color="red">identity</font>(N2)<font color="blue"> else </font>
+          <font color="blue">if </font>N1 &gt; N2<font color="blue"> then </font><font color="red">compHf</font>(<font color="red">min</font>(N1,N2))<font color="blue"> else </font>
+          <font color="red">compHm</font>(<font color="red">max</font>(N1,N2), <font color="red">min</font>(N1,N2));
+  <font color="blue">end </font>compH2;
+
+<font color="blue">equation </font>
+  <font color="darkgreen">// Compute weight matrices</font>
+  G1 =<font color="red"> compG1</font>(N1,N2);
+  G2 =<font color="red"> compG2</font>(N1,N2);
+  H1 =<font color="red"> compH1</font>(N1,N2);
+  H2 =<font color="red"> compH2</font>(N1,N2);
+
+  H1*side1.phi+H2*side2.phi =<font color="red"> zeros</font>(<font color="red">min</font>(N1,N2)) <font color="darkgreen">&quot;Energy balance&quot;</font>;
+  <font color="blue">if </font>N1 &gt;= N2<font color="blue"> then</font>
+    side1.phi = gamma*(side1.T - G2*side2.T) <font color="darkgreen">&quot;Convective heat transfer&quot;</font>;
+  <font color="blue">else</font>
+    side2.phi = gamma*(side2.T - G1*side1.T) <font color="darkgreen">&quot;Convective heat transfer&quot;</font>;
+  <font color="blue">end if</font>;
+<font color="blue">end </font>ConvHT2N;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ConvHT_htc<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Thermal.ConvHT_htcI.png" ALT="ThermoPower.Thermal.ConvHT_htc" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Thermal.ConvHT_htc"></A><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal"
+>ThermoPower.Thermal</A>.ConvHT_htc</H2>
+<B>1D Convective heat transfer between a DHT and a DHT_htc</B><p>
+<IMG SRC="ThermoPower.Thermal.ConvHTD.png" ALT="ThermoPower.Thermal.ConvHT_htc">
+<H3>Information</H3>
+<PRE></pre>
+<p>Model of a simple convective heat transfer mechanism between two 1D objects. The heat transfer coefficient is supplied by the fluid-side extended connector.
+<p>Node <tt>j</tt> on the fluid side interacts with node <tt>j</tt> on the other side.
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>N</TD><TD>2</TD><TD>Number of Nodes</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Initialisation</B></TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>TstartF1</TD><TD>300</TD><TD>Temperature start value - fluid side node 1 [K]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>TstartFN</TD><TD>300</TD><TD>Temperature start value - fluid side node N [K]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>TstartF[N]</TD><TD>ThermoPower.Thermal.linspace...</TD><TD>Start value of temperature vector - fluid side (initialized by default) [K]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>TstartO1</TD><TD>300</TD><TD>Temperature start value - other side node 1 [K]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>TstartON</TD><TD>300</TD><TD>Temperature start value - other side node N [K]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>TstartO[N]</TD><TD>ThermoPower.Thermal.linspace...</TD><TD>Start value of temperature vector - other side (initialized by default) [K]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.DHT"
+>DHT</A></TD><TD>otherside</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.DHThtc_in"
+>DHThtc_in</A></TD><TD>fluidside</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> ConvHT_htc <font color="darkgreen">
+  &quot;1D Convective heat transfer between a DHT and a DHT_htc&quot;</font>
+  <font color="blue">extends </font><A HREF="ThermoPower_Icons.html#ThermoPower.Icons.HeatFlow"
+>Icons.HeatFlow</A>;
+  <font color="blue">parameter </font>Integer N=2 <font color="darkgreen">&quot;Number of Nodes&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A> TstartF1=300 <font color="darkgreen">
+    &quot;Temperature start value - fluid side node 1&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A> TstartFN=300 <font color="darkgreen">
+    &quot;Temperature start value - fluid side node N&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A> TstartF[N] =<font color="red"> ThermoPower.Thermal.linspaceExt</font>(TstartF1,TstartFN,N) <font color="darkgreen">
+    &quot;Start value of temperature vector - fluid side (initialized by default)&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A> TstartO1=300 <font color="darkgreen">
+    &quot;Temperature start value - other side node 1&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A> TstartON=300 <font color="darkgreen">
+    &quot;Temperature start value - other side node N&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A> TstartO[N] =<font color="red"> ThermoPower.Thermal.linspaceExt</font>(TstartO1,TstartON,N) <font color="darkgreen">
+    &quot;Start value of temperature vector - other side (initialized by default)&quot;</font>;
+  <A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.DHT"
+>DHT</A> otherside(        N=N, T(start=TstartF));
+  <A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.DHThtc_in"
+>DHThtc_in</A> fluidside(             N=N, T(start=TstartO));
+<font color="blue">equation </font>
+  <font color="blue">for </font>j<font color="blue"> in </font>1:N<font color="blue"> loop</font>
+    fluidside.phi[j] = fluidside.gamma[j]*(fluidside.T[j] - otherside.T[j]) <font color="darkgreen">
+      &quot;Convective heat transfer&quot;</font>;
+    otherside.phi[j] = - fluidside.phi[j] <font color="darkgreen">&quot;Energy balance&quot;</font>;
+  <font color="blue">end for</font>;
+<font color="blue">end </font>ConvHT_htc;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE CounterCurrent<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Thermal.CounterCurrentI.png" ALT="ThermoPower.Thermal.CounterCurrent" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Thermal.CounterCurrent"></A><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal"
+>ThermoPower.Thermal</A>.CounterCurrent</H2>
+<B>Counter-current heat transfer adaptor for 1D heat transfer</B><p>
+<IMG SRC="ThermoPower.Thermal.ConvHTD.png" ALT="ThermoPower.Thermal.CounterCurrent">
+<H3>Information</H3>
+<PRE></pre>
+<p>This component can be used to model counter-current heat transfer. The temperature and flux vectors on one side are swapped with respect to the other side. This means that the temperature of node <tt>j</tt> on side 1 is equal to the temperature of note <tt>N-j+1</tt> on side 2; heat fluxes behave correspondingly.
+<p>
+The swapping is performed if the counterCurrent parameter is true (default value).
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>N</TD><TD>2</TD><TD>Number of Nodes</TD></TR>
+<TR><TD>Boolean</TD><TD>counterCurrent</TD><TD>true</TD><TD>Swap temperature and flux vector order</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.DHT"
+>DHT</A></TD><TD>side1</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.DHT"
+>DHT</A></TD><TD>side2</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> CounterCurrent <font color="darkgreen">
+  &quot;Counter-current heat transfer adaptor for 1D heat transfer&quot;</font>
+  <font color="blue">extends </font><A HREF="ThermoPower_Icons.html#ThermoPower.Icons.HeatFlow"
+>Icons.HeatFlow</A>;
+  <font color="blue">parameter </font>Integer N=2 <font color="darkgreen">&quot;Number of Nodes&quot;</font>;
+  <font color="blue">parameter </font>Boolean counterCurrent = true <font color="darkgreen">
+    &quot;Swap temperature and flux vector order&quot;</font>;
+  <A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.DHT"
+>Thermal.DHT</A> side1(N=N);
+  <A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.DHT"
+>Thermal.DHT</A> side2(N=N);
+<font color="blue">equation </font>
+  <font color="darkgreen">// Swap temperature and flux vector order</font>
+  <font color="blue">if </font>counterCurrent<font color="blue"> then</font>
+    side1.phi = - side2.phi[N:-1:1];
+    side1.T = side2.T[N:-1:1];
+  <font color="blue">else</font>
+    side1.phi = - side2.phi;
+    side1.T = side2.T;
+  <font color="blue">end if</font>;
+<font color="blue">end </font>CounterCurrent;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE HeatFlowDistribution<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Thermal.HeatFlowDistributionI.png" ALT="ThermoPower.Thermal.HeatFlowDistribution" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Thermal.HeatFlowDistribution"></A><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal"
+>ThermoPower.Thermal</A>.HeatFlowDistribution</H2>
+<B>Same heat flow through two different surfaces</B><p>
+<IMG SRC="ThermoPower.Thermal.ConvHTD.png" ALT="ThermoPower.Thermal.HeatFlowDistribution">
+<H3>Information</H3>
+<PRE></pre>
+<p>This model can be used to describe the heat flow through two different surfaces, having a different area; the total heat flow entering on the internal side is equal to the total heat flow going out of the external side.
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>N</TD><TD>2</TD><TD>Number of nodes</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Area"
+>Area</A></TD><TD>A1</TD><TD>&nbsp;</TD><TD>Side 1 surface area [m2]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Area"
+>Area</A></TD><TD>A2</TD><TD>&nbsp;</TD><TD>Side 2 surface area [m2]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.DHT"
+>DHT</A></TD><TD>side1</TD><TD>Area of side 1 surface</TD></TR>
+<TR><TD><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.DHT"
+>DHT</A></TD><TD>side2</TD><TD>Area of side 2 surface</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> HeatFlowDistribution <font color="darkgreen">
+  &quot;Same heat flow through two different surfaces&quot;</font>
+  <font color="blue">extends </font><A HREF="ThermoPower_Icons.html#ThermoPower.Icons.HeatFlow"
+>Icons.HeatFlow</A>;
+  <font color="blue">parameter </font>Integer N(min=1)=2 <font color="darkgreen">&quot;Number of nodes&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Area"
+>Area</A> A1 <font color="darkgreen">&quot;Side 1 surface area&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Area"
+>Area</A> A2 <font color="darkgreen">&quot;Side 2 surface area&quot;</font>;
+  <A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.DHT"
+>DHT</A> side1(N=N) <font color="darkgreen">&quot;Area of side 1 surface&quot;</font>;
+  <A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.DHT"
+>DHT</A> side2(N=N) <font color="darkgreen">&quot;Area of side 2 surface&quot;</font>;
+<font color="blue">equation </font>
+  side1.T = side2.T <font color="darkgreen">&quot;Same temperature&quot;</font>;
+  side1.phi * A1 + side2.phi * A2 =<font color="red"> zeros</font>(N) <font color="darkgreen">&quot;Energy balance&quot;</font>;
+<font color="blue">end </font>HeatFlowDistribution;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE HeatSource1D<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Thermal.HeatSource1DI.png" ALT="ThermoPower.Thermal.HeatSource1D" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Thermal.HeatSource1D"></A><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal"
+>ThermoPower.Thermal</A>.HeatSource1D</H2>
+<B>Distributed Heat Flow Source</B><p>
+<IMG SRC="ThermoPower.Thermal.HeatSource1DD.png" ALT="ThermoPower.Thermal.HeatSource1D">
+<H3>Information</H3>
+<PRE></pre>
+<p>Model of an ideal tubular heat flow source, with uniform heat flux. The actual heating power is provided by the <tt>power</tt> signal connector.
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>N</TD><TD>2</TD><TD>Number of nodes</TD></TR>
+<TR><TD>Integer</TD><TD>Nt</TD><TD>1</TD><TD>Number of tubes</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>L</TD><TD>&nbsp;</TD><TD>Source length [m]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>omega</TD><TD>&nbsp;</TD><TD>Source perimeter (single tube) [m]</TD></TR>
+<TR><TD><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.DHT"
+>DHT</A></TD><TD>wall</TD><TD>redeclare Thermal.DHT wall(N...</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.DHT"
+>DHT</A></TD><TD>wall</TD><TD>&nbsp;</TD></TR>
+<TR><TD>input <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>power</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> HeatSource1D <font color="darkgreen">&quot;Distributed Heat Flow Source&quot;</font>
+  <font color="blue">extends </font><A HREF="ThermoPower_Icons.html#ThermoPower.Icons.HeatFlow"
+>Icons.HeatFlow</A>;
+  <font color="blue">parameter </font>Integer N=2 <font color="darkgreen">&quot;Number of nodes&quot;</font>;
+  <font color="blue">parameter </font>Integer Nt=1 <font color="darkgreen">&quot;Number of tubes&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A> L <font color="darkgreen">&quot;Source length&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A> omega <font color="darkgreen">&quot;Source perimeter (single tube)&quot;</font>;
+  <font color="blue">replaceable </font><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.DHT"
+>Thermal.DHT</A> wall(N=N);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> power;
+<font color="blue">equation </font>
+  <font color="blue">for </font>i<font color="blue"> in </font>1:N<font color="blue"> loop</font>
+    wall.phi[i] = -power/(omega*L*Nt);
+  <font color="blue">end for</font>;
+<font color="blue">end </font>HeatSource1D;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TempSource1D<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Thermal.HeatSource1DI.png" ALT="ThermoPower.Thermal.TempSource1D" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Thermal.TempSource1D"></A><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal"
+>ThermoPower.Thermal</A>.TempSource1D</H2>
+<B>Distributed Temperature Source</B><p>
+<IMG SRC="ThermoPower.Thermal.TempSource1DD.png" ALT="ThermoPower.Thermal.TempSource1D">
+<H3>Information</H3>
+<PRE></pre>
+<p>Model of an ideal 1D uniform temperature source. The actual temperature is provided by the <tt>temperature</tt> signal connector.
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>N</TD><TD>2</TD><TD>Number of nodes</TD></TR>
+<TR><TD><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.DHT"
+>DHT</A></TD><TD>wall</TD><TD>redeclare Thermal.DHT wall(N...</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.DHT"
+>DHT</A></TD><TD>wall</TD><TD>&nbsp;</TD></TR>
+<TR><TD>input <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>temperature</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TempSource1D <font color="darkgreen">&quot;Distributed Temperature Source&quot;</font>
+  <font color="blue">extends </font><A HREF="ThermoPower_Icons.html#ThermoPower.Icons.HeatFlow"
+>Icons.HeatFlow</A>;
+  <font color="blue">parameter </font>Integer N=2 <font color="darkgreen">&quot;Number of nodes&quot;</font>;
+  <font color="blue">replaceable </font><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.DHT"
+>Thermal.DHT</A> wall(N=N);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> temperature;
+<font color="blue">equation </font>
+  <font color="blue">for </font>i<font color="blue"> in </font>1:N<font color="blue"> loop</font>
+    wall.T[i] = temperature;
+  <font color="blue">end for</font>;
+<font color="blue">end </font>TempSource1D;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TempSource1Dlin<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Thermal.TempSource1DlinI.png" ALT="ThermoPower.Thermal.TempSource1Dlin" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Thermal.TempSource1Dlin"></A><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal"
+>ThermoPower.Thermal</A>.TempSource1Dlin</H2>
+<B>Linearly Distributed Temperature Source</B><p>
+<IMG SRC="ThermoPower.Thermal.TempSource1DlinD.png" ALT="ThermoPower.Thermal.TempSource1Dlin">
+<H3>Information</H3>
+<PRE></pre>
+<p>Model of an ideal 1D temperature source with a linear distribution. The values of the temperature at the two ends of the source are provided by the <tt>temperature_node1</tt> and <tt>temperature_nodeN</tt> signal connectors.
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>N</TD><TD>2</TD><TD>Number of nodes</TD></TR>
+<TR><TD><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.DHT"
+>DHT</A></TD><TD>wall</TD><TD>redeclare Thermal.DHT wall(N...</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.DHT"
+>DHT</A></TD><TD>wall</TD><TD>&nbsp;</TD></TR>
+<TR><TD>input <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>temperature_node1</TD><TD>&nbsp;</TD></TR>
+<TR><TD>input <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>temperature_nodeN</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TempSource1Dlin <font color="darkgreen">&quot;Linearly Distributed Temperature Source&quot;</font>
+  <font color="blue">extends </font><A HREF="ThermoPower_Icons.html#ThermoPower.Icons.HeatFlow"
+>Icons.HeatFlow</A>;
+  <font color="blue">parameter </font>Integer N=2 <font color="darkgreen">&quot;Number of nodes&quot;</font>;
+  <font color="blue">replaceable </font><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.DHT"
+>Thermal.DHT</A> wall(N=N);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> temperature_node1;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> temperature_nodeN;
+<font color="blue">equation </font>
+  wall.T =<font color="red"> linspace</font>(temperature_node1,temperature_nodeN,N);
+<font color="blue">end </font>TempSource1Dlin;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE HeatSource1Dhtc<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Thermal.HeatSource1DhtcI.png" ALT="ThermoPower.Thermal.HeatSource1Dhtc" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Thermal.HeatSource1Dhtc"></A><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal"
+>ThermoPower.Thermal</A>.HeatSource1Dhtc</H2>
+<B>Distributed Heat Flow Source</B><p>
+<IMG SRC="ThermoPower.Thermal.HeatSource1DhtcD.png" ALT="ThermoPower.Thermal.HeatSource1Dhtc">
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>N</TD><TD>2</TD><TD>Number of nodes</TD></TR>
+<TR><TD>Integer</TD><TD>Nt</TD><TD>1</TD><TD>Number of tubes</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>L</TD><TD>&nbsp;</TD><TD>Source length [m]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>omega</TD><TD>&nbsp;</TD><TD>Source perimeter (single tube) [m]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>input <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>power</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> HeatSource1Dhtc <font color="darkgreen">&quot;Distributed Heat Flow Source&quot;</font>
+  <font color="blue">extends </font><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.HeatSource1D"
+>HeatSource1D</A>(<font color="blue">redeclare </font><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.DHThtc_in"
+>Thermal.DHThtc_in</A> wall);
+<font color="blue">end </font>HeatSource1Dhtc;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE MetalTube<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Thermal.MetalTubeI.png" ALT="ThermoPower.Thermal.MetalTube" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Thermal.MetalTube"></A><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal"
+>ThermoPower.Thermal</A>.MetalTube</H2>
+<B>Cylindrical metal tube - 1 radial node and N axial nodes</B><p>
+<IMG SRC="ThermoPower.Thermal.MetalTubeD.png" ALT="ThermoPower.Thermal.MetalTube">
+<H3>Information</H3>
+<PRE></pre>
+<p>This is the model of a cylindrical tube of solid material.
+<p>The heat capacity (which is lumped at the center of the tube thickness) is accounted for, as well as the thermal resistance due to the finite heat conduction coefficient. Longitudinal heat conduction is neglected.
+<p><b>Modelling options</b></p>
+<p>The following options are available:
+<ul>
+<li><tt>WallRes = false</tt>: the thermal resistance of the tube wall is neglected.
+<li><tt>WallRes = true</tt>: the thermal resistance of the tube wall is accounted for.
+</ul>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>N</TD><TD>2</TD><TD>Number of nodes</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>L</TD><TD>&nbsp;</TD><TD>Tube length [m]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>rint</TD><TD>&nbsp;</TD><TD>Internal radius (single tube) [m]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>rext</TD><TD>&nbsp;</TD><TD>External radius (single tube) [m]</TD></TR>
+<TR><TD>Real</TD><TD>rhomcm</TD><TD>&nbsp;</TD><TD>Metal heat capacity per unit volume [J/m^3.K]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.ThermalConductivity"
+>ThermalConductivity</A></TD><TD>lambda</TD><TD>&nbsp;</TD><TD>Thermal conductivity [W/(m.K)]</TD></TR>
+<TR><TD>Boolean</TD><TD>WallRes</TD><TD>true</TD><TD>Wall conduction resistance accounted for</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Initialisation</B></TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>Tstart1</TD><TD>300</TD><TD>Temperature start value - first node [K]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>TstartN</TD><TD>300</TD><TD>Temperature start value - last node [K]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>Tstart[N]</TD><TD>ThermoPower.Thermal.linspace...</TD><TD>Start value of temperature vector (initialized by default) [K]</TD></TR>
+<TR><TD><A HREF="ThermoPower_Choices_Init_Options.html#ThermoPower.Choices.Init.Options.Temp"
+>Temp</A></TD><TD>initOpt</TD><TD>Choices.Init.Options.noInit</TD><TD>Initialisation option</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.DHT"
+>DHT</A></TD><TD>int</TD><TD>Internal surface</TD></TR>
+<TR><TD><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.DHT"
+>DHT</A></TD><TD>ext</TD><TD>External surface</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> MetalTube <font color="darkgreen">
+  &quot;Cylindrical metal tube - 1 radial node and N axial nodes&quot;</font>
+  <font color="blue">extends </font><A HREF="ThermoPower_Icons.html#ThermoPower.Icons.MetalWall"
+>Icons.MetalWall</A>;
+  <font color="blue">parameter </font>Integer N(min=1)=2 <font color="darkgreen">&quot;Number of nodes&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A> L <font color="darkgreen">&quot;Tube length&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A> rint <font color="darkgreen">&quot;Internal radius (single tube)&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A> rext <font color="darkgreen">&quot;External radius (single tube)&quot;</font>;
+  <font color="blue">parameter </font>Real rhomcm <font color="darkgreen">&quot;Metal heat capacity per unit volume [J/m^3.K]&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.ThermalConductivity"
+>ThermalConductivity</A> lambda <font color="darkgreen">&quot;Thermal conductivity&quot;</font>;
+  <font color="blue">parameter </font>Boolean WallRes=true <font color="darkgreen">&quot;Wall conduction resistance accounted for&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A> Tstart1=300 <font color="darkgreen">&quot;Temperature start value - first node&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A> TstartN=300 <font color="darkgreen">&quot;Temperature start value - last node&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A> Tstart[N] =<font color="red"> ThermoPower.Thermal.linspaceExt</font>(Tstart1,TstartN,N) <font color="darkgreen">
+    &quot;Start value of temperature vector (initialized by default)&quot;</font>;
+  <font color="blue">parameter </font><A HREF="ThermoPower_Choices_Init_Options.html#ThermoPower.Choices.Init.Options.Temp"
+>Choices.Init.Options.Temp</A> initOpt=Choices.Init.Options.noInit <font color="darkgreen">
+    &quot;Initialisation option&quot;</font>;
+  <font color="blue">constant </font>Real pi=Modelica.Constants.pi;
+  <A HREF="ThermoPower.html#ThermoPower.AbsoluteTemperature"
+>AbsoluteTemperature</A> T[N](start=Tstart) <font color="darkgreen">&quot;Node temperatures&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Area"
+>Area</A> Am <font color="darkgreen">&quot;Area of the metal tube cross-section&quot;</font>;
+  <A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.DHT"
+>DHT</A> int(N=N, T(start = Tstart)) <font color="darkgreen">&quot;Internal surface&quot;</font>;
+  <A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.DHT"
+>DHT</A> ext(N=N, T(start = Tstart)) <font color="darkgreen">&quot;External surface&quot;</font>;
+<font color="blue">equation </font>
+  <font color="red">assert</font>(rext &gt; rint, &quot;External radius must be greater than internal radius&quot;);
+  Am = (rext^2 - rint^2)*pi <font color="darkgreen">&quot;Area of the metal cross section&quot;</font>;
+  rhomcm*Am*<font color="red">der</font>(T) = rint*2*pi*int.phi + rext*2*pi*ext.phi <font color="darkgreen">&quot;Energy balance&quot;</font>;
+  <font color="blue">if </font>WallRes<font color="blue"> then</font>
+    int.phi = lambda/(rint*<font color="red">log</font>((rint + rext)/(2*rint)))*(int.T - T) <font color="darkgreen">
+      &quot;Heat conduction through the internal half-thickness&quot;</font>;
+    ext.phi = lambda/(rext*<font color="red">log</font>((2*rext)/(rint + rext)))*(ext.T - T) <font color="darkgreen">
+      &quot;Heat conduction through the external half-thickness&quot;</font>;
+  <font color="blue">else</font>
+    <font color="darkgreen">// No temperature gradients across the thickness</font>
+    int.T = T;
+    ext.T = T;
+  <font color="blue">end if</font>;
+<font color="blue">initial </font><font color="blue">equation </font>
+  <font color="blue">if </font>initOpt == Choices.Init.Options.noInit<font color="blue"> then</font>
+    <font color="darkgreen">// do nothing</font>
+  <font color="blue">elseif </font>initOpt == Choices.Init.Options.steadyState<font color="blue"> then</font>
+    <font color="red">der</font>(T) =<font color="red"> zeros</font>(N);
+  <font color="blue">elseif </font>initOpt == Choices.Init.Options.steadyStateNoT<font color="blue"> then</font>
+  <font color="darkgreen">// do nothing</font>
+  <font color="blue">else</font>
+    <font color="red">assert</font>(false, &quot;Unsupported initialisation option&quot;);
+  <font color="blue">end if</font>;
+<font color="blue">end </font>MetalTube;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE MetalWall<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Thermal.MetalTubeI.png" ALT="ThermoPower.Thermal.MetalWall" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Thermal.MetalWall"></A><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal"
+>ThermoPower.Thermal</A>.MetalWall</H2>
+<B>Generic metal wall - 1 radial node and N axial nodes</B><p>
+<IMG SRC="ThermoPower.Thermal.MetalTubeD.png" ALT="ThermoPower.Thermal.MetalWall">
+<H3>Information</H3>
+<PRE></pre>
+<p>This is the model of a cylindrical tube of solid material.
+<p>The heat capacity (which is lumped at the center of the tube thickness) is accounted for, as well as the thermal resistance due to the finite heat conduction coefficient. Longitudinal heat conduction is neglected.
+<p><b>Modelling options</b></p>
+<p>The following options are available:
+<ul>
+<li><tt>WallRes = false</tt>: the thermal resistance of the tube wall is neglected.
+<li><tt>WallRes = true</tt>: the thermal resistance of the tube wall is accounted for.
+</ul>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>N</TD><TD>2</TD><TD>Number of nodes</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Mass"
+>Mass</A></TD><TD>M</TD><TD>&nbsp;</TD><TD>Mass [kg]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Area"
+>Area</A></TD><TD>Sint</TD><TD>&nbsp;</TD><TD>Internal surface [m2]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Area"
+>Area</A></TD><TD>Sext</TD><TD>&nbsp;</TD><TD>External surface [m2]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.SpecificHeatCapacity"
+>SpecificHeatCapacity</A></TD><TD>cm</TD><TD>&nbsp;</TD><TD>Specific heat capacity of metal [J/(kg.K)]</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Initialisation</B></TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>Tstart1</TD><TD>300</TD><TD>Temperature start value - first node [K]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>TstartN</TD><TD>300</TD><TD>Temperature start value - last node [K]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>Tstart[N]</TD><TD>ThermoPower.Thermal.linspace...</TD><TD>Start value of temperature vector (initialized by default) [K]</TD></TR>
+<TR><TD><A HREF="ThermoPower_Choices_Init_Options.html#ThermoPower.Choices.Init.Options.Temp"
+>Temp</A></TD><TD>initOpt</TD><TD>ThermoPower.Choices.Init.Opt...</TD><TD>Initialisation option</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.DHT"
+>DHT</A></TD><TD>int</TD><TD>Internal surface</TD></TR>
+<TR><TD><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.DHT"
+>DHT</A></TD><TD>ext</TD><TD>External surface</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> MetalWall <font color="darkgreen">
+  &quot;Generic metal wall - 1 radial node and N axial nodes&quot;</font>
+  <font color="blue">extends </font><A HREF="ThermoPower_Icons.html#ThermoPower.Icons.MetalWall"
+>ThermoPower.Icons.MetalWall</A>;
+  <font color="blue">parameter </font>Integer N(min=1)=2 <font color="darkgreen">&quot;Number of nodes&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Mass"
+>Modelica.SIunits.Mass</A> M <font color="darkgreen">&quot;Mass&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Area"
+>Modelica.SIunits.Area</A> Sint <font color="darkgreen">&quot;Internal surface&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Area"
+>Modelica.SIunits.Area</A> Sext <font color="darkgreen">&quot;External surface&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.SpecificHeatCapacity"
+>Modelica.SIunits.SpecificHeatCapacity</A> cm <font color="darkgreen">
+    &quot;Specific heat capacity of metal&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Modelica.SIunits.Temperature</A> Tstart1=300 <font color="darkgreen">
+    &quot;Temperature start value - first node&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Modelica.SIunits.Temperature</A> TstartN=300 <font color="darkgreen">
+    &quot;Temperature start value - last node&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Modelica.SIunits.Temperature</A> Tstart[N] =<font color="red"> ThermoPower.Thermal.linspaceExt</font>(Tstart1,TstartN,N) <font color="darkgreen">
+    &quot;Start value of temperature vector (initialized by default)&quot;</font>;
+  <font color="blue">parameter </font><A HREF="ThermoPower_Choices_Init_Options.html#ThermoPower.Choices.Init.Options.Temp"
+>ThermoPower.Choices.Init.Options.Temp</A> initOpt=ThermoPower.Choices.Init.Options.noInit <font color="darkgreen">
+    &quot;Initialisation option&quot;</font>;
+  <font color="blue">constant </font>Real pi=Modelica.Constants.pi;
+  <A HREF="ThermoPower.html#ThermoPower.AbsoluteTemperature"
+>ThermoPower.AbsoluteTemperature</A> T[N](start=Tstart) <font color="darkgreen">&quot;Node temperatures&quot;</font>;
+  <A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.DHT"
+>ThermoPower.Thermal.DHT</A> int(N=N, T(start=Tstart)) <font color="darkgreen">&quot;Internal surface&quot;</font>;
+  <A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.DHT"
+>ThermoPower.Thermal.DHT</A> ext(N=N, T(start=Tstart)) <font color="darkgreen">&quot;External surface&quot;</font>;
+<font color="blue">equation </font>
+  (cm*M)*<font color="red">der</font>(T) = Sint*int.phi + Sext*ext.phi <font color="darkgreen">&quot;Energy balance&quot;</font>;
+  <font color="darkgreen">  // No temperature gradients across the thickness</font>
+    int.T = T;
+    ext.T = T;
+<font color="blue">initial </font><font color="blue">equation </font>
+  <font color="blue">if </font>initOpt == ThermoPower.Choices.Init.Options.noInit<font color="blue"> then</font>
+    <font color="darkgreen">// do nothing</font>
+  <font color="blue">elseif </font>initOpt == ThermoPower.Choices.Init.Options.steadyState<font color="blue"> then</font>
+    <font color="red">der</font>(T) =<font color="red"> zeros</font>(N);
+  <font color="blue">elseif </font>initOpt == ThermoPower.Choices.Init.Options.steadyStateNoT<font color="blue"> then</font>
+  <font color="darkgreen">// do nothing</font>
+  <font color="blue">else</font>
+    <font color="red">assert</font>(false, &quot;Unsupported initialisation option&quot;);
+  <font color="blue">end if</font>;
+<font color="blue">end </font>MetalWall;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE CylinderFourier<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Thermal.CylinderFourierI.png" ALT="ThermoPower.Thermal.CylinderFourier" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Thermal.CylinderFourier"></A><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal"
+>ThermoPower.Thermal</A>.CylinderFourier</H2>
+<B>Thermal model of a hollow cylinder by Fourier's equation - 1 axial node and Nr radial nodes</B><p>
+<IMG SRC="ThermoPower.Thermal.CylinderFourierD.png" ALT="ThermoPower.Thermal.CylinderFourier">
+<H3>Information</H3>
+<PRE></pre>
+This is the 1D thermal model of a solid hollow cylinder by Fourier's equations.
+<p>The model is axis-symmetric, has one node in the longitudinal direction, and <tt>Nr</tt> nodes in the radial direction. The two connectors correspond to the internal and external surfaces; if one of the surface is thermally insulated, just leave the connector unconnected (no connection on a <tt>DHT</tt> connector means zero heat flux). The temperature-dependent properties of the material are described by the replaceable <tt>MaterialModel</tt> model.
+<p><b>Modelling options</b></p>
+The radial distribution of the nodes can be chosen by selecting the value of <tt>nodeDistribution</tt>:
+<ul>
+<li> <tt>Choices.CylinderFourier.NodeDistribution.uniform</tt> uniform distribution, nodes are equally spaced;
+<li> <tt>Choices.CylinderFourier.NodeDistribution.thickInternal</tt> quadratic distribution, nodes are thickest near the internal surface;
+<li> <tt>Choices.CylinderFourier.NodeDistribution.thickExternal</tt> quadratic distribution, nodes are thickest near the external surface;
+<li> <tt>Choices.CylinderFourier.NodeDistribution.thickBoth</tt> quadratic distribution, nodes are thickest near both surfaces.
+</ul>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>Nr</TD><TD>2</TD><TD>Number of radial nodes</TD></TR>
+<TR><TD><A HREF="ThermoPower_Choices_CylinderFourier_NodeDistribution.html#ThermoPower.Choices.CylinderFourier.NodeDistribution.Temp"
+>Temp</A></TD><TD>nodeDistribution</TD><TD>&nbsp;</TD><TD>Node distribution</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>rint</TD><TD>&nbsp;</TD><TD>Internal radius [m]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>rext</TD><TD>&nbsp;</TD><TD>External radius [m]</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Initialisation</B></TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>Tstartint</TD><TD>300</TD><TD>Temperature start value at rint (first node) [K]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>Tstartext</TD><TD>300</TD><TD>Temperature start value at rext (last node) [K]</TD></TR>
+<TR><TD><A HREF="ThermoPower_Choices_Init_Options.html#ThermoPower.Choices.Init.Options.Temp"
+>Temp</A></TD><TD>initOpt</TD><TD>Choices.Init.Options.noInit</TD><TD>Initialisation option</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.DHT"
+>DHT</A></TD><TD>internalBoundary</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.DHT"
+>DHT</A></TD><TD>externalBoundary</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> CylinderFourier <font color="darkgreen">
+  &quot;Thermal model of a hollow cylinder by Fourier's equation - 1 axial node and Nr radial nodes&quot;</font>
+  <font color="blue">import </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits"
+>Modelica.SIunits</A>.*;
+  <font color="blue">import </font><A HREF="ThermoPower_Choices_CylinderFourier_NodeDistribution.html#ThermoPower.Choices.CylinderFourier.NodeDistribution"
+>ThermoPower.Choices.CylinderFourier.NodeDistribution</A>;
+  <font color="blue">extends </font><A HREF="ThermoPower_Icons.html#ThermoPower.Icons.MetalWall"
+>Icons.MetalWall</A>;
+
+  <font color="blue">replaceable </font><font color="blue">model</font> MaterialModel = <A HREF="ThermoPower_Thermal_MaterialProperties_Metals.html#ThermoPower.Thermal.MaterialProperties.Metals.StandardSteel"
+>MaterialProperties.Metals.StandardSteel</A> <font color="blue">extends </font>
+    MaterialProperties.Interfaces.PartialMaterial <font color="darkgreen">&quot;Metal model&quot;</font>;
+  <font color="blue">parameter </font>Integer Nr=2 <font color="darkgreen">&quot;Number of radial nodes&quot;</font>;
+  <font color="blue">parameter </font><A HREF="ThermoPower_Choices_CylinderFourier_NodeDistribution.html#ThermoPower.Choices.CylinderFourier.NodeDistribution.Temp"
+>NodeDistribution.Temp</A> nodeDistribution <font color="darkgreen">&quot;Node distribution&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A> rint <font color="darkgreen">&quot;Internal radius&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A> rext <font color="darkgreen">&quot;External radius&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A> Tstartint=300 <font color="darkgreen">
+    &quot;Temperature start value at rint (first node)&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A> Tstartext=300 <font color="darkgreen">
+    &quot;Temperature start value at rext (last node)&quot;</font>;
+  <font color="blue">parameter </font><A HREF="ThermoPower_Choices_Init_Options.html#ThermoPower.Choices.Init.Options.Temp"
+>Choices.Init.Options.Temp</A> initOpt=Choices.Init.Options.noInit <font color="darkgreen">
+    &quot;Initialisation option&quot;</font>;
+
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A> r[Nr](fixed=false) <font color="darkgreen">&quot;Node radii&quot;</font>;
+<font color="blue">protected </font>
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A> r1_2[Nr-1](fixed=false) <font color="darkgreen">&quot;Slice mean radii&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A> r_lin[Nr](fixed=false) <font color="darkgreen">&quot;Linearly distributed radii&quot;</font>;
+  Real A[Nr](fixed=false);
+  Real B[Nr](fixed=false);
+  Real C[Nr](fixed=false);
+
+<font color="blue">public </font>
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A> T[Nr](start=<font color="red">linspace</font>(Tstartint,Tstartext,Nr)) <font color="darkgreen">
+    &quot;Nodal temperatures&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A> Tm <font color="darkgreen">&quot;Mean temperature&quot;</font>;
+  <A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.CylinderFourier.MaterialModel"
+>MaterialModel</A> metal[Nr] <font color="darkgreen">&quot;Metal properties at the nodes&quot;</font>;
+
+  <A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.DHT"
+>ThermoPower.Thermal.DHT</A> internalBoundary(<font color="blue">final </font>N=1);
+  <A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.DHT"
+>ThermoPower.Thermal.DHT</A> externalBoundary(<font color="blue">final </font>N=1);
+
+<font color="blue">equation </font>
+  <font color="darkgreen">// Generation of the temperature node distribution </font>
+  r_lin =<font color="red"> linspace</font>(rint,rext,Nr) <font color="darkgreen">&quot;Linearly distributed node radii&quot;</font>;
+  <font color="blue">for </font>i<font color="blue"> in </font>1:Nr<font color="blue"> loop</font>
+    <font color="blue">if </font>nodeDistribution == NodeDistribution.uniform<font color="blue"> then</font>
+      r[i]= r_lin[i] <font color="darkgreen">&quot;Uniform distribution of node radii&quot;</font>;
+    <font color="blue">elseif </font>nodeDistribution == NodeDistribution.thickInternal<font color="blue"> then</font>
+      r[i]= rint + 1/(rext-rint)*(r_lin[i]-rint)^2 <font color="darkgreen">
+        &quot;Quadratically distributed node radii - thickest at rint&quot;</font>;
+    <font color="blue">elseif </font>nodeDistribution == NodeDistribution.thickExternal<font color="blue"> then</font>
+      r[i]= rext - 1/(rext-rint)*(rext-r_lin[i])^2 <font color="darkgreen">
+        &quot;Quadratically distributed node radii - thickest at rext&quot;</font>;
+    <font color="blue">elseif </font>nodeDistribution == NodeDistribution.thickBoth<font color="blue"> then</font>
+      <font color="blue">if </font>r_lin[i] &lt;= (rint+rext)/2<font color="blue"> then</font>
+        r[i]=  2/(rext-rint)*(r_lin[i]-rint)^2+rint <font color="darkgreen">
+          &quot;Quadratically distributed node radii - thickest at rint&quot;</font>;
+      <font color="blue">else</font>
+        r[i]= -2/(rext-rint)*(r_lin[i]-rext)^2+rext <font color="darkgreen">
+          &quot;Quadratically distributed node radii - thickest at rext&quot;</font>;
+      <font color="blue">end if</font>;
+    <font color="blue">else</font>
+      <font color="red">assert</font>(true,&quot;Unsupported NodeDistribution type&quot;);
+    <font color="blue">end if</font>;
+  <font color="blue">end for</font>;
+  <font color="blue">for </font>i<font color="blue"> in </font>1:Nr-1<font color="blue"> loop</font>
+    r1_2[i] = (r[i+1]+r[i])/2;
+  <font color="blue">end for</font>;
+
+  <font color="darkgreen">// Spatially discretized coefficients of Fourier's equation</font>
+  <font color="blue">for </font>i<font color="blue"> in </font>2:Nr-1<font color="blue"> loop</font>
+    A[i] = r1_2[i-1] / (r[i]*( r[i]  - r[i-1])*(r1_2[i]-r1_2[i-1]));
+    C[i] =  r1_2[i]  / (r[i]*(r[i+1] -  r[i]) *(r1_2[i]-r1_2[i-1]));
+    B[i] = - A[i] - C[i];
+  <font color="blue">end for</font>;
+  <font color="darkgreen">// Not used by Fourier equations</font>
+  A[1] = 0;
+  B[1] = 0;
+  C[1] = 0;
+  A[Nr] = 0;
+  B[Nr] = 0;
+  C[Nr] = 0;
+
+  <font color="darkgreen">// Metal temperature equations</font>
+  metal[1:Nr].T = T[1:Nr];
+
+  <font color="darkgreen">// Thermal field </font>
+  <font color="blue">for </font>i<font color="blue"> in </font>2:Nr-1<font color="blue"> loop</font>
+    metal[i].density*metal[i].specificHeatCapacity/metal[i].thermalConductivity *<font color="red">der</font>(T[i]) =
+      A[i]*T[i-1] + B[i]*T[i] + C[i]*T[i+1] <font color="darkgreen">&quot;Fourier's equation&quot;</font>;
+  <font color="blue">end for</font>;
+
+  <font color="darkgreen">// Thermal boundary conditions</font>
+  internalBoundary.T[1] = T[1];
+  externalBoundary.T[1] = T[Nr];
+  internalBoundary.phi[1] = -metal[1].thermalConductivity*(T[2] -  T[1]) /(r[2] -  r[1]);
+  externalBoundary.phi[1] = metal[Nr].thermalConductivity*(T[Nr] - T[Nr-1])/(r[Nr] - r[Nr-1]);
+
+  <font color="darkgreen">// Mean temperature</font>
+  Tm = 1/(rext^2-rint^2) *<font color="red"> sum</font>((T[i]*r[i]+T[i+1]*r[i+1])*(r[i+1]-r[i]) <font color="blue">for </font>i<font color="blue"> in </font>1:Nr-1);
+<font color="darkgreen">//  Tm = sum(T)/Nr;</font>
+<font color="blue">initial </font><font color="blue">equation </font>
+  <font color="darkgreen">// Initial conditions</font>
+  <font color="blue">if </font>initOpt == Choices.Init.Options.noInit<font color="blue"> then</font>
+    <font color="darkgreen">// do nothing</font>
+  <font color="blue">elseif </font>initOpt == Choices.Init.Options.steadyState<font color="blue"> then</font>
+    <font color="red">der</font>(T[2:Nr-1]) =<font color="red"> zeros</font>(Nr-2);
+  <font color="blue">else</font>
+    <font color="red">assert</font>(false, &quot;Unsupported initialisation option&quot;);
+  <font color="blue">end if</font>;
+<font color="blue">end </font>CylinderFourier;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE linspaceExt<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Thermal.linspaceExt"></A><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal"
+>ThermoPower.Thermal</A>.linspaceExt</H2>
+<B>Extended linspace handling also the N=1 case</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>x1</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Real</TD><TD>x2</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Integer</TD><TD>N</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>vec[N]</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> linspaceExt <font color="darkgreen">&quot;Extended linspace handling also the N=1 case&quot;</font>
+<font color="blue">input </font>Real x1;
+<font color="blue">input </font>Real x2;
+<font color="blue">input </font>Integer N;
+<font color="blue">output </font>Real vec[N];
+<font color="blue">algorithm </font>
+  vec:= <font color="blue">if </font>N==1<font color="blue"> then </font>{x1}<font color="blue"> else </font><font color="red">linspace</font>(x1,x2,N);
+<font color="blue">end </font>linspaceExt;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE MaterialModel<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Thermal.CylinderFourier.MaterialModel"></A><A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.CylinderFourier"
+>ThermoPower.Thermal.CylinderFourier</A>.MaterialModel</H2>
+<B>Metal model</B><p>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">replaceable </font><font color="blue">model</font> MaterialModel = <A HREF="ThermoPower_Thermal_MaterialProperties_Metals.html#ThermoPower.Thermal.MaterialProperties.Metals.StandardSteel"
+>MaterialProperties.Metals.StandardSteel</A> <font color="blue">extends </font>
+  MaterialProperties.Interfaces.PartialMaterial <font color="darkgreen">&quot;Metal model&quot;</font>;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Tue Jul 07 01:26:11 2009.
+</address></BODY>
+</HTML>

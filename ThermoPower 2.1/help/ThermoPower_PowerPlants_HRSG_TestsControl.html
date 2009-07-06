@@ -1,0 +1,237 @@
+<HTML>
+<HEAD>
+<TITLE>ThermoPower.PowerPlants.HRSG.TestsControl</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Closed-loop test cases&quot;">
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TestsControl<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.PowerPlants.HRSG.TestsControl"></A><A HREF="ThermoPower_PowerPlants_HRSG.html#ThermoPower.PowerPlants.HRSG"
+>ThermoPower.PowerPlants.HRSG</A>.TestsControl</H2>
+<B>Closed-loop test cases</B>
+<P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="ThermoPower_PowerPlants_HRSG_TestsControl.html#ThermoPower.PowerPlants.HRSG.TestsControl.TestPumpControl"
+>TestPumpControl</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_PowerPlants_HRSG_TestsControl.html#ThermoPower.PowerPlants.HRSG.TestsControl.TestHRSG_wac"
+>TestHRSG_wac</A>
+</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TestPumpControl<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.PowerPlants.HRSG.TestsControl.TestPumpControl"></A><A HREF="ThermoPower_PowerPlants_HRSG_TestsControl.html#ThermoPower.PowerPlants.HRSG.TestsControl"
+>ThermoPower.PowerPlants.HRSG.TestsControl</A>.TestPumpControl</H2>
+<IMG SRC="ThermoPower.PowerPlants.HRSG.TestsControl.TestPumpControlD.png" ALT="ThermoPower.PowerPlants.HRSG.TestsControl.TestPumpControl">
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TestPumpControl
+  <font color="blue">import </font><A HREF="ThermoPower.html#ThermoPower"
+>ThermoPower</A>;
+  <font color="blue">package</font> FluidMedium = ThermoPower.Water.StandardWater;
+
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SinkP"
+>Water.SinkP</A> sinkToEcLP_p(           h=2.440e5, p0=7.19e5);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SourceP"
+>Water.SourceP</A> sourceShLP(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = FluidMedium,
+    p0=5398.2,
+    h=1.43495e5);
+<font color="blue">public </font>
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> n_pump(
+    duration=100,
+    offset=89.9,
+    startTime=500,
+    height=0);
+  <A HREF="ThermoPower_PowerPlants_Control.html#ThermoPower.PowerPlants.Control.PID"
+>ThermoPower.PowerPlants.Control.PID</A> pIDController(
+    CSmin=500,
+    PVmin=-1,
+    PVmax=1,
+    CSmax=2500,
+    Ti=200,
+    Kp=4);
+<font color="blue">public </font>
+  <A HREF="ThermoPower_PowerPlants_HRSG_Components.html#ThermoPower.PowerPlants.HRSG.Components.PrescribedSpeedPump"
+>ThermoPower.PowerPlants.HRSG.Components.PrescribedSpeedPump</A> pump(
+    rho_nom=1000,
+    <font color="blue">redeclare </font><font color="blue">package</font> WaterMedium = FluidMedium,
+    q_nom={0.0898,0,0.1},
+    head_nom={72.74,130,0},
+    nominalSteamPressure=7.19048e5,
+    nominalCondensationPressure=5398.2,
+    nominalSteamFlow=89.8,
+    hstart=1.43495e5,
+    n0=1500,
+    feedWaterPump(<font color="blue">redeclare </font><font color="blue">function</font> efficiencyCharacteristic =
+          <A HREF="ThermoPower_Functions_PumpCharacteristics.html#ThermoPower.Functions.PumpCharacteristics.constantEfficiency"
+>Functions.PumpCharacteristics.constantEfficiency</A> (eta_nom=0.6)));
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SensW"
+>ThermoPower.Water.SensW</A> feed_w(<font color="blue">redeclare </font><font color="blue">package</font> Medium = FluidMedium);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous.FirstOrder"
+>Modelica.Blocks.Continuous.FirstOrder</A> firstOrder(y_start=1512, T=1);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(n_pump.y, pIDController.SP);
+  <font color="red">connect</font>(feed_w.inlet, pump.outlet);
+  <font color="red">connect</font>(sourceShLP.flange, pump.inlet);
+  <font color="red">connect</font>(feed_w.outlet, sinkToEcLP_p.flange);
+  <font color="red">connect</font>(pIDController.PV, feed_w.w);
+  <font color="red">connect</font>(pIDController.CS, firstOrder.u);
+  <font color="red">connect</font>(firstOrder.y, pump.pumpSpeed_rpm);
+<font color="blue">end </font>TestPumpControl;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TestHRSG_wac<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.PowerPlants.HRSG.TestsControl.TestHRSG_wac"></A><A HREF="ThermoPower_PowerPlants_HRSG_TestsControl.html#ThermoPower.PowerPlants.HRSG.TestsControl"
+>ThermoPower.PowerPlants.HRSG.TestsControl</A>.TestHRSG_wac</H2>
+<IMG SRC="ThermoPower.PowerPlants.HRSG.TestsControl.TestHRSG_wacD.png" ALT="ThermoPower.PowerPlants.HRSG.TestsControl.TestHRSG_wac">
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TestHRSG_wac
+  <font color="blue">package</font> FlueGasMedium = <A HREF="ThermoPower_Media_FlueGas.html#ThermoPower.Media.FlueGas"
+>ThermoPower.Media.FlueGas</A>;
+  <font color="blue">package</font> FluidMedium = ThermoPower.Water.StandardWater;
+
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.SourceW"
+>Gas.SourceW</A> sourceGas(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = FlueGasMedium,
+    w0=585.5,
+    T=884.65);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.SinkP"
+>Gas.SinkP</A> sinkGas(<font color="blue">redeclare </font><font color="blue">package</font> Medium = FlueGasMedium, T=379.448);
+  <A HREF="ThermoPower_PowerPlants_HRSG_Components.html#ThermoPower.PowerPlants.HRSG.Components.StateReader_gas"
+>ThermoPower.PowerPlants.HRSG.Components.StateReader_gas</A> stateGas_in(
+                                         <font color="blue">redeclare </font><font color="blue">package</font> Medium =
+        FlueGasMedium);
+  <A HREF="ThermoPower_PowerPlants_HRSG_Components.html#ThermoPower.PowerPlants.HRSG.Components.StateReader_gas"
+>ThermoPower.PowerPlants.HRSG.Components.StateReader_gas</A> stateGas_out(
+                                          <font color="blue">redeclare </font><font color="blue">package</font> Medium =
+        FlueGasMedium);
+  <A HREF="ThermoPower_PowerPlants_HRSG_Components.html#ThermoPower.PowerPlants.HRSG.Components.StateReader_water"
+>ThermoPower.PowerPlants.HRSG.Components.StateReader_water</A> stateShHP_out(
+      <font color="blue">redeclare </font><font color="blue">package</font> Medium = FluidMedium);
+  <A HREF="ThermoPower_PowerPlants_HRSG_Components.html#ThermoPower.PowerPlants.HRSG.Components.StateReader_water"
+>ThermoPower.PowerPlants.HRSG.Components.StateReader_water</A> stateShLP_out(
+      <font color="blue">redeclare </font><font color="blue">package</font> Medium = FluidMedium);
+  <A HREF="ThermoPower_PowerPlants_HRSG_Components.html#ThermoPower.PowerPlants.HRSG.Components.StateReader_water"
+>ThermoPower.PowerPlants.HRSG.Components.StateReader_water</A> stateRhIP_out(
+                                             <font color="blue">redeclare </font><font color="blue">package</font> Medium =
+        FluidMedium);
+  <A HREF="ThermoPower_PowerPlants_HRSG_Components.html#ThermoPower.PowerPlants.HRSG.Components.StateReader_water"
+>ThermoPower.PowerPlants.HRSG.Components.StateReader_water</A> stateRhIP_in(
+                                            <font color="blue">redeclare </font><font color="blue">package</font> Medium =
+        FluidMedium);
+  <A HREF="ThermoPower_PowerPlants_HRSG_Examples.html#ThermoPower.PowerPlants.HRSG.Examples.HRSG_3LRh"
+>Examples.HRSG_3LRh</A> hRSG(<font color="blue">redeclare </font><font color="blue">package</font> FlueGasMedium =
+        FlueGasMedium,                                                     <font color="blue">redeclare </font><font color="blue">
+      package</font> FluidMedium = FluidMedium,
+    drums(SSInit=true),
+    HeatExchangersGroup(SSInit=true));
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SinkP"
+>Water.SinkP</A> OutLP(<font color="blue">redeclare </font><font color="blue">package</font> Medium = FluidMedium,
+    p0=5389.2,
+    h=2.3854e6);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SteamTurbineStodola"
+>Water.SteamTurbineStodola</A> turbineHP(
+    pstart_in=1.28e7,
+    pstart_out=2.98e6,
+    wstart=67.6,
+    hstartin=3.47e6,
+    hstartout=3.1076e6,
+    wnom=67.6,
+    eta_iso_nom=0.833,
+    Kt=0.0032078);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SteamTurbineStodola"
+>Water.SteamTurbineStodola</A> turbineIP(
+    pstart_in=2.68e6,
+    pstart_out=6e5,
+    wstart=81.10,
+    hstartin=3.554e6,
+    hstartout=3.1281e6,
+    wnom=81.10,
+    eta_iso_nom=0.903,
+    Kt=0.018883);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SteamTurbineStodola"
+>Water.SteamTurbineStodola</A> turbineLP(
+    pstart_in=6e5,
+    pstart_out=5.3982e3,
+    wstart=89.82,
+    hstartin=3.109e6,
+    hstartout=2.3854e6,
+    wnom=89.82,
+    eta_iso_nom=0.903,
+    Kt=0.078004);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.Mixer"
+>Water.Mixer</A> mixLP(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = FluidMedium,
+    V=10,
+    pstart=7.19e5,
+    hstart=2.89295e6,
+    initOpt=ThermoPower.Choices.Init.Options.steadyState);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.ConstantSpeed"
+>Modelica.Mechanics.Rotational.ConstantSpeed</A> constantSpeed(w_fixed=
+        314.16/2);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SourceP"
+>Water.SourceP</A> sourceShLP(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = FluidMedium,
+    p0=5398.2,
+    h=1.43495e5);
+  <A HREF="ThermoPower_PowerPlants_HRSG_Control.html#ThermoPower.PowerPlants.HRSG.Control.levelsControl"
+>ThermoPower.PowerPlants.HRSG.Control.levelsControl</A> levelsControlSimplified(
+    Level_HP(steadyStateInit=true),
+    Level_IP(steadyStateInit=true),
+    Level_LP(steadyStateInit=true));
+  <A HREF="ThermoPower_PowerPlants_HRSG_Components.html#ThermoPower.PowerPlants.HRSG.Components.PrescribedSpeedPump"
+>Components.PrescribedSpeedPump</A> totalFeedPump(
+    <font color="blue">redeclare </font><font color="blue">package</font> WaterMedium = FluidMedium,
+    rho_nom=1000,
+    q_nom={0.0898,0,0.1},
+    head_nom={72.74,130,0},
+    nominalCondensationPressure=5398.2,
+    nominalSteamFlow=89.8,
+    n0=1500,
+    hstart=1.43495e5,
+    nominalSteamPressure=6e5);
+<font color="blue">protected </font>
+  <A HREF="ThermoPower_PowerPlants_Buses.html#ThermoPower.PowerPlants.Buses.Actuators"
+>Buses.Actuators</A> actuators;
+<font color="blue">equation </font>
+  <font color="red">connect</font>(stateGas_in.inlet, sourceGas.flange);
+  <font color="red">connect</font>(sinkGas.flange, stateGas_out.outlet);
+  <font color="red">connect</font>(stateGas_in.outlet, hRSG.GasIn);
+  <font color="red">connect</font>(stateGas_out.inlet, hRSG.GasOut);
+  <font color="red">connect</font>(stateShLP_out.inlet, hRSG.Sh_LP_Out);
+  <font color="red">connect</font>(stateRhIP_out.inlet, hRSG.Rh_IP_Out);
+  <font color="red">connect</font>(stateRhIP_in.outlet, hRSG.Rh_IP_In);
+  <font color="red">connect</font>(stateShHP_out.inlet, hRSG.Sh_HP_Out);
+  <font color="red">connect</font>(OutLP.flange, turbineLP.outlet);
+  <font color="red">connect</font>(turbineHP.shaft_b, turbineIP.shaft_a);
+  <font color="red">connect</font>(turbineIP.shaft_b, turbineLP.shaft_a);
+  <font color="red">connect</font>(mixLP.in2, turbineIP.outlet);
+  <font color="red">connect</font>(constantSpeed.flange, turbineLP.shaft_b);
+  <font color="red">connect</font>(turbineLP.inlet, mixLP.out);
+  <font color="red">connect</font>(mixLP.in1, stateShLP_out.outlet);
+  <font color="red">connect</font>(turbineHP.inlet, stateShHP_out.outlet);
+  <font color="red">connect</font>(turbineIP.inlet, stateRhIP_out.outlet);
+  <font color="red">connect</font>(levelsControlSimplified.SensorsBus, hRSG.SensorsBus);
+  <font color="red">connect</font>(levelsControlSimplified.ActuatorsBus, hRSG.ActuatorsBus);
+  <font color="red">connect</font>(sourceShLP.flange, totalFeedPump.inlet);
+  <font color="red">connect</font>(actuators, levelsControlSimplified.ActuatorsBus);
+  <font color="red">connect</font>(totalFeedPump.pumpSpeed_rpm, actuators.nPump_feedLP);
+  <font color="red">connect</font>(totalFeedPump.outlet, hRSG.WaterIn);
+  <font color="red">connect</font>(turbineHP.outlet, stateRhIP_in.inlet);
+<font color="blue">end </font>TestHRSG_wac;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Tue Jul 07 01:24:39 2009.
+</address></BODY>
+</HTML>

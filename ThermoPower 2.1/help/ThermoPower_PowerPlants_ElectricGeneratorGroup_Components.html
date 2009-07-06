@@ -1,0 +1,199 @@
+<HTML>
+<HEAD>
+<TITLE>ThermoPower.PowerPlants.ElectricGeneratorGroup.Components</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Xomponent definitions&quot;">
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Components<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.PowerPlants.ElectricGeneratorGroup.Components"></A><A HREF="ThermoPower_PowerPlants_ElectricGeneratorGroup.html#ThermoPower.PowerPlants.ElectricGeneratorGroup"
+>ThermoPower.PowerPlants.ElectricGeneratorGroup</A>.Components</H2>
+<B>Xomponent definitions</B>
+<P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.PowerSensorS.png" ALT="ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.PowerSensor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_PowerPlants_ElectricGeneratorGroup_Components.html#ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.PowerSensor"
+>PowerSensor</A>
+</TD><TD>Measures power flow through the component</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.FrequencySensorS.png" ALT="ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.FrequencySensor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_PowerPlants_ElectricGeneratorGroup_Components.html#ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.FrequencySensor"
+>FrequencySensor</A>
+</TD><TD>Measures the frequency at the connector</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.Grid_2inS.png" ALT="ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.Grid_2in" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_PowerPlants_ElectricGeneratorGroup_Components.html#ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.Grid_2in"
+>Grid_2in</A>
+</TD><TD>Ideal grid with finite droop and two inlet</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.Grid_3inS.png" ALT="ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.Grid_3in" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_PowerPlants_ElectricGeneratorGroup_Components.html#ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.Grid_3in"
+>Grid_3in</A>
+</TD><TD>Ideal grid with finite droop and three inlet</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.OldElementsSwingEquationS.png" ALT="ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.OldElementsSwingEquation" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_PowerPlants_ElectricGeneratorGroup_Components_OldElementsSwingEquation.html#ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.OldElementsSwingEquation"
+>OldElementsSwingEquation</A>
+</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PowerSensor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.PowerSensorI.png" ALT="ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.PowerSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.PowerSensor"></A><A HREF="ThermoPower_PowerPlants_ElectricGeneratorGroup_Components.html#ThermoPower.PowerPlants.ElectricGeneratorGroup.Components"
+>ThermoPower.PowerPlants.ElectricGeneratorGroup.Components</A>.PowerSensor</H2>
+<B>Measures power flow through the component</B><p>
+<IMG SRC="ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.PowerSensorD.png" ALT="ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.PowerSensor">
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.PowerConnection"
+>PowerConnection</A></TD><TD>port_a</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.PowerConnection"
+>PowerConnection</A></TD><TD>port_b</TD><TD>&nbsp;</TD></TR>
+<TR><TD>output <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>RealOutput</A></TD><TD>W</TD><TD>Power flowing from port_a to port_b</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> PowerSensor <font color="darkgreen">&quot;Measures power flow through the component&quot;</font>
+  <A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.PowerConnection"
+>Electrical.PowerConnection</A> port_a;
+  <A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.PowerConnection"
+>Electrical.PowerConnection</A> port_b;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> W <font color="darkgreen">&quot;Power flowing from port_a to port_b&quot;</font>;
+<font color="blue">equation </font>
+  port_a.W+port_b.W = 0;
+  port_a.f = port_b.f;
+  W = port_a.W;
+<font color="blue">end </font>PowerSensor;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE FrequencySensor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.FrequencySensorI.png" ALT="ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.FrequencySensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.FrequencySensor"></A><A HREF="ThermoPower_PowerPlants_ElectricGeneratorGroup_Components.html#ThermoPower.PowerPlants.ElectricGeneratorGroup.Components"
+>ThermoPower.PowerPlants.ElectricGeneratorGroup.Components</A>.FrequencySensor</H2>
+<B>Measures the frequency at the connector</B><p>
+<IMG SRC="ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.FrequencySensorD.png" ALT="ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.FrequencySensor">
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.PowerConnection"
+>PowerConnection</A></TD><TD>port</TD><TD>&nbsp;</TD></TR>
+<TR><TD>output <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>RealOutput</A></TD><TD>f</TD><TD>Frequency at the connector</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> FrequencySensor <font color="darkgreen">&quot;Measures the frequency at the connector&quot;</font>
+  <A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.PowerConnection"
+>Electrical.PowerConnection</A> port;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> f <font color="darkgreen">&quot;Frequency at the connector&quot;</font>;
+<font color="blue">equation </font>
+  port.W = 0;
+  f = port.f;
+<font color="blue">end </font>FrequencySensor;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Grid_2in<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.Grid_2inI.png" ALT="ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.Grid_2in" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.Grid_2in"></A><A HREF="ThermoPower_PowerPlants_ElectricGeneratorGroup_Components.html#ThermoPower.PowerPlants.ElectricGeneratorGroup.Components"
+>ThermoPower.PowerPlants.ElectricGeneratorGroup.Components</A>.Grid_2in</H2>
+<B>Ideal grid with finite droop and two inlet</B><p>
+<IMG SRC="ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.Grid_2inD.png" ALT="ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.Grid_2in">
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Frequency"
+>Frequency</A></TD><TD>fn</TD><TD>50</TD><TD>Nominal frequency [Hz]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Power</A></TD><TD>Pn</TD><TD>&nbsp;</TD><TD>Nominal power installed on the network [W]</TD></TR>
+<TR><TD>Real</TD><TD>droop</TD><TD>0.05</TD><TD>Network droop [pu]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.PowerConnection"
+>PowerConnection</A></TD><TD>connection_A</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.PowerConnection"
+>PowerConnection</A></TD><TD>connection_B</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Grid_2in <font color="darkgreen">&quot;Ideal grid with finite droop and two inlet&quot;</font>
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Frequency"
+>SI.Frequency</A> fn=50 <font color="darkgreen">&quot;Nominal frequency&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>SI.Power</A> Pn <font color="darkgreen">&quot;Nominal power installed on the network&quot;</font>;
+  <font color="blue">parameter </font>Real droop(unit=&quot;pu&quot;)=0.05 <font color="darkgreen">&quot;Network droop&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>SI.Power</A> Wtot <font color="darkgreen">&quot;Total power&quot;</font>;
+  <A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.PowerConnection"
+>Electrical.PowerConnection</A> connection_A;
+  <A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.PowerConnection"
+>Electrical.PowerConnection</A> connection_B;
+<font color="blue">equation </font>
+  connection_A.f = fn + droop*fn*connection_A.W/Pn;
+  connection_B.f = fn + droop*fn*connection_B.W/Pn;
+  Wtot = connection_A.W + connection_B.W;
+
+<font color="blue">end </font>Grid_2in;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Grid_3in<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.Grid_3inI.png" ALT="ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.Grid_3in" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.Grid_3in"></A><A HREF="ThermoPower_PowerPlants_ElectricGeneratorGroup_Components.html#ThermoPower.PowerPlants.ElectricGeneratorGroup.Components"
+>ThermoPower.PowerPlants.ElectricGeneratorGroup.Components</A>.Grid_3in</H2>
+<B>Ideal grid with finite droop and three inlet</B><p>
+<IMG SRC="ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.Grid_3inD.png" ALT="ThermoPower.PowerPlants.ElectricGeneratorGroup.Components.Grid_3in">
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Frequency"
+>Frequency</A></TD><TD>fn</TD><TD>50</TD><TD>Nominal frequency [Hz]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Power</A></TD><TD>Pn</TD><TD>&nbsp;</TD><TD>Nominal power installed on the network [W]</TD></TR>
+<TR><TD>Real</TD><TD>droop</TD><TD>0.05</TD><TD>Network droop [pu]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.PowerConnection"
+>PowerConnection</A></TD><TD>connection_A</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.PowerConnection"
+>PowerConnection</A></TD><TD>connection_B</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.PowerConnection"
+>PowerConnection</A></TD><TD>connection_C</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Grid_3in <font color="darkgreen">&quot;Ideal grid with finite droop and three inlet&quot;</font>
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Frequency"
+>SI.Frequency</A> fn=50 <font color="darkgreen">&quot;Nominal frequency&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>SI.Power</A> Pn <font color="darkgreen">&quot;Nominal power installed on the network&quot;</font>;
+  <font color="blue">parameter </font>Real droop(unit=&quot;pu&quot;)=0.05 <font color="darkgreen">&quot;Network droop&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>SI.Power</A> Wtot <font color="darkgreen">&quot;Total power&quot;</font>;
+  <A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.PowerConnection"
+>Electrical.PowerConnection</A> connection_A;
+  <A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.PowerConnection"
+>Electrical.PowerConnection</A> connection_B;
+  <A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.PowerConnection"
+>Electrical.PowerConnection</A> connection_C;
+<font color="blue">equation </font>
+  connection_A.f = fn + droop*fn*connection_A.W/Pn;
+  connection_B.f = fn + droop*fn*connection_B.W/Pn;
+  connection_C.f = fn + droop*fn*connection_C.W/Pn;
+  Wtot = connection_A.W + connection_B.W + connection_C.W;
+
+<font color="blue">end </font>Grid_3in;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Tue Jul 07 01:25:22 2009.
+</address></BODY>
+</HTML>

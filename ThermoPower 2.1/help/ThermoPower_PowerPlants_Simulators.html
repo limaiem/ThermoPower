@@ -1,0 +1,717 @@
+<HTML>
+<HEAD>
+<TITLE>ThermoPower.PowerPlants.Simulators</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Simulators for steam power plants and simple combined cycles&quot;">
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Simulators<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.PowerPlants.Simulators"></A><A HREF="ThermoPower_PowerPlants.html#ThermoPower.PowerPlants"
+>ThermoPower.PowerPlants</A>.Simulators</H2>
+<B>Simulators for steam power plants and simple combined cycles</B>
+<P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="ThermoPower_PowerPlants_Simulators.html#ThermoPower.PowerPlants.Simulators.SteamPlant_Sim1"
+>SteamPlant_Sim1</A>
+</TD><TD>Test total plant with levels control and ratio control on the condenser, inlet valves</TD></TR>
+<TR><TD><A HREF="ThermoPower_PowerPlants_Simulators.html#ThermoPower.PowerPlants.Simulators.SteamPlant_Sim2"
+>SteamPlant_Sim2</A>
+</TD><TD>Test total plant with levels control and ratio control on the condenser, inlet valves</TD></TR>
+<TR><TD><A HREF="ThermoPower_PowerPlants_Simulators.html#ThermoPower.PowerPlants.Simulators.CCPP_Sim3"
+>CCPP_Sim3</A>
+</TD><TD>Test total plant with levels control and ratio control on the condenser, inlet valves</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SteamPlant_Sim1<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.PowerPlants.Simulators.SteamPlant_Sim1"></A><A HREF="ThermoPower_PowerPlants_Simulators.html#ThermoPower.PowerPlants.Simulators"
+>ThermoPower.PowerPlants.Simulators</A>.SteamPlant_Sim1</H2>
+<B>Test total plant with levels control and ratio control on the condenser, inlet valves</B><p>
+<IMG SRC="ThermoPower.PowerPlants.Simulators.SteamPlant_Sim1D.png" ALT="ThermoPower.PowerPlants.Simulators.SteamPlant_Sim1">
+<H3>Information</H3>
+<PRE></pre>
+<p>Characteristic simulations: variation of the gas flow rate.
+<pre></PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> SteamPlant_Sim1 <font color="darkgreen">
+  &quot;Test total plant with levels control and ratio control on the condenser, inlet valves&quot;</font>
+  <font color="blue">package</font> FlueGasMedium = <A HREF="ThermoPower_Media_FlueGas.html#ThermoPower.Media.FlueGas"
+>ThermoPower.Media.FlueGas</A>;
+  <font color="blue">package</font> FluidMedium = ThermoPower.Water.StandardWater;
+  <A HREF="ThermoPower_PowerPlants_HRSG_Examples.html#ThermoPower.PowerPlants.HRSG.Examples.HRSG_3LRh"
+>HRSG.Examples.HRSG_3LRh</A> hRSG(
+                              HeatExchangersGroup(
+      fluidHPNomPressure_Sh=1.22116e7,
+      fluidHPNomPressure_Ev=1.22116e7,
+      fluidHPNomPressure_Ec=1.22116e7,
+      fluidIPNomPressure_Rh=2.63694e6,
+      fluidIPNomPressure_Sh=2.63694e6,
+      fluidIPNomPressure_Ev=2.63694e6,
+      fluidIPNomPressure_Ec=2.63694e6,
+      fluidLPNomPressure_Sh=6.0474e5,
+      fluidLPNomPressure_Ev=6.0474e5,
+      fluidLPNomPressure_Ec=6.0474e5,
+      fluidHPNomFlowRate_Sh=62.8,
+      fluidHPNomFlowRate_Ec=64.5,
+      fluidIPNomFlowRate_Rh=77.36,
+      fluidIPNomFlowRate_Sh=14.5,
+      fluidIPNomFlowRate_Ec=13.5,
+      fluidLPNomFlowRate_Sh=10.95,
+      fluidLPNomFlowRate_Ec=89.8,
+      Ec2_HP_Tstart_G_In=605.074,
+      Ec2_HP_Tstart_G_Out=548.522,
+      Ec2_HP_Tstart_M_In=488.443,
+      Ec2_HP_Tstart_M_Out=588.719,
+      Ec2_HP_Tstart_F_In=476.660,
+      Ec2_HP_Tstart_F_Out=585.495,
+      Ec1_HP_Tstart_M_In=426.384,
+      Ec1_HP_Tstart_M_Out=479.885,
+      Ec1_HP_Tstart_F_In=420.129,
+      Ec1_HP_Tstart_F_Out=476.660,
+      Ec_IP_Tstart_G_In=501.802,
+      Ec_IP_Tstart_G_Out=468.900,
+      Ec_IP_Tstart_M_In=427.707,
+      Ec_IP_Tstart_M_Out=490.160,
+      Ec_IP_Tstart_F_In=421.552,
+      Ec_IP_Tstart_F_Out=488.422,
+      Ec_LP_Tstart_G_In=427.671,
+      Ec_LP_Tstart_M_In=336.404,
+      Ec_LP_Tstart_M_Out=419.330,
+      Ec_LP_Tstart_F_In=331.506,
+      Ec_LP_Tstart_F_Out=418.193,
+      Ev_HP_Tstart_G_In=732.000,
+      Ev_HP_Tstart_G_Out=611.190,
+      Ev_HP_Tstart_M_In=594.933,
+      Ev_HP_Tstart_M_Out=603.160,
+      Ev_HP_hstart_F_In=1.46797e6,
+      Ev_HP_hstart_F_Out=1.90129e6,
+      Ev_IP_Tstart_G_In=548.522,
+      Ev_IP_Tstart_G_Out=503.810,
+      Ev_IP_Tstart_M_In=497.865,
+      Ev_IP_Tstart_M_Out=501.763,
+      Ev_IP_hstart_F_In=9.64527e5,
+      Ev_IP_hstart_F_Out=1.36736e6,
+      Ev_LP_Tstart_G_In=468.900,
+      Ev_LP_Tstart_G_Out=427.671,
+      Ev_LP_Tstart_M_In=422.216,
+      Ev_LP_Tstart_M_Out=434.622,
+      Ev_LP_hstart_F_In=6.26623e5,
+      Ev_LP_hstart_F_Out=1.22154e6,
+      Sh2_HP_Tstart_G_In=884.650,
+      Sh2_HP_Tstart_G_Out=849.290,
+      Sh2_HP_Tstart_M_In=801.698,
+      Sh2_HP_Tstart_M_Out=861.343,
+      Sh2_HP_Tstart_F_In=792.680,
+      Sh2_HP_Tstart_F_Out=857.106,
+      Sh1_HP_Tstart_G_In=849.290,
+      Sh1_HP_Tstart_G_Out=732.000,
+      Sh1_HP_Tstart_M_In=624.205,
+      Sh1_HP_Tstart_M_Out=803.585,
+      Sh1_HP_Tstart_F_In=599.180,
+      Sh1_HP_Tstart_F_Out=792.680,
+      Rh2_IP_Tstart_M_In=793.962,
+      Rh2_IP_Tstart_M_Out=863.890,
+      Rh2_IP_Tstart_F_In=787.973,
+      Rh2_IP_Tstart_F_Out=861.625,
+      Rh1_IP_Tstart_M_In=641.307,
+      Rh1_IP_Tstart_M_Out=793.753,
+      Rh1_IP_Tstart_F_In=631.882,
+      Rh1_IP_Tstart_F_Out=787.973,
+      Sh_IP_Tstart_G_In=611.19,
+      Sh_IP_Tstart_G_Out=605.074,
+      Sh_IP_Tstart_M_In=504.237,
+      Sh_IP_Tstart_M_Out=594.703,
+      Sh_IP_Tstart_F_Out=594.001,
+      Sh_LP(gamma_G=30, gamma_F=4000),
+      Sh_LP_N_F=4,
+      Ec_LP_Tstart_G_Out=372.309,
+      Ec_LP(gamma_G=35, gamma_F=3000),
+      Ev_LP(gamma_G=60, gamma_F=20000),
+      Sh1HP_Rh1IP(
+        gamma_G_A=70,
+        gamma_G_B=70,
+        gamma_F_A=4000,
+        gamma_F_B=4000),
+      Sh2HP_Rh2IP(
+        gamma_F_A=4000,
+        gamma_F_B=4000,
+        gamma_G_A=70,
+        gamma_G_B=70),
+      Sh_IP_Tstart_F_In=499.962,
+      SSInit=true),                drums(
+      fluidHPNomPressure=1.22116e7,
+      fluidIPNomPressure=2.63694e6,
+      fluidLPNomPressure=6.047e5,
+      HPd_hvstart=2.61182e6,
+      HPd_hlstart=1.411212e6,
+      IPd_hvstart=2.79542e6,
+      IPd_hlstart=9.22034e5,
+      LPd_hvstart=2.75273e6,
+      LPd_hlstart=6.10909e5,
+      SSInit=true));
+  <A HREF="ThermoPower_PowerPlants_SteamTurbineGroup_Examples.html#ThermoPower.PowerPlants.SteamTurbineGroup.Examples.STG_3LRh_valve_cc"
+>SteamTurbineGroup.Examples.STG_3LRh_valve_cc</A> sTG_3LRh(
+                                controlledCondeser(Vlstart=5,
+        setPoint_ratio=0.5,
+      SSInit=true), steamTurbines(
+      steamHPNomPressure=1.2202e7,
+      steamIPNomPressure=2.63681e6,
+      steamLPNomPressure=6.047e5,
+      HPT_hstart_in=3.56678e6,
+      HPT_hstart_out=3.16451e6,
+      IPT_hstart_in=3.65985e6,
+      IPT_hstart_out=3.21285e6,
+      LPT_hstart_in=3.16961e6,
+      LPT_hstart_out=2.41849e6,
+      mixLP_hstart=3.16953e6,
+      steamHPNomFlowRate=62.8,
+      steamIPNomFlowRate=14.5,
+      steamLPNomFlowRate=10.9,
+      SSInit=true));
+<font color="blue">public </font>
+  <A HREF="ThermoPower_PowerPlants_HRSG_Control.html#ThermoPower.PowerPlants.HRSG.Control.levelsControl"
+>HRSG.Control.levelsControl</A> levelsControl(
+    CSmin_levelHP=30,
+    CSmax_levelHP=96,
+    CSmin_levelIP=5,
+    CSmax_levelIP=25,
+    CSmax_levelLP=2400,
+    Level_HP(steadyStateInit=true),
+    Level_IP(steadyStateInit=true),
+    Level_LP(steadyStateInit=true));
+  <A HREF="ThermoPower_PowerPlants_ElectricGeneratorGroup_Examples.html#ThermoPower.PowerPlants.ElectricGeneratorGroup.Examples.GeneratorGroup"
+>ElectricGeneratorGroup.Examples.GeneratorGroup</A> singleShaft(
+    eta=0.9,
+    J_shaft=15000,
+    d_shaft=25,
+    Pmax=150e6,
+    delta_start=0.7,
+    generator(initOpt=ThermoPower.Choices.Init.Options.steadyState),
+    network(initOpt=ThermoPower.Choices.Init.Options.steadyState));
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.SourceW"
+>Gas.SourceW</A> sourceGas(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = FlueGasMedium,
+    w0=585.5,
+    T=884.65);
+  <A HREF="ThermoPower_PowerPlants_HRSG_Components.html#ThermoPower.PowerPlants.HRSG.Components.StateReader_gas"
+>HRSG.Components.StateReader_gas</A> stateGas_in(
+                                         <font color="blue">redeclare </font><font color="blue">package</font> Medium =
+        FlueGasMedium);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> ramp(
+    height=-50,
+    duration=500,
+    offset=585.5,
+    startTime=50);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.SinkP"
+>Gas.SinkP</A> sinkGas(<font color="blue">redeclare </font><font color="blue">package</font> Medium = FlueGasMedium, T=362.309);
+  <A HREF="ThermoPower_PowerPlants_HRSG_Components.html#ThermoPower.PowerPlants.HRSG.Components.StateReader_gas"
+>HRSG.Components.StateReader_gas</A> stateGas_out(
+                                          <font color="blue">redeclare </font><font color="blue">package</font> Medium =
+        FlueGasMedium);
+<font color="blue">public </font>
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.BooleanConstant"
+>Modelica.Blocks.Sources.BooleanConstant</A> booleanConstant(k=true);
+<font color="blue">public </font>
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> valveHP_com(height=0, offset=1);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> valveIP_com(height=0, offset=1);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> valveLP_com(height=0, offset=1);
+<font color="blue">protected </font>
+  <A HREF="ThermoPower_PowerPlants_Buses.html#ThermoPower.PowerPlants.Buses.Actuators"
+>Buses.Actuators</A> actuators;
+<font color="blue">equation </font>
+  <font color="red">connect</font>(singleShaft.shaft, sTG_3LRh.Shaft_b);
+  <font color="red">connect</font>(sTG_3LRh.WaterOut, hRSG.WaterIn);
+  <font color="red">connect</font>(sTG_3LRh.From_SH_LP, hRSG.Sh_LP_Out);
+  <font color="red">connect</font>(sTG_3LRh.From_RH_IP, hRSG.Rh_IP_Out);
+  <font color="red">connect</font>(sTG_3LRh.From_SH_HP, hRSG.Sh_HP_Out);
+  <font color="red">connect</font>(ramp.y,sourceGas. in_w0);
+  <font color="red">connect</font>(stateGas_in.inlet,sourceGas. flange);
+  <font color="red">connect</font>(sinkGas.flange,stateGas_out. outlet);
+  <font color="red">connect</font>(valveHP_com.y, actuators.Opening_valveHP);
+  <font color="red">connect</font>(valveIP_com.y, actuators.Opening_valveIP);
+  <font color="red">connect</font>(valveLP_com.y, actuators.Opening_valveLP);
+  <font color="red">connect</font>(booleanConstant.y, actuators.ConnectedGenerator);
+  <font color="red">connect</font>(sTG_3LRh.To_RH_IP, hRSG.Rh_IP_In);
+  <font color="red">connect</font>(stateGas_out.inlet, hRSG.GasOut);
+  <font color="red">connect</font>(hRSG.GasIn, stateGas_in.outlet);
+  <font color="red">connect</font>(levelsControl.SensorsBus, hRSG.SensorsBus);
+  <font color="red">connect</font>(hRSG.SensorsBus, sTG_3LRh.SensorsBus);
+  <font color="red">connect</font>(sTG_3LRh.SensorsBus, singleShaft.SensorsBus);
+  <font color="red">connect</font>(singleShaft.ActuatorsBus, sTG_3LRh.ActuatorsBus);
+  <font color="red">connect</font>(sTG_3LRh.ActuatorsBus, hRSG.ActuatorsBus);
+  <font color="red">connect</font>(actuators, hRSG.ActuatorsBus);
+  <font color="red">connect</font>(levelsControl.ActuatorsBus, hRSG.ActuatorsBus);
+<font color="blue">end </font>SteamPlant_Sim1;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SteamPlant_Sim2<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.PowerPlants.Simulators.SteamPlant_Sim2"></A><A HREF="ThermoPower_PowerPlants_Simulators.html#ThermoPower.PowerPlants.Simulators"
+>ThermoPower.PowerPlants.Simulators</A>.SteamPlant_Sim2</H2>
+<B>Test total plant with levels control and ratio control on the condenser, inlet valves</B><p>
+<IMG SRC="ThermoPower.PowerPlants.Simulators.SteamPlant_Sim1D.png" ALT="ThermoPower.PowerPlants.Simulators.SteamPlant_Sim2">
+<H3>Information</H3>
+<PRE></pre>
+<p>Characteristic simulations: variation of the HP valve opening.
+<pre></PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> SteamPlant_Sim2 <font color="darkgreen">
+  &quot;Test total plant with levels control and ratio control on the condenser, inlet valves&quot;</font>
+  <font color="blue">package</font> FlueGasMedium = <A HREF="ThermoPower_Media_FlueGas.html#ThermoPower.Media.FlueGas"
+>ThermoPower.Media.FlueGas</A>;
+  <font color="blue">package</font> FluidMedium = ThermoPower.Water.StandardWater;
+  <A HREF="ThermoPower_PowerPlants_HRSG_Examples.html#ThermoPower.PowerPlants.HRSG.Examples.HRSG_3LRh"
+>HRSG.Examples.HRSG_3LRh</A> hRSG(
+                              HeatExchangersGroup(
+      fluidHPNomPressure_Sh=1.22116e7,
+      fluidHPNomPressure_Ev=1.22116e7,
+      fluidHPNomPressure_Ec=1.22116e7,
+      fluidIPNomPressure_Rh=2.63694e6,
+      fluidIPNomPressure_Sh=2.63694e6,
+      fluidIPNomPressure_Ev=2.63694e6,
+      fluidIPNomPressure_Ec=2.63694e6,
+      fluidLPNomPressure_Sh=6.0474e5,
+      fluidLPNomPressure_Ev=6.0474e5,
+      fluidLPNomPressure_Ec=6.0474e5,
+      fluidHPNomFlowRate_Sh=62.8,
+      fluidHPNomFlowRate_Ec=64.5,
+      fluidIPNomFlowRate_Rh=77.36,
+      fluidIPNomFlowRate_Sh=14.5,
+      fluidIPNomFlowRate_Ec=13.5,
+      fluidLPNomFlowRate_Sh=10.95,
+      fluidLPNomFlowRate_Ec=89.8,
+      Ec2_HP_Tstart_G_In=605.074,
+      Ec2_HP_Tstart_G_Out=548.522,
+      Ec2_HP_Tstart_M_In=488.443,
+      Ec2_HP_Tstart_M_Out=588.719,
+      Ec2_HP_Tstart_F_In=476.660,
+      Ec2_HP_Tstart_F_Out=585.495,
+      Ec1_HP_Tstart_M_In=426.384,
+      Ec1_HP_Tstart_M_Out=479.885,
+      Ec1_HP_Tstart_F_In=420.129,
+      Ec1_HP_Tstart_F_Out=476.660,
+      Ec_IP_Tstart_G_In=501.802,
+      Ec_IP_Tstart_G_Out=468.900,
+      Ec_IP_Tstart_M_In=427.707,
+      Ec_IP_Tstart_M_Out=490.160,
+      Ec_IP_Tstart_F_In=421.552,
+      Ec_IP_Tstart_F_Out=488.422,
+      Ec_LP_Tstart_G_In=427.671,
+      Ec_LP_Tstart_M_In=336.404,
+      Ec_LP_Tstart_M_Out=419.330,
+      Ec_LP_Tstart_F_In=331.506,
+      Ec_LP_Tstart_F_Out=418.193,
+      Ev_HP_Tstart_G_In=732.000,
+      Ev_HP_Tstart_G_Out=611.190,
+      Ev_HP_Tstart_M_In=594.933,
+      Ev_HP_Tstart_M_Out=603.160,
+      Ev_HP_hstart_F_In=1.46797e6,
+      Ev_HP_hstart_F_Out=1.90129e6,
+      Ev_IP_Tstart_G_In=548.522,
+      Ev_IP_Tstart_G_Out=503.810,
+      Ev_IP_Tstart_M_In=497.865,
+      Ev_IP_Tstart_M_Out=501.763,
+      Ev_IP_hstart_F_In=9.64527e5,
+      Ev_IP_hstart_F_Out=1.36736e6,
+      Ev_LP_Tstart_G_In=468.900,
+      Ev_LP_Tstart_G_Out=427.671,
+      Ev_LP_Tstart_M_In=422.216,
+      Ev_LP_Tstart_M_Out=434.622,
+      Ev_LP_hstart_F_In=6.26623e5,
+      Ev_LP_hstart_F_Out=1.22154e6,
+      Sh2_HP_Tstart_G_In=884.650,
+      Sh2_HP_Tstart_G_Out=849.290,
+      Sh2_HP_Tstart_M_In=801.698,
+      Sh2_HP_Tstart_M_Out=861.343,
+      Sh2_HP_Tstart_F_In=792.680,
+      Sh2_HP_Tstart_F_Out=857.106,
+      Sh1_HP_Tstart_G_In=849.290,
+      Sh1_HP_Tstart_G_Out=732.000,
+      Sh1_HP_Tstart_M_In=624.205,
+      Sh1_HP_Tstart_M_Out=803.585,
+      Sh1_HP_Tstart_F_In=599.180,
+      Sh1_HP_Tstart_F_Out=792.680,
+      Rh2_IP_Tstart_M_In=793.962,
+      Rh2_IP_Tstart_M_Out=863.890,
+      Rh2_IP_Tstart_F_In=787.973,
+      Rh2_IP_Tstart_F_Out=861.625,
+      Rh1_IP_Tstart_M_In=641.307,
+      Rh1_IP_Tstart_M_Out=793.753,
+      Rh1_IP_Tstart_F_In=631.882,
+      Rh1_IP_Tstart_F_Out=787.973,
+      Sh_IP_Tstart_G_In=611.19,
+      Sh_IP_Tstart_G_Out=605.074,
+      Sh_IP_Tstart_M_In=504.237,
+      Sh_IP_Tstart_M_Out=594.703,
+      Sh_IP_Tstart_F_Out=594.001,
+      Sh_LP(gamma_G=30, gamma_F=4000),
+      Sh_LP_N_F=4,
+      Ec_LP_Tstart_G_Out=372.309,
+      Ec_LP(gamma_G=35, gamma_F=3000),
+      Ev_LP(gamma_G=60, gamma_F=20000),
+      Sh1HP_Rh1IP(
+        gamma_G_A=70,
+        gamma_G_B=70,
+        gamma_F_A=4000,
+        gamma_F_B=4000),
+      Sh2HP_Rh2IP(
+        gamma_F_A=4000,
+        gamma_F_B=4000,
+        gamma_G_A=70,
+        gamma_G_B=70),
+      Sh_IP_Tstart_F_In=499.962,
+      SSInit=true),                drums(
+      fluidHPNomPressure=1.22116e7,
+      fluidIPNomPressure=2.63694e6,
+      fluidLPNomPressure=6.047e5,
+      HPd_hvstart=2.61182e6,
+      HPd_hlstart=1.411212e6,
+      IPd_hvstart=2.79542e6,
+      IPd_hlstart=9.22034e5,
+      LPd_hvstart=2.75273e6,
+      LPd_hlstart=6.10909e5,
+      SSInit=true));
+  <A HREF="ThermoPower_PowerPlants_SteamTurbineGroup_Examples.html#ThermoPower.PowerPlants.SteamTurbineGroup.Examples.STG_3LRh_valve_cc"
+>SteamTurbineGroup.Examples.STG_3LRh_valve_cc</A> sTG_3LRh(
+                                controlledCondeser(Vlstart=5,
+        setPoint_ratio=0.5,
+      SSInit=true), steamTurbines(
+      steamHPNomPressure=1.2202e7,
+      steamIPNomPressure=2.63681e6,
+      steamLPNomPressure=6.047e5,
+      HPT_hstart_in=3.56678e6,
+      HPT_hstart_out=3.16451e6,
+      IPT_hstart_in=3.65985e6,
+      IPT_hstart_out=3.21285e6,
+      LPT_hstart_in=3.16961e6,
+      LPT_hstart_out=2.41849e6,
+      mixLP_hstart=3.16953e6,
+      steamHPNomFlowRate=62.8,
+      steamIPNomFlowRate=14.5,
+      steamLPNomFlowRate=10.9,
+      SSInit=true));
+<font color="blue">public </font>
+  <A HREF="ThermoPower_PowerPlants_HRSG_Control.html#ThermoPower.PowerPlants.HRSG.Control.levelsControl"
+>HRSG.Control.levelsControl</A> levelsControl(
+    CSmin_levelHP=30,
+    CSmax_levelHP=96,
+    CSmin_levelIP=5,
+    CSmax_levelIP=25,
+    CSmax_levelLP=2400,
+    Level_HP(steadyStateInit=true),
+    Level_IP(steadyStateInit=true),
+    Level_LP(steadyStateInit=true));
+  <A HREF="ThermoPower_PowerPlants_ElectricGeneratorGroup_Examples.html#ThermoPower.PowerPlants.ElectricGeneratorGroup.Examples.GeneratorGroup"
+>ElectricGeneratorGroup.Examples.GeneratorGroup</A> singleShaft(
+    eta=0.9,
+    J_shaft=15000,
+    d_shaft=25,
+    Pmax=150e6,
+    delta_start=0.7,
+    generator(initOpt=ThermoPower.Choices.Init.Options.steadyState),
+    network(initOpt=ThermoPower.Choices.Init.Options.steadyState));
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.SourceW"
+>Gas.SourceW</A> sourceGas(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = FlueGasMedium,
+    w0=585.5,
+    T=884.65);
+  <A HREF="ThermoPower_PowerPlants_HRSG_Components.html#ThermoPower.PowerPlants.HRSG.Components.StateReader_gas"
+>HRSG.Components.StateReader_gas</A> stateGas_in(
+                                         <font color="blue">redeclare </font><font color="blue">package</font> Medium =
+        FlueGasMedium);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> ramp(
+    duration=500,
+    offset=585.5,
+    height=0,
+    startTime=0);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.SinkP"
+>Gas.SinkP</A> sinkGas(<font color="blue">redeclare </font><font color="blue">package</font> Medium = FlueGasMedium, T=362.309);
+  <A HREF="ThermoPower_PowerPlants_HRSG_Components.html#ThermoPower.PowerPlants.HRSG.Components.StateReader_gas"
+>HRSG.Components.StateReader_gas</A> stateGas_out(
+                                          <font color="blue">redeclare </font><font color="blue">package</font> Medium =
+        FlueGasMedium);
+<font color="blue">public </font>
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.BooleanConstant"
+>Modelica.Blocks.Sources.BooleanConstant</A> booleanConstant(k=true);
+<font color="blue">public </font>
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> valveHP_com(          offset=1,
+    height=-0.5,
+    duration=100,
+    startTime=50);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> valveIP_com(height=0, offset=1);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> valveLP_com(height=0, offset=1);
+<font color="blue">protected </font>
+  <A HREF="ThermoPower_PowerPlants_Buses.html#ThermoPower.PowerPlants.Buses.Actuators"
+>Buses.Actuators</A> actuators;
+<font color="blue">equation </font>
+  <font color="red">connect</font>(singleShaft.shaft, sTG_3LRh.Shaft_b);
+  <font color="red">connect</font>(sTG_3LRh.WaterOut, hRSG.WaterIn);
+  <font color="red">connect</font>(sTG_3LRh.From_SH_LP, hRSG.Sh_LP_Out);
+  <font color="red">connect</font>(sTG_3LRh.From_RH_IP, hRSG.Rh_IP_Out);
+  <font color="red">connect</font>(sTG_3LRh.From_SH_HP, hRSG.Sh_HP_Out);
+  <font color="red">connect</font>(ramp.y,sourceGas. in_w0);
+  <font color="red">connect</font>(stateGas_in.inlet,sourceGas. flange);
+  <font color="red">connect</font>(sinkGas.flange,stateGas_out. outlet);
+  <font color="red">connect</font>(valveHP_com.y, actuators.Opening_valveHP);
+  <font color="red">connect</font>(valveIP_com.y, actuators.Opening_valveIP);
+  <font color="red">connect</font>(valveLP_com.y, actuators.Opening_valveLP);
+  <font color="red">connect</font>(booleanConstant.y, actuators.ConnectedGenerator);
+  <font color="red">connect</font>(sTG_3LRh.To_RH_IP, hRSG.Rh_IP_In);
+  <font color="red">connect</font>(stateGas_out.inlet, hRSG.GasOut);
+  <font color="red">connect</font>(hRSG.GasIn, stateGas_in.outlet);
+  <font color="red">connect</font>(levelsControl.SensorsBus, hRSG.SensorsBus);
+  <font color="red">connect</font>(hRSG.SensorsBus, sTG_3LRh.SensorsBus);
+  <font color="red">connect</font>(sTG_3LRh.SensorsBus, singleShaft.SensorsBus);
+  <font color="red">connect</font>(singleShaft.ActuatorsBus, sTG_3LRh.ActuatorsBus);
+  <font color="red">connect</font>(sTG_3LRh.ActuatorsBus, hRSG.ActuatorsBus);
+  <font color="red">connect</font>(actuators, hRSG.ActuatorsBus);
+  <font color="red">connect</font>(levelsControl.ActuatorsBus, hRSG.ActuatorsBus);
+<font color="blue">end </font>SteamPlant_Sim2;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE CCPP_Sim3<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.PowerPlants.Simulators.CCPP_Sim3"></A><A HREF="ThermoPower_PowerPlants_Simulators.html#ThermoPower.PowerPlants.Simulators"
+>ThermoPower.PowerPlants.Simulators</A>.CCPP_Sim3</H2>
+<B>Test total plant with levels control and ratio control on the condenser, inlet valves</B><p>
+<IMG SRC="ThermoPower.PowerPlants.Simulators.CCPP_Sim3D.png" ALT="ThermoPower.PowerPlants.Simulators.CCPP_Sim3">
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> CCPP_Sim3 <font color="darkgreen">
+  &quot;Test total plant with levels control and ratio control on the condenser, inlet valves&quot;</font>
+  <font color="blue">package</font> FlueGasMedium = <A HREF="ThermoPower_Media_FlueGas.html#ThermoPower.Media.FlueGas"
+>ThermoPower.Media.FlueGas</A>;
+  <font color="blue">package</font> FluidMedium = ThermoPower.Water.StandardWater;
+  <A HREF="ThermoPower_PowerPlants_HRSG_Examples.html#ThermoPower.PowerPlants.HRSG.Examples.HRSG_3LRh"
+>HRSG.Examples.HRSG_3LRh</A> hRSG(
+                              HeatExchangersGroup(
+      fluidHPNomPressure_Sh=1.22116e7,
+      fluidHPNomPressure_Ev=1.22116e7,
+      fluidHPNomPressure_Ec=1.22116e7,
+      fluidIPNomPressure_Rh=2.63694e6,
+      fluidIPNomPressure_Sh=2.63694e6,
+      fluidIPNomPressure_Ev=2.63694e6,
+      fluidIPNomPressure_Ec=2.63694e6,
+      fluidLPNomPressure_Sh=6.0474e5,
+      fluidLPNomPressure_Ev=6.0474e5,
+      fluidLPNomPressure_Ec=6.0474e5,
+      fluidHPNomFlowRate_Sh=62.8,
+      fluidHPNomFlowRate_Ec=64.5,
+      fluidIPNomFlowRate_Rh=77.36,
+      fluidIPNomFlowRate_Sh=14.5,
+      fluidIPNomFlowRate_Ec=13.5,
+      fluidLPNomFlowRate_Sh=10.95,
+      fluidLPNomFlowRate_Ec=89.8,
+      Ec2_HP_Tstart_G_In=605.074,
+      Ec2_HP_Tstart_G_Out=548.522,
+      Ec2_HP_Tstart_M_In=488.443,
+      Ec2_HP_Tstart_M_Out=588.719,
+      Ec2_HP_Tstart_F_In=476.660,
+      Ec2_HP_Tstart_F_Out=585.495,
+      Ec1_HP_Tstart_M_In=426.384,
+      Ec1_HP_Tstart_M_Out=479.885,
+      Ec1_HP_Tstart_F_In=420.129,
+      Ec1_HP_Tstart_F_Out=476.660,
+      Ec_IP_Tstart_G_In=501.802,
+      Ec_IP_Tstart_G_Out=468.900,
+      Ec_IP_Tstart_M_In=427.707,
+      Ec_IP_Tstart_M_Out=490.160,
+      Ec_IP_Tstart_F_In=421.552,
+      Ec_IP_Tstart_F_Out=488.422,
+      Ec_LP_Tstart_G_In=427.671,
+      Ec_LP_Tstart_M_In=336.404,
+      Ec_LP_Tstart_M_Out=419.330,
+      Ec_LP_Tstart_F_In=331.506,
+      Ec_LP_Tstart_F_Out=418.193,
+      Ev_HP_Tstart_G_In=732.000,
+      Ev_HP_Tstart_G_Out=611.190,
+      Ev_HP_Tstart_M_In=594.933,
+      Ev_HP_Tstart_M_Out=603.160,
+      Ev_HP_hstart_F_In=1.46797e6,
+      Ev_HP_hstart_F_Out=1.90129e6,
+      Ev_IP_Tstart_G_In=548.522,
+      Ev_IP_Tstart_G_Out=503.810,
+      Ev_IP_Tstart_M_In=497.865,
+      Ev_IP_Tstart_M_Out=501.763,
+      Ev_IP_hstart_F_In=9.64527e5,
+      Ev_IP_hstart_F_Out=1.36736e6,
+      Ev_LP_Tstart_G_In=468.900,
+      Ev_LP_Tstart_G_Out=427.671,
+      Ev_LP_Tstart_M_In=422.216,
+      Ev_LP_Tstart_M_Out=434.622,
+      Ev_LP_hstart_F_In=6.26623e5,
+      Ev_LP_hstart_F_Out=1.22154e6,
+      Sh2_HP_Tstart_G_In=884.650,
+      Sh2_HP_Tstart_G_Out=849.290,
+      Sh2_HP_Tstart_M_In=801.698,
+      Sh2_HP_Tstart_M_Out=861.343,
+      Sh2_HP_Tstart_F_In=792.680,
+      Sh2_HP_Tstart_F_Out=857.106,
+      Sh1_HP_Tstart_G_In=849.290,
+      Sh1_HP_Tstart_G_Out=732.000,
+      Sh1_HP_Tstart_M_In=624.205,
+      Sh1_HP_Tstart_M_Out=803.585,
+      Sh1_HP_Tstart_F_In=599.180,
+      Sh1_HP_Tstart_F_Out=792.680,
+      Rh2_IP_Tstart_M_In=793.962,
+      Rh2_IP_Tstart_M_Out=863.890,
+      Rh2_IP_Tstart_F_In=787.973,
+      Rh2_IP_Tstart_F_Out=861.625,
+      Rh1_IP_Tstart_M_In=641.307,
+      Rh1_IP_Tstart_M_Out=793.753,
+      Rh1_IP_Tstart_F_In=631.882,
+      Rh1_IP_Tstart_F_Out=787.973,
+      Sh_IP_Tstart_G_In=611.19,
+      Sh_IP_Tstart_G_Out=605.074,
+      Sh_IP_Tstart_M_In=504.237,
+      Sh_IP_Tstart_M_Out=594.703,
+      Sh_IP_Tstart_F_Out=594.001,
+      Sh_LP(gamma_G=30, gamma_F=4000),
+      Sh_LP_N_F=4,
+      Ec_LP_Tstart_G_Out=372.309,
+      Ec_LP(gamma_G=35, gamma_F=3000),
+      Ev_LP(gamma_G=60, gamma_F=20000),
+      Sh1HP_Rh1IP(
+        gamma_G_A=70,
+        gamma_G_B=70,
+        gamma_F_A=4000,
+        gamma_F_B=4000),
+      Sh2HP_Rh2IP(
+        gamma_F_A=4000,
+        gamma_F_B=4000,
+        gamma_G_A=70,
+        gamma_G_B=70),
+      Sh_IP_Tstart_F_In=499.962,
+      SSInit=true),                drums(
+      fluidHPNomPressure=1.22116e7,
+      fluidIPNomPressure=2.63694e6,
+      fluidLPNomPressure=6.047e5,
+      HPd_hvstart=2.61182e6,
+      HPd_hlstart=1.411212e6,
+      IPd_hvstart=2.79542e6,
+      IPd_hlstart=9.22034e5,
+      LPd_hvstart=2.75273e6,
+      LPd_hlstart=6.10909e5,
+      SSInit=true),
+    <font color="blue">redeclare </font><font color="blue">package</font> FlueGasMedium = FlueGasMedium,
+    <font color="blue">redeclare </font><font color="blue">package</font> FluidMedium = FluidMedium);
+  <A HREF="ThermoPower_PowerPlants_SteamTurbineGroup_Examples.html#ThermoPower.PowerPlants.SteamTurbineGroup.Examples.STG_3LRh_valve_cc"
+>SteamTurbineGroup.Examples.STG_3LRh_valve_cc</A> sTG_3LRh(
+                                controlledCondeser(Vlstart=5,
+        setPoint_ratio=0.5,
+      SSInit=true),
+    <font color="blue">redeclare </font><font color="blue">package</font> FluidMedium = FluidMedium,
+    steamTurbines(
+      steamHPNomPressure=1.2202e7,
+      steamIPNomPressure=2.63681e6,
+      steamLPNomPressure=6.047e5,
+      HPT_hstart_in=3.56678e6,
+      HPT_hstart_out=3.16451e6,
+      IPT_hstart_in=3.65985e6,
+      IPT_hstart_out=3.21285e6,
+      LPT_hstart_in=3.16961e6,
+      LPT_hstart_out=2.41849e6,
+      mixLP_hstart=3.16953e6,
+      steamHPNomFlowRate=62.8,
+      steamIPNomFlowRate=14.5,
+      steamLPNomFlowRate=10.9,
+      SSInit=true));
+<font color="blue">public </font>
+  <A HREF="ThermoPower_PowerPlants_HRSG_Control.html#ThermoPower.PowerPlants.HRSG.Control.levelsControl"
+>HRSG.Control.levelsControl</A> levelsControl(
+    CSmin_levelHP=30,
+    CSmax_levelHP=96,
+    CSmin_levelIP=5,
+    CSmax_levelIP=25,
+    CSmax_levelLP=2400,
+    Level_HP(steadyStateInit=true),
+    Level_IP(steadyStateInit=true),
+    Level_LP(steadyStateInit=true));
+  <A HREF="ThermoPower_PowerPlants_ElectricGeneratorGroup_Examples.html#ThermoPower.PowerPlants.ElectricGeneratorGroup.Examples.GeneratorGroup"
+>ElectricGeneratorGroup.Examples.GeneratorGroup</A> singleShaft(
+    eta=0.9,
+    J_shaft=15000,
+    d_shaft=25,
+    Pmax=150e6,
+    delta_start=0.7,
+    generator(initOpt=ThermoPower.Choices.Init.Options.steadyState),
+    network(initOpt=ThermoPower.Choices.Init.Options.steadyState));
+  <A HREF="ThermoPower_PowerPlants_HRSG_Components.html#ThermoPower.PowerPlants.HRSG.Components.StateReader_gas"
+>HRSG.Components.StateReader_gas</A> stateGas_in(
+                                         <font color="blue">redeclare </font><font color="blue">package</font> Medium =
+        FlueGasMedium);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> ramp(
+    duration=500,
+    offset=1,
+    height=-0.1,
+    startTime=50);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.SinkP"
+>Gas.SinkP</A> sinkGas(<font color="blue">redeclare </font><font color="blue">package</font> Medium = FlueGasMedium, T=362.309);
+  <A HREF="ThermoPower_PowerPlants_HRSG_Components.html#ThermoPower.PowerPlants.HRSG.Components.StateReader_gas"
+>HRSG.Components.StateReader_gas</A> stateGas_out(
+                                          <font color="blue">redeclare </font><font color="blue">package</font> Medium =
+        FlueGasMedium);
+<font color="blue">public </font>
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.BooleanConstant"
+>Modelica.Blocks.Sources.BooleanConstant</A> booleanConstant(k=true);
+<font color="blue">public </font>
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> valveHP_com(height=0, offset=1);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> valveIP_com(height=0, offset=1);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> valveLP_com(height=0, offset=1);
+<font color="blue">protected </font>
+  <A HREF="ThermoPower_PowerPlants_Buses.html#ThermoPower.PowerPlants.Buses.Actuators"
+>Buses.Actuators</A> actuators;
+<font color="blue">public </font>
+  <A HREF="ThermoPower_PowerPlants_GasTurbine_Examples.html#ThermoPower.PowerPlants.GasTurbine.Examples.GasTurbineSimplified"
+>ThermoPower.PowerPlants.GasTurbine.Examples.GasTurbineSimplified</A> gasTurbine(
+               <font color="blue">redeclare </font><font color="blue">package</font> FlueGasMedium = FlueGasMedium);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(singleShaft.shaft, sTG_3LRh.Shaft_b);
+  <font color="red">connect</font>(sTG_3LRh.WaterOut, hRSG.WaterIn);
+  <font color="red">connect</font>(sTG_3LRh.From_SH_LP, hRSG.Sh_LP_Out);
+  <font color="red">connect</font>(sTG_3LRh.From_RH_IP, hRSG.Rh_IP_Out);
+  <font color="red">connect</font>(sTG_3LRh.From_SH_HP, hRSG.Sh_HP_Out);
+  <font color="red">connect</font>(sinkGas.flange,stateGas_out. outlet);
+  <font color="red">connect</font>(valveHP_com.y, actuators.Opening_valveHP);
+  <font color="red">connect</font>(valveIP_com.y, actuators.Opening_valveIP);
+  <font color="red">connect</font>(valveLP_com.y, actuators.Opening_valveLP);
+  <font color="red">connect</font>(booleanConstant.y, actuators.ConnectedGenerator);
+  <font color="red">connect</font>(sTG_3LRh.To_RH_IP, hRSG.Rh_IP_In);
+  <font color="red">connect</font>(stateGas_out.inlet, hRSG.GasOut);
+  <font color="red">connect</font>(hRSG.GasIn, stateGas_in.outlet);
+  <font color="red">connect</font>(stateGas_in.inlet, gasTurbine.flueGasOut);
+  <font color="red">connect</font>(gasTurbine.GTLoad, ramp.y);
+  <font color="red">connect</font>(hRSG.ActuatorsBus, levelsControl.ActuatorsBus);
+  <font color="red">connect</font>(hRSG.SensorsBus, levelsControl.SensorsBus);
+  <font color="red">connect</font>(actuators, hRSG.ActuatorsBus);
+  <font color="red">connect</font>(hRSG.ActuatorsBus, sTG_3LRh.ActuatorsBus);
+  <font color="red">connect</font>(sTG_3LRh.SensorsBus, hRSG.SensorsBus);
+  <font color="red">connect</font>(sTG_3LRh.SensorsBus, singleShaft.SensorsBus);
+  <font color="red">connect</font>(singleShaft.ActuatorsBus, sTG_3LRh.ActuatorsBus);
+<font color="blue">end </font>CCPP_Sim3;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Tue Jul 07 01:25:51 2009.
+</address></BODY>
+</HTML>

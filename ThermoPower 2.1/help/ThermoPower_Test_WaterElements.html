@@ -1,0 +1,1910 @@
+<HTML>
+<HEAD>
+<TITLE>ThermoPower.Test.WaterElements</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Test for Water package elements except Flow1D models&quot;">
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE WaterElements<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Test.WaterElements"></A><A HREF="ThermoPower_Test.html#ThermoPower.Test"
+>ThermoPower.Test</A>.WaterElements</H2>
+<B>Test for Water package elements except Flow1D models</B>
+<P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="ThermoPower_Test_WaterElements.html#ThermoPower.Test.WaterElements.TestMixer"
+>TestMixer</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_Test_WaterElements.html#ThermoPower.Test.WaterElements.TestMixerSlowFast"
+>TestMixerSlowFast</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_Test_WaterElements.html#ThermoPower.Test.WaterElements.TestPressDrop"
+>TestPressDrop</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_Test_WaterElements.html#ThermoPower.Test.WaterElements.TestThroughW"
+>TestThroughW</A>
+</TD><TD>Test of the ThroughW component</TD></TR>
+<TR><TD><A HREF="ThermoPower_Test_WaterElements.html#ThermoPower.Test.WaterElements.TwoTanks"
+>TwoTanks</A>
+</TD><TD>Test case for Tank and Flow1D</TD></TR>
+<TR><TD><A HREF="ThermoPower_Test_WaterElements.html#ThermoPower.Test.WaterElements.TestJoin"
+>TestJoin</A>
+</TD><TD>Test case FlowJoin and FlowSplit</TD></TR>
+<TR><TD><A HREF="ThermoPower_Test_WaterElements.html#ThermoPower.Test.WaterElements.TestJoinRev"
+>TestJoinRev</A>
+</TD><TD>Test case FlowJoin</TD></TR>
+<TR><TD><A HREF="ThermoPower_Test_WaterElements.html#ThermoPower.Test.WaterElements.TestSplitRev"
+>TestSplitRev</A>
+</TD><TD>Test case FlowSplit</TD></TR>
+<TR><TD><A HREF="ThermoPower_Test_WaterElements.html#ThermoPower.Test.WaterElements.TestValves"
+>TestValves</A>
+</TD><TD>Test cases for valves</TD></TR>
+<TR><TD><A HREF="ThermoPower_Test_WaterElements.html#ThermoPower.Test.WaterElements.TestValveChoked"
+>TestValveChoked</A>
+</TD><TD>Test case for valves in choked flow</TD></TR>
+<TR><TD><A HREF="ThermoPower_Test_WaterElements.html#ThermoPower.Test.WaterElements.TestCoeffValve"
+>TestCoeffValve</A>
+</TD><TD>Test case for valve with the several coefficients</TD></TR>
+<TR><TD><A HREF="ThermoPower_Test_WaterElements.html#ThermoPower.Test.WaterElements.ValveZeroFlow"
+>ValveZeroFlow</A>
+</TD><TD>Test case for valves with zero flowrate</TD></TR>
+<TR><TD><A HREF="ThermoPower_Test_WaterElements.html#ThermoPower.Test.WaterElements.ValveZeroFlow2"
+>ValveZeroFlow2</A>
+</TD><TD>Test case for valves with zero flowrate</TD></TR>
+<TR><TD><A HREF="ThermoPower_Test_WaterElements.html#ThermoPower.Test.WaterElements.WaterPump"
+>WaterPump</A>
+</TD><TD>Test case for WaterPump</TD></TR>
+<TR><TD><A HREF="ThermoPower_Test_WaterElements.html#ThermoPower.Test.WaterElements.WaterPumps"
+>WaterPumps</A>
+</TD><TD>Test case for WaterPump</TD></TR>
+<TR><TD><A HREF="ThermoPower_Test_WaterElements.html#ThermoPower.Test.WaterElements.WaterPumpMech"
+>WaterPumpMech</A>
+</TD><TD>Test case for WaterPumpMech</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Test.WaterElements.SimpleMotorS.png" ALT="ThermoPower.Test.WaterElements.SimpleMotor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Test_WaterElements.html#ThermoPower.Test.WaterElements.SimpleMotor"
+>SimpleMotor</A>
+</TD><TD>A simple model of an electrical dc motor (based on DriveLib model).</TD></TR>
+<TR><TD><A HREF="ThermoPower_Test_WaterElements.html#ThermoPower.Test.WaterElements.TestAccumulator"
+>TestAccumulator</A>
+</TD><TD>Simple test for Water-Gas Accumulator component</TD></TR>
+<TR><TD><A HREF="ThermoPower_Test_WaterElements.html#ThermoPower.Test.WaterElements.TestST1"
+>TestST1</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_Test_WaterElements.html#ThermoPower.Test.WaterElements.TestST2"
+>TestST2</A>
+</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TestMixer<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Test.WaterElements.TestMixer"></A><A HREF="ThermoPower_Test_WaterElements.html#ThermoPower.Test.WaterElements"
+>ThermoPower.Test.WaterElements</A>.TestMixer</H2>
+<IMG SRC="ThermoPower.Test.WaterElements.TestMixerD.png" ALT="ThermoPower.Test.WaterElements.TestMixer">
+<H3>Information</H3>
+<PRE></pre>
+<p>This model tests the <tt>Mixer</tt> and <tt>Header</tt> models.
+<pre></PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TestMixer
+  <font color="blue">package</font> Medium=Modelica.Media.Water.StandardWater;
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SourceW"
+>Water.SourceW</A> SourceW1(w0=0.5, h=2.8e6);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SourceW"
+>Water.SourceW</A> SourceW2(w0=0.5, h=3.0e6);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SinkP"
+>Water.SinkP</A> SinkP1(p0=0);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.Mixer"
+>Water.Mixer</A> mixer(
+    V=1,
+    Cm=0,
+    hstart=2.9e6,
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    initOpt=ThermoPower.Choices.Init.Options.steadyState);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.ValveLin"
+>Water.ValveLin</A> ValveLin1(Kv=1/1e5);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Step"
+>Modelica.Blocks.Sources.Step</A> Step1(
+    height=-.2,
+    offset=1,
+    startTime=2);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.PressDrop"
+>Water.PressDrop</A> pressDrop(
+    wnom=1,
+    dpnom=100,
+    rhonom=1000,
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    FFtype=ThermoPower.Choices.PressDrop.FFtypes.OpPoint);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SourceW"
+>Water.SourceW</A> SourceW3(w0=0.5, h=2.8e6);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.Header"
+>Water.Header</A> header(
+    V=1,
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    initOpt=ThermoPower.Choices.Init.Options.steadyState);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.ValveLin"
+>Water.ValveLin</A> ValveLin2(Kv=1/1e5);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SinkP"
+>Water.SinkP</A> SinkP2(p0=0);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(SourceW1.flange, mixer.in1);
+  <font color="red">connect</font>(SourceW2.flange, mixer.in2);
+  <font color="red">connect</font>(ValveLin1.outlet, SinkP1.flange);
+  <font color="red">connect</font>(pressDrop.outlet, ValveLin1.inlet);
+  <font color="red">connect</font>(mixer.out, pressDrop.inlet);
+  <font color="red">connect</font>(SourceW3.flange, header.inlet);
+  <font color="red">connect</font>(header.outlet, ValveLin2.inlet);
+  <font color="red">connect</font>(ValveLin2.outlet, SinkP2.flange);
+  <font color="red">connect</font>(Step1.y, ValveLin1.cmd);
+  <font color="red">connect</font>(Step1.y, ValveLin2.cmd);
+<font color="blue">end </font>TestMixer;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TestMixerSlowFast<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Test.WaterElements.TestMixerSlowFast"></A><A HREF="ThermoPower_Test_WaterElements.html#ThermoPower.Test.WaterElements"
+>ThermoPower.Test.WaterElements</A>.TestMixerSlowFast</H2>
+<IMG SRC="ThermoPower.Test.WaterElements.TestMixerSlowFastD.png" ALT="ThermoPower.Test.WaterElements.TestMixerSlowFast">
+<H3>Information</H3>
+<PRE></pre>
+<p>This model tests the <tt>Mixer</tt> and <tt>Header</tt> models with different medium models. If an incompressible medium model is used, the fast pressure dynamics is neglected, thus allowing simulation with explicit algorithms and large time steps.
+<pre></PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TestMixerSlowFast
+ <font color="darkgreen">// package Medium=Modelica.Media.Water.StandardWater;</font>
+ <font color="blue">package</font> Medium=<A HREF="ThermoPower_Media_LiquidWaterConstant.html#ThermoPower.Media.LiquidWaterConstant"
+>Media.LiquidWaterConstant</A>;
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SourceW"
+>Water.SourceW</A> SourceW1(w0=0.5, h=1e5,
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SourceW"
+>Water.SourceW</A> SourceW2(w0=0.5, h=2e5,
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SinkP"
+>Water.SinkP</A> SinkP1(p0=1e5, <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.Mixer"
+>Water.Mixer</A> Mixer1(
+    hstart=1e5,
+    V=0.01,
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    initOpt=ThermoPower.Choices.Init.Options.steadyState);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.ValveLin"
+>Water.ValveLin</A> ValveLin1(Kv=1/1e5, <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Step"
+>Modelica.Blocks.Sources.Step</A> StepValv(
+    height=-.2,
+    offset=1,
+    startTime=2);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.PressDrop"
+>Water.PressDrop</A> PressDrop1(
+    wnom=1,
+    dpnom=100,
+    rhonom=1000,
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    FFtype=ThermoPower.Choices.PressDrop.FFtypes.OpPoint);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.Header"
+>Water.Header</A> Header1(
+    hstart=1e5,
+    V=0.01,
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    initOpt=ThermoPower.Choices.Init.Options.steadyState);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Step"
+>Modelica.Blocks.Sources.Step</A> StepEnthalpy(
+    height=1e5,
+    offset=1e5,
+    startTime=4);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(SourceW1.flange, Mixer1.in1);
+  <font color="red">connect</font>(SourceW2.flange, Mixer1.in2);
+  <font color="red">connect</font>(ValveLin1.outlet, SinkP1.flange);
+  <font color="red">connect</font>(Mixer1.out, PressDrop1.inlet);
+  <font color="red">connect</font>(PressDrop1.outlet, Header1.inlet);
+  <font color="red">connect</font>(Header1.outlet, ValveLin1.inlet);
+  <font color="red">connect</font>(StepEnthalpy.y, SourceW1.in_h);
+  <font color="red">connect</font>(StepValv.y, ValveLin1.cmd);
+<font color="blue">end </font>TestMixerSlowFast;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TestPressDrop<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Test.WaterElements.TestPressDrop"></A><A HREF="ThermoPower_Test_WaterElements.html#ThermoPower.Test.WaterElements"
+>ThermoPower.Test.WaterElements</A>.TestPressDrop</H2>
+<IMG SRC="ThermoPower.Test.WaterElements.TestPressDropD.png" ALT="ThermoPower.Test.WaterElements.TestPressDrop">
+<H3>Information</H3>
+<PRE></pre>
+This test model demonstrate four possible ways of setting the friction coefficient for the <tt>PressDrop</tt> model.
+<ol>
+<li>The friction factor coefficient can be specified directly, by setting <tt>FFtype=0</tt> and the appropriate value to <tt>Kf</tt>.
+<li>The friction factor needed to obtain certain conditions can be set by initial equations. In this case, <tt>FFtype=0</tt>, and <tt>Kf=Kf_unknown</tt>, with <tt>Kf_unknown</tt> having a fixed=false attribute. The latter parameter is then determined by an initial equation (e.g. by assigning the initial mass flow rate).
+<li>The friction factor can be specified by setting <tt>FFtype=1</tt>, and then by assigning the nominal pressure drop <tt>dpnom</tt> corresponding to the nominal flow rate <tt>wnom</tt> and to the nominal density <tt>rhonom</tt>.
+<li>The pressure drop can be specified as a given multiple of the kinetic pressure, by setting <tt>FFtype=2</tt> and assigning the multiplicative coefficient <tt>K</tt>.
+</ol>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>Kf_unknown</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TestPressDrop
+  <font color="blue">package</font> Medium=Modelica.Media.Water.StandardWater;
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SourceP"
+>Water.SourceP</A> SourceP1(p0=3e5);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SinkP"
+>Water.SinkP</A> SinkP1(p0=1e5);
+  <font color="blue">parameter </font>Real Kf_unknown(fixed=false);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SourceP"
+>Water.SourceP</A> SourceP3(p0=3e5);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SinkP"
+>Water.SinkP</A> SinkP3(p0=1e5);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.PressDrop"
+>Water.PressDrop</A> PressDrop3a(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    wnom=1,
+    dpnom=1e5,
+    rhonom=1000,
+    FFtype=ThermoPower.Choices.PressDrop.FFtypes.OpPoint);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.PressDrop"
+>Water.PressDrop</A> PressDrop3b(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    wnom=1,
+    dpnom=1e5,
+    rhonom=1000,
+    FFtype=ThermoPower.Choices.PressDrop.FFtypes.OpPoint);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SourceP"
+>Water.SourceP</A> SourceP4(p0=3e5);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SinkP"
+>Water.SinkP</A> SinkP4(p0=1e5);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.PressDrop"
+>Water.PressDrop</A> PressDrop4a(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    K=1,
+    A=1e-4,
+    wnom=1,
+    FFtype=ThermoPower.Choices.PressDrop.FFtypes.Kinetic);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.PressDrop"
+>Water.PressDrop</A> PressDrop4b(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    wnom=1,
+    K=1,
+    A=1e-4,
+    FFtype=ThermoPower.Choices.PressDrop.FFtypes.Kinetic);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SourceP"
+>Water.SourceP</A> SourceP2(p0=3e5);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SinkP"
+>Water.SinkP</A> SinkP2(p0=1e5);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.PressDrop"
+>Water.PressDrop</A> PressDrop2a(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    wnom=1,
+    Kf=Kf_unknown,
+    FFtype=ThermoPower.Choices.PressDrop.FFtypes.Kf);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.PressDrop"
+>Water.PressDrop</A> PressDrop2b(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    wnom=1,
+    Kf=Kf_unknown,
+    FFtype=ThermoPower.Choices.PressDrop.FFtypes.Kf);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.PressDrop"
+>Water.PressDrop</A> PressDrop1a(
+    wnom=1,
+    Kf=1e8,
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    FFtype=ThermoPower.Choices.PressDrop.FFtypes.Kf);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.PressDrop"
+>Water.PressDrop</A> PressDrop1b(<font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    wnom=1,
+    Kf=1e8,
+    FFtype=ThermoPower.Choices.PressDrop.FFtypes.Kf);
+<font color="blue">initial </font><font color="blue">equation </font>
+  PressDrop2a.inlet.w=1;
+<font color="blue">equation </font>
+  <font color="red">connect</font>(SourceP3.flange, PressDrop3a.inlet);
+  <font color="red">connect</font>(PressDrop3a.outlet, PressDrop3b.inlet);
+  <font color="red">connect</font>(PressDrop3b.outlet, SinkP3.flange);
+  <font color="red">connect</font>(SourceP4.flange, PressDrop4a.inlet);
+  <font color="red">connect</font>(PressDrop4a.outlet, PressDrop4b.inlet);
+  <font color="red">connect</font>(PressDrop4b.outlet, SinkP4.flange);
+  <font color="red">connect</font>(SourceP2.flange,PressDrop2a. inlet);
+  <font color="red">connect</font>(PressDrop2a.outlet,PressDrop2b. inlet);
+  <font color="red">connect</font>(PressDrop2b.outlet,SinkP2. flange);
+  <font color="red">connect</font>(SourceP1.flange, PressDrop1a.inlet);
+  <font color="red">connect</font>(PressDrop1a.outlet, PressDrop1b.inlet);
+  <font color="red">connect</font>(PressDrop1b.outlet, SinkP1.flange);
+<font color="blue">end </font>TestPressDrop;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TestThroughW<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Test.WaterElements.TestThroughW"></A><A HREF="ThermoPower_Test_WaterElements.html#ThermoPower.Test.WaterElements"
+>ThermoPower.Test.WaterElements</A>.TestThroughW</H2>
+<B>Test of the ThroughW component</B><p>
+<IMG SRC="ThermoPower.Test.WaterElements.TestThroughWD.png" ALT="ThermoPower.Test.WaterElements.TestThroughW">
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TestThroughW <font color="darkgreen">&quot;Test of the ThroughW component&quot;</font>
+
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SourceP"
+>Water.SourceP</A> SourceP1;
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.PressDropLin"
+>Water.PressDropLin</A> PressDropLin1(R=1e5/1);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.ThroughW"
+>Water.ThroughW</A> ThroughW1(w0=2);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SinkP"
+>Water.SinkP</A> SinkP1;
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SourceP"
+>Water.SourceP</A> SourceP2;
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.PressDropLin"
+>Water.PressDropLin</A> PressDropLin2(R=1e5/1);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.ThroughW"
+>Water.ThroughW</A> ThroughW2(w0=2);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SinkP"
+>Water.SinkP</A> SinkP2;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Step"
+>Modelica.Blocks.Sources.Step</A> Step1(
+    height=1,
+    offset=2,
+    startTime=0.5);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(ThroughW1.outlet, PressDropLin1.inlet);
+  <font color="red">connect</font>(SourceP1.flange, ThroughW1.inlet);
+  <font color="red">connect</font>(PressDropLin1.outlet, SinkP1.flange);
+  <font color="red">connect</font>(ThroughW2.outlet, PressDropLin2.inlet);
+  <font color="red">connect</font>(SourceP2.flange, ThroughW2.inlet);
+  <font color="red">connect</font>(PressDropLin2.outlet, SinkP2.flange);
+  <font color="red">connect</font>(Step1.y, ThroughW2.in_w0);
+<font color="blue">end </font>TestThroughW;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TwoTanks<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Test.WaterElements.TwoTanks"></A><A HREF="ThermoPower_Test_WaterElements.html#ThermoPower.Test.WaterElements"
+>ThermoPower.Test.WaterElements</A>.TwoTanks</H2>
+<B>Test case for Tank and Flow1D</B><p>
+<IMG SRC="ThermoPower.Test.WaterElements.TwoTanksD.png" ALT="ThermoPower.Test.WaterElements.TwoTanks">
+<H3>Information</H3>
+<PRE></pre>
+<p>This model tests the <tt>Tank</tt> model and the <tt>Flow1D</tt> model in reversing flow conditions.</p>
+<p>Simulate the model for 20 s: flow oscillations arise from the combination of inertial effects in the pipe and from the hydraulic capacitance of the tanks. The temperature within the pipe evolves accordingly. </p>
+<pre></PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TwoTanks <font color="darkgreen">&quot;Test case for Tank and Flow1D&quot;</font>
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.Tank"
+>ThermoPower.Water.Tank</A> Tank2(
+    A=0.1,
+    pext=1e5,
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Media_Water_WaterIF97OnePhase_ph.html#Modelica.Media.Water.WaterIF97OnePhase_ph"
+>Modelica.Media.Water.WaterIF97OnePhase_ph</A>);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.Flow1Dfem"
+>Water.Flow1Dfem</A> Pipe(
+    N=5,
+    L=1,
+    omega=0.314,
+    Dhyd=0.1,
+    A=0.01,
+    rhonom=1000,
+    wnom=40,
+    dpnom=20,
+    wnf=0.01,
+    Cfnom=0.005,
+    DynamicMomentum=true,
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Media_Water_WaterIF97OnePhase_ph.html#Modelica.Media.Water.WaterIF97OnePhase_ph"
+>Modelica.Media.Water.WaterIF97OnePhase_ph</A>,
+    FFtype=ThermoPower.Choices.Flow1D.FFtypes.Cfnom,
+    alpha=1);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.Tank"
+>ThermoPower.Water.Tank</A> Tank1(
+    A=0.1,
+    pext=1e5,
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Media_Water_WaterIF97OnePhase_ph.html#Modelica.Media.Water.WaterIF97OnePhase_ph"
+>Modelica.Media.Water.WaterIF97OnePhase_ph</A>);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SourceW"
+>ThermoPower.Water.SourceW</A> Plug1(w0=0);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SinkW"
+>ThermoPower.Water.SinkW</A> Plug2(w0=0);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(Pipe.outfl, Tank2.inlet);
+  <font color="red">connect</font>(Tank1.outlet, Pipe.infl);
+  <font color="red">connect</font>(Plug1.flange, Tank1.inlet);
+  <font color="red">connect</font>(Tank2.outlet, Plug2.flange);
+<font color="blue">initial </font><font color="blue">equation </font>
+  Tank1.h = 2e5;
+  Tank1.y = 2;
+  Tank2.h = 1e5;
+  Tank2.y = 1;
+<font color="blue">end </font>TwoTanks;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TestJoin<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Test.WaterElements.TestJoin"></A><A HREF="ThermoPower_Test_WaterElements.html#ThermoPower.Test.WaterElements"
+>ThermoPower.Test.WaterElements</A>.TestJoin</H2>
+<B>Test case FlowJoin and FlowSplit</B><p>
+<IMG SRC="ThermoPower.Test.WaterElements.TestJoinD.png" ALT="ThermoPower.Test.WaterElements.TestJoin">
+<H3>Information</H3>
+<PRE></pre>
+<p>This model tests the <tt>FlowJoin</tt> and the <tt>FlowSplit</tt> models in all the possible flow configurations.
+<p>Simulate the model for 4 s and observe the temperatures measured by the different sensors as the flows change.
+<pre></PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TestJoin <font color="darkgreen">&quot;Test case FlowJoin and FlowSplit&quot;</font>
+  <font color="blue">package</font> Medium=<A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Media_Water_WaterIF97OnePhase_ph.html#Modelica.Media.Water.WaterIF97OnePhase_ph"
+>Modelica.Media.Water.WaterIF97OnePhase_ph</A>;
+  <font color="blue">constant </font>Real pi=Modelica.Constants.pi;
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SourceW"
+>ThermoPower.Water.SourceW</A> S1(h=1e5);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SourceW"
+>ThermoPower.Water.SourceW</A> S2(h=2e5);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SinkW"
+>ThermoPower.Water.SinkW</A> S5(h=2e5);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SinkW"
+>ThermoPower.Water.SinkW</A> S6(h=3e5);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.FlowJoin"
+>ThermoPower.Water.FlowJoin</A> FlowJoin1;
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.FlowSplit"
+>ThermoPower.Water.FlowSplit</A> FlowSplit1;
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SinkP"
+>ThermoPower.Water.SinkP</A> S3(h=3e5);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.PressDropLin"
+>ThermoPower.Water.PressDropLin</A> LossP1(R=1e-5);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.PressDropLin"
+>ThermoPower.Water.PressDropLin</A> LossP2(R=1e-5);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SourceP"
+>ThermoPower.Water.SourceP</A> S4(h=1e5);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Sine"
+>Modelica.Blocks.Sources.Sine</A> Sine1(
+    amplitude=1,
+    freqHz=1,
+    phase=pi/2,
+    offset=0,
+    startTime=0);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Sine"
+>Modelica.Blocks.Sources.Sine</A> Sine2(freqHz=0.5,
+    amplitude=1,
+    phase=pi/2,
+    offset=0,
+    startTime=0);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SensT"
+>ThermoPower.Water.SensT</A> T1(<font color="blue">redeclare </font><font color="blue">package</font> Medium =
+        Medium);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SensT"
+>ThermoPower.Water.SensT</A> T2(<font color="blue">redeclare </font><font color="blue">package</font> Medium =
+        Medium);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SensT"
+>ThermoPower.Water.SensT</A> T3(<font color="blue">redeclare </font><font color="blue">package</font> Medium =
+        Medium);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SensT"
+>ThermoPower.Water.SensT</A> T4(<font color="blue">redeclare </font><font color="blue">package</font> Medium =
+        Medium);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SensT"
+>ThermoPower.Water.SensT</A> T5(<font color="blue">redeclare </font><font color="blue">package</font> Medium =
+        Medium);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SensT"
+>ThermoPower.Water.SensT</A> T6(<font color="blue">redeclare </font><font color="blue">package</font> Medium =
+        Medium);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Sine"
+>Modelica.Blocks.Sources.Sine</A> Sine3(freqHz=1,
+    amplitude=1,
+    phase=pi/2,
+    offset=0,
+    startTime=0);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Sine"
+>Modelica.Blocks.Sources.Sine</A> Sine4(freqHz=0.5,
+    amplitude=1,
+    phase=pi/2,
+    offset=0,
+    startTime=0);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SensP"
+>ThermoPower.Water.SensP</A> P1;
+<font color="blue">equation </font>
+  <font color="red">connect</font>(LossP1.outlet, S3.flange);
+  <font color="red">connect</font>(S4.flange, LossP2.inlet);
+  <font color="red">connect</font>(S1.flange, T1.inlet);
+  <font color="red">connect</font>(S2.flange, T2.inlet);
+  <font color="red">connect</font>(FlowJoin1.out, T3.inlet);
+  <font color="red">connect</font>(T3.outlet, LossP1.inlet);
+  <font color="red">connect</font>(LossP2.outlet, T4.inlet);
+  <font color="red">connect</font>(T4.outlet, FlowSplit1.in1);
+  <font color="red">connect</font>(T5.outlet, S5.flange);
+  <font color="red">connect</font>(T6.outlet, S6.flange);
+  <font color="red">connect</font>(P1.flange, LossP2.outlet);
+  <font color="red">connect</font>(Sine1.y, S1.in_w0);
+  <font color="red">connect</font>(Sine2.y, S2.in_w0);
+  <font color="red">connect</font>(Sine4.y, S6.in_w0);
+  <font color="red">connect</font>(Sine3.y, S5.in_w0);
+  <font color="red">connect</font>(T2.outlet, FlowJoin1.in2);
+  <font color="red">connect</font>(FlowJoin1.in1, T1.outlet);
+  <font color="red">connect</font>(T5.inlet, FlowSplit1.out1);
+  <font color="red">connect</font>(T6.inlet, FlowSplit1.out2);
+<font color="blue">end </font>TestJoin;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TestJoinRev<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Test.WaterElements.TestJoinRev"></A><A HREF="ThermoPower_Test_WaterElements.html#ThermoPower.Test.WaterElements"
+>ThermoPower.Test.WaterElements</A>.TestJoinRev</H2>
+<B>Test case FlowJoin</B><p>
+<IMG SRC="ThermoPower.Test.WaterElements.TestJoinRevD.png" ALT="ThermoPower.Test.WaterElements.TestJoinRev">
+<H3>Information</H3>
+<PRE></pre>
+<p>This model tests the <tt>FlowJoin</tt> models in all the possible flow configurations, both allowed and not allowed flow reversal.
+<p>Simulate the model for 7 s and observe the temperatures measured by the different sensors as the flows change.
+<pre></PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TestJoinRev <font color="darkgreen">&quot;Test case FlowJoin&quot;</font>
+  <font color="blue">package</font> Medium=<A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Media_Water_WaterIF97OnePhase_ph.html#Modelica.Media.Water.WaterIF97OnePhase_ph"
+>Modelica.Media.Water.WaterIF97OnePhase_ph</A>;
+  <font color="blue">constant </font>Real pi=Modelica.Constants.pi;
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SourceW"
+>ThermoPower.Water.SourceW</A> S1(h=1e5, w0=2);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SourceW"
+>ThermoPower.Water.SourceW</A> S2(h=2e5);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.FlowJoin"
+>ThermoPower.Water.FlowJoin</A> FlowJoin1;
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SinkP"
+>ThermoPower.Water.SinkP</A> S3(h=3e5);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.PressDropLin"
+>ThermoPower.Water.PressDropLin</A> LossP1(R=1e-5);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SensT"
+>ThermoPower.Water.SensT</A> T1(<font color="blue">redeclare </font><font color="blue">package</font> Medium =
+        Medium);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SensT"
+>ThermoPower.Water.SensT</A> T2(<font color="blue">redeclare </font><font color="blue">package</font> Medium =
+        Medium);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SensT"
+>ThermoPower.Water.SensT</A> T3(<font color="blue">redeclare </font><font color="blue">package</font> Medium =
+        Medium);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Trapezoid"
+>Modelica.Blocks.Sources.Trapezoid</A> Sine1(
+    nperiod=2,
+    rising=0.5,
+    width=0.5,
+    falling=0.5,
+    period=4,
+    offset=1,
+    startTime=0.5,
+    amplitude=-1.2);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Trapezoid"
+>Modelica.Blocks.Sources.Trapezoid</A> Sine2(
+    nperiod=2,
+    rising=0.5,
+    width=0.5,
+    falling=0.5,
+    offset=1,
+    startTime=2.5,
+    period=2,
+    amplitude=-1.2);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SourceW"
+>ThermoPower.Water.SourceW</A> S4(h=1e5, w0=2);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SourceW"
+>ThermoPower.Water.SourceW</A> S5(h=2e5);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.FlowJoin"
+>ThermoPower.Water.FlowJoin</A> FlowJoin2(
+    rev_in1=false,
+    rev_in2=false,
+    rev_out=false);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SinkP"
+>ThermoPower.Water.SinkP</A> S6(h=3e5);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.PressDropLin"
+>ThermoPower.Water.PressDropLin</A> LossP2(R=1e-5);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SensT"
+>ThermoPower.Water.SensT</A> T4(<font color="blue">redeclare </font><font color="blue">package</font> Medium =
+        Medium);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SensT"
+>ThermoPower.Water.SensT</A> T5(<font color="blue">redeclare </font><font color="blue">package</font> Medium =
+        Medium);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SensT"
+>ThermoPower.Water.SensT</A> T6(<font color="blue">redeclare </font><font color="blue">package</font> Medium =
+        Medium);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Trapezoid"
+>Modelica.Blocks.Sources.Trapezoid</A> Sine3(
+    nperiod=2,
+    rising=0.5,
+    width=0.5,
+    falling=0.5,
+    period=4,
+    offset=1,
+    startTime=0.5,
+    amplitude=-1.2);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Trapezoid"
+>Modelica.Blocks.Sources.Trapezoid</A> Sine4(
+    nperiod=2,
+    rising=0.5,
+    width=0.5,
+    falling=0.5,
+    offset=1,
+    startTime=2.5,
+    period=2,
+    amplitude=-1.2);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(LossP1.outlet, S3.flange);
+  <font color="red">connect</font>(S1.flange, T1.inlet);
+  <font color="red">connect</font>(S2.flange, T2.inlet);
+  <font color="red">connect</font>(FlowJoin1.out, T3.inlet);
+  <font color="red">connect</font>(T3.outlet, LossP1.inlet);
+  <font color="red">connect</font>(T2.outlet, FlowJoin1.in2);
+  <font color="red">connect</font>(FlowJoin1.in1, T1.outlet);
+  <font color="red">connect</font>(Sine2.y, S2.in_w0);
+  <font color="red">connect</font>(Sine1.y, S1.in_w0);
+  <font color="red">connect</font>(LossP2.outlet,S6. flange);
+  <font color="red">connect</font>(S4.flange,T4. inlet);
+  <font color="red">connect</font>(S5.flange,T5. inlet);
+  <font color="red">connect</font>(FlowJoin2.out,T6. inlet);
+  <font color="red">connect</font>(T6.outlet,LossP2. inlet);
+  <font color="red">connect</font>(T5.outlet, FlowJoin2.in2);
+  <font color="red">connect</font>(FlowJoin2.in1, T4.outlet);
+  <font color="red">connect</font>(Sine4.y, S5.in_w0);
+  <font color="red">connect</font>(Sine3.y, S4.in_w0);
+<font color="blue">end </font>TestJoinRev;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TestSplitRev<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Test.WaterElements.TestSplitRev"></A><A HREF="ThermoPower_Test_WaterElements.html#ThermoPower.Test.WaterElements"
+>ThermoPower.Test.WaterElements</A>.TestSplitRev</H2>
+<B>Test case FlowSplit</B><p>
+<IMG SRC="ThermoPower.Test.WaterElements.TestSplitRevD.png" ALT="ThermoPower.Test.WaterElements.TestSplitRev">
+<H3>Information</H3>
+<PRE></pre>
+<p>This model tests the <tt>FlowSplit</tt> models in all the possible flow configurations, both allowed and not allowed flow reversal.
+<p>Simulate the model for 7 s and observe the temperatures measured by the different sensors as the flows change.
+<pre></PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TestSplitRev <font color="darkgreen">&quot;Test case FlowSplit&quot;</font>
+  <font color="blue">package</font> Medium=<A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Media_Water_WaterIF97OnePhase_ph.html#Modelica.Media.Water.WaterIF97OnePhase_ph"
+>Modelica.Media.Water.WaterIF97OnePhase_ph</A>;
+  <font color="blue">constant </font>Real pi=Modelica.Constants.pi;
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SinkW"
+>ThermoPower.Water.SinkW</A> S5(h=2e5);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SinkW"
+>ThermoPower.Water.SinkW</A> S6(h=3e5);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.FlowSplit"
+>ThermoPower.Water.FlowSplit</A> FlowSplit2(
+    rev_in1=false,
+    rev_out1=false,
+    rev_out2=false);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.PressDropLin"
+>ThermoPower.Water.PressDropLin</A> LossP2(R=1e-5);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SourceP"
+>ThermoPower.Water.SourceP</A> S4(h=1e5);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SensT"
+>ThermoPower.Water.SensT</A> T4(<font color="blue">redeclare </font><font color="blue">package</font> Medium =
+        Medium);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SensT"
+>ThermoPower.Water.SensT</A> T5(<font color="blue">redeclare </font><font color="blue">package</font> Medium =
+        Medium);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SensT"
+>ThermoPower.Water.SensT</A> T6(<font color="blue">redeclare </font><font color="blue">package</font> Medium =
+        Medium);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SensP"
+>ThermoPower.Water.SensP</A> P1;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Trapezoid"
+>Modelica.Blocks.Sources.Trapezoid</A> Sine3(
+    nperiod=2,
+    rising=0.5,
+    width=0.5,
+    falling=0.5,
+    period=4,
+    offset=1,
+    startTime=0.5,
+    amplitude=-1.2);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Trapezoid"
+>Modelica.Blocks.Sources.Trapezoid</A> Sine4(
+    nperiod=2,
+    rising=0.5,
+    width=0.5,
+    falling=0.5,
+    offset=1,
+    startTime=2.5,
+    period=2,
+    amplitude=-1.2);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SinkW"
+>ThermoPower.Water.SinkW</A> S1(h=2e5);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SinkW"
+>ThermoPower.Water.SinkW</A> S2(h=3e5);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.FlowSplit"
+>ThermoPower.Water.FlowSplit</A> FlowSplit1;
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.PressDropLin"
+>ThermoPower.Water.PressDropLin</A> LossP1(R=1e-5);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SourceP"
+>ThermoPower.Water.SourceP</A> S3(h=1e5);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SensT"
+>ThermoPower.Water.SensT</A> T1(<font color="blue">redeclare </font><font color="blue">package</font> Medium =
+        Medium);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SensT"
+>ThermoPower.Water.SensT</A> T2(<font color="blue">redeclare </font><font color="blue">package</font> Medium =
+        Medium);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SensT"
+>ThermoPower.Water.SensT</A> T3(<font color="blue">redeclare </font><font color="blue">package</font> Medium =
+        Medium);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SensP"
+>ThermoPower.Water.SensP</A> P2;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Trapezoid"
+>Modelica.Blocks.Sources.Trapezoid</A> Sine1(
+    nperiod=2,
+    rising=0.5,
+    width=0.5,
+    falling=0.5,
+    period=4,
+    offset=1,
+    startTime=0.5,
+    amplitude=-1.2);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Trapezoid"
+>Modelica.Blocks.Sources.Trapezoid</A> Sine2(
+    nperiod=2,
+    rising=0.5,
+    width=0.5,
+    falling=0.5,
+    offset=1,
+    startTime=2.5,
+    period=2,
+    amplitude=-1.2);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(S4.flange, LossP2.inlet);
+  <font color="red">connect</font>(LossP2.outlet, T4.inlet);
+  <font color="red">connect</font>(T4.outlet,FlowSplit2. in1);
+  <font color="red">connect</font>(T5.outlet, S5.flange);
+  <font color="red">connect</font>(T6.outlet, S6.flange);
+  <font color="red">connect</font>(P1.flange, LossP2.outlet);
+  <font color="red">connect</font>(T5.inlet, FlowSplit2.out1);
+  <font color="red">connect</font>(T6.inlet, FlowSplit2.out2);
+  <font color="red">connect</font>(Sine4.y, S6.in_w0);
+  <font color="red">connect</font>(Sine3.y, S5.in_w0);
+  <font color="red">connect</font>(S3.flange,LossP1. inlet);
+  <font color="red">connect</font>(LossP1.outlet,T1. inlet);
+  <font color="red">connect</font>(T1.outlet,FlowSplit1. in1);
+  <font color="red">connect</font>(T2.outlet,S1. flange);
+  <font color="red">connect</font>(T3.outlet,S2. flange);
+  <font color="red">connect</font>(P2.flange,LossP1. outlet);
+  <font color="red">connect</font>(T2.inlet, FlowSplit1.out1);
+  <font color="red">connect</font>(T3.inlet, FlowSplit1.out2);
+  <font color="red">connect</font>(Sine2.y, S2.in_w0);
+  <font color="red">connect</font>(Sine1.y, S1.in_w0);
+<font color="blue">end </font>TestSplitRev;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TestValves<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Test.WaterElements.TestValves"></A><A HREF="ThermoPower_Test_WaterElements.html#ThermoPower.Test.WaterElements"
+>ThermoPower.Test.WaterElements</A>.TestValves</H2>
+<B>Test cases for valves</B><p>
+<IMG SRC="ThermoPower.Test.WaterElements.TestValvesD.png" ALT="ThermoPower.Test.WaterElements.TestValves">
+<H3>Information</H3>
+<PRE></pre>
+<p>This model tests the <tt>ValveLiq</tt> model zero or reverse flow conditions.
+<p>Simulate the model for 4 s. At t = 1 s the V5 valve closes in 1 s, the V2 and V3 valves close in 2 s and the V1 and V4 valves open in 2 s. The flow in valve V3 reverses between t = 1.83 and t = 1.93.
+<pre></PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TestValves <font color="darkgreen">&quot;Test cases for valves&quot;</font>
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SourceP"
+>ThermoPower.Water.SourceP</A> SourceP1(p0=10e5);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SourceP"
+>ThermoPower.Water.SourceP</A> SourceP2(p0=8e5);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SinkP"
+>ThermoPower.Water.SinkP</A> SinkP1(p0=1e5);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.ValveLiq"
+>ThermoPower.Water.ValveLiq</A> V1(
+    dpnom=9e5,
+    wnom=1.5,
+  <font color="blue">redeclare </font><font color="blue">package</font> Medium = Modelica.Media.Water.StandardWater,
+    pnom=10e5,
+    Kv=2,
+    CvData=ThermoPower.Choices.Valve.CvTypes.Kv);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.ValveLiq"
+>ThermoPower.Water.ValveLiq</A> V2(
+    dpnom=5e5,
+    wnom=1.2,
+    pnom=10e5,
+  <font color="blue">redeclare </font><font color="blue">package</font> Medium = Modelica.Media.Water.StandardWater,
+    Av=5e-5,
+    CvData=ThermoPower.Choices.Valve.CvTypes.Av);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.ValveLiq"
+>ThermoPower.Water.ValveLiq</A> V3(
+    dpnom=3e5,
+    wnom=1.1,
+    pnom=10e5,
+  <font color="blue">redeclare </font><font color="blue">package</font> Medium = Modelica.Media.Water.StandardWater,
+    Av=5e-5,
+    CvData=ThermoPower.Choices.Valve.CvTypes.Av);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.ValveLiq"
+>ThermoPower.Water.ValveLiq</A> V4(
+    dpnom=8e5,
+    wnom=1.3,
+    pnom=10e5,
+  <font color="blue">redeclare </font><font color="blue">package</font> Medium = Modelica.Media.Water.StandardWater,
+    Cv=2,
+    CvData=ThermoPower.Choices.Valve.CvTypes.Cv);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.ValveLiq"
+>ThermoPower.Water.ValveLiq</A> V5(
+    dpnom=4e5,
+    wnom=2,
+    pnom=5e5,
+  <font color="blue">redeclare </font><font color="blue">package</font> Medium = Modelica.Media.Water.StandardWater,
+    Av=1e-4,
+    CvData=ThermoPower.Choices.Valve.CvTypes.Av);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.FlowSplit"
+>ThermoPower.Water.FlowSplit</A> FlowSplit1;
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SinkP"
+>ThermoPower.Water.SinkP</A> SinkP2(p0=1e5);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.FlowJoin"
+>ThermoPower.Water.FlowJoin</A> FlowJoin1;
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.FlowSplit"
+>ThermoPower.Water.FlowSplit</A> FlowSplit2;
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SinkP"
+>ThermoPower.Water.SinkP</A> SinkP3(p0=1e5);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> CloseLoad(
+    duration=1,
+    height=-0.99,
+    offset=1,
+    startTime=1);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> OpenRelief(
+    duration=2,
+    height=1,
+    offset=0,
+    startTime=1);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> CloseValves(
+    duration=2,
+    height=-1,
+    offset=1,
+    startTime=1);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(SourceP1.flange, FlowSplit1.in1);
+  <font color="red">connect</font>(FlowSplit1.out1, V1.inlet);
+  <font color="red">connect</font>(V1.outlet, SinkP2.flange);
+  <font color="red">connect</font>(V2.outlet, FlowJoin1.in1);
+  <font color="red">connect</font>(V3.outlet, FlowJoin1.in2);
+  <font color="red">connect</font>(FlowJoin1.out, V5.inlet);
+  <font color="red">connect</font>(V5.outlet, SinkP1.flange);
+  <font color="red">connect</font>(SourceP2.flange, FlowSplit2.in1);
+  <font color="red">connect</font>(FlowSplit2.out2, V4.inlet);
+  <font color="red">connect</font>(FlowSplit2.out1, V3.inlet);
+  <font color="red">connect</font>(V4.outlet, SinkP3.flange);
+  <font color="red">connect</font>(V2.inlet, FlowSplit1.out2);
+  <font color="red">connect</font>(CloseValves.y, V3.theta);
+  <font color="red">connect</font>(CloseValves.y, V2.theta);
+  <font color="red">connect</font>(OpenRelief.y, V1.theta);
+  <font color="red">connect</font>(V4.theta, OpenRelief.y);
+  <font color="red">connect</font>(CloseLoad.y, V5.theta);
+<font color="blue">end </font>TestValves;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TestValveChoked<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Test.WaterElements.TestValveChoked"></A><A HREF="ThermoPower_Test_WaterElements.html#ThermoPower.Test.WaterElements"
+>ThermoPower.Test.WaterElements</A>.TestValveChoked</H2>
+<B>Test case for valves in choked flow</B><p>
+<IMG SRC="ThermoPower.Test.WaterElements.TestValveChokedD.png" ALT="ThermoPower.Test.WaterElements.TestValveChoked">
+<H3>Information</H3>
+<PRE></pre>
+<p>This model tests the transition from normal to choked flow for the <tt>ValveLiq</tt> and <tt>ValveVap</tt> models.
+<p>Simulate the model for 4 s and observe the flowrate through the two valves.
+<pre></PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TestValveChoked <font color="darkgreen">&quot;Test case for valves in choked flow&quot;</font>
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SourceP"
+>ThermoPower.Water.SourceP</A> SourceP1(p0=5e5, h=400e3);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SinkP"
+>ThermoPower.Water.SinkP</A> SinkP1;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> Constant1;
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.ValveLiqChoked"
+>ThermoPower.Water.ValveLiqChoked</A> ValveLiqChocked(
+    dpnom=2e5,
+    wnom=1,
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Modelica.Media.Water.StandardWater,
+    Av=5e-5,
+    CheckValve=false,
+    pnom=5e5,
+    CvData=ThermoPower.Choices.Valve.CvTypes.Av);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Sine"
+>Modelica.Blocks.Sources.Sine</A> Sine1(
+    amplitude=2.5e5,
+    freqHz=0.5,
+    offset=3e5,
+    phase=3.14159,
+    startTime=1);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SourceP"
+>ThermoPower.Water.SourceP</A> SourceP2(p0=60e5, h=2.9e6);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SinkP"
+>ThermoPower.Water.SinkP</A> SinkP2(p0=1e5);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.ValveVap"
+>ThermoPower.Water.ValveVap</A> ValveVap(
+    dpnom=30e5,
+    pnom=60e5,
+    wnom=1,
+  <font color="blue">redeclare </font><font color="blue">package</font> Medium = Modelica.Media.Water.StandardWater,
+    Av=1e-4,
+    CheckValve=false,
+    CvData=ThermoPower.Choices.Valve.CvTypes.Av);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> Constant2;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Sine"
+>Modelica.Blocks.Sources.Sine</A> Sine2(
+    amplitude=49.5e5,
+    freqHz=0.5,
+    offset=50e5,
+    phase=3.14159,
+    startTime=1);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(ValveLiqChocked.outlet, SinkP1.flange);
+  <font color="red">connect</font>(SourceP1.flange, ValveLiqChocked.inlet);
+  <font color="red">connect</font>(SourceP2.flange, ValveVap.inlet);
+  <font color="red">connect</font>(ValveVap.outlet, SinkP2.flange);
+  <font color="red">connect</font>(Constant1.y, ValveLiqChocked.theta);
+  <font color="red">connect</font>(Sine1.y, SinkP1.in_p0);
+  <font color="red">connect</font>(Constant2.y, ValveVap.theta);
+  <font color="red">connect</font>(Sine2.y, SinkP2.in_p0);
+<font color="blue">end </font>TestValveChoked;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TestCoeffValve<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Test.WaterElements.TestCoeffValve"></A><A HREF="ThermoPower_Test_WaterElements.html#ThermoPower.Test.WaterElements"
+>ThermoPower.Test.WaterElements</A>.TestCoeffValve</H2>
+<B>Test case for valve with the several coefficients</B><p>
+<IMG SRC="ThermoPower.Test.WaterElements.TestCoeffValveD.png" ALT="ThermoPower.Test.WaterElements.TestCoeffValve">
+<H3>Information</H3>
+<PRE></pre>
+<p>This model tests the <tt>ValveLiq</tt> models with four possible flow coefficients (also applies to other valves).
+<ol>
+<li>Av (metric) flow coefficient [m2];
+<li>Kv (metric) flow coefficient [m3/h];
+<li>Cv (US) flow coefficient [USG/min];
+<li>Av defined by nominal operating point [m2].
+</ol>
+<p>Simulate the model for 4 s and observe the flowrate through the valves.
+<pre></PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TestCoeffValve <font color="darkgreen">
+  &quot;Test case for valve with the several coefficients&quot;</font>
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SourceP"
+>ThermoPower.Water.SourceP</A> SourceP1(p0=5e5, h=2e5);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SinkP"
+>ThermoPower.Water.SinkP</A> SinkP1(p0=3e5);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> Constant1;
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.ValveLiq"
+>Water.ValveLiq</A> ValveLiq1(
+    dpnom=2e5,
+    wnom=1,
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Modelica.Media.Water.StandardWater,
+    pnom=5e5,
+    CvData=ThermoPower.Choices.Valve.CvTypes.Av,
+    Av=7.2e-5);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SourceP"
+>ThermoPower.Water.SourceP</A> SourceP2(p0=5e5, h=2e5);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SinkP"
+>ThermoPower.Water.SinkP</A> SinkP2(p0=3e5);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.ValveLiq"
+>Water.ValveLiq</A> ValveLiq2(
+    dpnom=2e5,
+    wnom=1,
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Modelica.Media.Water.StandardWater,
+    pnom=5e5,
+    CvData=ThermoPower.Choices.Valve.CvTypes.Kv,
+    Kv=2.592);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SourceP"
+>ThermoPower.Water.SourceP</A> SourceP3(p0=5e5, h=2e5);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SinkP"
+>ThermoPower.Water.SinkP</A> SinkP3(p0=3e5);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.ValveLiq"
+>Water.ValveLiq</A> ValveLiq3(
+    dpnom=2e5,
+    wnom=1,
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Modelica.Media.Water.StandardWater,
+    pnom=5e5,
+    CvData=ThermoPower.Choices.Valve.CvTypes.Cv,
+    Cv=2.997);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SourceP"
+>ThermoPower.Water.SourceP</A> SourceP4(p0=5e5, h=2e5);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SinkP"
+>ThermoPower.Water.SinkP</A> SinkP4(p0=3e5);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.ValveLiq"
+>Water.ValveLiq</A> ValveLiq4(
+    dpnom=2e5,
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Modelica.Media.Water.StandardWater,
+    pnom=5e5,
+    CvData=ThermoPower.Choices.Valve.CvTypes.OpPoint,
+    wnom=1.012,
+    rhonom=989);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(ValveLiq1.outlet, SinkP1.flange);
+  <font color="red">connect</font>(SourceP1.flange, ValveLiq1.inlet);
+  <font color="red">connect</font>(Constant1.y, ValveLiq1.theta);
+  <font color="red">connect</font>(ValveLiq2.outlet, SinkP2.flange);
+  <font color="red">connect</font>(SourceP2.flange, ValveLiq2.inlet);
+  <font color="red">connect</font>(Constant1.y, ValveLiq2.theta);
+  <font color="red">connect</font>(ValveLiq3.outlet, SinkP3.flange);
+  <font color="red">connect</font>(SourceP3.flange, ValveLiq3.inlet);
+  <font color="red">connect</font>(Constant1.y, ValveLiq3.theta);
+  <font color="red">connect</font>(ValveLiq4.outlet, SinkP4.flange);
+  <font color="red">connect</font>(SourceP4.flange, ValveLiq4.inlet);
+  <font color="red">connect</font>(Constant1.y, ValveLiq4.theta);
+<font color="blue">end </font>TestCoeffValve;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ValveZeroFlow<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Test.WaterElements.ValveZeroFlow"></A><A HREF="ThermoPower_Test_WaterElements.html#ThermoPower.Test.WaterElements"
+>ThermoPower.Test.WaterElements</A>.ValveZeroFlow</H2>
+<B>Test case for valves with zero flowrate</B><p>
+<IMG SRC="ThermoPower.Test.WaterElements.ValveZeroFlowD.png" ALT="ThermoPower.Test.WaterElements.ValveZeroFlow">
+<H3>Information</H3>
+<PRE></pre>
+<p>This model tests the <tt>ValveLiq</tt> model in zero flowrate conditions.</p>
+<p>The flow coefficients are determined by initial equations, assuming a flow rate of 1 kg/s and equal sizing for the three valves.
+<p>Simulate the model for 1 s and observe the flowrates through the valves and the inlet and outlet pressure of V2.
+<pre></PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> ValveZeroFlow <font color="darkgreen">&quot;Test case for valves with zero flowrate&quot;</font>
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SourceP"
+>ThermoPower.Water.SourceP</A> Source(p0=5e5);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SinkP"
+>ThermoPower.Water.SinkP</A> Sink(p0=1e5);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.ValveLiq"
+>ThermoPower.Water.ValveLiq</A> V1(
+    dpnom=2e5,
+    wnom=1,
+  <font color="blue">redeclare </font><font color="blue">package</font> Medium = Modelica.Media.Water.StandardWater,
+    pnom=5e5,
+    Av=1e-4,
+    CvData=ThermoPower.Choices.Valve.CvTypes.OpPoint);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.ValveLiq"
+>ThermoPower.Water.ValveLiq</A> V2(
+    dpnom=1e5,
+    wnom=1,
+  <font color="blue">redeclare </font><font color="blue">package</font> Medium = Modelica.Media.Water.StandardWater,
+    pnom=3e5,
+    Av=1e-4,
+    CvData=ThermoPower.Choices.Valve.CvTypes.OpPoint);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Step"
+>Modelica.Blocks.Sources.Step</A> Cmd1(
+    height=0,
+    offset=1,
+    startTime=0);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Step"
+>Modelica.Blocks.Sources.Step</A> Cmd2(
+    height=-.5,
+    offset=1,
+    startTime=0.3);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.ValveLiq"
+>ThermoPower.Water.ValveLiq</A> V3(
+    dpnom=1e5,
+    wnom=1,
+  <font color="blue">redeclare </font><font color="blue">package</font> Medium = Modelica.Media.Water.StandardWater,
+    pnom=2e5,
+    Av=1e-4,
+    CvData=ThermoPower.Choices.Valve.CvTypes.OpPoint);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Step"
+>Modelica.Blocks.Sources.Step</A> Cmd3(
+    height=-1,
+    offset=1,
+    startTime=0.6);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(Source.flange, V1.inlet);
+  <font color="red">connect</font>(V1.outlet, V2.inlet);
+  <font color="red">connect</font>(V2.outlet, V3.inlet);
+  <font color="red">connect</font>(Sink.flange, V3.outlet);
+  <font color="red">connect</font>(Cmd1.y, V1.theta);
+  <font color="red">connect</font>(Cmd2.y, V2.theta);
+  <font color="red">connect</font>(Cmd3.y, V3.theta);
+<font color="blue">end </font>ValveZeroFlow;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ValveZeroFlow2<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Test.WaterElements.ValveZeroFlow2"></A><A HREF="ThermoPower_Test_WaterElements.html#ThermoPower.Test.WaterElements"
+>ThermoPower.Test.WaterElements</A>.ValveZeroFlow2</H2>
+<B>Test case for valves with zero flowrate</B><p>
+<IMG SRC="ThermoPower.Test.WaterElements.ValveZeroFlow2D.png" ALT="ThermoPower.Test.WaterElements.ValveZeroFlow2">
+<H3>Information</H3>
+<PRE></pre>
+<p>This model tests the <tt>ValveLiq</tt> model with small or zero flow and the <tt>Tank</tt> model.</p>
+<p>Simulate for 20 s. After 10 s the flowrate goes to zero, as the two levels become equal. </p>
+<pre></PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> ValveZeroFlow2 <font color="darkgreen">&quot;Test case for valves with zero flowrate&quot;</font>
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Step"
+>Modelica.Blocks.Sources.Step</A> Cmd1(
+    height=0,
+    offset=1,
+    startTime=0);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.Tank"
+>ThermoPower.Water.Tank</A> Tank1(A=0.1,
+  <font color="blue">redeclare </font><font color="blue">package</font> Medium = Modelica.Media.Water.StandardWater);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.Tank"
+>ThermoPower.Water.Tank</A> Tank2(A=0.1,
+  <font color="blue">redeclare </font><font color="blue">package</font> Medium = Modelica.Media.Water.StandardWater);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.ValveLiq"
+>ThermoPower.Water.ValveLiq</A> Valve(
+    dpnom=1e4,
+    wnom=10,
+  <font color="blue">redeclare </font><font color="blue">package</font> Medium = Modelica.Media.Water.StandardWater,
+    Av=3.5e-3,
+    pnom=1e5,
+    CvData=ThermoPower.Choices.Valve.CvTypes.Av);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SourceW"
+>ThermoPower.Water.SourceW</A> SourceW1(w0=0);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SinkW"
+>ThermoPower.Water.SinkW</A> SinkW1(w0=0);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(Tank1.outlet, Valve.inlet);
+  <font color="red">connect</font>(Valve.outlet, Tank2.inlet);
+  <font color="red">connect</font>(Tank2.outlet, SinkW1.flange);
+  <font color="red">connect</font>(SourceW1.flange, Tank1.inlet);
+<font color="blue">initial </font><font color="blue">equation </font>
+  Tank1.y = 2;
+  Tank2.y = 1;
+<font color="blue">equation </font>
+  <font color="red">connect</font>(Cmd1.y, Valve.theta);
+<font color="blue">end </font>ValveZeroFlow2;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE WaterPump<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Test.WaterElements.WaterPump"></A><A HREF="ThermoPower_Test_WaterElements.html#ThermoPower.Test.WaterElements"
+>ThermoPower.Test.WaterElements</A>.WaterPump</H2>
+<B>Test case for WaterPump</B><p>
+<IMG SRC="ThermoPower.Test.WaterElements.WaterPumpD.png" ALT="ThermoPower.Test.WaterElements.WaterPump">
+<H3>Information</H3>
+<PRE></pre>
+<p>This model tests the <tt>Pump</tt> model with the check valve option active. Two pumps in parallel are simulated.
+<p>The valve is opened at time t=1s. The sink pressure is then increased so as to operate the pump in all the possible working conditions, including stopped flow.
+<p>
+Simulation Interval = [0...10] sec <br>
+Integration Algorithm = DASSL <br>
+Algorithm Tolerance = 1e-6
+<pre></PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> WaterPump <font color="darkgreen">&quot;Test case for WaterPump&quot;</font>
+
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SourceP"
+>ThermoPower.Water.SourceP</A> Source(p0=1e5, h=1.5e5);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.ValveLin"
+>ThermoPower.Water.ValveLin</A> ValveLin1(Kv=1e-5);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SinkP"
+>ThermoPower.Water.SinkP</A> SinkP1(p0=3e5);
+<font color="darkgreen">/*
+  ThermoPower.Water.Pump Pump1(
+    rho0=1000,
+    pin_start=1e5,
+    pout_start=4e5,
+    hstart=1e5,
+    ThermalCapacity=true,
+    V=0.01,
+    P_cons={800,1800,2000},
+    head_nom={60,30,0},
+    q_nom={0,0.001,0.0015},
+  redeclare package Medium = Modelica.Media.Water.StandardWater,
+  redeclare package SatMedium = Modelica.Media.Water.StandardWater,
+    ComputeNPSHa=true,
+    CheckValve=true,
+    initOpt=ThermoPower.Choices.Init.Options.steadyState)
+                        annotation (extent=[-54,26; -34,46]);
+*/</font>
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.PumpNPSH"
+>Water.PumpNPSH</A> Pump1(
+    rho0=1000,
+    pin_start=1e5,
+    pout_start=4e5,
+    hstart=1e5,
+    V=0.01,
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Modelica.Media.Water.StandardWater,
+    CheckValve=true,
+    initOpt=ThermoPower.Choices.Init.Options.noInit,
+    Np0=2,
+    usePowerCharacteristic=true,
+    n0=1500,
+    <font color="blue">redeclare </font><font color="blue">function</font> flowCharacteristic =
+        <A HREF="ThermoPower_Functions_PumpCharacteristics.html#ThermoPower.Functions.PumpCharacteristics.quadraticFlow"
+>ThermoPower.Functions.PumpCharacteristics.quadraticFlow</A> (q_nom={0,
+            0.001,0.0015}, head_nom={60,30,0}),
+    <font color="blue">redeclare </font><font color="blue">function</font> powerCharacteristic =
+        <A HREF="ThermoPower_Functions_PumpCharacteristics.html#ThermoPower.Functions.PumpCharacteristics.quadraticPower"
+>ThermoPower.Functions.PumpCharacteristics.quadraticPower</A> (q_nom={0,
+            0.001,0.0015}, W_nom={350,500,600}));
+
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> Ramp1(
+    duration=4,
+    startTime=4,
+    height=6e5,
+    offset=1e5);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> Step1(
+    height=1,
+    startTime=1,
+    offset=1e-6,
+    duration=1);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(ValveLin1.outlet, SinkP1.flange);
+  <font color="red">connect</font>(Source.flange, Pump1.infl);
+  <font color="red">connect</font>(Pump1.outfl, ValveLin1.inlet);
+  <font color="red">connect</font>(Ramp1.y, SinkP1.in_p0);
+  <font color="red">connect</font>(Step1.y, ValveLin1.cmd);
+<font color="blue">end </font>WaterPump;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE WaterPumps<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Test.WaterElements.WaterPumps"></A><A HREF="ThermoPower_Test_WaterElements.html#ThermoPower.Test.WaterElements"
+>ThermoPower.Test.WaterElements</A>.WaterPumps</H2>
+<B>Test case for WaterPump</B><p>
+<IMG SRC="ThermoPower.Test.WaterElements.WaterPumpsD.png" ALT="ThermoPower.Test.WaterElements.WaterPumps">
+<H3>Information</H3>
+<PRE></pre>
+<p>This model tests three <tt>Pump</tt> models with different flow caratteristcs and with the check valve option active. Two pumps in parallel are simulated.
+<p>The valve is opened at time t=1s. The sink pressure is then increased so as to operate the pump in all the possible working conditions, including stopped flow.
+<p>
+Simulation Interval = [0...10] sec <br>
+Integration Algorithm = DASSL <br>
+Algorithm Tolerance = 1e-6
+<pre></PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> WaterPumps <font color="darkgreen">&quot;Test case for WaterPump&quot;</font>
+
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SourceP"
+>ThermoPower.Water.SourceP</A> Source1(p0=1e5, h=1.5e5);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.ValveLin"
+>ThermoPower.Water.ValveLin</A> ValveLin1(Kv=1e-5);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SinkP"
+>ThermoPower.Water.SinkP</A> SinkP1(p0=3e5);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.PumpNPSH"
+>Water.PumpNPSH</A> Pump1(
+    rho0=1000,
+    pin_start=1e5,
+    pout_start=4e5,
+    hstart=1e5,
+    V=0.01,
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Modelica.Media.Water.StandardWater,
+    CheckValve=true,
+    initOpt=ThermoPower.Choices.Init.Options.noInit,
+    Np0=2,
+    usePowerCharacteristic=true,
+    n0=1500,
+    <font color="blue">redeclare </font><font color="blue">function</font> flowCharacteristic =
+        <A HREF="ThermoPower_Functions_PumpCharacteristics.html#ThermoPower.Functions.PumpCharacteristics.linearFlow"
+>ThermoPower.Functions.PumpCharacteristics.linearFlow</A> (q_nom={0.001,
+            0.0015}, head_nom={30,0}));
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> Ramp1(
+    duration=4,
+    startTime=4,
+    height=6e5,
+    offset=1e5);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> Step1(
+    height=1,
+    startTime=1,
+    offset=1e-6,
+    duration=1);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SourceP"
+>ThermoPower.Water.SourceP</A> Source2(
+                                   p0=1e5, h=1.5e5);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.ValveLin"
+>ThermoPower.Water.ValveLin</A> ValveLin2(Kv=1e-5);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SinkP"
+>ThermoPower.Water.SinkP</A> SinkP2(p0=3e5);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.PumpNPSH"
+>Water.PumpNPSH</A> Pump2(
+    rho0=1000,
+    pin_start=1e5,
+    pout_start=4e5,
+    hstart=1e5,
+    V=0.01,
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Modelica.Media.Water.StandardWater,
+    CheckValve=true,
+    initOpt=ThermoPower.Choices.Init.Options.noInit,
+    Np0=2,
+    usePowerCharacteristic=true,
+    n0=1500,
+    <font color="blue">redeclare </font><font color="blue">function</font> flowCharacteristic =
+        <A HREF="ThermoPower_Functions_PumpCharacteristics.html#ThermoPower.Functions.PumpCharacteristics.quadraticFlow"
+>ThermoPower.Functions.PumpCharacteristics.quadraticFlow</A> (q_nom={
+            0.0005,0.001,0.0015}, head_nom={50,30,0}));
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SourceP"
+>ThermoPower.Water.SourceP</A> Source3(
+                                   p0=1e5, h=1.5e5);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.ValveLin"
+>ThermoPower.Water.ValveLin</A> ValveLin3(Kv=1e-5);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SinkP"
+>ThermoPower.Water.SinkP</A> SinkP3(p0=3e5);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.PumpNPSH"
+>Water.PumpNPSH</A> Pump3(
+    rho0=1000,
+    pin_start=1e5,
+    pout_start=4e5,
+    hstart=1e5,
+    V=0.01,
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Modelica.Media.Water.StandardWater,
+    CheckValve=true,
+    initOpt=ThermoPower.Choices.Init.Options.noInit,
+    Np0=2,
+    usePowerCharacteristic=true,
+    n0=1500,
+    <font color="blue">redeclare </font><font color="blue">function</font> flowCharacteristic =
+        <A HREF="ThermoPower_Functions_PumpCharacteristics.html#ThermoPower.Functions.PumpCharacteristics.polynomialFlow"
+>ThermoPower.Functions.PumpCharacteristics.polynomialFlow</A> (q_nom={
+            0.0005,0.001,0.0015}, head_nom={50,30,0}));
+<font color="blue">equation </font>
+  <font color="red">connect</font>(ValveLin1.outlet, SinkP1.flange);
+  <font color="red">connect</font>(Source1.flange, Pump1.infl);
+  <font color="red">connect</font>(Pump1.outfl, ValveLin1.inlet);
+  <font color="red">connect</font>(Ramp1.y, SinkP1.in_p0);
+  <font color="red">connect</font>(Step1.y, ValveLin1.cmd);
+  <font color="red">connect</font>(ValveLin2.outlet,SinkP2. flange);
+  <font color="red">connect</font>(Source2.flange, Pump2.infl);
+  <font color="red">connect</font>(Pump2.outfl,ValveLin2. inlet);
+  <font color="red">connect</font>(ValveLin3.outlet,SinkP3. flange);
+  <font color="red">connect</font>(Source3.flange, Pump3.infl);
+  <font color="red">connect</font>(Pump3.outfl,ValveLin3. inlet);
+  <font color="red">connect</font>(ValveLin2.cmd, Step1.y);
+  <font color="red">connect</font>(SinkP2.in_p0, Ramp1.y);
+  <font color="red">connect</font>(SinkP3.in_p0, Ramp1.y);
+  <font color="red">connect</font>(ValveLin3.cmd, Step1.y);
+<font color="blue">end </font>WaterPumps;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE WaterPumpMech<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Test.WaterElements.WaterPumpMech"></A><A HREF="ThermoPower_Test_WaterElements.html#ThermoPower.Test.WaterElements"
+>ThermoPower.Test.WaterElements</A>.WaterPumpMech</H2>
+<B>Test case for WaterPumpMech</B><p>
+<IMG SRC="ThermoPower.Test.WaterElements.WaterPumpMechD.png" ALT="ThermoPower.Test.WaterElements.WaterPumpMech">
+<H3>Information</H3>
+<PRE></pre>
+<p>The model is designed to test the component <tt>PumpMech</tt>. The simple model of a DC motor <tt>Test.SimpleMotor</tt> is also used.<br>
+The simulation starts with a stopped motor and a closed valve.
+<ul>
+    <li>t=2 s: The voltage supplied is increased up to 380V in 5 s.
+    <li>t=15 s, The valve is opened in 5 s.
+</ul>
+<p>
+Simulation Interval = [0...25] sec <br>
+Integration Algorithm = DASSL <br>
+Algorithm Tolerance = 1e-6
+</p>
+<pre>
+</PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> WaterPumpMech <font color="darkgreen">&quot;Test case for WaterPumpMech&quot;</font>
+  <font color="blue">package</font> Medium=<A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Media_Water_WaterIF97_ph.html#Modelica.Media.Water.WaterIF97_ph"
+>Modelica.Media.Water.WaterIF97_ph</A>;
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.PumpMech"
+>ThermoPower.Water.PumpMech</A> Pump(
+    rho0=1000,
+    n0=100,
+    pin_start=1e5,
+    pout_start=4e5,
+    V=0.001,
+  <font color="blue">redeclare </font><font color="blue">package</font> Medium = Modelica.Media.Water.StandardWater,
+    initOpt=ThermoPower.Choices.Init.Options.noInit,
+    <font color="blue">redeclare </font><font color="blue">function</font> flowCharacteristic =
+        <A HREF="ThermoPower_Functions_PumpCharacteristics.html#ThermoPower.Functions.PumpCharacteristics.quadraticFlow"
+>ThermoPower.Functions.PumpCharacteristics.quadraticFlow</A> (q_nom={0,0.001,
+            0.0015}, head_nom={60,30,0}),
+    usePowerCharacteristic=true,
+    <font color="blue">redeclare </font><font color="blue">function</font> powerCharacteristic =
+        <A HREF="ThermoPower_Functions_PumpCharacteristics.html#ThermoPower.Functions.PumpCharacteristics.quadraticPower"
+>ThermoPower.Functions.PumpCharacteristics.quadraticPower</A> (q_nom={0,
+            0.001,0.0015}, W_nom={350,500,600}));
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SourceP"
+>ThermoPower.Water.SourceP</A> Source;
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.ValveLin"
+>ThermoPower.Water.ValveLin</A> Valve(Kv=1e-5);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> Ramp1(
+    duration=5,
+    height=1,
+    offset=0,
+    startTime=15);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SinkP"
+>ThermoPower.Water.SinkP</A> Sink(p0=0.8e5);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> Ramp2(
+    duration=5,
+    height=380,
+    startTime=2,
+    offset=0.01);
+  <A HREF="ThermoPower_Test_WaterElements.html#ThermoPower.Test.WaterElements.SimpleMotor"
+>SimpleMotor</A> SimpleMotor1(
+    Rm=20,
+    Lm=0.1,
+    kT=35,
+    Jm=10,
+    dm=1);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(Source.flange, Pump.infl);
+  <font color="red">connect</font>(Pump.outfl, Valve.inlet);
+  <font color="red">connect</font>(Valve.outlet, Sink.flange);
+  <font color="red">connect</font>(SimpleMotor1.flange_b, Pump.MechPort);
+  <font color="red">connect</font>(Ramp1.y, Valve.cmd);
+  <font color="red">connect</font>(Ramp2.y, SimpleMotor1.inPort);
+<font color="blue">end </font>WaterPumpMech;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SimpleMotor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Test.WaterElements.SimpleMotorI.png" ALT="ThermoPower.Test.WaterElements.SimpleMotor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Test.WaterElements.SimpleMotor"></A><A HREF="ThermoPower_Test_WaterElements.html#ThermoPower.Test.WaterElements"
+>ThermoPower.Test.WaterElements</A>.SimpleMotor</H2>
+<B>A simple model of an electrical dc motor (based on DriveLib model).</B><p>
+<IMG SRC="ThermoPower.Test.WaterElements.SimpleMotorD.png" ALT="ThermoPower.Test.WaterElements.SimpleMotor">
+<H3>Information</H3>
+<PRE></pre>
+<p>This is a basic model of an electrical DC motor used to drive a pump in <tt>WaterPumpMech</tt>.
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Resistance</A></TD><TD>Rm</TD><TD>10</TD><TD>Motor Resistance [Ohm]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>Inductance</A></TD><TD>Lm</TD><TD>1</TD><TD>Motor Inductance [H]</TD></TR>
+<TR><TD>Real</TD><TD>kT</TD><TD>1</TD><TD>Torque Constant</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Inertia"
+>Inertia</A></TD><TD>Jm</TD><TD>10</TD><TD>Motor Inertia [kg.m2]</TD></TR>
+<TR><TD>Real</TD><TD>dm</TD><TD>0</TD><TD>Damping constant [N.m.s/rad]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>input <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>inPort</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_b"
+>Flange_b</A></TD><TD>flange_b</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> SimpleMotor <font color="darkgreen">
+  &quot;A simple model of an electrical dc motor (based on DriveLib model).&quot;</font>
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Modelica.SIunits.Resistance</A> Rm=10 <font color="darkgreen">&quot;Motor Resistance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>Modelica.SIunits.Inductance</A> Lm=1 <font color="darkgreen">&quot;Motor Inductance&quot;</font>;
+  <font color="blue">parameter </font>Real kT=1 <font color="darkgreen">&quot;Torque Constant&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Inertia"
+>Modelica.SIunits.Inertia</A> Jm=10 <font color="darkgreen">&quot;Motor Inertia&quot;</font>;
+  <font color="blue">parameter </font>Real dm(
+    <font color="blue">final </font>unit=&quot;N.m.s/rad&quot;,
+    <font color="blue">final </font>min=0) = 0 <font color="darkgreen">&quot;Damping constant&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits.AngularVelocity_rpm"
+>Modelica.SIunits.Conversions.NonSIunits.AngularVelocity_rpm</A> n;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources.SignalVoltage"
+>Modelica.Electrical.Analog.Sources.SignalVoltage</A> Vs;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Ground"
+>Modelica.Electrical.Analog.Basic.Ground</A> G;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Resistor"
+>Modelica.Electrical.Analog.Basic.Resistor</A> R(R=Rm);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Inductor"
+>Modelica.Electrical.Analog.Basic.Inductor</A> L(L=Lm);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.EMF"
+>Modelica.Electrical.Analog.Basic.EMF</A> emf(k=kT);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> inPort;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Inertia"
+>Modelica.Mechanics.Rotational.Inertia</A> J(J=Jm);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_b"
+>Modelica.Mechanics.Rotational.Interfaces.Flange_b</A> flange_b;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Fixed"
+>Modelica.Mechanics.Rotational.Fixed</A> Fixed;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Damper"
+>Modelica.Mechanics.Rotational.Damper</A> Damper(d=dm);
+<font color="blue">equation </font>
+  n =<font color="red"> Modelica.SIunits.Conversions.to_rpm</font>(J.w);
+  <font color="red">connect</font>(R.n, L.p);
+  <font color="red">connect</font>(L.n, emf.p);
+  <font color="red">connect</font>(emf.flange_b, J.flange_a);
+  <font color="red">connect</font>(R.p, Vs.p);
+  <font color="red">connect</font>(Vs.n, emf.n);
+  <font color="red">connect</font>(G.p, Vs.n);
+  <font color="red">connect</font>(J.flange_b, flange_b);
+  <font color="red">connect</font>(inPort,Vs.v);
+  <font color="red">connect</font>(Fixed.flange_b, Damper.flange_a);
+  <font color="red">connect</font>(Damper.flange_b, J.flange_a);
+<font color="blue">end </font>SimpleMotor;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TestAccumulator<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Test.WaterElements.TestAccumulator"></A><A HREF="ThermoPower_Test_WaterElements.html#ThermoPower.Test.WaterElements"
+>ThermoPower.Test.WaterElements</A>.TestAccumulator</H2>
+<B>Simple test for Water-Gas Accumulator component</B><p>
+<IMG SRC="ThermoPower.Test.WaterElements.TestAccumulatorD.png" ALT="ThermoPower.Test.WaterElements.TestAccumulator">
+<H3>Information</H3>
+<PRE></pre>
+<p>The model is designed to test the component  <tt>Accumulator</tt>.<br>
+Simulation sequence:
+<ul>
+    <li>t=500 s: The accumulator is charged for 20 s.
+    <li>t=2500 s, The accumulator is discharged for 20 s.
+    <li>t=8000 s, 10% increase of the inlet flowrate
+</ul>
+<p>
+Simulation Interval = [0...8000] sec <br>
+Integration Algorithm = DASSL <br>
+Algorithm Tolerance = 1e-6
+</p>
+<pre></PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TestAccumulator <font color="darkgreen">
+  &quot;Simple test for Water-Gas Accumulator component&quot;</font>
+  <font color="blue">package</font> Medium=<A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Media_Water_WaterIF97_ph.html#Modelica.Media.Water.WaterIF97_ph"
+>Modelica.Media.Water.WaterIF97_ph</A>;
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.Accumulator"
+>ThermoPower.Water.Accumulator</A> Accumulator1(
+    hl_start=1e5,
+    Tg_start=300,
+    Tgin=300,
+    Tg0=300,
+    pg0=5e5,
+    V=5,
+    Vl0=3,
+    zl0=2,
+    zl_start=0,
+    pg_start=7e5,
+    gamma_ex=100,
+    wg_out0=2e-2,
+    MM=29e-3,
+    A=1,
+  <font color="blue">redeclare </font><font color="blue">package</font> Medium = Modelica.Media.Water.StandardWater,
+    initOpt=ThermoPower.Choices.Init.Options.steadyState);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SourceW"
+>ThermoPower.Water.SourceW</A> SourceW1(w0=0);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SinkP"
+>ThermoPower.Water.SinkP</A> SinkP1(p0=1e5);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.PressDropLin"
+>ThermoPower.Water.PressDropLin</A> PressDropLin1(R=1e5);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Step"
+>Modelica.Blocks.Sources.Step</A> Step1(height=2e-2, startTime=500);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Math.html#Modelica.Blocks.Math.Add"
+>Modelica.Blocks.Math.Add</A> Add1;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Step"
+>Modelica.Blocks.Sources.Step</A> Step2(height=-2e-2, startTime=520);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Step"
+>Modelica.Blocks.Sources.Step</A> Step3(height=1, startTime=2500);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Math.html#Modelica.Blocks.Math.Add"
+>Modelica.Blocks.Math.Add</A> Add2;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Step"
+>Modelica.Blocks.Sources.Step</A> Step5(height=-1, startTime=2520);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Step"
+>Modelica.Blocks.Sources.Step</A> Step4(
+    height=0.5,
+    offset=5,
+    startTime=5000);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(Accumulator1.WaterOutfl, PressDropLin1.inlet);
+  <font color="red">connect</font>(PressDropLin1.outlet, SinkP1.flange);
+  <font color="red">connect</font>(SourceW1.flange, Accumulator1.WaterInfl);
+<font color="blue">initial </font><font color="blue">equation </font>
+<font color="darkgreen">/*
+  der(Accumulator1.rhog) = 0;
+  der(Accumulator1.Tg) = 0;
+  der(Accumulator1.hl) = 0;
+  Accumulator1.zl = 0;
+*/</font>
+<font color="blue">equation </font>
+  <font color="red">connect</font>(Add1.y, Accumulator1.GasInfl);
+  <font color="red">connect</font>(Add2.y, Accumulator1.OutletValveOpening);
+  <font color="red">connect</font>(Step4.y, SourceW1.in_w0);
+  <font color="red">connect</font>(Step5.y, Add2.u2);
+  <font color="red">connect</font>(Step3.y, Add2.u1);
+  <font color="red">connect</font>(Step1.y, Add1.u1);
+  <font color="red">connect</font>(Step2.y, Add1.u2);
+<font color="blue">end </font>TestAccumulator;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TestST1<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Test.WaterElements.TestST1"></A><A HREF="ThermoPower_Test_WaterElements.html#ThermoPower.Test.WaterElements"
+>ThermoPower.Test.WaterElements</A>.TestST1</H2>
+<IMG SRC="ThermoPower.Test.WaterElements.TestST1D.png" ALT="ThermoPower.Test.WaterElements.TestST1">
+<H3>Information</H3>
+<PRE></pre>
+<p>This model is designed to test the <tt>SteamTurbineUnit</tt> component when connected to an inertial load. Simulation sequence:
+<ul>
+    <li>t=0 s: The system starts at equilibrium
+    <li>t=1 s: The throttle valve opening is reduced.
+    <li>t=5 s: After 4 s the turbine speed has lost rad/s.
+</ul>
+<p>
+Simulation Interval = [0...5] sec <br>
+Integration Algorithm = DASSL <br>
+Algorithm Tolerance = 1e-4
+</p>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>MassFlowRate</A></TD><TD>w</TD><TD>1</TD><TD>[kg/s]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>pin</TD><TD>60e5</TD><TD>[Pa]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>pcond</TD><TD>0.08e5</TD><TD>[Pa]</TD></TR>
+<TR><TD><A HREF="ThermoPower.html#ThermoPower.PerUnit"
+>PerUnit</A></TD><TD>eta_iso</TD><TD>0.92</TD><TD>[pu]</TD></TR>
+<TR><TD><A HREF="ThermoPower.html#ThermoPower.PerUnit"
+>PerUnit</A></TD><TD>eta_mech</TD><TD>0.98</TD><TD>[pu]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
+>AngularVelocity</A></TD><TD>omega</TD><TD>314</TD><TD>[rad/s]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SpecificEnthalpy</A></TD><TD>hin</TD><TD>2.949e6</TD><TD>[J/kg]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SpecificEnthalpy</A></TD><TD>hout_iso</TD><TD>2.240e6</TD><TD>[J/kg]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SpecificEnthalpy</A></TD><TD>hout</TD><TD>hin - eta_iso*(hin - hout_iso)</TD><TD>[J/kg]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Power</A></TD><TD>Pnet</TD><TD>eta_iso*eta_mech*w*(hin - ho...</TD><TD>[W]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Torque"
+>Torque</A></TD><TD>tau</TD><TD>0.8*Pnet/omega</TD><TD>[N.m]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Time"
+>Time</A></TD><TD>Ta</TD><TD>10</TD><TD>Turbine acceleration time [s]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MomentOfInertia"
+>MomentOfInertia</A></TD><TD>J</TD><TD>Pnet*Ta/omega^2</TD><TD>[kg.m2]</TD></TR>
+<TR><TD><A HREF="ThermoPower.html#ThermoPower.HydraulicResistance"
+>HydraulicResistance</A></TD><TD>Kv</TD><TD>1/2e5</TD><TD>[Pa/(kg/s)]</TD></TR>
+<TR><TD><A HREF="ThermoPower.html#ThermoPower.PerUnit"
+>PerUnit</A></TD><TD>theta0</TD><TD>1</TD><TD>[pu]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TestST1
+  <font color="blue">package</font> Medium=Modelica.Media.Water.StandardWater;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>MassFlowRate</A> w=1;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A> pin=60e5;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A> pcond=0.08e5;
+  <font color="blue">parameter </font><A HREF="ThermoPower.html#ThermoPower.PerUnit"
+>PerUnit</A> eta_iso=0.92;
+  <font color="blue">parameter </font><A HREF="ThermoPower.html#ThermoPower.PerUnit"
+>PerUnit</A> eta_mech=0.98;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
+>AngularVelocity</A> omega=314;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SpecificEnthalpy</A> hin=2.949e6;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SpecificEnthalpy</A> hout_iso=2.240e6;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SpecificEnthalpy</A> hout=hin-eta_iso*(hin-hout_iso);
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Power</A> Pnet=eta_iso*eta_mech*w*(hin-hout_iso);
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Torque"
+>Torque</A> tau=0.8*Pnet/omega;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Time"
+>Time</A> Ta=10 <font color="darkgreen">&quot;Turbine acceleration time&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MomentOfInertia"
+>MomentOfInertia</A> J=Pnet*Ta/omega^2;
+  <font color="blue">parameter </font><A HREF="ThermoPower.html#ThermoPower.HydraulicResistance"
+>HydraulicResistance</A> Kv=1/2e5;
+  <font color="blue">parameter </font><A HREF="ThermoPower.html#ThermoPower.PerUnit"
+>PerUnit</A> theta0(fixed=false)=1;
+
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SteamTurbineUnit"
+>Water.SteamTurbineUnit</A> ST(
+    hpFraction=0.63,
+    T_HP=0.2,
+    T_LP=3.4,
+    hstartin=2.9e6,
+    hstartout=2.24e6,
+    pnom=pin,
+    wnom=w,
+    pstartin=pin,
+    eta_iso=eta_iso,
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium=Medium);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SourceP"
+>Water.SourceP</A> SourceP1(p0=pin, h=hin);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Inertia"
+>Modelica.Mechanics.Rotational.Inertia</A> Inertia1(J=J);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SinkP"
+>Water.SinkP</A> SinkP1(p0=pcond);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.ValveLin"
+>Water.ValveLin</A> ValveLin1(Kv=Kv);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Step"
+>Modelica.Blocks.Sources.Step</A> Step1(
+    height=-0.01,
+    offset=theta0,
+    startTime=1);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Torque"
+>Modelica.Mechanics.Rotational.Torque</A> Load;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> TorqueLoad(k=-tau);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SensT"
+>Water.SensT</A> SensT1(<font color="blue">redeclare </font><font color="blue">package</font> Medium=Medium);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(ST.shaft_b, Inertia1.flange_a);
+  <font color="red">connect</font>(ST.outlet, SinkP1.flange);
+  <font color="red">connect</font>(SourceP1.flange, ValveLin1.inlet);
+  <font color="red">connect</font>(Inertia1.flange_b, Load.flange_b);
+<font color="blue">initial </font><font color="blue">equation </font>
+  ST.phi=0;
+  ST.omega=omega;
+  <font color="red">der</font>(ST.omega)=0;
+  <font color="red">der</font>(ST.P_HP)=0;
+  <font color="red">der</font>(ST.P_LP)=0;
+<font color="blue">equation </font>
+  <font color="red">connect</font>(ValveLin1.outlet, SensT1.inlet);
+  <font color="red">connect</font>(SensT1.outlet, ST.inlet);
+  <font color="red">connect</font>(Step1.y, ValveLin1.cmd);
+  <font color="red">connect</font>(TorqueLoad.y, Load.tau);
+<font color="blue">end </font>TestST1;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TestST2<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Test.WaterElements.TestST2"></A><A HREF="ThermoPower_Test_WaterElements.html#ThermoPower.Test.WaterElements"
+>ThermoPower.Test.WaterElements</A>.TestST2</H2>
+<IMG SRC="ThermoPower.Test.WaterElements.TestST2D.png" ALT="ThermoPower.Test.WaterElements.TestST2">
+<H3>Information</H3>
+<PRE></pre>
+<p>This model is designed to test the <tt>SteamTurbineUnit</tt> component when connected to a fixed speed load. Simulation sequence:
+<ul>
+    <li>t=0 s: The system starts at equilibrium
+    <li>t=1 s: The throttle valve opening is reduced.
+    <li>t=10 s: After 9 s the torque applied to the load has been reduced by 6%.
+</ul>
+<p>
+Simulation Interval = [0...10] sec <br>
+Integration Algorithm = DASSL <br>
+Algorithm Tolerance = 1e-4
+</p>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>MassFlowRate</A></TD><TD>w</TD><TD>1</TD><TD>[kg/s]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>pin</TD><TD>60e5</TD><TD>[Pa]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>pcond</TD><TD>0.08e5</TD><TD>[Pa]</TD></TR>
+<TR><TD><A HREF="ThermoPower.html#ThermoPower.PerUnit"
+>PerUnit</A></TD><TD>eta_iso</TD><TD>0.92</TD><TD>[pu]</TD></TR>
+<TR><TD><A HREF="ThermoPower.html#ThermoPower.PerUnit"
+>PerUnit</A></TD><TD>eta_mech</TD><TD>0.98</TD><TD>[pu]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
+>AngularVelocity</A></TD><TD>omega</TD><TD>314</TD><TD>[rad/s]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SpecificEnthalpy</A></TD><TD>hin</TD><TD>2.949e6</TD><TD>[J/kg]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SpecificEnthalpy</A></TD><TD>hout_iso</TD><TD>2.240e6</TD><TD>[J/kg]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SpecificEnthalpy</A></TD><TD>hout</TD><TD>hin - eta_iso*(hin - hout_iso)</TD><TD>[J/kg]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Power</A></TD><TD>Pnet</TD><TD>eta_iso*eta_mech*w*(hin - ho...</TD><TD>[W]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Torque"
+>Torque</A></TD><TD>tau</TD><TD>0.8*Pnet/omega</TD><TD>[N.m]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Time"
+>Time</A></TD><TD>Ta</TD><TD>10</TD><TD>Turbine acceleration time [s]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MomentOfInertia"
+>MomentOfInertia</A></TD><TD>J</TD><TD>Pnet*Ta/omega^2</TD><TD>[kg.m2]</TD></TR>
+<TR><TD><A HREF="ThermoPower.html#ThermoPower.HydraulicResistance"
+>HydraulicResistance</A></TD><TD>Kv</TD><TD>1/2e5</TD><TD>[Pa/(kg/s)]</TD></TR>
+<TR><TD><A HREF="ThermoPower.html#ThermoPower.PerUnit"
+>PerUnit</A></TD><TD>theta0</TD><TD>0.3</TD><TD>[pu]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TestST2
+  <font color="blue">package</font> Medium=Modelica.Media.Water.StandardWater;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>MassFlowRate</A> w=1;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A> pin=60e5;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A> pcond=0.08e5;
+  <font color="blue">parameter </font><A HREF="ThermoPower.html#ThermoPower.PerUnit"
+>PerUnit</A> eta_iso=0.92;
+  <font color="blue">parameter </font><A HREF="ThermoPower.html#ThermoPower.PerUnit"
+>PerUnit</A> eta_mech=0.98;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
+>AngularVelocity</A> omega=314;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SpecificEnthalpy</A> hin=2.949e6;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SpecificEnthalpy</A> hout_iso=2.240e6;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SpecificEnthalpy</A> hout=hin-eta_iso*(hin-hout_iso);
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Power</A> Pnet=eta_iso*eta_mech*w*(hin-hout_iso);
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Torque"
+>Torque</A> tau=0.8*Pnet/omega;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Time"
+>Time</A> Ta=10 <font color="darkgreen">&quot;Turbine acceleration time&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MomentOfInertia"
+>MomentOfInertia</A> J=Pnet*Ta/omega^2;
+  <font color="blue">parameter </font><A HREF="ThermoPower.html#ThermoPower.HydraulicResistance"
+>HydraulicResistance</A> Kv=1/2e5;
+  <font color="blue">parameter </font><A HREF="ThermoPower.html#ThermoPower.PerUnit"
+>PerUnit</A> theta0=0.3;
+
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SteamTurbineUnit"
+>Water.SteamTurbineUnit</A> ST(
+    hpFraction=0.63,
+    T_HP=0.2,
+    T_LP=3.4,
+    hstartin=2.9e6,
+    hstartout=2.8e6,
+    pnom=pin,
+    wnom=w,
+    pstartin=pin,
+    eta_iso=eta_iso,
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium=Medium);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SourceP"
+>Water.SourceP</A> SourceP1(         p0=pin, h=hin);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Inertia"
+>Modelica.Mechanics.Rotational.Inertia</A> Inertia1(J=J);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SinkP"
+>Water.SinkP</A> SinkP1(p0=pcond);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.ValveLin"
+>Water.ValveLin</A> ValveLin1(Kv=Kv);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Step"
+>Modelica.Blocks.Sources.Step</A> Step1(
+    height=-0.1,
+    offset=theta0,
+    startTime=1);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Speed"
+>Modelica.Mechanics.Rotational.Speed</A> Speed1(exact=true);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> Constant1(k=omega);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(ST.shaft_b, Inertia1.flange_a);
+  <font color="red">connect</font>(ST.outlet, SinkP1.flange);
+  <font color="red">connect</font>(ValveLin1.outlet, ST.inlet);
+  <font color="red">connect</font>(SourceP1.flange, ValveLin1.inlet);
+<font color="blue">initial </font><font color="blue">equation </font>
+  ST.phi=0;
+  <font color="red">der</font>(ST.P_HP)=0;
+  <font color="red">der</font>(ST.P_LP)=0;
+<font color="blue">equation </font>
+  <font color="red">connect</font>(Speed1.flange_b, Inertia1.flange_b);
+  <font color="red">connect</font>(Step1.y, ValveLin1.cmd);
+  <font color="red">connect</font>(Constant1.y, Speed1.w_ref);
+<font color="blue">end </font>TestST2;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Tue Jul 07 01:25:57 2009.
+</address></BODY>
+</HTML>

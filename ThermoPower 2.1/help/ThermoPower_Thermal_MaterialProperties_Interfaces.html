@@ -1,0 +1,81 @@
+<HTML>
+<HEAD>
+<TITLE>ThermoPower.Thermal.MaterialProperties.Interfaces</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;This package provides interfaces for material property models&quot;">
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Interfaces<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Thermal.MaterialProperties.Interfaces"></A><A HREF="ThermoPower_Thermal_MaterialProperties.html#ThermoPower.Thermal.MaterialProperties"
+>ThermoPower.Thermal.MaterialProperties</A>.Interfaces</H2>
+<B>This package provides interfaces for material property models</B>
+<P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="ThermoPower_Thermal_MaterialProperties_Interfaces.html#ThermoPower.Thermal.MaterialProperties.Interfaces.PartialMaterial"
+>PartialMaterial</A>
+</TD><TD>Partial material properties (base model of all material models)</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PartialMaterial<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Thermal.MaterialProperties.Interfaces.PartialMaterial"></A><A HREF="ThermoPower_Thermal_MaterialProperties_Interfaces.html#ThermoPower.Thermal.MaterialProperties.Interfaces"
+>ThermoPower.Thermal.MaterialProperties.Interfaces</A>.PartialMaterial</H2>
+<B>Partial material properties (base model of all material models)</B><p>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>String</TD><TD>materialName</TD><TD>&nbsp;</TD><TD>Name of the material</TD></TR>
+<TR><TD>String</TD><TD>materialDescription</TD><TD>&nbsp;</TD><TD>Textual description of the material</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.PoissonNumber"
+>PoissonNumber</A></TD><TD>poissonRatio</TD><TD>&nbsp;</TD><TD>Poisson ration of material [1]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Density"
+>Density</A></TD><TD>density</TD><TD>&nbsp;</TD><TD>Density of material [kg/m3]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">partial </font><font color="blue">model</font> PartialMaterial <font color="darkgreen">
+  &quot;Partial material properties (base model of all material models)&quot;</font>
+
+  <font color="blue">import </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits"
+>Modelica.SIunits</A>.*;
+
+  <font color="darkgreen">// Constants to be set in Material</font>
+  <font color="blue">constant </font>String materialName <font color="darkgreen">&quot;Name of the material&quot;</font>;
+  <font color="blue">constant </font>String materialDescription <font color="darkgreen">&quot;Textual description of the material&quot;</font>;
+
+  <font color="blue">constant </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.PoissonNumber"
+>PoissonNumber</A> poissonRatio <font color="darkgreen">&quot;Poisson ration of material&quot;</font>;
+  <font color="blue">constant </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Density"
+>Density</A> density <font color="darkgreen">&quot;Density of material&quot;</font>;
+
+  <font color="darkgreen">// Material properties depending on the material state</font>
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.ModulusOfElasticity"
+>ModulusOfElasticity</A> youngModulus <font color="darkgreen">&quot;Young modulus of material&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Stress"
+>Stress</A> yieldStress <font color="darkgreen">&quot;Tensione di snervamento&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Stress"
+>Stress</A> ultimateStress <font color="darkgreen">&quot;Tensione di rottura&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.LinearExpansionCoefficient"
+>LinearExpansionCoefficient</A> linearExpansionCoefficient <font color="darkgreen">
+    &quot;Linear expansion coefficient of the material&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.SpecificHeatCapacity"
+>SpecificHeatCapacity</A> specificHeatCapacity <font color="darkgreen">
+    &quot;Specific heat capacity of material&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.ThermalConductivity"
+>ThermalConductivity</A> thermalConductivity <font color="darkgreen">
+    &quot;Thermal conductivity of the material&quot;</font>;
+
+  <font color="darkgreen">// Material thermodynamic state</font>
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A> T <font color="darkgreen">&quot;Material temperature&quot;</font>;
+<font color="blue">end </font>PartialMaterial;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Tue Jul 07 01:26:11 2009.
+</address></BODY>
+</HTML>

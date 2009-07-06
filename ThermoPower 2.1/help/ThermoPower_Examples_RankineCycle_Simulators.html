@@ -1,0 +1,136 @@
+<HTML>
+<HEAD>
+<TITLE>ThermoPower.Examples.RankineCycle.Simulators</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Simulation models for the Rankine cycle example&quot;">
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Simulators<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Examples.RankineCycle.Simulators"></A><A HREF="ThermoPower_Examples_RankineCycle.html#ThermoPower.Examples.RankineCycle"
+>ThermoPower.Examples.RankineCycle</A>.Simulators</H2>
+<B>Simulation models for the Rankine cycle example</B>
+<P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="ThermoPower_Examples_RankineCycle_Simulators.html#ThermoPower.Examples.RankineCycle.Simulators.OpenLoop"
+>OpenLoop</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_Examples_RankineCycle_Simulators.html#ThermoPower.Examples.RankineCycle.Simulators.ClosedLoop"
+>ClosedLoop</A>
+</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE OpenLoop<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Examples.RankineCycle.Simulators.OpenLoop"></A><A HREF="ThermoPower_Examples_RankineCycle_Simulators.html#ThermoPower.Examples.RankineCycle.Simulators"
+>ThermoPower.Examples.RankineCycle.Simulators</A>.OpenLoop</H2>
+<IMG SRC="ThermoPower.Examples.RankineCycle.Simulators.OpenLoopD.png" ALT="ThermoPower.Examples.RankineCycle.Simulators.OpenLoop">
+<H3>Information</H3>
+<PRE></pre>
+<p>This model allows to simulate the open loop transients.
+<pre></PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> OpenLoop
+  <font color="blue">package</font> FlueGas = <A HREF="ThermoPower_Media_FlueGas.html#ThermoPower.Media.FlueGas"
+>ThermoPower.Media.FlueGas</A> <font color="darkgreen">&quot;Flue gas model&quot;</font>;
+  <font color="blue">package</font> Water = ThermoPower.Water.StandardWater <font color="darkgreen">&quot;Fluid model&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> gasFlowRate(offset=500, height=0);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> gasTemperature(offset=750,
+    height=10,
+    duration=0,
+    startTime=2000);
+  <A HREF="ThermoPower_Examples_RankineCycle.html#ThermoPower.Examples.RankineCycle.Plant"
+>ThermoPower.Examples.RankineCycle.Plant</A> plant(
+                   SSInit=true,
+    <font color="blue">redeclare </font><font color="blue">package</font> FlueGas = FlueGas,
+    <font color="blue">redeclare </font><font color="blue">package</font> Water = Water,
+    evaporator(water(initOpt=ThermoPower.Choices.Init.Options.noInit)));
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> nPump(
+    offset=1500,
+    startTime=2000,
+    height=0,
+    duration=2);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(gasTemperature.y, plant.gasTemperature);
+  <font color="red">connect</font>(plant.gasFlowRate, gasFlowRate.y);
+  <font color="red">connect</font>(plant.nPump, nPump.y);
+<font color="blue">end </font>OpenLoop;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ClosedLoop<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Examples.RankineCycle.Simulators.ClosedLoop"></A><A HREF="ThermoPower_Examples_RankineCycle_Simulators.html#ThermoPower.Examples.RankineCycle.Simulators"
+>ThermoPower.Examples.RankineCycle.Simulators</A>.ClosedLoop</H2>
+<IMG SRC="ThermoPower.Examples.RankineCycle.Simulators.ClosedLoopD.png" ALT="ThermoPower.Examples.RankineCycle.Simulators.ClosedLoop">
+<H3>Information</H3>
+<PRE></pre>
+<p>This model simulates a simple continuous-time control system for the steam power plant.
+<p>The generated power and the evaporator void fraction are controlled to the set point by PI controllers with anti-windup.</p>
+<pre></PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> ClosedLoop
+  <font color="blue">package</font> FlueGas = <A HREF="ThermoPower_Media_FlueGas.html#ThermoPower.Media.FlueGas"
+>ThermoPower.Media.FlueGas</A> <font color="darkgreen">&quot;Flue gas model&quot;</font>;
+  <font color="blue">package</font> Water = ThermoPower.Water.StandardWater <font color="darkgreen">&quot;Fluid model&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> gasFlowRate(offset=500, height=0);
+  <A HREF="ThermoPower_Examples_RankineCycle.html#ThermoPower.Examples.RankineCycle.Plant"
+>ThermoPower.Examples.RankineCycle.Plant</A> plant(<font color="blue">redeclare </font><font color="blue">package</font> FlueGas =
+        FlueGas, <font color="blue">redeclare </font><font color="blue">package</font> Water = Water,
+    SSInit=true);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Step"
+>Modelica.Blocks.Sources.Step</A> voidFractionSetPoint(
+    offset=0.2,
+    height=0,
+    startTime=0);
+  <A HREF="ThermoPower_Examples_RankineCycle.html#ThermoPower.Examples.RankineCycle.PID"
+>PID</A> voidFractionController(
+    CSmin=500,
+    PVmin=0.1,
+    PVmax=0.9,
+    CSmax=2500,
+    Ti=1000,
+    Kp=-0.7,
+    PVstart=0.1,
+    CSstart=0.5,
+    steadyStateInit=true);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> powerSetPoint(
+    offset=56.8e6,
+    height=-56.8e6*0.35,
+    duration=450,
+    startTime=500);
+  <A HREF="ThermoPower_Examples_RankineCycle.html#ThermoPower.Examples.RankineCycle.PID"
+>PID</A> powerController(
+    PVmin=40e6,
+    PVmax=65e6,
+    CSmin=500,
+    CSmax=800,
+    Ti=15,
+    Kp=0.5,
+    CSstart=0.8,
+    steadyStateInit=true);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(plant.gasFlowRate, gasFlowRate.y);
+  <font color="red">connect</font>(voidFractionController.SP, voidFractionSetPoint.y);
+  <font color="red">connect</font>(voidFractionController.CS, plant.nPump);
+  <font color="red">connect</font>(voidFractionController.PV, plant.voidFraction);
+  <font color="red">connect</font>(powerSetPoint.y, powerController.SP);
+  <font color="red">connect</font>(powerController.PV, plant.generatedPower);
+  <font color="red">connect</font>(plant.gasTemperature, powerController.CS);
+<font color="blue">end </font>ClosedLoop;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Tue Jul 07 01:22:22 2009.
+</address></BODY>
+</HTML>

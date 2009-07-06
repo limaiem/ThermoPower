@@ -1,0 +1,304 @@
+<HTML>
+<HEAD>
+<TITLE>ThermoPower</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Open library for thermal power plant simulation&quot;">
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ThermoPower<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower"></A>ThermoPower</H2>
+<B>Open library for thermal power plant simulation</B>
+<P>
+<H3>Information</H3>
+<PRE></pre>
+<p><h2>General Information</h2></p>
+<p>The ThermoFluid library is an open Modelica library for the dynamic modeling of thermal power plants.
+<p>A general description of the library can be found in the papers:
+<ul><li>F. Casella, A. Leva, <a href="http://www.modelica.org/Conference2003/papers/h08_Leva.pdf">"Modelica open library for power plant simulation: design and experimental validation"</a>, <i>Proceedings of the 2003 Modelica Conference</i>, Link&ouml ping, Sweden, 2003.</li>
+<li>F. Casella, A. Leva, <a href="http://dx.doi.org/10.1080/13873950500071082">"Modelling of Thermo-Hydraulic Power Generation Processes Using Modelica"</a>. Mathematical and Computer Modeling of Dynamical Systems, vol. 12, n. 1, pp. 19-33, Feb. 2006.</li>
+
+</ul>
+<p>The papers are available from the <a href="mailto:francesco.casella@polimi.it">authors</a> upon request, or can be downloaded from the <a href="http://www.elet.polimi.it/upload/casella/thermopower/">library home page</a>.
+<p>The ThermoPower library uses the medium models provided by the Modelica.Media library, which is freely available from the <a href= "http://www.modelica.org/">Modelica Association</a> web site.
+
+<p><h2>Library home page</h2></p>
+<p>For additional information and library updates, consult the <a href="http://home.dei.polimi.it/casella/thermopower/">
+library home page</a>, and the <a href="http://sourceforge.net/projects/thermopower/"> ThermoPower project page </a> on SourceForge.net.
+<p>Contributions to the library are welcome: please contact the authors if you are interested.
+
+<p><h2>Release notes:</h2></p>
+<h3>Version 2.1 (<i>6 Jul 2009</i>)</h3>
+The 2.1 release of ThermoPower contains several additions and a few bug
+fixes with respect to version 2.0. We tried to keep the new version
+backwards-compatible with the old one, but there might be a few cases
+where small adaptations could be required.<br>
+<br>
+ThermoPower 2.1 requires the Modelica Standard Library version 2.2.1 or
+2.2.2. It has been tested with Dymola 6.1 (using MSL 2.2.1) and with
+Dymola 7.1 (using MSL 2.2.2). It is planned to be usable also with
+other tools, in particular OpenModelica, MathModelica and SimulationX,
+but this is not possible with the currently released versions of those
+tools. It is expected that this should become at least partially
+possible within the year 2009. <br>
+<br>
+ThermoPower 2.1 is the last major revision compatible with Modelica
+2.1 and the Modelica Standard Library 2.2.x. The next version is planned to use Modelica 3.1 and the Modelica Standard Library 3.1. It will use
+use stream connectors, which generalize the concept of Flange
+connectors, lifting the restrictions that only two complementary
+connectors can be bound.<br>
+<br>
+This is a list of the main changes with respect to v. 2.0<br>
+<ul>
+  <li>New PowerPlants package, containing a library of high-level
+reusable components for the modelling of combined-cycle power plants,
+including full models that can be simulated.</li>
+  <li>New examples cases in the Examples package.</li>
+  <li>New components in the Electrical package, to model the generator-grid connection by the swing equation</li>
+  <li>Three-way junctions (FlowJoin and FlowSplit) now have an option
+to describe unidirectional flow at each flange. This feature can
+substantially enhance numerical robustness and simulation performance
+in all cases when it is known a priori that no flow reversal will occur.</li>
+  <li>The Flow1D and Flow1D2ph models are now restricted to positive
+flow direction, since it was found that it is not possible to describe
+flow reversal consistently with the average-density approach adopted in
+this library. For full flow reversal support please use the Flow1Dfem
+model, which does not have any restriction in this respect.</li>
+  <li>A bug in Flow1D and Flow1D2ph has been corrected, which caused
+significant errors in the mass balance under dynamic conditions; this
+was potentially critical in closed-loop models, but has now been
+resolved.&nbsp;</li>
+  <li>The connectors for lumped- and distribute-parameters heat
+transfer with variable heat transfer coefficients have been split:
+HThtc and DHThtc now have an output qualifier on the h.t.c., while
+HThtc_in and DHThtc_in have an input qualifier. This was necessary to
+avoid incorrect connections, and is also required by tools to correctly
+checked if a model is balanced. This change should have no impact on
+most user-developed models.</li>
+</ul>
+<h3>Version 2.0 (<i>10 Jun 2005</i>)</h3>
+<ul>
+    <li>The new Modelica 2.2 standard library is used.
+    <li>The ThermoPower library is now based on the Modelica.Media standard library for fluid property calculations. All the component models use a Modelica.Media compliant interface to specify the medium model. Standard water and gas models from the Modelica.Media library can be used, as well as custom-built water and gas models, compliant with the Modelica.Media interfaces.
+    <li>Fully functional gas components are now available, including model for gas compressors and turbines, as well as compact gas turbine unit models.
+    <li>Steady-state initialisation support has been added to all dynamic models.
+<li>Some components are still under development, and could be changed in the final 2.0 release:
+<ul>
+<li>Moving boundary model for two-phase flow in once-through evaporators.
+<li>Stress models for headers and turbines.
+</ul>
+</ul>
+<h3>Version 1.2 (<i>18 Nov 2004</i>)</h3>
+<ul>
+    <li>Valve and pump models restructured using inheritance.
+    <li>Simple model of a steam turbine unit added (requires the  Modelica.Media library).
+    <li>CISE example restructured and moved to the <tt>Examples</tt> package.
+    <li>Preliminary version of gas components added in the <tt>Gas</tt> package.
+    <li>Finite element model of thermohydraulic two-phase flow added.
+    <li>Simplified models for the connection to the power system added in the <tt>Electrical</tt> package.
+</ul>
+
+<h3>Version 1.1 (<i>15 Feb 2004</i>)</h3>
+<ul>
+    <li>No default values for parameters whose values must be set explicitly by the user.
+    <li>Description of the meaning of the model variables added.
+    <li><tt>Pump</tt>, <tt>PumpMech</tt>, <tt>Accumulator</tt> models added.
+    <li>More rational geometric parameters for <tt>Flow1D*</tt> models.
+    <li><tt>Flow1D</tt> model corrected to avoid numerical problems when the phase transition boundaries cross the nodes.
+    <li><tt>Flow1D2phDB</tt> model updated.
+    <li><tt>Flow1D2phChen</tt> models with two-phase heat transfer added.
+</ul>
+<h3>Version 1.0 (<i>20 Oct 2003</i>)</h3>
+<ul>
+    <li>First release in the public domain</li>
+</ul>
+<h2>License agreement</h2></p>
+<p>The ThermoPower package is licensed by Politecnico di Milano under the  <a href="http://www.modelica.org/licenses/ModelicaLicense2"><b>Modelica License 2</b></a>.</p>
+<p><b>Copyright &copy; 2002-2009, Politecnico di Milano.</b></p>
+<pre></PRE><P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="ThermoPower.html#ThermoPower.HydraulicConductance"
+>HydraulicConductance</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower.html#ThermoPower.HydraulicResistance"
+>HydraulicResistance</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower.html#ThermoPower.PerUnit"
+>PerUnit</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower.html#ThermoPower.Density"
+>Density</A>
+</TD><TD>generic start value</TD></TR>
+<TR><TD><A HREF="ThermoPower.html#ThermoPower.LiquidDensity"
+>LiquidDensity</A>
+</TD><TD>start value for liquids</TD></TR>
+<TR><TD><A HREF="ThermoPower.html#ThermoPower.GasDensity"
+>GasDensity</A>
+</TD><TD>start value for gases/vapours</TD></TR>
+<TR><TD><A HREF="ThermoPower.html#ThermoPower.AbsoluteTemperature"
+>AbsoluteTemperature</A>
+</TD><TD>generic temperature</TD></TR>
+<TR><TD><A HREF="ThermoPower.html#ThermoPower.AbsolutePressure"
+>AbsolutePressure</A>
+</TD><TD>generic pressure</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.IconsS.png" ALT="ThermoPower.Icons" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Icons.html#ThermoPower.Icons"
+>Icons</A>
+</TD><TD>Icons for ThermoPower library</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.IconsS.png" ALT="ThermoPower.Functions" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Functions.html#ThermoPower.Functions"
+>Functions</A>
+</TD><TD>Miscellaneous functions</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.IconsS.png" ALT="ThermoPower.Electrical" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical"
+>Electrical</A>
+</TD><TD>Simplified models of electric power components</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.ChoicesS.png" ALT="ThermoPower.Choices" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Choices.html#ThermoPower.Choices"
+>Choices</A>
+</TD><TD>Choice enumerations for ThermoPower models</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.ExamplesS.png" ALT="ThermoPower.Examples" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Examples.html#ThermoPower.Examples"
+>Examples</A>
+</TD><TD>Application examples</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.ExamplesS.png" ALT="ThermoPower.Gas" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Gas.html#ThermoPower.Gas"
+>Gas</A>
+</TD><TD>Models of components with ideal gases as working fluid</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.MediaS.png" ALT="ThermoPower.Media" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Media.html#ThermoPower.Media"
+>Media</A>
+</TD><TD>Medium models for the ThermoPower library</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.MediaS.png" ALT="ThermoPower.PowerPlants" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_PowerPlants.html#ThermoPower.PowerPlants"
+>PowerPlants</A>
+</TD><TD>Models of thermoelectrical power plants components</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.TestS.png" ALT="ThermoPower.Test" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Test.html#ThermoPower.Test"
+>Test</A>
+</TD><TD>Test cases for the ThermoPower models</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.TestS.png" ALT="ThermoPower.Thermal" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal"
+>Thermal</A>
+</TD><TD>Thermal models of heat transfer</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.TestS.png" ALT="ThermoPower.Water" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Water.html#ThermoPower.Water"
+>Water</A>
+</TD><TD>Models of components with water/steam as working fluid</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE HydraulicConductance<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.HydraulicConductance"></A><A HREF="ThermoPower.html#ThermoPower"
+>ThermoPower</A>.HydraulicConductance</H2>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">type</font> HydraulicConductance = Real (<font color="blue">final </font>quantity=&quot;HydraulicConductance&quot;,
+      <font color="blue">final </font>unit=&quot;(kg/s)/Pa&quot;);
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE HydraulicResistance<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.HydraulicResistance"></A><A HREF="ThermoPower.html#ThermoPower"
+>ThermoPower</A>.HydraulicResistance</H2>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">type</font> HydraulicResistance = Real (<font color="blue">final </font>quantity=&quot;HydraulicResistance&quot;, <font color="blue">final </font>unit
+      =    &quot;Pa/(kg/s)&quot;);
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PerUnit<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.PerUnit"></A><A HREF="ThermoPower.html#ThermoPower"
+>ThermoPower</A>.PerUnit</H2>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">type</font> PerUnit = Real (
+                   <font color="blue">final </font>quantity=&quot;PerUnit&quot;,<font color="blue">final </font>unit=&quot;pu&quot;);
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Density<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Density"></A><A HREF="ThermoPower.html#ThermoPower"
+>ThermoPower</A>.Density</H2>
+<B>generic start value</B><p>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>start</TD><TD>40</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">type</font> Density = <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Density"
+>Modelica.SIunits.Density</A> (start=40) <font color="darkgreen">&quot;generic start value&quot;</font>;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE LiquidDensity<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.LiquidDensity"></A><A HREF="ThermoPower.html#ThermoPower"
+>ThermoPower</A>.LiquidDensity</H2>
+<B>start value for liquids</B><p>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>start</TD><TD>1000</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">type</font> LiquidDensity = <A HREF="ThermoPower.html#ThermoPower.Density"
+>Density</A> (start=1000) <font color="darkgreen">&quot;start value for liquids&quot;</font>;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE GasDensity<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.GasDensity"></A><A HREF="ThermoPower.html#ThermoPower"
+>ThermoPower</A>.GasDensity</H2>
+<B>start value for gases/vapours</B><p>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>start</TD><TD>5</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">type</font> GasDensity = <A HREF="ThermoPower.html#ThermoPower.Density"
+>Density</A> (start=5) <font color="darkgreen">&quot;start value for gases/vapours&quot;</font>;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE AbsoluteTemperature<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.AbsoluteTemperature"></A><A HREF="ThermoPower.html#ThermoPower"
+>ThermoPower</A>.AbsoluteTemperature</H2>
+<B>generic temperature</B><p>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>start</TD><TD>300</TD><TD>&nbsp;</TD></TR>
+<TR><TD>&nbsp;</TD><TD>nominal</TD><TD>500</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">type</font> AbsoluteTemperature = <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A> (start=300, nominal = 500) <font color="darkgreen">
+  &quot;generic temperature&quot;</font>;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE AbsolutePressure<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.AbsolutePressure"></A><A HREF="ThermoPower.html#ThermoPower"
+>ThermoPower</A>.AbsolutePressure</H2>
+<B>generic pressure</B><p>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>&nbsp;</TD><TD>start</TD><TD>1e5</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">type</font> AbsolutePressure = <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A> (start=1e5) <font color="darkgreen">&quot;generic pressure&quot;</font>;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Tue Jul 07 01:21:58 2009.
+</address></BODY>
+</HTML>

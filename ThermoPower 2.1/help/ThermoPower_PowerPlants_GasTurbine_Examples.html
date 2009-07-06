@@ -1,0 +1,155 @@
+<HTML>
+<HEAD>
+<TITLE>ThermoPower.PowerPlants.GasTurbine.Examples</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Example implementations&quot;">
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Examples<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.PowerPlants.GasTurbine.Examples"></A><A HREF="ThermoPower_PowerPlants_GasTurbine.html#ThermoPower.PowerPlants.GasTurbine"
+>ThermoPower.PowerPlants.GasTurbine</A>.Examples</H2>
+<B>Example implementations</B>
+<P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="ThermoPower.PowerPlants.GasTurbine.Interfaces.GasTurbineSimplifiedS.png" ALT="ThermoPower.PowerPlants.GasTurbine.Examples.GasTurbineSimplified" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_PowerPlants_GasTurbine_Examples.html#ThermoPower.PowerPlants.GasTurbine.Examples.GasTurbineSimplified"
+>GasTurbineSimplified</A>
+</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE GasTurbineSimplified<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.PowerPlants.GasTurbine.Examples.GasTurbineSimplifiedI.png" ALT="ThermoPower.PowerPlants.GasTurbine.Examples.GasTurbineSimplified" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.PowerPlants.GasTurbine.Examples.GasTurbineSimplified"></A><A HREF="ThermoPower_PowerPlants_GasTurbine_Examples.html#ThermoPower.PowerPlants.GasTurbine.Examples"
+>ThermoPower.PowerPlants.GasTurbine.Examples</A>.GasTurbineSimplified</H2>
+<IMG SRC="ThermoPower.PowerPlants.GasTurbine.Interfaces.GasTurbineSimplifiedD.png" ALT="ThermoPower.PowerPlants.GasTurbine.Examples.GasTurbineSimplified">
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD colspan="2">replaceable package FlueGasMedium</TD><TD><A HREF="ThermoPower_Media_FlueGas.html#ThermoPower.Media.FlueGas"
+>FlueGas</A></TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Power</A></TD><TD>maxPower</TD><TD>235e6</TD><TD>[W]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>MassFlowRate</A></TD><TD>flueGasNomFlowRate</TD><TD>614</TD><TD>Nominal flue gas flow rate [kg/s]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>MassFlowRate</A></TD><TD>flueGasMinFlowRate</TD><TD>454</TD><TD>Minimum flue gas flow rate [kg/s]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>MassFlowRate</A></TD><TD>flueGasOffFlowRate</TD><TD>flueGasMinFlowRate/100</TD><TD>Flue gas flow rate with GT switched off [kg/s]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>MassFlowRate</A></TD><TD>fuelNomFlowRate</TD><TD>12.1</TD><TD>Nominal fuel flow rate [kg/s]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>MassFlowRate</A></TD><TD>fuelIntFlowRate</TD><TD>7.08</TD><TD>Intermediate fuel flow rate [kg/s]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>MassFlowRate</A></TD><TD>fuelMinFlowRate</TD><TD>4.58</TD><TD>Minimum fuel flow rate [kg/s]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>MassFlowRate</A></TD><TD>fuelOffFlowRate</TD><TD>0.1</TD><TD>Flue gas flow rate with GT switched off [kg/s]</TD></TR>
+<TR><TD>Real</TD><TD>constTempLoad</TD><TD>0.60</TD><TD>Fraction of load from which the temperature is kept constant</TD></TR>
+<TR><TD>Real</TD><TD>intLoad</TD><TD>0.42</TD><TD>Intermediate load for fuel consumption computations</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>flueGasNomTemp</TD><TD>843</TD><TD>Maximum flue gas temperature [K]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>flueGasMinTemp</TD><TD>548</TD><TD>Minimum flue gas temperature (zero electrical load) [K]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>flueGasOffTemp</TD><TD>363.15</TD><TD>Flue gas temperature with GT switched off [K]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SpecificEnthalpy</A></TD><TD>fuel_LHV</TD><TD>49e6</TD><TD>Fuel Lower Heating Value [J/kg]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SpecificEnthalpy</A></TD><TD>fuel_HHV</TD><TD>55e6</TD><TD>Fuel Higher Heating Value [J/kg]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="ThermoPower_Gas.html#ThermoPower.Gas.FlangeB"
+>FlangeB</A></TD><TD>flueGasOut</TD><TD>&nbsp;</TD></TR>
+<TR><TD>input <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>GTLoad</TD><TD>GT unit load in p.u.</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> GasTurbineSimplified
+  <font color="blue">extends </font><A HREF="ThermoPower_PowerPlants_GasTurbine_Interfaces.html#ThermoPower.PowerPlants.GasTurbine.Interfaces.GasTurbineSimplified"
+>ThermoPower.PowerPlants.GasTurbine.Interfaces.GasTurbineSimplified</A>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Modelica.SIunits.Power</A> maxPower=235e6;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>Modelica.SIunits.MassFlowRate</A> flueGasNomFlowRate=614 <font color="darkgreen">
+    &quot;Nominal flue gas flow rate&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>Modelica.SIunits.MassFlowRate</A> flueGasMinFlowRate=454 <font color="darkgreen">
+    &quot;Minimum flue gas flow rate&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>Modelica.SIunits.MassFlowRate</A> flueGasOffFlowRate=
+      flueGasMinFlowRate/100 <font color="darkgreen">&quot;Flue gas flow rate with GT switched off&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>Modelica.SIunits.MassFlowRate</A> fuelNomFlowRate=12.1 <font color="darkgreen">
+    &quot;Nominal fuel flow rate&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>Modelica.SIunits.MassFlowRate</A> fuelIntFlowRate=7.08 <font color="darkgreen">
+    &quot;Intermediate fuel flow rate&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>Modelica.SIunits.MassFlowRate</A> fuelMinFlowRate=4.58 <font color="darkgreen">
+    &quot;Minimum fuel flow rate&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>Modelica.SIunits.MassFlowRate</A> fuelOffFlowRate=0.1 <font color="darkgreen">
+    &quot;Flue gas flow rate with GT switched off&quot;</font>;
+  <font color="blue">parameter </font>Real constTempLoad = 0.60 <font color="darkgreen">
+    &quot;Fraction of load from which the temperature is kept constant&quot;</font>;
+  <font color="blue">parameter </font>Real intLoad = 0.42 <font color="darkgreen">
+    &quot;Intermediate load for fuel consumption computations&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Modelica.SIunits.Temperature</A> flueGasNomTemp=843 <font color="darkgreen">
+    &quot;Maximum flue gas temperature&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Modelica.SIunits.Temperature</A> flueGasMinTemp=548 <font color="darkgreen">
+    &quot;Minimum flue gas temperature (zero electrical load)&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Modelica.SIunits.Temperature</A> flueGasOffTemp=363.15 <font color="darkgreen">
+    &quot;Flue gas temperature with GT switched off&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>Modelica.SIunits.SpecificEnthalpy</A> fuel_LHV=49e6 <font color="darkgreen">
+    &quot;Fuel Lower Heating Value&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>Modelica.SIunits.SpecificEnthalpy</A> fuel_HHV=55e6 <font color="darkgreen">
+    &quot;Fuel Higher Heating Value&quot;</font>;
+  FlueGasMedium.BaseProperties gas;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>Modelica.SIunits.MassFlowRate</A> w;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Modelica.SIunits.Power</A> P_el=<font color="red">noEvent</font>(<font color="blue">if </font>GTLoad &gt; 0<font color="blue"> then </font>GTLoad*maxPower<font color="blue"> else </font>
+            0) <font color="darkgreen">&quot;Electrical power output&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>Modelica.SIunits.MassFlowRate</A> fuelFlowRate <font color="darkgreen">&quot;Fuel flow rate&quot;</font>;
+<font color="blue">equation </font>
+  gas.p = flueGasOut.p;
+  gas.Xi = FlueGasMedium.reference_X[1:FlueGasMedium.nXi];
+  gas.T =<font color="red"> noEvent</font>(
+    <font color="blue">if </font>GTLoad &gt; constTempLoad<font color="blue"> then </font>flueGasNomTemp<font color="blue"> else </font>
+    <font color="blue">if </font>GTLoad &gt; 0<font color="blue"> then </font>flueGasMinTemp +
+      GTLoad/constTempLoad*(flueGasNomTemp-flueGasMinTemp)<font color="blue"> else </font>
+    flueGasMinTemp * (1+GTLoad) - flueGasOffTemp * GTLoad);
+  w =<font color="red"> noEvent</font>(
+    <font color="blue">if </font>GTLoad &gt; constTempLoad<font color="blue"> then </font>flueGasMinFlowRate + (GTLoad-constTempLoad)/
+      (1-constTempLoad)*(flueGasNomFlowRate-flueGasMinFlowRate)<font color="blue"> else </font>
+    <font color="blue">if </font>GTLoad &gt; 0<font color="blue"> then </font>flueGasMinFlowRate<font color="blue"> else </font>
+    flueGasMinFlowRate * (1+GTLoad) - flueGasOffFlowRate * GTLoad);
+  fuelFlowRate =<font color="red"> noEvent</font>(
+    <font color="blue">if </font>GTLoad &gt; intLoad<font color="blue"> then </font>fuelIntFlowRate + (GTLoad-intLoad)/
+      (1-intLoad)*(fuelNomFlowRate-fuelIntFlowRate)<font color="blue"> else </font>
+    <font color="blue">if </font>GTLoad &gt; 0<font color="blue"> then </font>fuelMinFlowRate + GTLoad/intLoad *
+      (fuelIntFlowRate-fuelMinFlowRate)<font color="blue"> else </font>
+    fuelMinFlowRate * (1+GTLoad) - fuelOffFlowRate * GTLoad);
+
+  flueGasOut.w = -w;
+  flueGasOut.hBA = gas.h;
+  flueGasOut.XBA = gas.Xi;
+<font color="blue">end </font>GasTurbineSimplified;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Tue Jul 07 01:22:27 2009.
+</address></BODY>
+</HTML>

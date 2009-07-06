@@ -1,0 +1,358 @@
+<HTML>
+<HEAD>
+<TITLE>ThermoPower.Functions</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Miscellaneous functions&quot;">
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Functions<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Functions"></A><A HREF="ThermoPower.html#ThermoPower"
+>ThermoPower</A>.Functions</H2>
+<B>Miscellaneous functions</B>
+<P>
+<H3>Information</H3>
+<PRE></pre>
+This package contains general-purpose functions and models
+<pre></PRE><P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="ThermoPower.Functions.linearS.png" ALT="ThermoPower.Functions.linear" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Functions.html#ThermoPower.Functions.linear"
+>linear</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Functions.linearS.png" ALT="ThermoPower.Functions.linear_der" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Functions.html#ThermoPower.Functions.linear_der"
+>linear_der</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Functions.linearS.png" ALT="ThermoPower.Functions.one" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Functions.html#ThermoPower.Functions.one"
+>one</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Functions.linearS.png" ALT="ThermoPower.Functions.one_der" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Functions.html#ThermoPower.Functions.one_der"
+>one_der</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Functions.linearS.png" ALT="ThermoPower.Functions.sqrtReg" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Functions.html#ThermoPower.Functions.sqrtReg"
+>sqrtReg</A>
+</TD><TD>Symmetric square root approximation with finite derivative in zero</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Functions.linearS.png" ALT="ThermoPower.Functions.sqrtReg_der" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Functions.html#ThermoPower.Functions.sqrtReg_der"
+>sqrtReg_der</A>
+</TD><TD>Derivative of sqrtReg</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Functions.OffsetControllerS.png" ALT="ThermoPower.Functions.OffsetController" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Functions.html#ThermoPower.Functions.OffsetController"
+>OffsetController</A>
+</TD><TD>Offset computation for steady-state conditions</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Functions.PumpCharacteristicsS.png" ALT="ThermoPower.Functions.PumpCharacteristics" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Functions_PumpCharacteristics.html#ThermoPower.Functions.PumpCharacteristics"
+>PumpCharacteristics</A>
+</TD><TD>Functions for pump characteristics</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Functions.PumpCharacteristicsS.png" ALT="ThermoPower.Functions.ValveCharacteristics" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Functions_ValveCharacteristics.html#ThermoPower.Functions.ValveCharacteristics"
+>ValveCharacteristics</A>
+</TD><TD>Functions for valve characteristics</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Functions.PumpCharacteristicsS.png" ALT="ThermoPower.Functions.FanCharacteristics" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Functions_FanCharacteristics.html#ThermoPower.Functions.FanCharacteristics"
+>FanCharacteristics</A>
+</TD><TD>Functions for fan characteristics</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE linear<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Functions.linearI.png" ALT="ThermoPower.Functions.linear" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Functions.linear"></A><A HREF="ThermoPower_Functions.html#ThermoPower.Functions"
+>ThermoPower.Functions</A>.linear</H2>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>x</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>y</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> linear
+  annotation(derivative=<A HREF="ThermoPower_Functions.html#ThermoPower.Functions.linear_der"
+>Functions.linear_der</A>);
+  <font color="blue">extends </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font>Real x;
+  <font color="blue">output </font>Real y;
+<font color="blue">algorithm </font>
+  y := x;
+<font color="blue">end </font>linear;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE linear_der<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Functions.linearI.png" ALT="ThermoPower.Functions.linear_der" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Functions.linear_der"></A><A HREF="ThermoPower_Functions.html#ThermoPower.Functions"
+>ThermoPower.Functions</A>.linear_der</H2>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>x</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Real</TD><TD>der_x</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>der_y</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> linear_der
+  <font color="blue">extends </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font>Real x;
+  <font color="blue">input </font>Real der_x;
+  <font color="blue">output </font>Real der_y;
+<font color="blue">algorithm </font>
+  der_y := der_x;
+<font color="blue">end </font>linear_der;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE one<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Functions.linearI.png" ALT="ThermoPower.Functions.one" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Functions.one"></A><A HREF="ThermoPower_Functions.html#ThermoPower.Functions"
+>ThermoPower.Functions</A>.one</H2>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>x</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>y</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> one
+  annotation(derivative=<A HREF="ThermoPower_Functions.html#ThermoPower.Functions.one_der"
+>Functions.one_der</A>);
+  <font color="blue">extends </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font>Real x;
+  <font color="blue">output </font>Real y;
+<font color="blue">algorithm </font>
+  y := 1;
+<font color="blue">end </font>one;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE one_der<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Functions.linearI.png" ALT="ThermoPower.Functions.one_der" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Functions.one_der"></A><A HREF="ThermoPower_Functions.html#ThermoPower.Functions"
+>ThermoPower.Functions</A>.one_der</H2>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>x</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Real</TD><TD>der_x</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>der_y</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> one_der
+  <font color="blue">extends </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font>Real x;
+  <font color="blue">input </font>Real der_x;
+  <font color="blue">output </font>Real der_y;
+<font color="blue">algorithm </font>
+  der_y := 0;
+<font color="blue">end </font>one_der;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE sqrtReg<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Functions.linearI.png" ALT="ThermoPower.Functions.sqrtReg" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Functions.sqrtReg"></A><A HREF="ThermoPower_Functions.html#ThermoPower.Functions"
+>ThermoPower.Functions</A>.sqrtReg</H2>
+<B>Symmetric square root approximation with finite derivative in zero</B><p>
+<H3>Information</H3>
+<PRE></pre>
+This function approximates sqrt(x)*sign(x), such that the derivative is finite and smooth in x=0.
+</p>
+<p>
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th>Function</th><th>Approximation</th><th>Range</th></tr>
+<tr><td>y = sqrtReg(x)</td><td>y ~= sqrt(abs(x))*sign(x)</td><td>abs(x) &gt;&gt delta</td></tr>
+<tr><td>y = sqrtReg(x)</td><td>y ~= x/sqrt(delta)</td><td>abs(x) &lt;&lt  delta</td></tr>
+</table>
+<p>
+With the default value of delta=0.01, the difference between sqrt(x) and sqrtReg(x) is 16% around x=0.1, 0.25% around x=0.1 and 0.0025% around x=1.
+</p>
+<pre></PRE>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>x</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Real</TD><TD>delta</TD><TD>0.01</TD><TD>Range of significant deviation from sqrt(x)</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>y</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> sqrtReg <font color="darkgreen">
+  &quot;Symmetric square root approximation with finite derivative in zero&quot;</font>
+  annotation(derivative=<A HREF="ThermoPower_Functions.html#ThermoPower.Functions.sqrtReg_der"
+>Functions.sqrtReg_der</A>);
+  <font color="blue">extends </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font>Real x;
+  <font color="blue">input </font>Real delta=0.01 <font color="darkgreen">&quot;Range of significant deviation from sqrt(x)&quot;</font>;
+  <font color="blue">output </font>Real y;
+<font color="blue">algorithm </font>
+  y := x/<font color="red">sqrt</font>(<font color="red">sqrt</font>(x*x+delta*delta));
+
+<font color="blue">end </font>sqrtReg;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE sqrtReg_der<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Functions.linearI.png" ALT="ThermoPower.Functions.sqrtReg_der" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Functions.sqrtReg_der"></A><A HREF="ThermoPower_Functions.html#ThermoPower.Functions"
+>ThermoPower.Functions</A>.sqrtReg_der</H2>
+<B>Derivative of sqrtReg</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<pre></PRE>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>x</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Real</TD><TD>delta</TD><TD>0.01</TD><TD>Range of significant deviation from sqrt(x)</TD></TR>
+<TR><TD>Real</TD><TD>dx</TD><TD>&nbsp;</TD><TD>Derivative of x</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>dy</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> sqrtReg_der <font color="darkgreen">&quot;Derivative of sqrtReg&quot;</font>
+  <font color="blue">extends </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font>Real x;
+  <font color="blue">input </font>Real delta=0.01 <font color="darkgreen">&quot;Range of significant deviation from sqrt(x)&quot;</font>;
+  <font color="blue">input </font>Real dx <font color="darkgreen">&quot;Derivative of x&quot;</font>;
+  <font color="blue">output </font>Real dy;
+<font color="blue">algorithm </font>
+  dy := dx*0.5*(x*x+2*delta*delta)/((x*x+delta*delta)^1.25);
+<font color="blue">end </font>sqrtReg_der;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE OffsetController<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Functions.OffsetControllerI.png" ALT="ThermoPower.Functions.OffsetController" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Functions.OffsetController"></A><A HREF="ThermoPower_Functions.html#ThermoPower.Functions"
+>ThermoPower.Functions</A>.OffsetController</H2>
+<B>Offset computation for steady-state conditions</B><p>
+<IMG SRC="ThermoPower.Functions.OffsetControllerD.png" ALT="ThermoPower.Functions.OffsetController">
+<H3>Information</H3>
+<PRE></pre>
+<p>This model is useful to compute the steady state value of a control variable corresponding to some specified setpoint of an output variable, and to reuse it later to perform simulations starting from this steady state condition.
+<p>The block has two different behaviours, depending on the value of the <tt>steadyState</tt> parameter.
+<p>When <tt>steadyState = 1</tt>, the <tt>deltaCO</tt> input is ignored, and the block acts as a standard PI controller with transfer function Kp*(1+1/sTi) to bring the process variable connected to the <tt>PV</tt> input at the setpoint value, by acting on the control variable connected to the <tt>CO</tt> output. The setpoint value is <tt>SP0</tt> at time zero, and may change by <tt>deltaSP</tt> from <tt>Tstart</tt> to <tt>Tend</tt>; this can be useful to bring the process far away from the tentative start values of the transient without any inconvenience. The control variable can be biased by <tt>biasCO</tt> to start near the expected steady state value of <tt>CO</tt>.
+<p>When <tt>steadyState = 0</tt>, the <tt>PV</tt> input is ignored, and the <tt>CO</tt> output is simply the sum of the <tt>deltaCO</tt> input and of the freezed steady-state output of the controller.
+<p>To perform a steady state computation:
+<ol>
+<li>Set <tt>steadyState = 1</tt> and suitably tune <tt>Kp</tt>, <tt>Ti</tt> and <tt>biasCO</tt>
+<li>Simulate a transient until the desired steady state is achieved.
+<li>Set <tt>steadyState = 0</tt> and continue the simulation for 0 s
+<li>Save the final state of the simulation, which contains the initial steady-state values of all the variables for subsequent transient simulations
+</ol>
+<p>To perform experiments starting from a steady state:
+<ol>
+<li>Load a previously saved steady state, to be used as initial state
+<li>Perform the simulation of the desired transient. The <tt>offsetCO</tt> input value will be automatically added to the previously computed steady state value.
+</ol>
+<p><b>Revision history:</b></p>
+<ul>
+<li><i>15 Feb 2004</i>
+    by <a href="mailto:francesco.casella@polimi.it">Francesco Casella</a>:<br>
+       First release.</li>
+</ul>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>steadyStateGain</TD><TD>0.0</TD><TD>0.0: Adds offset to input - 1.0: Closed loop action to find steady state</TD></TR>
+<TR><TD>Real</TD><TD>SP0</TD><TD>&nbsp;</TD><TD>Initial setpoint for the controlled variable</TD></TR>
+<TR><TD>Real</TD><TD>deltaSP</TD><TD>0</TD><TD>Variation of the setpoint for the controlled variable</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Time"
+>Time</A></TD><TD>Tstart</TD><TD>0</TD><TD>Start time of the setpoint ramp change [s]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Time"
+>Time</A></TD><TD>Tend</TD><TD>0</TD><TD>End time of the setpoint ramp change [s]</TD></TR>
+<TR><TD>Real</TD><TD>Kp</TD><TD>&nbsp;</TD><TD>Proportional gain</TD></TR>
+<TR><TD>Real</TD><TD>Ti</TD><TD>&nbsp;</TD><TD>Integral time constant</TD></TR>
+<TR><TD>Real</TD><TD>biasCO</TD><TD>&nbsp;</TD><TD>Bias value of the control variable when computing the steady state</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>input <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>deltaCO</TD><TD>&nbsp;</TD></TR>
+<TR><TD>input <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>PV</TD><TD>&nbsp;</TD></TR>
+<TR><TD>output <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>RealOutput</A></TD><TD>CO</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">block</font> OffsetController <font color="darkgreen">
+  &quot;Offset computation for steady-state conditions&quot;</font>
+  <font color="blue">extends </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BlockIcon"
+>Modelica.Blocks.Interfaces.BlockIcon</A>;
+  <font color="blue">parameter </font>Real steadyStateGain=0.0 <font color="darkgreen">
+    &quot;0.0: Adds offset to input - 1.0: Closed loop action to find steady state&quot;</font>;
+  <font color="blue">parameter </font>Real SP0 <font color="darkgreen">&quot;Initial setpoint for the controlled variable&quot;</font>;
+  <font color="blue">parameter </font>Real deltaSP=0 <font color="darkgreen">
+    &quot;Variation of the setpoint for the controlled variable&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Time"
+>Time</A> Tstart=0 <font color="darkgreen">&quot;Start time of the setpoint ramp change&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Time"
+>Time</A> Tend=0 <font color="darkgreen">&quot;End time of the setpoint ramp change&quot;</font>;
+  <font color="blue">parameter </font>Real Kp <font color="darkgreen">&quot;Proportional gain&quot;</font>;
+  <font color="blue">parameter </font>Real Ti <font color="darkgreen">&quot;Integral time constant&quot;</font>;
+  <font color="blue">parameter </font>Real biasCO <font color="darkgreen">
+    &quot;Bias value of the control variable when computing the steady state&quot;</font>;
+<font color="blue">protected </font>
+  Real SP;
+  Real error;
+  Real integralError;
+<font color="blue">public </font>
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> deltaCO;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> PV;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> CO;
+<font color="blue">equation </font>
+  SP = <font color="blue">if </font>time &lt;= Tstart<font color="blue"> then </font>SP0<font color="blue"> else </font><font color="blue">if </font>time &gt;= Tend<font color="blue"> then </font>SP0 + deltaSP<font color="blue"> else </font>
+          SP0 + (time - Tstart)/(Tend - Tstart)*deltaSP;
+  error = (SP -PV)           *steadyStateGain;
+  <font color="red">der</font>(integralError) = error;
+  CO           = Kp*(error + integralError/Ti) + biasCO + (1.0 -
+    steadyStateGain)*deltaCO;
+<font color="blue">end </font>OffsetController;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Tue Jul 07 01:21:58 2009.
+</address></BODY>
+</HTML>

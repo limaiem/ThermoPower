@@ -1,0 +1,228 @@
+<HTML>
+<HEAD>
+<TITLE>ThermoPower.PowerPlants.HRSG.Control</TITLE>
+<META name="HTML-Generator" content="Dymola">
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Control<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.PowerPlants.HRSG.Control"></A><A HREF="ThermoPower_PowerPlants_HRSG.html#ThermoPower.PowerPlants.HRSG"
+>ThermoPower.PowerPlants.HRSG</A>.Control</H2>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="ThermoPower.PowerPlants.HRSG.Control.InterfacesControlS.png" ALT="ThermoPower.PowerPlants.HRSG.Control.InterfacesControl" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_PowerPlants_HRSG_Control.html#ThermoPower.PowerPlants.HRSG.Control.InterfacesControl"
+>InterfacesControl</A>
+</TD><TD>Base of class for control</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.PowerPlants.HRSG.Control.InterfacesControlS.png" ALT="ThermoPower.PowerPlants.HRSG.Control.levelsControl" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_PowerPlants_HRSG_Control.html#ThermoPower.PowerPlants.HRSG.Control.levelsControl"
+>levelsControl</A>
+</TD><TD>PID controllers for levels control</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE InterfacesControl<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.PowerPlants.HRSG.Control.InterfacesControlI.png" ALT="ThermoPower.PowerPlants.HRSG.Control.InterfacesControl" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.PowerPlants.HRSG.Control.InterfacesControl"></A><A HREF="ThermoPower_PowerPlants_HRSG_Control.html#ThermoPower.PowerPlants.HRSG.Control"
+>ThermoPower.PowerPlants.HRSG.Control</A>.InterfacesControl</H2>
+<B>Base of class for control</B><p>
+<IMG SRC="ThermoPower.PowerPlants.HRSG.Control.InterfacesControlD.png" ALT="ThermoPower.PowerPlants.HRSG.Control.InterfacesControl">
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="ThermoPower_PowerPlants_Buses.html#ThermoPower.PowerPlants.Buses.Sensors"
+>Sensors</A></TD><TD>SensorsBus</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_PowerPlants_Buses.html#ThermoPower.PowerPlants.Buses.Actuators"
+>Actuators</A></TD><TD>ActuatorsBus</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">partial </font><font color="blue">model</font> InterfacesControl <font color="darkgreen">&quot;Base of class for control&quot;</font>
+  <A HREF="ThermoPower_PowerPlants_Buses.html#ThermoPower.PowerPlants.Buses.Sensors"
+>Buses.Sensors</A> SensorsBus;
+  <A HREF="ThermoPower_PowerPlants_Buses.html#ThermoPower.PowerPlants.Buses.Actuators"
+>Buses.Actuators</A> ActuatorsBus;
+<font color="blue">end </font>InterfacesControl;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE levelsControl<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.PowerPlants.HRSG.Control.InterfacesControlI.png" ALT="ThermoPower.PowerPlants.HRSG.Control.levelsControl" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.PowerPlants.HRSG.Control.levelsControl"></A><A HREF="ThermoPower_PowerPlants_HRSG_Control.html#ThermoPower.PowerPlants.HRSG.Control"
+>ThermoPower.PowerPlants.HRSG.Control</A>.levelsControl</H2>
+<B>PID controllers for levels control</B><p>
+<IMG SRC="ThermoPower.PowerPlants.HRSG.Control.levelsControlD.png" ALT="ThermoPower.PowerPlants.HRSG.Control.levelsControl">
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>setPoint_levelHP</TD><TD>0</TD><TD>Set point level of HP drum [m]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>setPoint_levelIP</TD><TD>0</TD><TD>Set point level of IP drum [m]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>setPoint_levelLP</TD><TD>0</TD><TD>Set point level of LP drum [m]</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>PID - level HP</B></TD></TR>
+<TR><TD>Real</TD><TD>Kp_levelHP</TD><TD>3</TD><TD>Proportional gain (normalised units)</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Time"
+>Time</A></TD><TD>Ti_levelHP</TD><TD>400</TD><TD>Integral time [s]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Time"
+>Time</A></TD><TD>Td_levelHP</TD><TD>0</TD><TD>Derivative time [s]</TD></TR>
+<TR><TD>Real</TD><TD>PVmin_levelHP</TD><TD>-1</TD><TD>Minimum value of process variable for scaling</TD></TR>
+<TR><TD>Real</TD><TD>PVmax_levelHP</TD><TD>1</TD><TD>Maximum value of process variable for scaling</TD></TR>
+<TR><TD>Real</TD><TD>CSmin_levelHP</TD><TD>30</TD><TD>Minimum value of control signal for scaling</TD></TR>
+<TR><TD>Real</TD><TD>CSmax_levelHP</TD><TD>100</TD><TD>Maximum value of control signal for scaling</TD></TR>
+<TR><TD>Real</TD><TD>PVstart_levelHP</TD><TD>0.5</TD><TD>Start value of PV (scaled)</TD></TR>
+<TR><TD>Real</TD><TD>CSstart_levelHP</TD><TD>0.5</TD><TD>Start value of CS (scaled)</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>PID - level IP</B></TD></TR>
+<TR><TD>Real</TD><TD>Kp_levelIP</TD><TD>3</TD><TD>Proportional gain (normalised units)</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Time"
+>Time</A></TD><TD>Ti_levelIP</TD><TD>600</TD><TD>Integral time [s]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Time"
+>Time</A></TD><TD>Td_levelIP</TD><TD>0</TD><TD>Derivative time [s]</TD></TR>
+<TR><TD>Real</TD><TD>PVmin_levelIP</TD><TD>-1</TD><TD>Minimum value of process variable for scaling</TD></TR>
+<TR><TD>Real</TD><TD>PVmax_levelIP</TD><TD>1</TD><TD>Maximum value of process variable for scaling</TD></TR>
+<TR><TD>Real</TD><TD>CSmin_levelIP</TD><TD>8</TD><TD>Minimum value of control signal for scaling</TD></TR>
+<TR><TD>Real</TD><TD>CSmax_levelIP</TD><TD>20</TD><TD>Maximum value of control signal for scaling</TD></TR>
+<TR><TD>Real</TD><TD>PVstart_levelIP</TD><TD>0.5</TD><TD>Start value of PV (scaled)</TD></TR>
+<TR><TD>Real</TD><TD>CSstart_levelIP</TD><TD>0.5</TD><TD>Start value of CS (scaled)</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>PID - level LP</B></TD></TR>
+<TR><TD>Real</TD><TD>Kp_levelLP</TD><TD>3</TD><TD>Proportional gain (normalised units)</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Time"
+>Time</A></TD><TD>Ti_levelLP</TD><TD>800</TD><TD>Integral time [s]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Time"
+>Time</A></TD><TD>Td_levelLP</TD><TD>0</TD><TD>Derivative time [s]</TD></TR>
+<TR><TD>Real</TD><TD>PVmin_levelLP</TD><TD>-1</TD><TD>Minimum value of process variable for scaling</TD></TR>
+<TR><TD>Real</TD><TD>PVmax_levelLP</TD><TD>1</TD><TD>Maximum value of process variable for scaling</TD></TR>
+<TR><TD>Real</TD><TD>CSmin_levelLP</TD><TD>500</TD><TD>Minimum value of control signal for scaling</TD></TR>
+<TR><TD>Real</TD><TD>CSmax_levelLP</TD><TD>2500</TD><TD>Maximum value of control signal for scaling</TD></TR>
+<TR><TD>Real</TD><TD>PVstart_levelLP</TD><TD>0.5</TD><TD>Start value of PV (scaled)</TD></TR>
+<TR><TD>Real</TD><TD>CSstart_levelLP</TD><TD>0.5</TD><TD>Start value of CS (scaled)</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="ThermoPower_PowerPlants_Buses.html#ThermoPower.PowerPlants.Buses.Sensors"
+>Sensors</A></TD><TD>SensorsBus</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_PowerPlants_Buses.html#ThermoPower.PowerPlants.Buses.Actuators"
+>Actuators</A></TD><TD>ActuatorsBus</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> levelsControl <font color="darkgreen">&quot;PID controllers for levels control&quot;</font>
+  <font color="blue">extends </font><A HREF="ThermoPower_PowerPlants_HRSG_Control.html#ThermoPower.PowerPlants.HRSG.Control.InterfacesControl"
+>InterfacesControl</A>;
+
+  <font color="darkgreen">//PID for level HP control</font>
+  <font color="blue">parameter </font>Real Kp_levelHP=3 <font color="darkgreen">&quot;Proportional gain (normalised units)&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Time"
+>SI.Time</A> Ti_levelHP=400 <font color="darkgreen">&quot;Integral time&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Time"
+>SI.Time</A> Td_levelHP=0 <font color="darkgreen">&quot;Derivative time&quot;</font>;
+  <font color="blue">parameter </font>Real PVmin_levelHP=-1 <font color="darkgreen">
+    &quot;Minimum value of process variable for scaling&quot;</font>;
+  <font color="blue">parameter </font>Real PVmax_levelHP=1 <font color="darkgreen">
+    &quot;Maximum value of process variable for scaling&quot;</font>;
+  <font color="blue">parameter </font>Real CSmin_levelHP=30 <font color="darkgreen">&quot;Minimum value of control signal for scaling&quot;</font>;
+  <font color="blue">parameter </font>Real CSmax_levelHP=100 <font color="darkgreen">
+    &quot;Maximum value of control signal for scaling&quot;</font>;
+  <font color="blue">parameter </font>Real PVstart_levelHP=0.5 <font color="darkgreen">&quot;Start value of PV (scaled)&quot;</font>;
+  <font color="blue">parameter </font>Real CSstart_levelHP=0.5 <font color="darkgreen">&quot;Start value of CS (scaled)&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> setPoint_levelHP=0 <font color="darkgreen">&quot;Set point level of HP drum&quot;</font>;
+
+  <font color="darkgreen">//PID for level IP control</font>
+  <font color="blue">parameter </font>Real Kp_levelIP=3 <font color="darkgreen">&quot;Proportional gain (normalised units)&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Time"
+>SI.Time</A> Ti_levelIP=600 <font color="darkgreen">&quot;Integral time&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Time"
+>SI.Time</A> Td_levelIP=0 <font color="darkgreen">&quot;Derivative time&quot;</font>;
+  <font color="blue">parameter </font>Real PVmin_levelIP=-1 <font color="darkgreen">
+    &quot;Minimum value of process variable for scaling&quot;</font>;
+  <font color="blue">parameter </font>Real PVmax_levelIP=1 <font color="darkgreen">
+    &quot;Maximum value of process variable for scaling&quot;</font>;
+  <font color="blue">parameter </font>Real CSmin_levelIP=8 <font color="darkgreen">&quot;Minimum value of control signal for scaling&quot;</font>;
+  <font color="blue">parameter </font>Real CSmax_levelIP=20 <font color="darkgreen">&quot;Maximum value of control signal for scaling&quot;</font>;
+  <font color="blue">parameter </font>Real PVstart_levelIP=0.5 <font color="darkgreen">&quot;Start value of PV (scaled)&quot;</font>;
+  <font color="blue">parameter </font>Real CSstart_levelIP=0.5 <font color="darkgreen">&quot;Start value of CS (scaled)&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> setPoint_levelIP=0 <font color="darkgreen">&quot;Set point level of IP drum&quot;</font>;
+
+  <font color="darkgreen">//PID for level LP control</font>
+  <font color="blue">parameter </font>Real Kp_levelLP=3 <font color="darkgreen">&quot;Proportional gain (normalised units)&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Time"
+>SI.Time</A> Ti_levelLP=800 <font color="darkgreen">&quot;Integral time&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Time"
+>SI.Time</A> Td_levelLP=0 <font color="darkgreen">&quot;Derivative time&quot;</font>;
+  <font color="blue">parameter </font>Real PVmin_levelLP=-1 <font color="darkgreen">
+    &quot;Minimum value of process variable for scaling&quot;</font>;
+  <font color="blue">parameter </font>Real PVmax_levelLP=1 <font color="darkgreen">
+    &quot;Maximum value of process variable for scaling&quot;</font>;
+  <font color="blue">parameter </font>Real CSmin_levelLP=500 <font color="darkgreen">
+    &quot;Minimum value of control signal for scaling&quot;</font>;
+  <font color="blue">parameter </font>Real CSmax_levelLP=2500 <font color="darkgreen">
+    &quot;Maximum value of control signal for scaling&quot;</font>;
+  <font color="blue">parameter </font>Real PVstart_levelLP=0.5 <font color="darkgreen">&quot;Start value of PV (scaled)&quot;</font>;
+  <font color="blue">parameter </font>Real CSstart_levelLP=0.5 <font color="darkgreen">&quot;Start value of CS (scaled)&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> setPoint_levelLP=0 <font color="darkgreen">&quot;Set point level of LP drum&quot;</font>;
+
+   <A HREF="ThermoPower_PowerPlants_Control.html#ThermoPower.PowerPlants.Control.PID"
+>PowerPlants.Control.PID</A> Level_HP(
+    Kp=Kp_levelHP,
+    Td=Td_levelHP,
+    Ti=Ti_levelHP,
+    PVmin=PVmin_levelHP,
+    PVmax=PVmax_levelHP,
+    CSmin=CSmin_levelHP,
+    CSmax=CSmax_levelHP,
+    PVstart=PVstart_levelHP,
+    CSstart=CSstart_levelHP);
+   <A HREF="ThermoPower_PowerPlants_Control.html#ThermoPower.PowerPlants.Control.PID"
+>PowerPlants.Control.PID</A> Level_IP(
+    Kp=Kp_levelIP,
+    Td=Td_levelIP,
+    Ti=Ti_levelIP,
+    PVmin=PVmin_levelIP,
+    PVmax=PVmax_levelIP,
+    CSmin=CSmin_levelIP,
+    CSmax=CSmax_levelIP,
+    PVstart=PVstart_levelIP,
+    CSstart=CSstart_levelIP);
+   <A HREF="ThermoPower_PowerPlants_Control.html#ThermoPower.PowerPlants.Control.PID"
+>PowerPlants.Control.PID</A> Level_LP(
+    Kp=Kp_levelLP,
+    Td=Td_levelLP,
+    Ti=Ti_levelLP,
+    PVmin=PVmin_levelLP,
+    PVmax=PVmax_levelLP,
+    CSmin=CSmin_levelLP,
+    CSmax=CSmax_levelLP,
+    PVstart=PVstart_levelLP,
+    CSstart=CSstart_levelLP);
+<font color="blue">public </font>
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> levelHP_SP(k=setPoint_levelHP);
+<font color="blue">public </font>
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> levelIP_SP(k=setPoint_levelIP);
+<font color="blue">public </font>
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> levelLP_SP(k=setPoint_levelLP);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(SensorsBus.y_drumHP, Level_HP.PV);
+  <font color="red">connect</font>(SensorsBus.y_drumIP, Level_IP.PV);
+  <font color="red">connect</font>(SensorsBus.y_drumLP, Level_LP.PV);
+  <font color="red">connect</font>(ActuatorsBus.flowRate_feedIP, Level_IP.CS);
+  <font color="red">connect</font>(ActuatorsBus.flowRate_feedHP, Level_HP.CS);
+  <font color="red">connect</font>(levelHP_SP.y, Level_HP.SP);
+  <font color="red">connect</font>(levelIP_SP.y, Level_IP.SP);
+  <font color="red">connect</font>(levelLP_SP.y, Level_LP.SP);
+  <font color="red">connect</font>(ActuatorsBus.nPump_feedLP, Level_LP.CS);
+<font color="blue">end </font>levelsControl;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Tue Jul 07 01:22:39 2009.
+</address></BODY>
+</HTML>

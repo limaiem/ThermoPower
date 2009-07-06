@@ -1,0 +1,1186 @@
+<HTML>
+<HEAD>
+<TITLE>ThermoPower.Examples.CISE</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;CISE plant models&quot;">
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE CISE<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Examples.CISE"></A><A HREF="ThermoPower_Examples.html#ThermoPower.Examples"
+>ThermoPower.Examples</A>.CISE</H2>
+<B>CISE plant models</B>
+<P>
+<H3>Information</H3>
+<PRE></pre>
+This package contain the CISE plant models, described in the papers:
+<ul>
+<li>F. Casella, A. Leva, "Modelica open library for power plant simulation: design and experimental validation", <i>Proceedings of the 2003 Modelica Conference</i>, Link&ouml ping, Sweden, 2003.
+<li>A. Leva, C., Maffezzoni and G. Benelli,,
+"Validation of drum boiler models through complete dynamic tests", <i>Control Engineering Practice</i>, 7, 1999, pp. 11-26.
+</ul>
+<p>The <tt>CISEPlant</tt> model contains the full plant model, with input connectors for the boundary conditions, and output connectors for the drum pressure and level variable. The <tt>CISESim</tt> model contains the full plant model, plus signal generators to reproduce the boundary conditions. The other <tt>CISESim*</tt> models extend the <tt>CISESim</tt> model with the appropriate numerical values required to reproduce a specific experimental transient.
+<p>All simulation are initialized at steady-state by appropriate initial equations.
+<p>The CISE-data_2_0.zip file contains the data files of three experimental transients, which can be compared with the simulation results.
+<pre></PRE><P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="ThermoPower.Examples.CISE.CISEPlantS.png" ALT="ThermoPower.Examples.CISE.CISEPlant" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Examples_CISE.html#ThermoPower.Examples.CISE.CISEPlant"
+>CISEPlant</A>
+</TD><TD>Model of the CISE lab steam generator</TD></TR>
+<TR><TD><A HREF="ThermoPower_Examples_CISE.html#ThermoPower.Examples.CISE.CISESim"
+>CISESim</A>
+</TD><TD>CISE Plant model with boundary conditions and initial steady-state computation</TD></TR>
+<TR><TD><A HREF="ThermoPower_Examples_CISE.html#ThermoPower.Examples.CISE.CISESim120501"
+>CISESim120501</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_Examples_CISE.html#ThermoPower.Examples.CISE.CISESim180503"
+>CISESim180503</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_Examples_CISE.html#ThermoPower.Examples.CISE.CISESim180504"
+>CISESim180504</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Examples.CISE.CISEPlant2StatesS.png" ALT="ThermoPower.Examples.CISE.CISEPlant2States" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Examples_CISE.html#ThermoPower.Examples.CISE.CISEPlant2States"
+>CISEPlant2States</A>
+</TD><TD>Simplified model of the CISE lab steam generator</TD></TR>
+<TR><TD><A HREF="ThermoPower_Examples_CISE.html#ThermoPower.Examples.CISE.CISESim2States"
+>CISESim2States</A>
+</TD><TD>CISE plant reduced model with boundary conditions and initial steady-state computation</TD></TR>
+<TR><TD><A HREF="ThermoPower_Examples_CISE.html#ThermoPower.Examples.CISE.CISESim2States120501"
+>CISESim2States120501</A>
+</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE CISEPlant<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Examples.CISE.CISEPlantI.png" ALT="ThermoPower.Examples.CISE.CISEPlant" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Examples.CISE.CISEPlant"></A><A HREF="ThermoPower_Examples_CISE.html#ThermoPower.Examples.CISE"
+>ThermoPower.Examples.CISE</A>.CISEPlant</H2>
+<B>Model of the CISE lab steam generator</B><p>
+<IMG SRC="ThermoPower.Examples.CISE.CISEPlantD.png" ALT="ThermoPower.Examples.CISE.CISEPlant">
+<H3>Information</H3>
+<PRE></pre>
+<p>This is the model of the CISE steam generation plant described in the paper: F. Casella, A. Leva, "Modelica open library for power plant simulation: design and experimental validation", <i>Proceedings of the 2003 Modelica Conference</i>, Link&ouml eping, Sweden, 2003.
+<p>The geometric parameters are already set. The start values set in the model parameters are guess values around the nominal full load steady state (60 bar drum pressure).
+<p><b>This model cannot be simulated alone</b>, as the boundary conditions (feedwater flowrate and enthalpy, steam valve opening, power to the risers and power to the superheater) are not set. See the <tt>CiseSim</tt> model instead.
+<pre>
+</PRE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>output <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>RealOutput</A></TD><TD>DrumPressure</TD><TD>&nbsp;</TD></TR>
+<TR><TD>output <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>RealOutput</A></TD><TD>DrumLevel</TD><TD>&nbsp;</TD></TR>
+<TR><TD>input <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>FeedWaterFlow</TD><TD>&nbsp;</TD></TR>
+<TR><TD>input <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>RiserPower</TD><TD>&nbsp;</TD></TR>
+<TR><TD>input <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>ValveOpening</TD><TD>&nbsp;</TD></TR>
+<TR><TD>input <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>SHPower</TD><TD>&nbsp;</TD></TR>
+<TR><TD>input <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>FeedWaterEnthalpy</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> CISEPlant <font color="darkgreen">&quot;Model of the CISE lab steam generator&quot;</font>
+  <font color="blue">package</font> Medium=<A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Media_Water_WaterIF97_ph.html#Modelica.Media.Water.WaterIF97_ph"
+>Modelica.Media.Water.WaterIF97_ph</A>(smoothModel=true);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.Drum"
+>Water.Drum</A> Drum(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium=Medium,
+    rint=0.115,
+    rext=0.125,
+    L=1.455,
+    Cm=4.08e6*1.195e-2,
+    tauev=15,
+    Kcs=0.01,
+    lm=19,
+    DrumOrientation=1,
+    afd=0.0,
+    gl=300,
+    Ks=100,
+    pstart=60e5,
+    hvstart=2.78e6,
+    Tmstart=545,
+    tauc=5,
+    gv=150,
+    hlstart=1.15e5,
+    initOpt=ThermoPower.Choices.Init.Options.steadyState);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SourceW"
+>Water.SourceW</A> FeedWater(h=1.1059e6);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.Flow1D2ph"
+>Water.Flow1D2ph</A> Downcomer(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium=Medium,
+    N=2,
+    L=15.923,
+    Dhyd=0.04922,
+    omega=0.1546,
+    A=1.903e-3,
+    wnom=0.23,
+    wnf=0.3,
+    H=-15.923,
+    Cfnom=0.01,
+    Kfc=1,
+    FFtype=3,
+    e=6.1e-4,
+    pstartin=60e5,
+    hstartin=1.15e6,
+    hstartout=1.15e6,
+    pstartout=61.18e5,
+    DynamicMomentum=false,
+    initOpt=ThermoPower.Choices.Init.Options.steadyState);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.Flow1D2ph"
+>Water.Flow1D2ph</A> Risers(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium=Medium,
+    Nt=6,
+    L=14.16,
+    H=14.16,
+    Dhyd=0.02096,
+    omega=0.06584,
+    wnf=0.3,
+    HydraulicCapacitance=2,
+    Kfc=1,
+    Cfnom=0.013,
+    FFtype=3,
+    hstartout=1.5e6,
+    A=3.45e-4,
+    N=7,
+    e=1.2e-3,
+    pstartin=61.18e5,
+    pstartout=60.06e5,
+    wnom=0.23,
+    hstartin=1.15e6,
+    initOpt=ThermoPower.Choices.Init.Options.steadyState);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.Flow1D2ph"
+>Water.Flow1D2ph</A> Pipe2Drum(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium=Medium,
+    N=2,
+    Nt=1,
+    L=2.779,
+    H=2.779,
+    Dhyd=0.0266,
+    omega=0.0835,
+    A=5.557e-4,
+    wnom=0.23,
+    wnf=0.1,
+    HydraulicCapacitance=1,
+    Cfnom=0.01,
+    FFtype=2,
+    pstartout=60e5,
+    e=9.9e-4,
+    hstartin=1.6e6,
+    hstartout=1.6e6,
+    pstartin=60.06e5,
+    initOpt=ThermoPower.Choices.Init.Options.steadyStateNoP);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SinkW"
+>Water.SinkW</A> Blowdown(w0=0);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.Flow1D"
+>Water.Flow1D</A> Pipe2SH(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium=Medium,
+    N=2,
+    Nt=1,
+    L=11.48,
+    Dhyd=0.0205,
+    omega=0.0644,
+    A=3.301e-4,
+    wnom=0.06,
+    DynamicMomentum=false,
+    HydraulicCapacitance=2,
+    H=0,
+    FFtype=2,
+    hstartin=2.777e6,
+    hstartout=2.777e6,
+    pstartin=60e5,
+    pstartout=59e5,
+    Cfnom=0.004,
+    initOpt=ThermoPower.Choices.Init.Options.steadyState);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.Flow1D2phDB"
+>Water.Flow1D2phDB</A> SH(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium=Medium,
+    Nt=1,
+    L=30,
+    Dhyd=0.011,
+    omega=0.0346,
+    A=9.503e-5,
+    Cfnom=0.0059,
+    DynamicMomentum=false,
+    HydraulicCapacitance=2,
+    wnom=0.06,
+    FFtype=3,
+    hstartin=2.8e6,
+    hstartout=2.8e6,
+    pstartin=59e5,
+    pstartout=57e5,
+    N=5,
+    e=1.7e-3,
+    initOpt=ThermoPower.Choices.Init.Options.steadyState);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.Flow1D2ph"
+>Water.Flow1D2ph</A> Pipe2Valve(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium=Medium,
+    N=2,
+    Nt=1,
+    L=6.6,
+    omega=0.0628,
+    Dhyd=0.02,
+    A=3.142e-4,
+    wnom=0.06,
+    wnf=0.1,
+    DynamicMomentum=false,
+    H=0,
+    FFtype=2,
+    HydraulicCapacitance=1,
+    hstartin=2.8e6,
+    hstartout=2.8e6,
+    pstartin=56e5,
+    pstartout=54.5e5,
+    Cfnom=0.004,
+    initOpt=ThermoPower.Choices.Init.Options.steadyState);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.ValveVap"
+>Water.ValveVap</A> Valve(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium=Medium,
+    pnom=54.497e5,
+    dpnom=48.997e5,
+    wnom=2*.06,
+    CvData=0,
+    Av=2.7e-5);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SinkP"
+>Water.SinkP</A> Sink(p0=5.5e5);
+  <A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.HeatSource1D"
+>Thermal.HeatSource1D</A> HeatSourceSH(
+    Nt=1,
+    L=30,
+    omega=0.0628,
+    N=5);
+  <A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.HeatSource1D"
+>Thermal.HeatSource1D</A> HeatSourceRisers(
+    L=14.16,
+    omega=0.08388,
+    Nt=6,
+    N=7);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.Header"
+>Water.Header</A> HeaderLower(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium=Medium,
+    V=8.372e-4,
+    S=7.184e-2,
+    gamma=2000,
+    Cm=4.08e6*4.51e-4,
+    hstart=1.1e6,
+    Tmstart=540,
+    pstartin=61.18e5,
+    pstartout=61.18e5,
+    initOpt=ThermoPower.Choices.Init.Options.steadyStateNoP);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.Header"
+>Water.Header</A> HeaderUpper(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium=Medium,
+    V=8.372e-4,
+    S=7.184e-2,
+    gamma=2000,
+    Cm=4.08e6*4.51e-4,
+    pstartin=60.2e5,
+    pstartout=60.2e5,
+    Tmstart=540,
+    hstart=1.6e6,
+    initOpt=ThermoPower.Choices.Init.Options.steadyStateNoP);
+  <A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.ConvHT"
+>Thermal.ConvHT</A> DowncomerExchange(N=2, gamma=1800);
+  <A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.ConvHT"
+>Thermal.ConvHT</A> RisersExchange(gamma=10000, N=7);
+  <A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.ConvHT"
+>Thermal.ConvHT</A> Pipe2DrumExchange(N=2, gamma=10000);
+  <A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.ConvHT"
+>Thermal.ConvHT</A> Pipe2SHExchange(N=2, gamma=3000);
+  <A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.ConvHT_htc"
+>Thermal.ConvHT_htc</A> SHExchange(N=5);
+  <A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.ConvHT"
+>Thermal.ConvHT</A> Pipe2ValveExchange(N=2, gamma=3000);
+  <A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.MetalTube"
+>Thermal.MetalTube</A> DowncomerWall(
+    N=2,
+    L=15.923,
+    rint=0.02461,
+    rext=0.03015,
+    rhomcm=4.08e6,
+    lambda=19,
+    WallRes=true,
+    Tstart1=540,
+    TstartN=540,
+    initOpt=ThermoPower.Choices.Init.Options.steadyState);
+  <A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.MetalTube"
+>Thermal.MetalTube</A> RisersWalls(
+    L=14.16,
+    rint=0.01048,
+    rext=0.01335,
+    lambda=19,
+    rhomcm=4.08e6,
+    WallRes=true,
+    N=7,
+    Tstart1=548,
+    TstartN=548,
+    initOpt=ThermoPower.Choices.Init.Options.steadyState);
+  <A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.MetalTube"
+>Thermal.MetalTube</A> Pipe2DrumWall(
+    N=2,
+    L=2.779,
+    rint=0.0133,
+    rext=0.0167,
+    rhomcm=4.08e6,
+    lambda=19,
+    WallRes=true,
+    Tstart1=548,
+    TstartN=548,
+    initOpt=ThermoPower.Choices.Init.Options.steadyState);
+  <A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.MetalTube"
+>Thermal.MetalTube</A> Pipe2SHWall(
+    N=2,
+    L=11.480,
+    rint=0.01025,
+    rext=0.01305,
+    rhomcm=4.08e6,
+    lambda=19,
+    WallRes=true,
+    Tstart1=548,
+    TstartN=548,
+    initOpt=ThermoPower.Choices.Init.Options.steadyState);
+  <A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.MetalTube"
+>Thermal.MetalTube</A> SHWall(
+    L=30,
+    rint=0.0055,
+    rext=0.0100,
+    rhomcm=4.08e6,
+    lambda=19,
+    WallRes=true,
+    Tstart1=551,
+    TstartN=551,
+    N=5,
+    initOpt=ThermoPower.Choices.Init.Options.steadyState);
+  <A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.MetalTube"
+>Thermal.MetalTube</A> Pipe2ValveWall(
+    L=6.6,
+    rint=0.0100,
+    rext=0.01275,
+    rhomcm=4.08e6,
+    lambda=19,
+    WallRes=true,
+    N=2,
+    Tstart1=548,
+    TstartN=548,
+    initOpt=ThermoPower.Choices.Init.Options.steadyState);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.PressDrop"
+>Water.PressDrop</A> PressDrop(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium=Medium,
+    wnom=0.23,
+    wnf=0.1,
+    K=3,
+    Kf=1e8,
+    FFtype=2,
+    A=5.62e-5,
+    Kfc=2);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> DrumPressure;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> DrumLevel;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> FeedWaterFlow;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> RiserPower;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> ValveOpening;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> SHPower;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> FeedWaterEnthalpy;
+<font color="blue">equation </font>
+  <font color="red">connect</font>(Pipe2Drum.infl, HeaderUpper.outlet);
+  <font color="red">connect</font>(HeaderUpper.inlet, Risers.outfl);
+  <font color="red">connect</font>(Downcomer.wall, DowncomerExchange.side2);
+  <font color="red">connect</font>(RisersExchange.side2, RisersWalls.int);
+  <font color="red">connect</font>(Risers.wall, RisersExchange.side1);
+  <font color="red">connect</font>(SH.outfl, Pipe2Valve.infl);
+  <font color="red">connect</font>(Valve.outlet, Sink.flange);
+  <font color="red">connect</font>(Pipe2Valve.outfl, Valve.inlet);
+  <font color="red">connect</font>(HeaderLower.outlet, PressDrop.inlet);
+  <font color="red">connect</font>(PressDrop.outlet, Risers.infl);
+  <font color="red">connect</font>(Pipe2Drum.wall, Pipe2DrumExchange.side1);
+  <font color="red">connect</font>(Pipe2DrumExchange.side2, Pipe2DrumWall.int);
+  <font color="red">connect</font>(RisersWalls.ext, HeatSourceRisers.wall);
+  DrumPressure = Drum.p;
+  DrumLevel = Drum.y;
+  <font color="red">connect</font>(Pipe2Valve.wall, Pipe2ValveExchange.side2);
+  <font color="red">connect</font>(Pipe2SH.wall, Pipe2SHExchange.side2);
+  <font color="red">connect</font>(Pipe2SHExchange.side1, Pipe2SHWall.int);
+  <font color="red">connect</font>(Pipe2ValveExchange.side1, Pipe2ValveWall.int);
+  <font color="red">connect</font>(DowncomerWall.int, DowncomerExchange.side1);
+  <font color="red">connect</font>(Blowdown.flange, Drum.blowdown);
+  <font color="red">connect</font>(SH.infl, Pipe2SH.outfl);
+  <font color="red">connect</font>(HeaderLower.inlet, Downcomer.outfl);
+  <font color="red">connect</font>(Downcomer.infl, Drum.downcomer);
+  <font color="red">connect</font>(Pipe2Drum.outfl, Drum.riser);
+  <font color="red">connect</font>(Pipe2SH.infl, Drum.steam);
+  <font color="red">connect</font>(FeedWater.flange, Drum.feedwater);
+  <font color="red">connect</font>(FeedWaterEnthalpy, FeedWater.in_h);
+  <font color="red">connect</font>(FeedWaterFlow, FeedWater.in_w0);
+  <font color="red">connect</font>(RiserPower, HeatSourceRisers.power);
+  <font color="red">connect</font>(ValveOpening, Valve.theta);
+  <font color="red">connect</font>(SHPower, HeatSourceSH.power);
+  <font color="red">connect</font>(SHExchange.fluidside, SH.wall);
+  <font color="red">connect</font>(SHExchange.otherside, SHWall.int);
+  <font color="red">connect</font>(SHWall.ext, HeatSourceSH.wall);
+<font color="blue">end </font>CISEPlant;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE CISESim<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Examples.CISE.CISESim"></A><A HREF="ThermoPower_Examples_CISE.html#ThermoPower.Examples.CISE"
+>ThermoPower.Examples.CISE</A>.CISESim</H2>
+<B>CISE Plant model with boundary conditions and initial steady-state computation</B><p>
+<IMG SRC="ThermoPower.Examples.CISE.CISESimD.png" ALT="ThermoPower.Examples.CISE.CISESim">
+<H3>Information</H3>
+<PRE></pre>
+<p>This model provides the boundary condition values to the <tt>CISEPlant</tt>model; it can be used to simulate open-loop transients.
+<p>The steady state is obtained by setting the derivatives of all the state variables to zero in the <tt>initial equation</tt> section. The offset values for <tt>ValveOpening1</tt> and <tt>wfeed1</tt>, i.e. the parameters <tt>ValveOpening_offset</tt> and <tt>wfeed_offset</tt> have a <tt>fixed=false</tt> attribute. Their actual values are set by the two additional initial equations specifying the initial drum level and pressure.
+<p>The <tt>CISESim120501</tt>, <tt>CISESim180503</tt>, <tt>CISESim180504</tt> models extend <tt>CISESim</tt> by adding suitable numerical values to the boundary condition signal generators.
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>MassFlowRate</A></TD><TD>wfeed_offset</TD><TD>6.0e-2</TD><TD>Offset of feedwater flow rate [kg/s]</TD></TR>
+<TR><TD>Real</TD><TD>ValveOpening_offset</TD><TD>0.4</TD><TD>Offset of valve opening</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>InitialDrumPressure</TD><TD>5.9359e+006</TD><TD>[Pa]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>InitialDrumLevel</TD><TD>-0.091</TD><TD>[m]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> CISESim <font color="darkgreen">
+  &quot;CISE Plant model with boundary conditions and initial steady-state computation&quot;</font>
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>MassFlowRate</A> wfeed_offset(fixed=false) = 6.0e-2 <font color="darkgreen">
+    &quot;Offset of feedwater flow rate&quot;</font>;
+  <font color="blue">parameter </font>Real ValveOpening_offset(fixed=false) = 0.4 <font color="darkgreen">
+    &quot;Offset of valve opening&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A> InitialDrumPressure = 5.9359e+006;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A> InitialDrumLevel = -0.091;
+  <A HREF="ThermoPower_Examples_CISE.html#ThermoPower.Examples.CISE.CISEPlant"
+>CISEPlant</A> Plant;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> Qsh(k=4928);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> Qev(
+    duration=1,
+    height=0,
+    offset=1.0141e5);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> wfeed1(
+    duration=1,
+    height=0,
+    startTime=50,
+    offset=wfeed_offset);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Math.html#Modelica.Blocks.Math.Add3"
+>Modelica.Blocks.Math.Add3</A> wfeed;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> wfeed2(
+    duration=1,
+    height=0,
+    offset=0,
+    startTime=0);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> ValveOpening1(
+    duration=1,
+    height=0,
+    offset=ValveOpening_offset);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> ValveOpening2(
+    duration=1,
+    height=0,
+    offset=0);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Math.html#Modelica.Blocks.Math.Add3"
+>Modelica.Blocks.Math.Add3</A> sum_1;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> wfeed3(
+    duration=1,
+    height=0,
+    offset=0,
+    startTime=0);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> wfeed5(
+    duration=1,
+    height=0,
+    offset=0,
+    startTime=0);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> wfeed4(
+    duration=1,
+    height=0,
+    offset=0,
+    startTime=0);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> hfeed1(
+    duration=1,
+    height=0,
+    offset=0);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> hfeed2(
+    duration=1,
+    height=0,
+    offset=0);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Math.html#Modelica.Blocks.Math.Add3"
+>Modelica.Blocks.Math.Add3</A> hfeed;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> hfeed3(
+    duration=1,
+    height=0,
+    offset=0);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Math.html#Modelica.Blocks.Math.Add"
+>Modelica.Blocks.Math.Add</A> sum_3;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> ValveOpening3(
+    duration=1,
+    height=0,
+    offset=0);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Math.html#Modelica.Blocks.Math.Add"
+>Modelica.Blocks.Math.Add</A> ValveOpening;
+<font color="blue">equation </font>
+  <font color="darkgreen">// Connection of the control signals to the process variables</font>
+  <font color="red">connect</font>(Plant.FeedWaterEnthalpy,hfeed.y);
+  <font color="red">connect</font>(Plant.SHPower,Qsh.y);
+  <font color="red">connect</font>(Plant.RiserPower,Qev.y);
+  <font color="red">connect</font>(Plant.FeedWaterFlow,wfeed.y);
+  <font color="red">connect</font>(Plant.ValveOpening,ValveOpening.y);
+
+  <font color="darkgreen">// Block diagram connections  </font>
+<font color="blue">initial </font><font color="blue">equation </font>
+  <font color="darkgreen">// Additional equations to determine the non-fixed parameters</font>
+  Plant.Drum.y=InitialDrumLevel;
+  Plant.Drum.p=InitialDrumPressure;
+<font color="blue">equation </font>
+  <font color="red">connect</font>(wfeed5.y, wfeed.u1);
+  <font color="red">connect</font>(wfeed4.y, wfeed.u2);
+  <font color="red">connect</font>(sum_1.y, wfeed.u3);
+  <font color="red">connect</font>(hfeed.u1, hfeed1.y);
+  <font color="red">connect</font>(hfeed.u2, hfeed2.y);
+  <font color="red">connect</font>(hfeed.u3, hfeed3.y);
+  <font color="red">connect</font>(ValveOpening.u1, sum_3.y);
+  <font color="red">connect</font>(ValveOpening.u2, ValveOpening3.y);
+  <font color="red">connect</font>(sum_3.u1, ValveOpening1.y);
+  <font color="red">connect</font>(ValveOpening2.y, sum_3.u2);
+  <font color="red">connect</font>(sum_1.u3, wfeed3.y);
+  <font color="red">connect</font>(sum_1.u2, wfeed2.y);
+  <font color="red">connect</font>(sum_1.u1, wfeed1.y);
+<font color="blue">end </font>CISESim;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE CISESim120501<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Examples.CISE.CISESim120501"></A><A HREF="ThermoPower_Examples_CISE.html#ThermoPower.Examples.CISE"
+>ThermoPower.Examples.CISE</A>.CISESim120501</H2>
+<IMG SRC="ThermoPower.Examples.CISE.CISESimD.png" ALT="ThermoPower.Examples.CISE.CISESim120501">
+<H3>Information</H3>
+<PRE></pre>
+This model extends <tt>CISESim</tt> with the appropriate steady-state values of the boundary conditions for the 120501 transient.
+<p>This model starts from the required steady-state, and can be simulated for 1200 s to replicate the experimental data.
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>MassFlowRate</A></TD><TD>wfeed_offset</TD><TD>6.0e-2</TD><TD>Offset of feedwater flow rate [kg/s]</TD></TR>
+<TR><TD>Real</TD><TD>ValveOpening_offset</TD><TD>0.4</TD><TD>Offset of valve opening</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>InitialDrumPressure</TD><TD>59.359e5</TD><TD>[Pa]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>InitialDrumLevel</TD><TD>-0.091</TD><TD>[m]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> CISESim120501
+  <font color="blue">extends </font><A HREF="ThermoPower_Examples_CISE.html#ThermoPower.Examples.CISE.CISESim"
+>CISESim</A>(
+    InitialDrumPressure = 59.359e5,
+    InitialDrumLevel = -0.091,
+    wfeed_offset = 6.0e-2,
+    ValveOpening_offset = 0.4,
+    hfeed1(offset = 1.10593e6),
+    wfeed1(startTime = 63,
+           height = 0.0017,
+           duration = 16),
+    wfeed2(startTime = 80,
+           height = 0.0009,
+           duration = 540),
+    Qev(offset = 1.0141e5,
+        startTime = 63,
+        height = -11.4e3,
+        duration = 7),
+    Qsh(k=4928));
+<font color="blue">end </font>CISESim120501;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE CISESim180503<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Examples.CISE.CISESim180503"></A><A HREF="ThermoPower_Examples_CISE.html#ThermoPower.Examples.CISE"
+>ThermoPower.Examples.CISE</A>.CISESim180503</H2>
+<IMG SRC="ThermoPower.Examples.CISE.CISESim180503D.png" ALT="ThermoPower.Examples.CISE.CISESim180503">
+<H3>Information</H3>
+<PRE></pre>
+This model extends <tt>CISESim</tt> with the appropriate steady-state values of the boundary conditions for the 180503 transient.
+<p>This model starts from the required steady-state, and can be simulated for 1200 s to replicate the experimental data.
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>MassFlowRate</A></TD><TD>wfeed_offset</TD><TD>2.89e-2</TD><TD>Offset of feedwater flow rate [kg/s]</TD></TR>
+<TR><TD>Real</TD><TD>ValveOpening_offset</TD><TD>0.4</TD><TD>Offset of valve opening</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>InitialDrumPressure</TD><TD>34.070e5</TD><TD>[Pa]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>InitialDrumLevel</TD><TD>-0.0507</TD><TD>[m]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> CISESim180503
+  <font color="blue">extends </font><A HREF="ThermoPower_Examples_CISE.html#ThermoPower.Examples.CISE.CISESim"
+>CISESim</A>(
+    InitialDrumPressure = 34.070e5,
+    InitialDrumLevel = -0.0507,
+    wfeed_offset = 2.89e-2,
+    ValveOpening_offset = 0.4,
+    hfeed1(offset = 9.7371109e5,
+           startTime = 0,
+           duration = 400,
+           height = 5000),
+    hfeed2(startTime = 400,
+           duration = 300,
+           height = -4200),
+    hfeed3(startTime = 700,
+           duration = 500,
+           height = 14000),
+    wfeed1(startTime = 80,
+           height = 0.0015,
+           duration = 60),
+    wfeed2(startTime = 160,
+           height = -0.0021,
+           duration = 15),
+    wfeed3(startTime = 200,
+           height = 0.002,
+           duration = 650),
+    wfeed4(startTime = 865,
+           height = 0.0016,
+           duration = 3),
+    wfeed5(startTime = 868,
+           height = 0.001,
+           duration = 340),
+    ValveOpening1(startTime = 72,
+                  duration = 12,
+                  height = 0.062),
+    Qev(offset=5.296179e4,
+        startTime = 150,
+        height = -200,
+        duration = 350),
+    Qsh(k=4570.7));
+<font color="blue">end </font>CISESim180503;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE CISESim180504<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Examples.CISE.CISESim180504"></A><A HREF="ThermoPower_Examples_CISE.html#ThermoPower.Examples.CISE"
+>ThermoPower.Examples.CISE</A>.CISESim180504</H2>
+<IMG SRC="ThermoPower.Examples.CISE.CISESim180504D.png" ALT="ThermoPower.Examples.CISE.CISESim180504">
+<H3>Information</H3>
+<PRE></pre>
+This model extends <tt>CISESim</tt> with the appropriate steady-state values of the boundary conditions for the 180504 transient.
+<p>This model starts from the required steady-state, and can be simulated for 1200 s to replicate the experimental data.
+
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>MassFlowRate</A></TD><TD>wfeed_offset</TD><TD>2.838e-2</TD><TD>Offset of feedwater flow rate [kg/s]</TD></TR>
+<TR><TD>Real</TD><TD>ValveOpening_offset</TD><TD>0.4</TD><TD>Offset of valve opening</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>InitialDrumPressure</TD><TD>29.3052e5</TD><TD>[Pa]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>InitialDrumLevel</TD><TD>-0.0574</TD><TD>[m]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> CISESim180504
+  <font color="blue">extends </font><A HREF="ThermoPower_Examples_CISE.html#ThermoPower.Examples.CISE.CISESim"
+>CISESim</A>(
+    InitialDrumPressure = 29.3052e5,
+    InitialDrumLevel = -0.0574,
+    wfeed_offset = 2.838e-2,
+    ValveOpening_offset = 0.4,
+    ValveOpening1(startTime = 72,
+                  duration = 40,
+                  height = -0.0135),
+    ValveOpening2(startTime = 112,
+                  duration = 60,
+                  height = -0.0080),
+    ValveOpening3(startTime = 172,
+                  duration = 140,
+                  height = -0.0040),
+    hfeed1(offset = 9.7371109e5,
+           startTime = 140,
+           duration = 460,
+           height = -17000),
+    hfeed2(startTime = 600,
+           duration = 200,
+           height = 11000),
+    hfeed3(startTime = 800,
+           duration = 400,
+           height = 7000),
+    wfeed1(startTime = 68,
+           height = -0.006,
+           duration = 3),
+    wfeed2(startTime = 71,
+           height = -0.005,
+           duration = 75),
+    wfeed3(startTime = 400,
+           height = -0.001,
+           duration = 450),
+    Qev(offset = 5.1825e4,
+        startTime = 150,
+        duration = 0.1,
+        height = -200),
+    Qsh(k=4661.7));
+
+<font color="blue">end </font>CISESim180504;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE CISEPlant2States<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Examples.CISE.CISEPlant2StatesI.png" ALT="ThermoPower.Examples.CISE.CISEPlant2States" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Examples.CISE.CISEPlant2States"></A><A HREF="ThermoPower_Examples_CISE.html#ThermoPower.Examples.CISE"
+>ThermoPower.Examples.CISE</A>.CISEPlant2States</H2>
+<B>Simplified model of the CISE lab steam generator</B><p>
+<IMG SRC="ThermoPower.Examples.CISE.CISEPlant2StatesD.png" ALT="ThermoPower.Examples.CISE.CISEPlant2States">
+<H3>Information</H3>
+<PRE></pre>
+<p>This is a simplified model of the CISE steam generation plant described in the paper: F. Casella, A. Leva, "Modelica open library for power plant simulation: design and experimental validation", <i>Proceedings of the 2003 Modelica Conference</i>, Link&ouml eping, Sweden, 2003. The drum model is based on the assumption of thermodynamic equilibrium between the liquid and vapour phases, thus leading to a drum model with only two states (pressure and liquid volume).
+<p>The geometric parameters are already set. The start values set in the model parameters are guess values around the nominal full load steady state (60 bar drum pressure).
+<p><b>This model cannot be simulated alone</b>, as the boundary conditions (feedwater flowrate and enthalpy, steam valve opening, power to the risers and power to the superheater) are not set. See the <tt>CiseSim2States</tt> model instead.
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>r</TD><TD>0.115</TD><TD>Drum diameter [m]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>H</TD><TD>1.455</TD><TD>Drum height [m]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>input <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>SHPower</TD><TD>&nbsp;</TD></TR>
+<TR><TD>input <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>ValveOpening</TD><TD>&nbsp;</TD></TR>
+<TR><TD>input <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>RiserPower</TD><TD>&nbsp;</TD></TR>
+<TR><TD>input <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>FeedWaterEnthalpy</TD><TD>&nbsp;</TD></TR>
+<TR><TD>input <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>FeedWaterFlow</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> CISEPlant2States <font color="darkgreen">
+  &quot;Simplified model of the CISE lab steam generator&quot;</font>
+  <font color="blue">package</font> Medium=<A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Media_Water_WaterIF97_ph.html#Modelica.Media.Water.WaterIF97_ph"
+>Modelica.Media.Water.WaterIF97_ph</A>;
+  <font color="blue">constant </font>Real pi=Modelica.Constants.pi;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A> r=0.115 <font color="darkgreen">&quot;Drum diameter&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A> H=1.455 <font color="darkgreen">&quot;Drum height&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A> DrumPressure;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A> DrumLevel;
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SourceW"
+>Water.SourceW</A> FeedWater(h=1.1059e6);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.Flow1D"
+>Water.Flow1D</A> Pipe2SH(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium=Medium,
+    Nt=1,
+    L=11.48,
+    Dhyd=0.0205,
+    omega=0.0644,
+    A=3.301e-4,
+    wnom=0.06,
+    DynamicMomentum=false,
+    HydraulicCapacitance=2,
+    H=0,
+    hstartin=2.777e6,
+    hstartout=2.777e6,
+    pstartin=60e5,
+    pstartout=59e5,
+    Cfnom=0.004,
+    wnf=1,
+    FFtype=ThermoPower.Choices.Flow1D.FFtypes.Cfnom,
+    N=2,
+    initOpt=ThermoPower.Choices.Init.Options.steadyState);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.Flow1D2phDB"
+>Water.Flow1D2phDB</A> SH(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium=Medium,
+    Nt=1,
+    L=30,
+    Dhyd=0.011,
+    omega=0.0346,
+    A=9.503e-5,
+    Cfnom=0.0059,
+    DynamicMomentum=false,
+    HydraulicCapacitance=2,
+    wnom=0.06,
+    hstartin=2.8e6,
+    hstartout=2.8e6,
+    pstartin=59e5,
+    pstartout=57e5,
+    N=5,
+    e=1.7e-3,
+    wnf=0.1,
+    FFtype=ThermoPower.Choices.Flow1D.FFtypes.Colebrook,
+    initOpt=ThermoPower.Choices.Init.Options.steadyState);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.Flow1D2ph"
+>Water.Flow1D2ph</A> Pipe2Valve(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium=Medium,
+    N=2,
+    Nt=1,
+    L=6.6,
+    omega=0.0628,
+    Dhyd=0.02,
+    A=3.142e-4,
+    wnom=0.06,
+    DynamicMomentum=false,
+    H=0,
+    hstartin=2.8e6,
+    hstartout=2.8e6,
+    pstartin=56e5,
+    pstartout=54.5e5,
+    Cfnom=0.004,
+    HydraulicCapacitance=1,
+    wnf=1,
+    FFtype=ThermoPower.Choices.Flow1D.FFtypes.Cfnom,
+    initOpt=ThermoPower.Choices.Init.Options.steadyState);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.ValveVap"
+>Water.ValveVap</A> Valve(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium=Medium,
+    pnom=54.497e5,
+    dpnom=48.997e5,
+    wnom=2*.06,
+    CvData=0,
+    Av=2.7e-5,
+    b=0.1);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SinkP"
+>Water.SinkP</A> Sink(p0=5.5e5);
+  <A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.HeatSource1D"
+>Thermal.HeatSource1D</A> HeatSourceSH(
+    Nt=1,
+    L=30,
+    omega=0.0628,
+    N=5);
+  <A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.ConvHT"
+>Thermal.ConvHT</A> Pipe2SHExchange(gamma=3000, N=2);
+  <A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.ConvHT_htc"
+>Thermal.ConvHT_htc</A> SHExchange(N=5);
+  <A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.ConvHT"
+>Thermal.ConvHT</A> Pipe2ValveExchange(N=2, gamma=3000);
+  <A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.MetalTube"
+>Thermal.MetalTube</A> Pipe2SHWall(
+    L=11.480,
+    rint=0.01025,
+    rext=0.01305,
+    rhomcm=4.08e6,
+    lambda=19,
+    WallRes=true,
+    Tstart1=548,
+    TstartN=548,
+    N=2,
+    initOpt=ThermoPower.Choices.Init.Options.steadyState);
+  <A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.MetalTube"
+>Thermal.MetalTube</A> SHWall(
+    L=30,
+    rint=0.0055,
+    rext=0.0100,
+    rhomcm=4.08e6,
+    lambda=19,
+    WallRes=true,
+    Tstart1=551,
+    TstartN=551,
+    N=5,
+    initOpt=ThermoPower.Choices.Init.Options.steadyState);
+  <A HREF="ThermoPower_Thermal.html#ThermoPower.Thermal.MetalTube"
+>Thermal.MetalTube</A> Pipe2ValveWall(
+    L=6.6,
+    rint=0.0100,
+    rext=0.01275,
+    rhomcm=4.08e6,
+    lambda=19,
+    WallRes=true,
+    N=2,
+    Tstart1=548,
+    TstartN=548,
+    initOpt=ThermoPower.Choices.Init.Options.steadyState);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.Drum2States"
+>Water.Drum2States</A> DrumBoiler(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium=Medium,
+    Vd=0.0604,
+    cm=523,
+    pstart=60e5,
+    Vldstart=pi*r^2*H/2,
+    Vdcr=0.0628,
+    Mmd=93,
+    Mmdcr=270,
+    initOpt=ThermoPower.Choices.Init.Options.steadyState);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_HeatTransfer.html#Modelica.Thermal.HeatTransfer.PrescribedHeatFlow"
+>Modelica.Thermal.HeatTransfer.PrescribedHeatFlow</A> RisersHeat;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> SHPower;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> ValveOpening;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> RiserPower;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> FeedWaterEnthalpy;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> FeedWaterFlow;
+<font color="blue">equation </font>
+  DrumLevel = DrumBoiler.Vld/(pi*r^2)-H/2;
+  DrumPressure = DrumBoiler.p;
+  <font color="red">connect</font>(Pipe2SH.wall, Pipe2SHExchange.side2);
+  <font color="red">connect</font>(Pipe2SHExchange.side1, Pipe2SHWall.int);
+  <font color="red">connect</font>(Pipe2Valve.wall, Pipe2ValveExchange.side2);
+  <font color="red">connect</font>(Pipe2ValveExchange.side1, Pipe2ValveWall.int);
+  <font color="red">connect</font>(SHWall.int, SHExchange.otherside);
+  <font color="red">connect</font>(SHExchange.fluidside, SH.wall);
+  <font color="red">connect</font>(HeatSourceSH.wall, SHWall.ext);
+  <font color="red">connect</font>(DrumBoiler.heat, RisersHeat.port);
+  <font color="red">connect</font>(Pipe2SH.outfl, SH.infl);
+  <font color="red">connect</font>(SH.outfl, Pipe2Valve.infl);
+  <font color="red">connect</font>(Pipe2Valve.outfl, Valve.inlet);
+  <font color="red">connect</font>(Valve.outlet, Sink.flange);
+  <font color="red">connect</font>(Pipe2SH.infl, DrumBoiler.steam);
+  <font color="red">connect</font>(DrumBoiler.feed, FeedWater.flange);
+  <font color="red">connect</font>(RiserPower, RisersHeat.Q_flow);
+  <font color="red">connect</font>(ValveOpening, Valve.theta);
+  <font color="red">connect</font>(SHPower, HeatSourceSH.power);
+  <font color="red">connect</font>(FeedWaterEnthalpy, FeedWater.in_h);
+  <font color="red">connect</font>(FeedWaterFlow, FeedWater.in_w0);
+<font color="blue">end </font>CISEPlant2States;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE CISESim2States<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Examples.CISE.CISESim2States"></A><A HREF="ThermoPower_Examples_CISE.html#ThermoPower.Examples.CISE"
+>ThermoPower.Examples.CISE</A>.CISESim2States</H2>
+<B>CISE plant reduced model with boundary conditions and initial steady-state computation</B><p>
+<IMG SRC="ThermoPower.Examples.CISE.CISESim2StatesD.png" ALT="ThermoPower.Examples.CISE.CISESim2States">
+<H3>Information</H3>
+<PRE></pre>
+<p>This model provides the boundary condition values to the <tt>CISEPlant2States</tt>model; it can be used to simulate open-loop transients.
+<p>The steady state is obtained by setting the derivatives of all the state variables to zero in the <tt>initial equation</tt> section. The offset values for <tt>ValveOpening1</tt> and <tt>wfeed1</tt>, i.e. the parameters <tt>ValveOpening_offset</tt> and <tt>wfeed_offset</tt> have a <tt>fixed=false</tt> attribute. Their actual values are set by the two additional initial equations specifying the initial drum level and pressure.
+<p>The <tt>CISESim2States120501</tt> model extends <tt>CISESim2States</tt> by adding suitable numerical values to the boundary condition signal generators.
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>MassFlowRate</A></TD><TD>wfeed_offset</TD><TD>6.0e-2</TD><TD>Offset of feedwater flow rate [kg/s]</TD></TR>
+<TR><TD>Real</TD><TD>ValveOpening_offset</TD><TD>0.4</TD><TD>Offset of valve opening</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>InitialDrumPressure</TD><TD>5.9359e+006</TD><TD>[Pa]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>InitialDrumLevel</TD><TD>-0.091</TD><TD>[m]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> CISESim2States <font color="darkgreen">
+  &quot;CISE plant reduced model with boundary conditions and initial steady-state computation&quot;</font>
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>MassFlowRate</A> wfeed_offset(fixed=false) = 6.0e-2 <font color="darkgreen">
+    &quot;Offset of feedwater flow rate&quot;</font>;
+  <font color="blue">parameter </font>Real ValveOpening_offset(fixed=false) = 0.4 <font color="darkgreen">
+    &quot;Offset of valve opening&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A> InitialDrumPressure = 5.9359e+006;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A> InitialDrumLevel = -0.091;
+  <A HREF="ThermoPower_Examples_CISE.html#ThermoPower.Examples.CISE.CISEPlant2States"
+>CISEPlant2States</A> Plant;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> Qsh(k=4928);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> Qev(
+    duration=1,
+    height=0,
+    offset=1.0141e5);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> wfeed1(
+    duration=1,
+    height=0,
+    startTime=50,
+    offset=wfeed_offset);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Math.html#Modelica.Blocks.Math.Add3"
+>Modelica.Blocks.Math.Add3</A> wfeed;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> wfeed2(
+    duration=1,
+    height=0,
+    offset=0,
+    startTime=0);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> ValveOpening1(
+    duration=1,
+    height=0,
+    offset=ValveOpening_offset);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> ValveOpening2(
+    duration=1,
+    height=0,
+    offset=0);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Math.html#Modelica.Blocks.Math.Add3"
+>Modelica.Blocks.Math.Add3</A> sum_1;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> wfeed3(
+    duration=1,
+    height=0,
+    offset=0,
+    startTime=0);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> wfeed5(
+    duration=1,
+    height=0,
+    offset=0,
+    startTime=0);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> wfeed4(
+    duration=1,
+    height=0,
+    offset=0,
+    startTime=0);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> hfeed1(
+    duration=1,
+    height=0,
+    offset=0);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> hfeed2(
+    duration=1,
+    height=0,
+    offset=0);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Math.html#Modelica.Blocks.Math.Add3"
+>Modelica.Blocks.Math.Add3</A> hfeed;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> hfeed3(
+    duration=1,
+    height=0,
+    offset=0);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Math.html#Modelica.Blocks.Math.Add"
+>Modelica.Blocks.Math.Add</A> ValveOpening;
+<font color="blue">equation </font>
+  <font color="red">connect</font>(wfeed3.y, sum_1.u3);
+  <font color="red">connect</font>(wfeed2.y, sum_1.u2);
+  <font color="red">connect</font>(wfeed1.y, sum_1.u1);
+  <font color="red">connect</font>(sum_1.y, wfeed.u3);
+<font color="blue">initial </font><font color="blue">equation </font>
+  <font color="darkgreen">// Additional equations to determine the non-fixed parameters</font>
+  Plant.DrumLevel = InitialDrumLevel;
+  Plant.DrumPressure = InitialDrumPressure;
+<font color="blue">equation </font>
+  <font color="red">connect</font>(hfeed.y, Plant.FeedWaterEnthalpy);
+  <font color="red">connect</font>(Qsh.y, Plant.SHPower);
+  <font color="red">connect</font>(Qev.y, Plant.RiserPower);
+  <font color="red">connect</font>(ValveOpening.y, Plant.ValveOpening);
+  <font color="red">connect</font>(wfeed.y, Plant.FeedWaterFlow);
+  <font color="red">connect</font>(hfeed1.y, hfeed.u1);
+  <font color="red">connect</font>(hfeed2.y, hfeed.u2);
+  <font color="red">connect</font>(hfeed3.y, hfeed.u3);
+  <font color="red">connect</font>(wfeed5.y, wfeed.u1);
+  <font color="red">connect</font>(wfeed4.y, wfeed.u2);
+  <font color="red">connect</font>(ValveOpening1.y, ValveOpening.u1);
+  <font color="red">connect</font>(ValveOpening2.y, ValveOpening.u2);
+<font color="blue">end </font>CISESim2States;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE CISESim2States120501<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Examples.CISE.CISESim2States120501"></A><A HREF="ThermoPower_Examples_CISE.html#ThermoPower.Examples.CISE"
+>ThermoPower.Examples.CISE</A>.CISESim2States120501</H2>
+<IMG SRC="ThermoPower.Examples.CISE.CISESim2StatesD.png" ALT="ThermoPower.Examples.CISE.CISESim2States120501">
+<H3>Information</H3>
+<PRE></pre>
+This model extends <tt>CISESim2States</tt> with the appropriate steady-state values of the boundary conditions for the 120501 transient.
+<p>This model must be simulated for 20000 s to obtain the required steady state. The actual transient can then be simulated by importing the final steady state, setting the controller gains to zero, and setting the appropriate values to the signal generators height parameters: <p>
+importInitial() <p>
+ValveOpening.steadyStateGain=0.0 <br>
+wfeed.steadyStateGain=0.0 <p>
+Qev.startTime={63};<br>
+Qev.height={-11.4e3};<br>
+Qev.duration={7};<br>
+wfeed1.startTime={63};<br>
+wfeed1.height={0.0017};<br>
+wfeed1.duration={16};<br>
+wfeed2.startTime={80};<br>
+wfeed2.height={0.0009};<br>
+wfeed2.duration={540};<br>
+<p>The whole simulation sequence can be obtained by running the 120501_2s.mos Dymola script.
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>MassFlowRate</A></TD><TD>wfeed_offset</TD><TD>6.0e-2</TD><TD>Offset of feedwater flow rate [kg/s]</TD></TR>
+<TR><TD>Real</TD><TD>ValveOpening_offset</TD><TD>0.4</TD><TD>Offset of valve opening</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>InitialDrumPressure</TD><TD>59.359e5</TD><TD>[Pa]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>InitialDrumLevel</TD><TD>-0.091</TD><TD>[m]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> CISESim2States120501
+  <font color="blue">extends </font><A HREF="ThermoPower_Examples_CISE.html#ThermoPower.Examples.CISE.CISESim2States"
+>CISESim2States</A>(
+    InitialDrumPressure = 59.359e5,
+    InitialDrumLevel = -0.091,
+    wfeed_offset = 6.0e-2,
+    ValveOpening_offset = 0.4,
+    hfeed1(offset = 1.10593e6),
+    wfeed1(startTime = 63,
+           height = 0.0017,
+           duration = 16),
+    wfeed2(startTime = 80,
+           height = 0.0009,
+           duration = 540),
+    Qev(offset = 1.0141e5,
+        startTime = 63,
+        height = -11.4e3,
+        duration = 7),
+    Qsh(k=4928));
+<font color="blue">end </font>CISESim2States120501;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Tue Jul 07 01:22:11 2009.
+</address></BODY>
+</HTML>

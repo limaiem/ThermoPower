@@ -1,0 +1,498 @@
+<HTML>
+<HEAD>
+<TITLE>ThermoPower.Test.ElectricalElements</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Test for Electrical package elements&quot;">
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ElectricalElements<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Test.ElectricalElements"></A><A HREF="ThermoPower_Test.html#ThermoPower.Test"
+>ThermoPower.Test</A>.ElectricalElements</H2>
+<B>Test for Electrical package elements</B>
+<P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="ThermoPower_Test_ElectricalElements.html#ThermoPower.Test.ElectricalElements.TestElectrical1"
+>TestElectrical1</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_Test_ElectricalElements.html#ThermoPower.Test.ElectricalElements.TestElectrical2"
+>TestElectrical2</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_Test_ElectricalElements.html#ThermoPower.Test.ElectricalElements.TestNetworkGridGenerator_Pmax"
+>TestNetworkGridGenerator_Pmax</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_Test_ElectricalElements.html#ThermoPower.Test.ElectricalElements.TestNetworkGridTwoGenerators"
+>TestNetworkGridTwoGenerators</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.Test.ElectricalElements.StaticControllerS.png" ALT="ThermoPower.Test.ElectricalElements.StaticController" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Test_ElectricalElements.html#ThermoPower.Test.ElectricalElements.StaticController"
+>StaticController</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_Test_ElectricalElements.html#ThermoPower.Test.ElectricalElements.TestN2GControl"
+>TestN2GControl</A>
+</TD><TD>Test network with two generators, frequency controlled</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TestElectrical1<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Test.ElectricalElements.TestElectrical1"></A><A HREF="ThermoPower_Test_ElectricalElements.html#ThermoPower.Test.ElectricalElements"
+>ThermoPower.Test.ElectricalElements</A>.TestElectrical1</H2>
+<IMG SRC="ThermoPower.Test.ElectricalElements.TestElectrical1D.png" ALT="ThermoPower.Test.ElectricalElements.TestElectrical1">
+<H3>Information</H3>
+<PRE></pre>
+<p>The model is designed to test the generator and load components of the <tt>Electrical</tt> library.<br>
+Simulation sequence:
+<ul>
+    <li>t=0 s: The system starts at equilibrium
+    <li>t=1 s: The torque is brought to zero.
+    <li>t=2 s: After 10% of the turbine acceleration time, the frequency has dropped by around 10%. The approximation is due to nonlinear effects.
+</ul>
+<p>
+Simulation Interval = [0...2] sec <br>
+Integration Algorithm = DASSL <br>
+Algorithm Tolerance = 1e-6
+</p>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Power</A></TD><TD>Pn</TD><TD>10e6</TD><TD>Nominal generator power [W]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Time"
+>Time</A></TD><TD>Ta</TD><TD>10</TD><TD>Turbine acceleration time [s]</TD></TR>
+<TR><TD>Integer</TD><TD>Np</TD><TD>2</TD><TD>Number of generator poles</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Frequency"
+>Frequency</A></TD><TD>f0</TD><TD>50</TD><TD>Nominal network frequency [Hz]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
+>AngularVelocity</A></TD><TD>omegan_el</TD><TD>2*pi*f0</TD><TD>Nominal electrical angular velocity [rad/s]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
+>AngularVelocity</A></TD><TD>omegan_m</TD><TD>omegan_el/Np</TD><TD>Nominal mechanical angular velocity [rad/s]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MomentOfInertia"
+>MomentOfInertia</A></TD><TD>Je</TD><TD>Pn*Ta/omegan_el^2</TD><TD>Moment of inertia referred to electrical angles [kg.m2]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MomentOfInertia"
+>MomentOfInertia</A></TD><TD>Jm</TD><TD>Np^2*Je</TD><TD>Mechanical moment of inertia [kg.m2]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Time"
+>Time</A></TD><TD>Topen</TD><TD>10</TD><TD>Time of breaker opening [s]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TestElectrical1
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Power</A> Pn=10e6 <font color="darkgreen">&quot;Nominal generator power&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Time"
+>Time</A> Ta=10 <font color="darkgreen">&quot;Turbine acceleration time&quot;</font>;
+  <font color="blue">parameter </font>Integer Np=2 <font color="darkgreen">&quot;Number of generator poles&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Frequency"
+>Frequency</A> f0=50 <font color="darkgreen">&quot;Nominal network frequency&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
+>AngularVelocity</A> omegan_el=2*pi*f0 <font color="darkgreen">
+    &quot;Nominal electrical angular velocity&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
+>AngularVelocity</A> omegan_m=omegan_el/Np <font color="darkgreen">
+    &quot;Nominal mechanical angular velocity&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MomentOfInertia"
+>MomentOfInertia</A> Je=Pn*Ta/omegan_el^2 <font color="darkgreen">
+    &quot;Moment of inertia referred to electrical angles&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MomentOfInertia"
+>MomentOfInertia</A> Jm=Np^2*Je <font color="darkgreen">&quot;Mechanical moment of inertia&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Time"
+>Time</A> Topen=10 <font color="darkgreen">&quot;Time of breaker opening&quot;</font>;
+  <A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.Generator"
+>Electrical.Generator</A> generator;
+  <A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.Load"
+>Electrical.Load</A> load(Wn=Pn);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Inertia"
+>Modelica.Mechanics.Rotational.Inertia</A> turboGenInertia(J=Jm);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Torque"
+>Modelica.Mechanics.Rotational.Torque</A> primeMover;
+  <font color="blue">import </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Constants.html#Modelica.Constants"
+>Modelica.Constants</A>.*;
+
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Step"
+>Modelica.Blocks.Sources.Step</A> Step1(
+    height=-Pn/omegan_m,
+    offset=Pn/omegan_m,
+    startTime=1);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(generator.powerConnection, load.connection);
+  <font color="red">connect</font>(turboGenInertia.flange_b, generator.shaft);
+  <font color="red">connect</font>(primeMover.flange_b, turboGenInertia.flange_a);
+<font color="blue">initial </font><font color="blue">equation </font>
+  load.f=50;
+
+<font color="blue">equation </font>
+  <font color="red">connect</font>(Step1.y, primeMover.tau);
+<font color="blue">end </font>TestElectrical1;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TestElectrical2<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Test.ElectricalElements.TestElectrical2"></A><A HREF="ThermoPower_Test_ElectricalElements.html#ThermoPower.Test.ElectricalElements"
+>ThermoPower.Test.ElectricalElements</A>.TestElectrical2</H2>
+<IMG SRC="ThermoPower.Test.ElectricalElements.TestElectrical2D.png" ALT="ThermoPower.Test.ElectricalElements.TestElectrical2">
+<H3>Information</H3>
+<PRE></pre>
+<p>The model is designed to test the generator and load components of the <tt>Electrical</tt> library.<br>
+Simulation sequence:
+<ul>
+    <li>t=0 s: The system starts at equilibrium
+    <li>t=1 s: The torque is brought to zero.
+    <li>t=2 s: After 10% of the turbine acceleration time, the frequency has dropped by around 10%. The approximation is due to nonlinear effects.
+</ul>
+<p>
+Simulation Interval = [0...2] sec <br>
+Integration Algorithm = DASSL <br>
+Algorithm Tolerance = 1e-6
+</p>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Power</A></TD><TD>Pn</TD><TD>10e6</TD><TD>Nominal generator power [W]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Time"
+>Time</A></TD><TD>Ta</TD><TD>10</TD><TD>Turbine acceleration time [s]</TD></TR>
+<TR><TD>Integer</TD><TD>Np</TD><TD>2</TD><TD>Number of generator poles</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Frequency"
+>Frequency</A></TD><TD>f0</TD><TD>50</TD><TD>Nominal network frequency [Hz]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
+>AngularVelocity</A></TD><TD>omegan_el</TD><TD>2*pi*f0</TD><TD>Nominal electrical angular velocity [rad/s]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
+>AngularVelocity</A></TD><TD>omegan_m</TD><TD>omegan_el/Np</TD><TD>Nominal mechanical angular velocity [rad/s]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MomentOfInertia"
+>MomentOfInertia</A></TD><TD>Je</TD><TD>Pn*Ta/omegan_el^2</TD><TD>Moment of inertia referred to electrical angles [kg.m2]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MomentOfInertia"
+>MomentOfInertia</A></TD><TD>Jm</TD><TD>Np^2*Je</TD><TD>Mechanical moment of inertia [kg.m2]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Time"
+>Time</A></TD><TD>Topen</TD><TD>10</TD><TD>Time of breaker opening [s]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TestElectrical2
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Power</A> Pn=10e6 <font color="darkgreen">&quot;Nominal generator power&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Time"
+>Time</A> Ta=10 <font color="darkgreen">&quot;Turbine acceleration time&quot;</font>;
+  <font color="blue">parameter </font>Integer Np=2 <font color="darkgreen">&quot;Number of generator poles&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Frequency"
+>Frequency</A> f0=50 <font color="darkgreen">&quot;Nominal network frequency&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
+>AngularVelocity</A> omegan_el=2*pi*f0 <font color="darkgreen">
+    &quot;Nominal electrical angular velocity&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
+>AngularVelocity</A> omegan_m=omegan_el/Np <font color="darkgreen">
+    &quot;Nominal mechanical angular velocity&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MomentOfInertia"
+>MomentOfInertia</A> Je=Pn*Ta/omegan_el^2 <font color="darkgreen">
+    &quot;Moment of inertia referred to electrical angles&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.MomentOfInertia"
+>MomentOfInertia</A> Jm=Np^2*Je <font color="darkgreen">&quot;Mechanical moment of inertia&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Time"
+>Time</A> Topen=10 <font color="darkgreen">&quot;Time of breaker opening&quot;</font>;
+  <A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.Generator"
+>Electrical.Generator</A> generator;
+  <A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.Load"
+>Electrical.Load</A> load(Wn=Pn);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Inertia"
+>Modelica.Mechanics.Rotational.Inertia</A> turboGenInertia(J=Jm);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Torque"
+>Modelica.Mechanics.Rotational.Torque</A> primeMover;
+  <font color="blue">import </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Constants.html#Modelica.Constants"
+>Modelica.Constants</A>.*;
+
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Step"
+>Modelica.Blocks.Sources.Step</A> GenTorque(
+    height=-0.1*Pn/omegan_m,
+    offset=Pn/omegan_m,
+    startTime=1);
+  <A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.Grid"
+>Electrical.Grid</A> grid(Pn=1e9);
+  <A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.Breaker"
+>Electrical.Breaker</A> Breaker1;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Step"
+>Modelica.Blocks.Sources.Step</A> LocalLoad(
+    height=0.1*Pn,
+    offset=Pn,
+    startTime=2);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.BooleanStep"
+>Modelica.Blocks.Sources.BooleanStep</A> BreakerCommand(startTime=3,
+      startValue=true);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(turboGenInertia.flange_b, generator.shaft);
+  <font color="red">connect</font>(primeMover.flange_b, turboGenInertia.flange_a);
+  <font color="red">connect</font>(Breaker1.connection2, grid.connection);
+<font color="blue">initial </font><font color="blue">equation </font>
+ load.f=50;
+
+<font color="blue">equation </font>
+  <font color="red">connect</font>(BreakerCommand.y,       Breaker1.closed);
+  <font color="red">connect</font>(generator.powerConnection, Breaker1.connection1);
+  <font color="red">connect</font>(load.connection, generator.powerConnection);
+  <font color="red">connect</font>(LocalLoad.y, load.powerConsumption);
+  <font color="red">connect</font>(GenTorque.y, primeMover.tau);
+<font color="blue">end </font>TestElectrical2;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TestNetworkGridGenerator_Pmax<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Test.ElectricalElements.TestNetworkGridGenerator_Pmax"></A><A HREF="ThermoPower_Test_ElectricalElements.html#ThermoPower.Test.ElectricalElements"
+>ThermoPower.Test.ElectricalElements</A>.TestNetworkGridGenerator_Pmax</H2>
+<IMG SRC="ThermoPower.Test.ElectricalElements.TestNetworkGridGenerator_PmaxD.png" ALT="ThermoPower.Test.ElectricalElements.TestNetworkGridGenerator_Pmax">
+<H3>Information</H3>
+<PRE></pre>
+<p>The model is designed to test the <tt>NetworkGrid</tt> model.
+<p>The model starts at steady state.
+<p>At 20s, step variation of the tourque supplied to the generator. Observe the electric power oscillations.
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Boolean</TD><TD>SSInit</TD><TD>true</TD><TD>Steady-state initialization</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TestNetworkGridGenerator_Pmax
+  <font color="blue">parameter </font>Boolean SSInit = true <font color="darkgreen">&quot;Steady-state initialization&quot;</font>;
+  <A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.Generator"
+>Electrical.Generator</A> gen(J=10000, initOpt=<font color="blue">if </font>SSInit<font color="blue"> then </font>Choices.Init.Options.steadyState<font color="blue"> else </font>
+              Choices.Init.Options.noInit);
+  <A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.NetworkGrid_Pmax"
+>ThermoPower.Electrical.NetworkGrid_Pmax</A> network(
+    J=10000,
+    Pmax=20e6,
+    hasBreaker=true,
+    deltaStart=0.488,
+    initOpt=<font color="blue">if </font>SSInit<font color="blue"> then </font>Choices.Init.Options.steadyState<font color="blue"> else </font>Choices.Init.Options.noInit);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.TorqueStep"
+>Modelica.Mechanics.Rotational.TorqueStep</A> constantTorque(
+    offsetTorque=1e7/157.08,
+    stepTorque=1e7/157.08*0.2,
+    startTime=20);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.BooleanConstant"
+>Modelica.Blocks.Sources.BooleanConstant</A> booleanConstant(k=true);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Damper"
+>Modelica.Mechanics.Rotational.Damper</A> damper(d=25);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Fixed"
+>Modelica.Mechanics.Rotational.Fixed</A> fixed;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Inertia"
+>Modelica.Mechanics.Rotational.Inertia</A> inertia(J=1, w_start=157.08);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(fixed.flange_b,damper. flange_b);
+  <font color="red">connect</font>(inertia.flange_a, constantTorque.flange);
+  <font color="red">connect</font>(gen.shaft, inertia.flange_b);
+  <font color="red">connect</font>(damper.flange_a, inertia.flange_b);
+  <font color="red">connect</font>(network.powerConnection, gen.powerConnection);
+  <font color="red">connect</font>(network.closed, booleanConstant.y);
+<font color="blue">end </font>TestNetworkGridGenerator_Pmax;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TestNetworkGridTwoGenerators<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Test.ElectricalElements.TestNetworkGridTwoGenerators"></A><A HREF="ThermoPower_Test_ElectricalElements.html#ThermoPower.Test.ElectricalElements"
+>ThermoPower.Test.ElectricalElements</A>.TestNetworkGridTwoGenerators</H2>
+<IMG SRC="ThermoPower.Test.ElectricalElements.TestNetworkGridTwoGeneratorsD.png" ALT="ThermoPower.Test.ElectricalElements.TestNetworkGridTwoGenerators">
+<H3>Information</H3>
+<PRE></pre>
+<p>The model is designed to test the <tt>NetworkGridtwoGenerators</tt> model.
+<p>The model starts at steady state.
+<p>At 20s, step variation of the tourque supplied to a generator. Observe the electric power oscillations.
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Boolean</TD><TD>SSInit</TD><TD>true</TD><TD>Steady-state initialization</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TestNetworkGridTwoGenerators
+  <font color="blue">parameter </font>Boolean SSInit = true <font color="darkgreen">&quot;Steady-state initialization&quot;</font>;
+  <A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.NetworkGridTwoGenerators"
+>ThermoPower.Electrical.NetworkGridTwoGenerators</A> network(
+    J_a=10000,
+    J_b=10000,
+    r_b=0.3,
+    v=15000,
+    Xline=1.625,
+    e_a=15000,
+    e_b=15000,
+    X_a=4,
+    X_b=4,
+    hasBreaker=false,
+    initOpt=<font color="blue">if </font>SSInit<font color="blue"> then </font>Choices.Init.Options.steadyState<font color="blue"> else </font>Choices.Init.Options.noInit);
+  <A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.Generator"
+>Electrical.Generator</A> gen_a(J=10000, initOpt=<font color="blue">if </font>SSInit<font color="blue"> then </font>Choices.Init.Options.steadyState<font color="blue"> else </font>
+              Choices.Init.Options.noInit);
+  <A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.Generator"
+>Electrical.Generator</A> gen_b(J=10000, initOpt=<font color="blue">if </font>SSInit<font color="blue"> then </font>Choices.Init.Options.steadyState<font color="blue"> else </font>
+              Choices.Init.Options.noInit);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Torque"
+>Modelica.Mechanics.Rotational.Torque</A> torque_a;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Torque"
+>Modelica.Mechanics.Rotational.Torque</A> torque_b;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Step"
+>Modelica.Blocks.Sources.Step</A> NomTorque_a(          offset=1e7/157,
+    startTime=20,
+    height=1e7/157*0.2);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Step"
+>Modelica.Blocks.Sources.Step</A> NomTorque_b(height=0, offset=1e7/157);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(gen_b.powerConnection, network.powerConnection_b);
+  <font color="red">connect</font>(network.powerConnection_a, gen_a.powerConnection);
+  <font color="red">connect</font>(NomTorque_b.y, torque_b.tau);
+  <font color="red">connect</font>(NomTorque_a.y, torque_a.tau);
+  <font color="red">connect</font>(torque_b.flange_b, gen_b.shaft);
+  <font color="red">connect</font>(torque_a.flange_b, gen_a.shaft);
+<font color="blue">end </font>TestNetworkGridTwoGenerators;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE StaticController<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Test.ElectricalElements.StaticControllerI.png" ALT="ThermoPower.Test.ElectricalElements.StaticController" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Test.ElectricalElements.StaticController"></A><A HREF="ThermoPower_Test_ElectricalElements.html#ThermoPower.Test.ElectricalElements"
+>ThermoPower.Test.ElectricalElements</A>.StaticController</H2>
+<IMG SRC="ThermoPower.Test.ElectricalElements.StaticControllerD.png" ALT="ThermoPower.Test.ElectricalElements.StaticController">
+<H3>Information</H3>
+<PRE></pre>
+<p>Controller for static control of the frequency.
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>droop</TD><TD>&nbsp;</TD><TD>Droop</TD></TR>
+<TR><TD>Real</TD><TD>PVnom</TD><TD>157.08</TD><TD>Nominal value of process variable</TD></TR>
+<TR><TD>Real</TD><TD>CVnom</TD><TD>&nbsp;</TD><TD>Nominal value of control variable</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>input <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>PV</TD><TD>&nbsp;</TD></TR>
+<TR><TD>output <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>RealOutput</A></TD><TD>CV</TD><TD>&nbsp;</TD></TR>
+<TR><TD>input <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>SP</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> StaticController
+  <font color="blue">parameter </font>Real droop <font color="darkgreen">&quot;Droop&quot;</font>;
+  <font color="blue">parameter </font>Real PVnom=157.08 <font color="darkgreen">&quot;Nominal value of process variable&quot;</font>;
+  <font color="blue">parameter </font>Real CVnom <font color="darkgreen">&quot;Nominal value of control variable&quot;</font>;
+  Real e <font color="darkgreen">&quot;error&quot;</font>;
+  Real deltaCV;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> PV;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> CV;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> SP;
+<font color="blue">equation </font>
+  e=(SP-PVnom)/PVnom-(PV-PVnom)/PVnom;
+  deltaCV = 1/droop*e*CVnom;
+  CV = deltaCV + CVnom;
+<font color="blue">end </font>StaticController;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TestN2GControl<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Test.ElectricalElements.TestN2GControl"></A><A HREF="ThermoPower_Test_ElectricalElements.html#ThermoPower.Test.ElectricalElements"
+>ThermoPower.Test.ElectricalElements</A>.TestN2GControl</H2>
+<B>Test network with two generators, frequency controlled</B><p>
+<IMG SRC="ThermoPower.Test.ElectricalElements.TestN2GControlD.png" ALT="ThermoPower.Test.ElectricalElements.TestN2GControl">
+<H3>Information</H3>
+<PRE></pre>
+<p>At 20s, step variation of the load of a generator. Observe the electric power oscillations and the controlled angular velocity.
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Boolean</TD><TD>SSInit</TD><TD>true</TD><TD>Steady-state initialization</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TestN2GControl <font color="darkgreen">
+  &quot;Test network with two generators, frequency controlled&quot;</font>
+  <font color="blue">parameter </font>Boolean SSInit = true <font color="darkgreen">&quot;Steady-state initialization&quot;</font>;
+  <A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.NetworkTwoGenerators_Pmax"
+>ThermoPower.Electrical.NetworkTwoGenerators_Pmax</A> network(
+    J_a=10000,
+    J_b=10000,
+    r_b=0.3,
+    Pmax=20e6,
+    deltaStart_ab=0.05,
+    initOpt=<font color="blue">if </font>SSInit<font color="blue"> then </font>Choices.Init.Options.steadyState<font color="blue"> else </font>Choices.Init.Options.noInit);
+  <A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.Generator"
+>Electrical.Generator</A> generator_a(J=10000, initOpt=<font color="blue">if </font>SSInit<font color="blue"> then </font>Choices.Init.Options.steadyState<font color="blue"> else </font>
+              Choices.Init.Options.noInit);
+  <A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.Generator"
+>Electrical.Generator</A> generator_b(J=10000, initOpt=<font color="blue">if </font>SSInit<font color="blue"> then </font>Choices.Init.Options.steadyState<font color="blue"> else </font>
+              Choices.Init.Options.noInit);
+  <A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.Load"
+>ThermoPower.Electrical.Load</A> load_a(
+                         Wn=10e6);
+  <A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.Load"
+>ThermoPower.Electrical.Load</A> load_b(
+                         Wn=10e6);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational_Sensors.html#Modelica.Mechanics.Rotational.Sensors.SpeedSensor"
+>Modelica.Mechanics.Rotational.Sensors.SpeedSensor</A> omegaSensor_a;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational_Sensors.html#Modelica.Mechanics.Rotational.Sensors.SpeedSensor"
+>Modelica.Mechanics.Rotational.Sensors.SpeedSensor</A> omegaSensor_b;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Torque"
+>Modelica.Mechanics.Rotational.Torque</A> torque_a;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Torque"
+>Modelica.Mechanics.Rotational.Torque</A> torque_b;
+  <A HREF="ThermoPower_Test_ElectricalElements.html#ThermoPower.Test.ElectricalElements.StaticController"
+>ThermoPower.Test.ElectricalElements.StaticController</A> controller_A(
+                               droop=0.05, CVnom=1e7/157.08);
+  <A HREF="ThermoPower_Test_ElectricalElements.html#ThermoPower.Test.ElectricalElements.StaticController"
+>ThermoPower.Test.ElectricalElements.StaticController</A> controller_b(
+                               droop=0.05, CVnom=1e7/157.08);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Step"
+>Modelica.Blocks.Sources.Step</A> step_a(
+    startTime=50,
+    offset=8e6,
+    height=5e6);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> SP_omega(k=157.08);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous.FirstOrder"
+>Modelica.Blocks.Continuous.FirstOrder</A> filter_a(
+    T=1,
+    y_start=1e7/157.08,
+    initType=<font color="blue">if </font>SSInit<font color="blue"> then </font>Modelica.Blocks.Types.Init.SteadyState<font color="blue"> else </font>
+        Modelica.Blocks.Types.Init.NoInit);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous.FirstOrder"
+>Modelica.Blocks.Continuous.FirstOrder</A> filter_b(y_start=1e7/157.08,
+      initType=<font color="blue">if </font>SSInit<font color="blue"> then </font>Modelica.Blocks.Types.Init.SteadyState<font color="blue"> else </font>
+        Modelica.Blocks.Types.Init.NoInit);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(generator_b.powerConnection, network.powerConnection_b);
+  <font color="red">connect</font>(network.powerConnection_a, generator_a.powerConnection);
+  <font color="red">connect</font>(load_a.connection, generator_a.powerConnection);
+  <font color="red">connect</font>(load_b.connection, generator_b.powerConnection);
+  <font color="red">connect</font>(omegaSensor_a.flange_a,torque_a. flange_b);
+  <font color="red">connect</font>(torque_b.flange_b,omegaSensor_b. flange_a);
+  <font color="red">connect</font>(controller_A.PV,omegaSensor_a. w);
+  <font color="red">connect</font>(omegaSensor_b.w,controller_b. PV);
+  <font color="red">connect</font>(step_a.y, load_a.powerConsumption);
+  <font color="red">connect</font>(SP_omega.y, controller_b.SP);
+  <font color="red">connect</font>(controller_A.SP, SP_omega.y);
+  <font color="red">connect</font>(controller_A.CV, filter_a.u);
+  <font color="red">connect</font>(filter_a.y, torque_a.tau);
+  <font color="red">connect</font>(filter_b.u, controller_b.CV);
+  <font color="red">connect</font>(torque_b.tau, filter_b.y);
+  <font color="red">connect</font>(generator_a.shaft, torque_a.flange_b);
+  <font color="red">connect</font>(generator_b.shaft, torque_b.flange_b);
+<font color="blue">end </font>TestN2GControl;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Tue Jul 07 01:26:10 2009.
+</address></BODY>
+</HTML>

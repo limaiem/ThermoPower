@@ -1,0 +1,189 @@
+<HTML>
+<HEAD>
+<TITLE>ThermoPower.PowerPlants.Control</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Models of the common control elements&quot;">
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Control<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.PowerPlants.Control"></A><A HREF="ThermoPower_PowerPlants.html#ThermoPower.PowerPlants"
+>ThermoPower.PowerPlants</A>.Control</H2>
+<B>Models of the common control elements</B>
+<P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="ThermoPower.PowerPlants.Control.PIDS.png" ALT="ThermoPower.PowerPlants.Control.PID" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_PowerPlants_Control.html#ThermoPower.PowerPlants.Control.PID"
+>PID</A>
+</TD><TD>ISA PID controller with anti-windup</TD></TR>
+<TR><TD><IMG SRC="ThermoPower.PowerPlants.Control.LevelSetPointS.png" ALT="ThermoPower.PowerPlants.Control.LevelSetPoint" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_PowerPlants_Control.html#ThermoPower.PowerPlants.Control.LevelSetPoint"
+>LevelSetPoint</A>
+</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PID<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.PowerPlants.Control.PIDI.png" ALT="ThermoPower.PowerPlants.Control.PID" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.PowerPlants.Control.PID"></A><A HREF="ThermoPower_PowerPlants_Control.html#ThermoPower.PowerPlants.Control"
+>ThermoPower.PowerPlants.Control</A>.PID</H2>
+<B>ISA PID controller with anti-windup</B><p>
+<IMG SRC="ThermoPower.PowerPlants.Control.PIDD.png" ALT="ThermoPower.PowerPlants.Control.PID">
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>Kp</TD><TD>&nbsp;</TD><TD>Proportional gain (normalised units)</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Time"
+>Time</A></TD><TD>Ti</TD><TD>&nbsp;</TD><TD>Integral time [s]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Time"
+>Time</A></TD><TD>Td</TD><TD>0</TD><TD>Derivative time [s]</TD></TR>
+<TR><TD>Real</TD><TD>Nd</TD><TD>1</TD><TD>Derivative action up to Nd / Td rad/s</TD></TR>
+<TR><TD>Real</TD><TD>Ni</TD><TD>1</TD><TD>Ni*Ti is the time constant of anti-windup compensation</TD></TR>
+<TR><TD>Real</TD><TD>b</TD><TD>1</TD><TD>Setpoint weight on proportional action</TD></TR>
+<TR><TD>Real</TD><TD>c</TD><TD>0</TD><TD>Setpoint weight on derivative action</TD></TR>
+<TR><TD>Real</TD><TD>PVmin</TD><TD>&nbsp;</TD><TD>Minimum value of process variable for scaling</TD></TR>
+<TR><TD>Real</TD><TD>PVmax</TD><TD>&nbsp;</TD><TD>Maximum value of process variable for scaling</TD></TR>
+<TR><TD>Real</TD><TD>CSmin</TD><TD>&nbsp;</TD><TD>Minimum value of control signal for scaling</TD></TR>
+<TR><TD>Real</TD><TD>CSmax</TD><TD>&nbsp;</TD><TD>Maximum value of control signal for scaling</TD></TR>
+<TR><TD>Real</TD><TD>PVstart</TD><TD>0.5</TD><TD>Start value of PV (scaled)</TD></TR>
+<TR><TD>Real</TD><TD>CSstart</TD><TD>0.5</TD><TD>Start value of CS (scaled)</TD></TR>
+<TR><TD>Boolean</TD><TD>steadyStateInit</TD><TD>false</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>input <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>PV</TD><TD>Process variable signal</TD></TR>
+<TR><TD>output <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>RealOutput</A></TD><TD>CS</TD><TD>Control signal</TD></TR>
+<TR><TD>input <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>SP</TD><TD>Set point signal</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> PID <font color="darkgreen">&quot;ISA PID controller with anti-windup&quot;</font>
+  <font color="blue">parameter </font>Real Kp <font color="darkgreen">&quot;Proportional gain (normalised units)&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Time"
+>Time</A> Ti <font color="darkgreen">&quot;Integral time&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Time"
+>Time</A> Td = 0 <font color="darkgreen">&quot;Derivative time&quot;</font>;
+  <font color="blue">parameter </font>Real Nd = 1 <font color="darkgreen">&quot;Derivative action up to Nd / Td rad/s&quot;</font>;
+  <font color="blue">parameter </font>Real Ni = 1 <font color="darkgreen">
+    &quot;Ni*Ti is the time constant of anti-windup compensation&quot;</font>;
+  <font color="blue">parameter </font>Real b = 1 <font color="darkgreen">&quot;Setpoint weight on proportional action&quot;</font>;
+  <font color="blue">parameter </font>Real c = 0 <font color="darkgreen">&quot;Setpoint weight on derivative action&quot;</font>;
+  <font color="blue">parameter </font>Real PVmin <font color="darkgreen">&quot;Minimum value of process variable for scaling&quot;</font>;
+  <font color="blue">parameter </font>Real PVmax <font color="darkgreen">&quot;Maximum value of process variable for scaling&quot;</font>;
+  <font color="blue">parameter </font>Real CSmin <font color="darkgreen">&quot;Minimum value of control signal for scaling&quot;</font>;
+  <font color="blue">parameter </font>Real CSmax <font color="darkgreen">&quot;Maximum value of control signal for scaling&quot;</font>;
+  <font color="blue">parameter </font>Real PVstart = 0.5 <font color="darkgreen">&quot;Start value of PV (scaled)&quot;</font>;
+  <font color="blue">parameter </font>Real CSstart = 0.5 <font color="darkgreen">&quot;Start value of CS (scaled)&quot;</font>;
+  <font color="blue">parameter </font>Boolean steadyStateInit = false;
+
+  Real P <font color="darkgreen">&quot;Proportional action / Kp&quot;</font>;
+  Real I(start = CSstart/Kp) <font color="darkgreen">&quot;Integral action / Kp&quot;</font>;
+  Real D <font color="darkgreen">&quot;Derivative action / Kp&quot;</font>;
+  Real Dx(start = c*PVstart - PVstart) <font color="darkgreen">&quot;State of approximated derivator&quot;</font>;
+  Real PVs <font color="darkgreen">&quot;Process variable scaled in per unit&quot;</font>;
+  Real SPs <font color="darkgreen">&quot;Setpoint variable scaled in per unit&quot;</font>;
+  Real CSs(start = CSstart) <font color="darkgreen">&quot;Control signal scaled in per unit&quot;</font>;
+  Real CSbs(start = CSstart) <font color="darkgreen">
+    &quot;Control signal scaled in per unit before saturation&quot;</font>;
+  Real track <font color="darkgreen">&quot;Tracking signal for anti-windup integral action&quot;</font>;
+
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> PV <font color="darkgreen">&quot;Process variable signal&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> CS <font color="darkgreen">&quot;Control signal&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> SP <font color="darkgreen">&quot;Set point signal&quot;</font>;
+
+<font color="blue">equation </font>
+  <font color="darkgreen">// Scaling</font>
+  SPs=(SP-PVmin)/(PVmax-PVmin);
+  PVs=(PV-PVmin)/(PVmax-PVmin);
+  CS = CSmin + CSs*(CSmax-CSmin);
+  <font color="darkgreen">// Controller actions  </font>
+  P = b*SPs - PVs;
+  <font color="blue">if </font>Ti&gt;0<font color="blue"> then</font>
+    Ti*<font color="red">der</font>(I) = SPs - PVs + track;
+  <font color="blue">else</font>
+    I = 0;
+  <font color="blue">end if</font>;
+  <font color="blue">if </font>Td &gt; 0<font color="blue"> then</font>
+    Td/Nd*<font color="red">der</font>(Dx) + Dx = c*SPs - PVs <font color="darkgreen">&quot;State equation of approximated derivator&quot;</font>;
+    D = Nd*((c*SPs - PVs) - Dx) <font color="darkgreen">&quot;Output equation of approximated derivator&quot;</font>;
+  <font color="blue">else</font>
+    Dx = 0;
+    D = 0;
+  <font color="blue">end if</font>;
+  CSbs = Kp*(P+I+D) <font color="darkgreen">&quot;Control signal before saturation&quot;</font>;
+  CSs =<font color="red"> smooth</font>(0, <font color="blue">if </font>CSbs &gt; 1<font color="blue"> then </font>1<font color="blue"> else </font><font color="blue">if </font>CSbs &lt; 0<font color="blue"> then </font>0<font color="blue"> else </font>CSbs) <font color="darkgreen">
+    &quot;Saturated control signal&quot;</font>;
+  track = (CSs-CSbs)/(Kp*Ni);
+<font color="blue">initial </font><font color="blue">equation </font>
+  <font color="blue">if </font>steadyStateInit<font color="blue"> then</font>
+    <font color="blue">if </font>Ti &gt; 0<font color="blue"> then</font>
+      <font color="red">der</font>(I) = 0;
+    <font color="blue">end if</font>;
+    <font color="blue">if </font>Td &gt; 0<font color="blue"> then</font>
+      D = 0;
+    <font color="blue">end if</font>;
+  <font color="blue">end if</font>;
+<font color="blue">end </font>PID;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE LevelSetPoint<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.PowerPlants.Control.LevelSetPointI.png" ALT="ThermoPower.PowerPlants.Control.LevelSetPoint" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.PowerPlants.Control.LevelSetPoint"></A><A HREF="ThermoPower_PowerPlants_Control.html#ThermoPower.PowerPlants.Control"
+>ThermoPower.PowerPlants.Control</A>.LevelSetPoint</H2>
+<IMG SRC="ThermoPower.PowerPlants.Control.LevelSetPointD.png" ALT="ThermoPower.PowerPlants.Control.LevelSetPoint">
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>p1</TD><TD>&nbsp;</TD><TD>[Pa]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>p2</TD><TD>&nbsp;</TD><TD>[Pa]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>y1</TD><TD>&nbsp;</TD><TD>[m]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>y2</TD><TD>&nbsp;</TD><TD>[m]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>input <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>drumPressure</TD><TD>&nbsp;</TD></TR>
+<TR><TD>output <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>RealOutput</A></TD><TD>levelSetPoint</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> LevelSetPoint
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A> p1;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A> p2;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A> y1;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A> y2;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> drumPressure;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> levelSetPoint;
+<font color="blue">equation </font>
+  levelSetPoint =<font color="red"> noEvent</font>(
+    <font color="blue">if </font>drumPressure &lt; p1<font color="blue"> then </font>y1<font color="blue"> else </font>
+    <font color="blue">if </font>drumPressure &gt; p2<font color="blue"> then </font>y2<font color="blue"> else </font>y1 + (y2-y1)/(p2-p1)*(drumPressure-p1));
+<font color="blue">end </font>LevelSetPoint;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Tue Jul 07 01:25:42 2009.
+</address></BODY>
+</HTML>

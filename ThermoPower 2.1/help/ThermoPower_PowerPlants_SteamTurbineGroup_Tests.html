@@ -1,0 +1,828 @@
+<HTML>
+<HEAD>
+<TITLE>ThermoPower.PowerPlants.SteamTurbineGroup.Tests</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Test cases&quot;">
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Tests<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.PowerPlants.SteamTurbineGroup.Tests"></A><A HREF="ThermoPower_PowerPlants_SteamTurbineGroup.html#ThermoPower.PowerPlants.SteamTurbineGroup"
+>ThermoPower.PowerPlants.SteamTurbineGroup</A>.Tests</H2>
+<B>Test cases</B>
+<P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="ThermoPower_PowerPlants_SteamTurbineGroup_Tests.html#ThermoPower.PowerPlants.SteamTurbineGroup.Tests.computation_states"
+>computation_states</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_PowerPlants_SteamTurbineGroup_Tests.html#ThermoPower.PowerPlants.SteamTurbineGroup.Tests.TestSettingTurbineHP"
+>TestSettingTurbineHP</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_PowerPlants_SteamTurbineGroup_Tests.html#ThermoPower.PowerPlants.SteamTurbineGroup.Tests.TestSettingTurbineIP"
+>TestSettingTurbineIP</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_PowerPlants_SteamTurbineGroup_Tests.html#ThermoPower.PowerPlants.SteamTurbineGroup.Tests.TestSettingTurbineLP"
+>TestSettingTurbineLP</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_PowerPlants_SteamTurbineGroup_Tests.html#ThermoPower.PowerPlants.SteamTurbineGroup.Tests.TestValveTurbineHP"
+>TestValveTurbineHP</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_PowerPlants_SteamTurbineGroup_Tests.html#ThermoPower.PowerPlants.SteamTurbineGroup.Tests.TestValveTurbineIP"
+>TestValveTurbineIP</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_PowerPlants_SteamTurbineGroup_Tests.html#ThermoPower.PowerPlants.SteamTurbineGroup.Tests.TestValveTurbineLP"
+>TestValveTurbineLP</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_PowerPlants_SteamTurbineGroup_Tests.html#ThermoPower.PowerPlants.SteamTurbineGroup.Tests.TestTurbineHPefficiency"
+>TestTurbineHPefficiency</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_PowerPlants_SteamTurbineGroup_Tests.html#ThermoPower.PowerPlants.SteamTurbineGroup.Tests.TestST3LRh_base"
+>TestST3LRh_base</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_PowerPlants_SteamTurbineGroup_Tests.html#ThermoPower.PowerPlants.SteamTurbineGroup.Tests.TestST3LRh_valve"
+>TestST3LRh_valve</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_PowerPlants_SteamTurbineGroup_Tests.html#ThermoPower.PowerPlants.SteamTurbineGroup.Tests.TestST3LRh_bypass"
+>TestST3LRh_bypass</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_PowerPlants_SteamTurbineGroup_Tests.html#ThermoPower.PowerPlants.SteamTurbineGroup.Tests.TestCondenserControl"
+>TestCondenserControl</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_PowerPlants_SteamTurbineGroup_Tests.html#ThermoPower.PowerPlants.SteamTurbineGroup.Tests.TestSTG_cc"
+>TestSTG_cc</A>
+</TD><TD>Test of STG with condenser control</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE computation_states<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.PowerPlants.SteamTurbineGroup.Tests.computation_states"></A><A HREF="ThermoPower_PowerPlants_SteamTurbineGroup_Tests.html#ThermoPower.PowerPlants.SteamTurbineGroup.Tests"
+>ThermoPower.PowerPlants.SteamTurbineGroup.Tests</A>.computation_states</H2>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SpecificEnthalpy</A></TD><TD>h</TD><TD>2.39102e6</TD><TD>value of specific enthalpy [J/kg]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>p</TD><TD>2e5</TD><TD>value of pressure [Pa]</TD></TR>
+<TR><TD><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T</TD><TD>288</TD><TD>value of temperature [K]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> computation_states
+  <font color="blue">package</font> FluidMedium = ThermoPower.Water.StandardWater;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SI.SpecificEnthalpy</A> h=2.39102e6 <font color="darkgreen">&quot;value of specific enthalpy&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p=2e5 <font color="darkgreen">&quot;value of pressure&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> T=288 <font color="darkgreen">&quot;value of temperature&quot;</font>;
+
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> Tf <font color="darkgreen">&quot;Temperature (p,h)&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SI.SpecificEnthalpy</A> hf <font color="darkgreen">&quot;Specific enthalpy (p,T)&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> Ts <font color="darkgreen">&quot;Saturation temperature (p)&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SI.SpecificEnthalpy</A> hv <font color="darkgreen">&quot;Dew specific enthalpy (p)&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SI.SpecificEnthalpy</A> hl <font color="darkgreen">&quot;Bubble specific enthalpy (p)&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> rhov <font color="darkgreen">&quot;Dew density (p)&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> rhol <font color="darkgreen">&quot;Bubble density (p)&quot;</font>;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.SaturationProperties"
+>FluidMedium.SaturationProperties</A> sat <font color="darkgreen">&quot;Saturation properties&quot;</font>;
+
+<font color="blue">equation </font>
+  sat.psat = p;
+  sat.Tsat =<font color="red"> FluidMedium.saturationTemperature</font>(p);
+
+  Ts = sat.Tsat;
+  hl=<font color="red">FluidMedium.bubbleEnthalpy</font>(sat);
+  hv=<font color="red">FluidMedium.dewEnthalpy</font>(sat);
+  Tf=<font color="red">FluidMedium.temperature_ph</font>(p,h);
+  hf=<font color="red">FluidMedium.specificEnthalpy_pT</font>(p,T);
+  rhov=<font color="red">FluidMedium.density_ph</font>(p,h);
+  rhol=<font color="red">FluidMedium.bubbleDensity</font>(sat);
+<font color="blue">end </font>computation_states;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TestSettingTurbineHP<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.PowerPlants.SteamTurbineGroup.Tests.TestSettingTurbineHP"></A><A HREF="ThermoPower_PowerPlants_SteamTurbineGroup_Tests.html#ThermoPower.PowerPlants.SteamTurbineGroup.Tests"
+>ThermoPower.PowerPlants.SteamTurbineGroup.Tests</A>.TestSettingTurbineHP</H2>
+<IMG SRC="ThermoPower.PowerPlants.SteamTurbineGroup.Tests.TestSettingTurbineHPD.png" ALT="ThermoPower.PowerPlants.SteamTurbineGroup.Tests.TestSettingTurbineHP">
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TestSettingTurbineHP
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SteamTurbineStodola"
+>Water.SteamTurbineStodola</A> steamTurbineStodola(
+    pstart_in=1.28e7,
+    pstart_out=2.98e6,
+    wstart=67.6,
+    hstartin=3.47e6,
+    hstartout=3.1076e6,
+    wnom=67.6,
+    eta_iso_nom=0.833,
+    Kt=0.0032078);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SinkP"
+>Water.SinkP</A> sinkP(p0=29.8e5, h=3.1076e6);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.ConstantSpeed"
+>Modelica.Mechanics.Rotational.ConstantSpeed</A> constantSpeed(w_fixed=
+        314.16/2);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SourceP"
+>Water.SourceP</A> sourceP(h=3.47e6, p0=1.28e7);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(sinkP.flange, steamTurbineStodola.outlet);
+  <font color="red">connect</font>(constantSpeed.flange, steamTurbineStodola.shaft_b);
+  <font color="red">connect</font>(sourceP.flange, steamTurbineStodola.inlet);
+<font color="blue">end </font>TestSettingTurbineHP;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TestSettingTurbineIP<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.PowerPlants.SteamTurbineGroup.Tests.TestSettingTurbineIP"></A><A HREF="ThermoPower_PowerPlants_SteamTurbineGroup_Tests.html#ThermoPower.PowerPlants.SteamTurbineGroup.Tests"
+>ThermoPower.PowerPlants.SteamTurbineGroup.Tests</A>.TestSettingTurbineIP</H2>
+<IMG SRC="ThermoPower.PowerPlants.SteamTurbineGroup.Tests.TestSettingTurbineHPD.png" ALT="ThermoPower.PowerPlants.SteamTurbineGroup.Tests.TestSettingTurbineIP">
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TestSettingTurbineIP
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SteamTurbineStodola"
+>Water.SteamTurbineStodola</A> steamTurbineStodola(
+    pstart_in=2.68e6,
+    pstart_out=6e5,
+    wstart=81.10,
+    hstartin=3.554e6,
+    hstartout=3.1281e6,
+    wnom=81.10,
+    eta_iso_nom=0.903,
+    Kt=0.018883);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SinkP"
+>Water.SinkP</A> sinkP(p0=6e5, h=3.1281e6);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SourceP"
+>Water.SourceP</A> sourceP(            h=3.554e6, p0=2.68e6);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.ConstantSpeed"
+>Modelica.Mechanics.Rotational.ConstantSpeed</A> constantSpeed(w_fixed=
+        314.16/2);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(sinkP.flange, steamTurbineStodola.outlet);
+  <font color="red">connect</font>(sourceP.flange, steamTurbineStodola.inlet);
+  <font color="red">connect</font>(constantSpeed.flange, steamTurbineStodola.shaft_b);
+<font color="blue">end </font>TestSettingTurbineIP;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TestSettingTurbineLP<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.PowerPlants.SteamTurbineGroup.Tests.TestSettingTurbineLP"></A><A HREF="ThermoPower_PowerPlants_SteamTurbineGroup_Tests.html#ThermoPower.PowerPlants.SteamTurbineGroup.Tests"
+>ThermoPower.PowerPlants.SteamTurbineGroup.Tests</A>.TestSettingTurbineLP</H2>
+<IMG SRC="ThermoPower.PowerPlants.SteamTurbineGroup.Tests.TestSettingTurbineHPD.png" ALT="ThermoPower.PowerPlants.SteamTurbineGroup.Tests.TestSettingTurbineLP">
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TestSettingTurbineLP
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SteamTurbineStodola"
+>Water.SteamTurbineStodola</A> steamTurbineStodola(
+    pstart_in=6e5,
+    pstart_out=5.3982e3,
+    wstart=89.82,
+    hstartin=3.109e6,
+    hstartout=2.3854e6,
+    wnom=89.82,
+    eta_iso_nom=0.903,
+    Kt=0.078004);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SinkP"
+>Water.SinkP</A> sinkP(p0=5.3982e3, h=2.3854e6);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SourceP"
+>Water.SourceP</A> sourceP(        h=3.109e6, p0=6e5);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.ConstantSpeed"
+>Modelica.Mechanics.Rotational.ConstantSpeed</A> constantSpeed(w_fixed=
+        314.16/2);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(sinkP.flange, steamTurbineStodola.outlet);
+  <font color="red">connect</font>(sourceP.flange, steamTurbineStodola.inlet);
+  <font color="red">connect</font>(constantSpeed.flange, steamTurbineStodola.shaft_b);
+<font color="blue">end </font>TestSettingTurbineLP;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TestValveTurbineHP<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.PowerPlants.SteamTurbineGroup.Tests.TestValveTurbineHP"></A><A HREF="ThermoPower_PowerPlants_SteamTurbineGroup_Tests.html#ThermoPower.PowerPlants.SteamTurbineGroup.Tests"
+>ThermoPower.PowerPlants.SteamTurbineGroup.Tests</A>.TestValveTurbineHP</H2>
+<IMG SRC="ThermoPower.PowerPlants.SteamTurbineGroup.Tests.TestValveTurbineHPD.png" ALT="ThermoPower.PowerPlants.SteamTurbineGroup.Tests.TestValveTurbineHP">
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TestValveTurbineHP
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SteamTurbineStodola"
+>Water.SteamTurbineStodola</A> steamTurbineStodola(
+    pstart_in=1.28e7,
+    pstart_out=2.98e6,
+    wstart=67.6,
+    hstartin=3.47e6,
+    hstartout=3.1076e6,
+    wnom=67.6,
+    eta_iso_nom=0.833,
+    Kt=0.0032078);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SinkP"
+>Water.SinkP</A> sinkP(p0=29.8e5, h=3.1076e6);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.ValveVap"
+>Water.ValveVap</A> valveHP(
+    CvData=ThermoPower.Choices.Valve.CvTypes.Cv,
+    CheckValve=true,
+    wnom=67.6,
+    hstart=3.47e6,
+    pnom=1.296e7,
+    dpnom=1.6e5,
+    Cv=1165);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SourceP"
+>Water.SourceP</A> sourceP(h=3.47e6, p0=1.296e7);
+<font color="blue">public </font>
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> com_valveHP(k=0.7);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.ConstantSpeed"
+>Modelica.Mechanics.Rotational.ConstantSpeed</A> constantSpeed(w_fixed=
+        314.16/2);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(sinkP.flange, steamTurbineStodola.outlet);
+  <font color="red">connect</font>(valveHP.outlet, steamTurbineStodola.inlet);
+  <font color="red">connect</font>(sourceP.flange, valveHP.inlet);
+  <font color="red">connect</font>(com_valveHP.y, valveHP.theta);
+  <font color="red">connect</font>(constantSpeed.flange, steamTurbineStodola.shaft_b);
+<font color="blue">end </font>TestValveTurbineHP;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TestValveTurbineIP<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.PowerPlants.SteamTurbineGroup.Tests.TestValveTurbineIP"></A><A HREF="ThermoPower_PowerPlants_SteamTurbineGroup_Tests.html#ThermoPower.PowerPlants.SteamTurbineGroup.Tests"
+>ThermoPower.PowerPlants.SteamTurbineGroup.Tests</A>.TestValveTurbineIP</H2>
+<IMG SRC="ThermoPower.PowerPlants.SteamTurbineGroup.Tests.TestValveTurbineIPD.png" ALT="ThermoPower.PowerPlants.SteamTurbineGroup.Tests.TestValveTurbineIP">
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TestValveTurbineIP
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SteamTurbineStodola"
+>Water.SteamTurbineStodola</A> steamTurbineStodola(
+    pstart_in=2.68e6,
+    pstart_out=6e5,
+    wstart=81.10,
+    hstartin=3.554e6,
+    hstartout=3.1281e6,
+    wnom=81.10,
+    eta_iso_nom=0.903,
+    Kt=0.018883);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SinkP"
+>Water.SinkP</A> sinkP(p0=6e5, h=3.1281e6);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.ValveVap"
+>Water.ValveVap</A> valveIP(
+    CvData=ThermoPower.Choices.Valve.CvTypes.Cv,
+    CheckValve=true,
+    wnom=81.1,
+    hstart=3.554e6,
+    dpnom=5e4,
+    pnom=2.73e6,
+    Cv=5625);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SourceP"
+>Water.SourceP</A> sourceP(            h=3.554e6, p0=2.73e6);
+<font color="blue">public </font>
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> com_valveHP;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.ConstantSpeed"
+>Modelica.Mechanics.Rotational.ConstantSpeed</A> constantSpeed(w_fixed=
+        314.16/2);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(sinkP.flange, steamTurbineStodola.outlet);
+  <font color="red">connect</font>(valveIP.outlet, steamTurbineStodola.inlet);
+  <font color="red">connect</font>(sourceP.flange,valveIP. inlet);
+  <font color="red">connect</font>(com_valveHP.y, valveIP.theta);
+  <font color="red">connect</font>(constantSpeed.flange, steamTurbineStodola.shaft_b);
+<font color="blue">end </font>TestValveTurbineIP;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TestValveTurbineLP<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.PowerPlants.SteamTurbineGroup.Tests.TestValveTurbineLP"></A><A HREF="ThermoPower_PowerPlants_SteamTurbineGroup_Tests.html#ThermoPower.PowerPlants.SteamTurbineGroup.Tests"
+>ThermoPower.PowerPlants.SteamTurbineGroup.Tests</A>.TestValveTurbineLP</H2>
+<IMG SRC="ThermoPower.PowerPlants.SteamTurbineGroup.Tests.TestValveTurbineIPD.png" ALT="ThermoPower.PowerPlants.SteamTurbineGroup.Tests.TestValveTurbineLP">
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TestValveTurbineLP
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SteamTurbineStodola"
+>Water.SteamTurbineStodola</A> steamTurbineStodola(
+    pstart_in=6e5,
+    pstart_out=5.3982e3,
+    wstart=89.82,
+    hstartin=3.109e6,
+    hstartout=2.3854e6,
+    wnom=89.82,
+    eta_iso_nom=0.903,
+    Kt=0.078004);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SinkP"
+>Water.SinkP</A> sinkP(p0=5.3982e3, h=2.3854e6);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.ValveVap"
+>Water.ValveVap</A> valveLP(
+    CvData=ThermoPower.Choices.Valve.CvTypes.Cv,
+    CheckValve=true,
+    wnom=89.82,
+    hstart=3.109e6,
+    pnom=6.296e5,
+    dpnom=2.964e4,
+    Cv=14733);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SourceP"
+>Water.SourceP</A> sourceP(        h=3.109e6, p0=6.296e5);
+<font color="blue">public </font>
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> com_valveHP;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.ConstantSpeed"
+>Modelica.Mechanics.Rotational.ConstantSpeed</A> constantSpeed(w_fixed=
+        314.16/2);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(sinkP.flange, steamTurbineStodola.outlet);
+  <font color="red">connect</font>(valveLP.inlet, sourceP.flange);
+  <font color="red">connect</font>(valveLP.outlet, steamTurbineStodola.inlet);
+  <font color="red">connect</font>(com_valveHP.y, valveLP.theta);
+  <font color="red">connect</font>(constantSpeed.flange, steamTurbineStodola.shaft_b);
+<font color="blue">end </font>TestValveTurbineLP;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TestTurbineHPefficiency<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.PowerPlants.SteamTurbineGroup.Tests.TestTurbineHPefficiency"></A><A HREF="ThermoPower_PowerPlants_SteamTurbineGroup_Tests.html#ThermoPower.PowerPlants.SteamTurbineGroup.Tests"
+>ThermoPower.PowerPlants.SteamTurbineGroup.Tests</A>.TestTurbineHPefficiency</H2>
+<IMG SRC="ThermoPower.PowerPlants.SteamTurbineGroup.Tests.TestTurbineHPefficiencyD.png" ALT="ThermoPower.PowerPlants.SteamTurbineGroup.Tests.TestTurbineHPefficiency">
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TestTurbineHPefficiency
+
+  <A HREF="ThermoPower_PowerPlants_SteamTurbineGroup_Components.html#ThermoPower.PowerPlants.SteamTurbineGroup.Components.SteamTurbineVarEta"
+>Components.SteamTurbineVarEta</A> steamTurbineVarEta(
+    pstart_in=1.28e7,
+    pstart_out=2.98e6,
+    wstart=67.6,
+    hstartin=3.47e6,
+    hstartout=3.1076e6,
+    wnom=67.6,
+    eta_iso_nom=0.833,
+    Kt=0.0032078,
+    n=20,
+    Rm=0.936);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SinkP"
+>Water.SinkP</A> sinkP(p0=29.8e5, h=3.1076e6);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.ValveVap"
+>Water.ValveVap</A> valveHP(
+    CvData=ThermoPower.Choices.Valve.CvTypes.Cv,
+    CheckValve=true,
+    wnom=67.6,
+    hstart=3.47e6,
+    pnom=1.296e7,
+    dpnom=1.6e5,
+    Cv=1165);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SourceP"
+>Water.SourceP</A> sourceP(h=3.47e6, p0=1.296e7);
+<font color="blue">public </font>
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> com_valveHP(
+    offset=1,
+    height=-0.9,
+    duration=50,
+    startTime=1000);
+  <A HREF="ThermoPower_PowerPlants_SteamTurbineGroup_Components.html#ThermoPower.PowerPlants.SteamTurbineGroup.Components.PrescribedSpeed"
+>ThermoPower.PowerPlants.SteamTurbineGroup.Components.PrescribedSpeed</A>
+    constantSpeed;
+<font color="blue">public </font>
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> rif_velocity(
+    height=-70,
+    offset=314.16/2,
+    duration=50,
+    startTime=10);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Math.html#Modelica.Blocks.Math.Add"
+>Modelica.Blocks.Math.Add</A> add;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Math.html#Modelica.Blocks.Math.Add"
+>Modelica.Blocks.Math.Add</A> add1;
+<font color="blue">public </font>
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> com_valveHP1(
+    offset=0,
+    height=0.2,
+    duration=50,
+    startTime=80000);
+<font color="blue">public </font>
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> rif_velocity1(
+    height=30,
+    offset=0,
+    duration=50,
+    startTime=80);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(sinkP.flange, steamTurbineVarEta.outlet);
+  <font color="red">connect</font>(valveHP.outlet, steamTurbineVarEta.inlet);
+  <font color="red">connect</font>(sourceP.flange, valveHP.inlet);
+  <font color="red">connect</font>(constantSpeed.flange, steamTurbineVarEta.shaft_b);
+  <font color="red">connect</font>(com_valveHP1.y, add.u1);
+  <font color="red">connect</font>(com_valveHP.y, add.u2);
+  <font color="red">connect</font>(add.y, valveHP.theta);
+  <font color="red">connect</font>(rif_velocity.y, add1.u2);
+  <font color="red">connect</font>(rif_velocity1.y, add1.u1);
+  <font color="red">connect</font>(add1.y, constantSpeed.w_fixed);
+<font color="blue">end </font>TestTurbineHPefficiency;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TestST3LRh_base<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.PowerPlants.SteamTurbineGroup.Tests.TestST3LRh_base"></A><A HREF="ThermoPower_PowerPlants_SteamTurbineGroup_Tests.html#ThermoPower.PowerPlants.SteamTurbineGroup.Tests"
+>ThermoPower.PowerPlants.SteamTurbineGroup.Tests</A>.TestST3LRh_base</H2>
+<IMG SRC="ThermoPower.PowerPlants.SteamTurbineGroup.Tests.TestST3LRh_baseD.png" ALT="ThermoPower.PowerPlants.SteamTurbineGroup.Tests.TestST3LRh_base">
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TestST3LRh_base
+  <font color="blue">package</font> FluidMedium = ThermoPower.Water.StandardWater;
+
+  <A HREF="ThermoPower_PowerPlants_SteamTurbineGroup_Examples.html#ThermoPower.PowerPlants.SteamTurbineGroup.Examples.ST3LRh_base"
+>Examples.ST3LRh_base</A> steamTurbines(
+    <font color="blue">redeclare </font><font color="blue">package</font> FluidMedium = FluidMedium,
+    steamHPNomFlowRate=67.6,
+    steamHPNomPressure=1.28e7,
+    steamIPNomFlowRate=81.10 - 67.5,
+    steamIPNomPressure=2.68e6,
+    steamLPNomPressure=6e5,
+    pcond=5.3982e3,
+    steamLPNomFlowRate=89.82 - 81.10,
+    HPT_hstart_in=3.47e6,
+    HPT_hstart_out=3.1076e6,
+    IPT_hstart_in=3.554e6,
+    IPT_hstart_out=3.12810e6,
+    LPT_hstart_in=3.109e6,
+    LPT_hstart_out=2.3854e6,
+    mixLP_hstart=3.109e6,
+    HPT_eta_iso_nom=0.833,
+    IPT_eta_iso_nom=0.903,
+    LPT_eta_iso_nom=0.876,
+    HPT_Kt=0.0032078,
+    IPT_Kt=0.018883,
+    LPT_Kt=0.078004,
+    mixLP_V=10);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SinkP"
+>Water.SinkP</A> sinkLPT(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = FluidMedium,
+    p0=5.3982e3,
+    h=2.3854e6);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.ConstantSpeed"
+>Modelica.Mechanics.Rotational.ConstantSpeed</A> constantSpeed(w_fixed=
+        314.16/2);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SourceP"
+>Water.SourceP</A> sourceHPT(h=3.47e6, p0=1.28e7);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SourceP"
+>Water.SourceP</A> sourceLPT(h=3.109e6, p0=6e5);
+  <A HREF="ThermoPower_PowerPlants_SteamTurbineGroup_Components.html#ThermoPower.PowerPlants.SteamTurbineGroup.Components.EffectHE"
+>Components.EffectHE</A> Rh(dh=3.544e6 - 3.108e6, dp=2.98e6 - 2.68e6);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(constantSpeed.flange, steamTurbines.Shaft_b);
+  <font color="red">connect</font>(sinkLPT.flange, steamTurbines.LPT_Out);
+  <font color="red">connect</font>(steamTurbines.LPT_In, sourceLPT.flange);
+  <font color="red">connect</font>(steamTurbines.HPT_In, sourceHPT.flange);
+  <font color="red">connect</font>(steamTurbines.IPT_In, Rh.out1);
+  <font color="red">connect</font>(steamTurbines.HPT_Out, Rh.in1);
+<font color="blue">end </font>TestST3LRh_base;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TestST3LRh_valve<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.PowerPlants.SteamTurbineGroup.Tests.TestST3LRh_valve"></A><A HREF="ThermoPower_PowerPlants_SteamTurbineGroup_Tests.html#ThermoPower.PowerPlants.SteamTurbineGroup.Tests"
+>ThermoPower.PowerPlants.SteamTurbineGroup.Tests</A>.TestST3LRh_valve</H2>
+<IMG SRC="ThermoPower.PowerPlants.SteamTurbineGroup.Tests.TestST3LRh_valveD.png" ALT="ThermoPower.PowerPlants.SteamTurbineGroup.Tests.TestST3LRh_valve">
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TestST3LRh_valve
+  <font color="blue">package</font> FluidMedium = ThermoPower.Water.StandardWater;
+
+  <A HREF="ThermoPower_PowerPlants_SteamTurbineGroup_Examples.html#ThermoPower.PowerPlants.SteamTurbineGroup.Examples.ST3LRh_valve"
+>Examples.ST3LRh_valve</A> steamTurbines(
+    <font color="blue">redeclare </font><font color="blue">package</font> FluidMedium = FluidMedium,
+    steamHPNomFlowRate=67.6,
+    steamHPNomPressure=1.28e7,
+    steamIPNomFlowRate=81.10 - 67.5,
+    steamIPNomPressure=2.68e6,
+    steamLPNomPressure=6e5,
+    pcond=5.3982e3,
+    steamLPNomFlowRate=89.82 - 81.10,
+    HPT_hstart_in=3.47e6,
+    HPT_hstart_out=3.1076e6,
+    IPT_hstart_in=3.554e6,
+    IPT_hstart_out=3.12810e6,
+    LPT_hstart_in=3.109e6,
+    LPT_hstart_out=2.3854e6,
+    valveHP_dpnom=1.6e5,
+    valveIP_dpnom=5e4,
+    mixLP_hstart=3.109e6,
+    HPT_eta_iso_nom=0.833,
+    IPT_eta_iso_nom=0.903,
+    LPT_eta_iso_nom=0.876,
+    mixLP_V=20,
+    valveHP_Cv=1165,
+    valveIP_Cv=5625,
+    valveLP_Cv=14733,
+    valveLP_dpnom=2.964e4,
+    HPT_Kt=0.0032078,
+    IPT_Kt=0.018883,
+    LPT_Kt=0.078004);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SinkP"
+>Water.SinkP</A> sinkLPT_p(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = FluidMedium,
+    p0=5.3982e3,
+    h=2.3854e6);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.ConstantSpeed"
+>Modelica.Mechanics.Rotational.ConstantSpeed</A> constantSpeed(w_fixed=
+        314.16/2);
+<font color="blue">protected </font>
+  <A HREF="ThermoPower_PowerPlants_Buses.html#ThermoPower.PowerPlants.Buses.Actuators"
+>Buses.Actuators</A> actuators;
+<font color="blue">public </font>
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> com_valveHP;
+<font color="blue">public </font>
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> com_valveLP(k=1);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SourceP"
+>Water.SourceP</A> sourceHPT_p(h=3.47e6, p0=1.296e7);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SourceP"
+>Water.SourceP</A> sourceLPT(h=3.109e6, p0=6.296e5);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> com_valveIP(
+    duration=10,
+    offset=1,
+    startTime=40,
+    height=-0.5);
+  <A HREF="ThermoPower_PowerPlants_SteamTurbineGroup_Components.html#ThermoPower.PowerPlants.SteamTurbineGroup.Components.EffectHE"
+>Components.EffectHE</A> Rh(dh=3.544e6 - 3.108e6, dp=2.98e6 - 2.73e6);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(actuators, steamTurbines.ActuatorsBus);
+  <font color="red">connect</font>(constantSpeed.flange, steamTurbines.Shaft_b);
+  <font color="red">connect</font>(sinkLPT_p.flange, steamTurbines.LPT_Out);
+  <font color="red">connect</font>(steamTurbines.LPT_In, sourceLPT.flange);
+  <font color="red">connect</font>(steamTurbines.HPT_In, sourceHPT_p.flange);
+  <font color="red">connect</font>(com_valveHP.y, actuators.Opening_valveHP);
+  <font color="red">connect</font>(com_valveIP.y, actuators.Opening_valveIP);
+  <font color="red">connect</font>(com_valveLP.y, actuators.Opening_valveLP);
+  <font color="red">connect</font>(steamTurbines.IPT_In, Rh.out1);
+  <font color="red">connect</font>(steamTurbines.HPT_Out, Rh.in1);
+<font color="blue">end </font>TestST3LRh_valve;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TestST3LRh_bypass<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.PowerPlants.SteamTurbineGroup.Tests.TestST3LRh_bypass"></A><A HREF="ThermoPower_PowerPlants_SteamTurbineGroup_Tests.html#ThermoPower.PowerPlants.SteamTurbineGroup.Tests"
+>ThermoPower.PowerPlants.SteamTurbineGroup.Tests</A>.TestST3LRh_bypass</H2>
+<IMG SRC="ThermoPower.PowerPlants.SteamTurbineGroup.Tests.TestST3LRh_bypassD.png" ALT="ThermoPower.PowerPlants.SteamTurbineGroup.Tests.TestST3LRh_bypass">
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TestST3LRh_bypass
+  <font color="blue">package</font> FluidMedium = ThermoPower.Water.StandardWater;
+
+  <A HREF="ThermoPower_PowerPlants_SteamTurbineGroup_Examples.html#ThermoPower.PowerPlants.SteamTurbineGroup.Examples.ST3LRh_bypass"
+>Examples.ST3LRh_bypass</A> steamTurbines(
+    <font color="blue">redeclare </font><font color="blue">package</font> FluidMedium = FluidMedium,
+    steamHPNomFlowRate=67.6,
+    steamHPNomPressure=1.28e7,
+    steamIPNomFlowRate=81.10 - 67.5,
+    steamIPNomPressure=2.68e6,
+    steamLPNomPressure=6e5,
+    pcond=5.3982e3,
+    mixLP_V=50,
+    steamLPNomFlowRate=89.82 - 81.10,
+    HPT_hstart_in=3.47e6,
+    HPT_hstart_out=3.1076e6,
+    IPT_hstart_in=3.554e6,
+    IPT_hstart_out=3.12810e6,
+    LPT_hstart_in=3.109e6,
+    LPT_hstart_out=2.3854e6,
+    valveHP_dpnom=1.6e5,
+    valveIP_dpnom=5e4,
+    valveLP_dpnom=2.64e4,
+    mixLP_hstart=3.109e6,
+    HPT_eta_iso_nom=0.833,
+    IPT_eta_iso_nom=0.903,
+    LPT_eta_iso_nom=0.876,
+    valveHP_Cv=1165,
+    valveIP_Cv=5625,
+    valveLP_Cv=14733,
+    bypassHP_Cv=272,
+    bypassIP_Cv=1595,
+    bypassLP_Cv=7540,
+    HPT_Kt=0.0032078,
+    IPT_Kt=0.018883,
+    LPT_Kt=0.078004,
+    valveDrumIP_Cv=810,
+    valveDrumLP_Cv=1670);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.ConstantSpeed"
+>Modelica.Mechanics.Rotational.ConstantSpeed</A> constantSpeed(w_fixed=
+        314.16/2);
+<font color="blue">protected </font>
+  <A HREF="ThermoPower_PowerPlants_Buses.html#ThermoPower.PowerPlants.Buses.Actuators"
+>Buses.Actuators</A> actuators;
+<font color="blue">public </font>
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> com_valveHP(k=1);
+<font color="blue">public </font>
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> com_valveIP(k=1);
+<font color="blue">public </font>
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> com_valveLP(k=1);
+<font color="blue">public </font>
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> com_bypassHP(k=0);
+<font color="blue">public </font>
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> com_bypassIP(k=0);
+<font color="blue">public </font>
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> com_bypassLP(k=0);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SinkP"
+>Water.SinkP</A> sinkLPT_p(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = FluidMedium,
+    p0=5.3982e3,
+    h=2.3854e6);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SourceP"
+>Water.SourceP</A> sourceHPT_p(h=3.47e6, p0=1.296e7);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SourceP"
+>Water.SourceP</A> sourceLPT(h=3.109e6, p0=6.296e5);
+  <A HREF="ThermoPower_PowerPlants_SteamTurbineGroup_Components.html#ThermoPower.PowerPlants.SteamTurbineGroup.Components.EffectHE"
+>Components.EffectHE</A> Rh(dh=3.544e6 - 3.108e6, dp=2.98e6 - 2.73e6);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(com_valveHP.y, actuators.Opening_valveHP);
+  <font color="red">connect</font>(com_valveIP.y, actuators.Opening_valveIP);
+  <font color="red">connect</font>(com_valveLP.y, actuators.Opening_valveLP);
+  <font color="red">connect</font>(actuators,steamTurbines. ActuatorsBus);
+  <font color="red">connect</font>(steamTurbines.Shaft_b, constantSpeed.flange);
+  <font color="red">connect</font>(com_bypassHP.y, actuators.Opening_byPassHP);
+  <font color="red">connect</font>(com_bypassIP.y, actuators.Opening_byPassIP);
+  <font color="red">connect</font>(com_bypassLP.y, actuators.Opening_byPassLP);
+  <font color="red">connect</font>(sinkLPT_p.flange, steamTurbines.LPT_Out);
+  <font color="red">connect</font>(steamTurbines.LPT_In,sourceLPT. flange);
+  <font color="red">connect</font>(steamTurbines.HPT_In,sourceHPT_p. flange);
+  <font color="red">connect</font>(steamTurbines.IPT_In, Rh.out1);
+  <font color="red">connect</font>(steamTurbines.HPT_Out, Rh.in1);
+<font color="blue">end </font>TestST3LRh_bypass;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TestCondenserControl<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.PowerPlants.SteamTurbineGroup.Tests.TestCondenserControl"></A><A HREF="ThermoPower_PowerPlants_SteamTurbineGroup_Tests.html#ThermoPower.PowerPlants.SteamTurbineGroup.Tests"
+>ThermoPower.PowerPlants.SteamTurbineGroup.Tests</A>.TestCondenserControl</H2>
+<IMG SRC="ThermoPower.PowerPlants.SteamTurbineGroup.Tests.TestCondenserControlD.png" ALT="ThermoPower.PowerPlants.SteamTurbineGroup.Tests.TestCondenserControl">
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TestCondenserControl
+  <font color="blue">package</font> FluidMedium = ThermoPower.Water.StandardWater;
+
+  <A HREF="ThermoPower_PowerPlants_SteamTurbineGroup_Components.html#ThermoPower.PowerPlants.SteamTurbineGroup.Components.StateReader_water"
+>Components.StateReader_water</A> stateTapping(
+                 <font color="blue">redeclare </font><font color="blue">package</font> Medium = FluidMedium);
+  <A HREF="ThermoPower_PowerPlants_Control.html#ThermoPower.PowerPlants.Control.PID"
+>Control.PID</A> pID(
+    PVmax=1,
+    PVmin=0.1,
+    CSmin=-0.6,
+    CSmax=0.6,
+    Ti=2000,
+    Kp=-3);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SourceW"
+>Water.SourceW</A> sourceSteam(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = FluidMedium,
+    w0=89.8,
+    p0=5389.2,
+    h=2.3854e6);
+  <A HREF="ThermoPower_PowerPlants_SteamTurbineGroup_Components.html#ThermoPower.PowerPlants.SteamTurbineGroup.Components.StateReader_water"
+>Components.StateReader_water</A> stateCondIn(
+                                     <font color="blue">redeclare </font><font color="blue">package</font> Medium =
+        FluidMedium);
+  <A HREF="ThermoPower_PowerPlants_SteamTurbineGroup_Components.html#ThermoPower.PowerPlants.SteamTurbineGroup.Components.StateReader_water"
+>Components.StateReader_water</A> stateCondOut(
+                                     <font color="blue">redeclare </font><font color="blue">package</font> Medium =
+        FluidMedium);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> const(
+    offset=0.85,
+    duration=500,
+    startTime=8000,
+    height=0.1);
+  <A HREF="ThermoPower_PowerPlants_SteamTurbineGroup_Components.html#ThermoPower.PowerPlants.SteamTurbineGroup.Components.CondenserPreP_tap"
+>ThermoPower.PowerPlants.SteamTurbineGroup.Components.CondenserPreP_tap</A>
+    condenserIdeal_tap(                            <font color="blue">redeclare </font><font color="blue">package</font> Medium =
+               FluidMedium, p=5398.2);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SinkW"
+>Water.SinkW</A> sinkWater(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = FluidMedium,
+    p0=5398.2,
+    h=1.43495e5,
+    w0=89.8);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SourceW"
+>Water.SourceW</A> sourceTap(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = FluidMedium,
+    p0=5389.2,
+    h=1.43495e5);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(stateCondIn.inlet, sourceSteam.flange);
+  <font color="red">connect</font>(const.y, pID.SP);
+  <font color="red">connect</font>(stateCondOut.inlet, condenserIdeal_tap.waterOut);
+  <font color="red">connect</font>(stateCondIn.outlet, condenserIdeal_tap.steamIn);
+  <font color="red">connect</font>(sinkWater.flange, stateCondOut.outlet);
+  <font color="red">connect</font>(stateTapping.outlet, condenserIdeal_tap.tapWater);
+  <font color="red">connect</font>(sourceTap.flange, stateTapping.inlet);
+  <font color="red">connect</font>(pID.CS, sourceTap.in_w0);
+  <font color="red">connect</font>(pID.PV, condenserIdeal_tap.ratio_Vv_Vtot);
+<font color="blue">end </font>TestCondenserControl;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TestSTG_cc<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.PowerPlants.SteamTurbineGroup.Tests.TestSTG_cc"></A><A HREF="ThermoPower_PowerPlants_SteamTurbineGroup_Tests.html#ThermoPower.PowerPlants.SteamTurbineGroup.Tests"
+>ThermoPower.PowerPlants.SteamTurbineGroup.Tests</A>.TestSTG_cc</H2>
+<B>Test of STG with condenser control</B><p>
+<IMG SRC="ThermoPower.PowerPlants.SteamTurbineGroup.Tests.TestSTG_ccD.png" ALT="ThermoPower.PowerPlants.SteamTurbineGroup.Tests.TestSTG_cc">
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TestSTG_cc <font color="darkgreen">&quot;Test of STG with condenser control&quot;</font>
+  <font color="blue">package</font> FluidMedium = ThermoPower.Water.StandardWater;
+
+
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.ConstantSpeed"
+>Modelica.Mechanics.Rotational.ConstantSpeed</A> constantSpeed(w_fixed=
+        314.16/2);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SourceP"
+>Water.SourceP</A> sourceHPT(h=3.47e6, p0=1.28e7,
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = FluidMedium);
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SourceP"
+>Water.SourceP</A> sourceLPT(h=3.109e6, p0=6e5,
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = FluidMedium);
+  <A HREF="ThermoPower_PowerPlants_SteamTurbineGroup_Components.html#ThermoPower.PowerPlants.SteamTurbineGroup.Components.EffectHE"
+>Components.EffectHE</A> Rh(dh=3.544e6 - 3.108e6, dp=2.98e6 - 2.68e6);
+  <A HREF="ThermoPower_PowerPlants_SteamTurbineGroup_Examples.html#ThermoPower.PowerPlants.SteamTurbineGroup.Examples.STG_3LRh_bypass_cc"
+>Examples.STG_3LRh_bypass_cc</A> sTG_3LRh(
+                             <font color="blue">redeclare </font><font color="blue">package</font> FluidMedium = FluidMedium,
+      steamTurbines(SSInit=true));
+  <A HREF="ThermoPower_Water.html#ThermoPower.Water.SinkP"
+>Water.SinkP</A> sinkWater(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = FluidMedium,
+    h=1.43495e5,
+    p0=6e5);
+<font color="blue">public </font>
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> com_valveHP(k=1);
+<font color="blue">public </font>
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> com_valveIP(k=1);
+<font color="blue">public </font>
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> com_valveLP(k=1);
+<font color="blue">public </font>
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> com_bypassHP(k=0);
+<font color="blue">public </font>
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> com_bypassIP(k=0);
+<font color="blue">public </font>
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> com_bypassLP(k=0);
+<font color="blue">protected </font>
+  <A HREF="ThermoPower_PowerPlants_Buses.html#ThermoPower.PowerPlants.Buses.Actuators"
+>Buses.Actuators</A> actuators;
+<font color="blue">public </font>
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> n_pump(k=1425);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(constantSpeed.flange, sTG_3LRh.Shaft_b);
+  <font color="red">connect</font>(com_valveHP.y,actuators. Opening_valveHP);
+  <font color="red">connect</font>(com_valveIP.y,actuators. Opening_valveIP);
+  <font color="red">connect</font>(com_valveLP.y,actuators. Opening_valveLP);
+  <font color="red">connect</font>(com_bypassHP.y,actuators. Opening_byPassHP);
+  <font color="red">connect</font>(com_bypassIP.y,actuators. Opening_byPassIP);
+  <font color="red">connect</font>(com_bypassLP.y,actuators. Opening_byPassLP);
+  <font color="red">connect</font>(actuators, sTG_3LRh.ActuatorsBus);
+  <font color="red">connect</font>(sTG_3LRh.WaterOut, sinkWater.flange);
+  <font color="red">connect</font>(sTG_3LRh.From_SH_LP, sourceLPT.flange);
+  <font color="red">connect</font>(sTG_3LRh.From_RH_IP, Rh.out1);
+  <font color="red">connect</font>(sTG_3LRh.To_RH_IP, Rh.in1);
+  <font color="red">connect</font>(sTG_3LRh.From_SH_HP, sourceHPT.flange);
+  <font color="red">connect</font>(n_pump.y, actuators.nPump_feedLP);
+<font color="blue">end </font>TestSTG_cc;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Tue Jul 07 01:25:22 2009.
+</address></BODY>
+</HTML>

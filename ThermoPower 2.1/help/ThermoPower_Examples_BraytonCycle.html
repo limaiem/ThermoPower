@@ -1,0 +1,287 @@
+<HTML>
+<HEAD>
+<TITLE>ThermoPower.Examples.BraytonCycle</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Gas power plant&quot;">
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE BraytonCycle<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Examples.BraytonCycle"></A><A HREF="ThermoPower_Examples.html#ThermoPower.Examples"
+>ThermoPower.Examples</A>.BraytonCycle</H2>
+<B>Gas power plant</B>
+<P>
+<H3>Information</H3>
+<PRE></pre>
+<p>This package contains models of a open Brayton cycle and its main components.
+<pre></PRE><P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="ThermoPower.Examples.BraytonCycle.PlantS.png" ALT="ThermoPower.Examples.BraytonCycle.Plant" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="ThermoPower_Examples_BraytonCycle.html#ThermoPower.Examples.BraytonCycle.Plant"
+>Plant</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_Examples_BraytonCycle.html#ThermoPower.Examples.BraytonCycle.OpenLoopSimulator"
+>OpenLoopSimulator</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="ThermoPower_Examples_BraytonCycle.html#ThermoPower.Examples.BraytonCycle.ClosedLoopSimulator"
+>ClosedLoopSimulator</A>
+</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Plant<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="ThermoPower.Examples.BraytonCycle.PlantI.png" ALT="ThermoPower.Examples.BraytonCycle.Plant" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="ThermoPower.Examples.BraytonCycle.Plant"></A><A HREF="ThermoPower_Examples_BraytonCycle.html#ThermoPower.Examples.BraytonCycle"
+>ThermoPower.Examples.BraytonCycle</A>.Plant</H2>
+<IMG SRC="ThermoPower.Examples.BraytonCycle.PlantD.png" ALT="ThermoPower.Examples.BraytonCycle.Plant">
+<H3>Information</H3>
+<PRE></pre>
+<p>This model contains the  gas turbine, generator and network models. The network model is based on swing equation.
+<pre></PRE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>input <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>combustibleFlowRate</TD><TD>&nbsp;</TD></TR>
+<TR><TD>output <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>RealOutput</A></TD><TD>generatedPower</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Plant
+<font color="blue">protected </font>
+  <font color="blue">parameter </font>Real tableEtaC[6,4]=[0,95,100,105;
+                                 1,82.5e-2,81e-2,80.5e-2;
+                                 2,84e-2,82.9e-2,82e-2;
+                                 3,83.2e-2,82.2e-2,81.5e-2;
+                                 4,82.5e-2,81.2e-2,79e-2;
+                                 5,79.5e-2,78e-2,76.5e-2];
+  <font color="blue">parameter </font>Real tablePhicC[6,4]=[0,95,100,105;
+                                 1,38.3e-3,43e-3,46.8e-3;
+                                 2,39.3e-3,43.8e-3,47.9e-3;
+                                 3,40.6e-3,45.2e-3,48.4e-3;
+                                 4,41.6e-3,46.1e-3,48.9e-3;
+                                 5,42.3e-3,46.6e-3,49.3e-3];
+  <font color="blue">parameter </font>Real tablePR[6,4]=[0,95,100,105;
+                                1,22.6,27,32;
+                                2,22,26.6,30.8;
+                                3,20.8,25.5,29;
+                                4,19,24.3,27.1;
+                                5,17,21.5,24.2];
+  <font color="blue">parameter </font>Real tablePhicT[5,4]=[1,90,100,110;
+                                 2.36,4.68e-3,4.68e-3,4.68e-3;
+                                 2.88,4.68e-3,4.68e-3,4.68e-3;
+                                 3.56,4.68e-3,4.68e-3,4.68e-3;
+                                 4.46,4.68e-3,4.68e-3,4.68e-3];
+  <font color="blue">parameter </font>Real tableEtaT[5,4]=[1,90,100,110;
+                                2.36,89e-2,89.5e-2,89.3e-2;
+                                2.88,90e-2,90.6e-2,90.5e-2;
+                                3.56,90.5e-2,90.6e-2,90.5e-2;
+                                4.46,90.2e-2,90.3e-2,90e-2];
+<font color="blue">public </font>
+  <A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.Generator"
+>Electrical.Generator</A> generator(J=30000, initOpt=ThermoPower.Choices.Init.Options.steadyState);
+  <A HREF="ThermoPower_Electrical.html#ThermoPower.Electrical.NetworkGrid_Pmax"
+>Electrical.NetworkGrid_Pmax</A> network(
+    deltaStart=0.4,
+    initOpt=ThermoPower.Choices.Init.Options.steadyState,
+    Pmax=10e6,
+    J=30000);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> combustibleFlowRate;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> generatedPower;
+<font color="blue">public </font>
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.Compressor"
+>Gas.Compressor</A> compressor(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = <A HREF="ThermoPower_Media_Air.html#ThermoPower.Media.Air"
+>Media.Air</A>,
+    tablePhic=tablePhicC,
+    tableEta=tableEtaC,
+    pstart_in=0.343e5,
+    pstart_out=8.3e5,
+    Tstart_in=244.4,
+    tablePR=tablePR,
+    Table=ThermoPower.Choices.TurboMachinery.TableTypes.matrix,
+    Tstart_out=600.4,
+    explicitIsentropicEnthalpy=true,
+    Tdes_in=244.4,
+    Ndesign=157.08);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.Turbine"
+>Gas.Turbine</A> turbine(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = <A HREF="ThermoPower_Media_FlueGas.html#ThermoPower.Media.FlueGas"
+>Media.FlueGas</A>,
+    pstart_in=7.85e5,
+    pstart_out=1.52e5,
+    tablePhic=tablePhicT,
+    tableEta=tableEtaT,
+    Table=ThermoPower.Choices.TurboMachinery.TableTypes.matrix,
+    Tstart_out=800,
+    Tdes_in=1400,
+    Tstart_in=1370,
+    Ndesign=157.08);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.CombustionChamber"
+>Gas.CombustionChamber</A> CombustionChamber1(
+    gamma=1,
+    Cm=1,
+    pstart=8.11e5,
+    Tstart=1370,
+    V=0.05,
+    S=0.05,
+    initOpt=ThermoPower.Choices.Init.Options.steadyState,
+    HH=41.6e6);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.SourceP"
+>Gas.SourceP</A> SourceP1(            <font color="blue">redeclare </font><font color="blue">package</font> Medium =
+        <A HREF="ThermoPower_Media_Air.html#ThermoPower.Media.Air"
+>Media.Air</A>,
+    p0=0.343e5,
+    T=244.4);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.SinkP"
+>Gas.SinkP</A> SinkP1(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = <A HREF="ThermoPower_Media_FlueGas.html#ThermoPower.Media.FlueGas"
+>Media.FlueGas</A>,
+    p0=1.52e5,
+    T=800);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.SourceW"
+>Gas.SourceW</A> SourceW1(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = <A HREF="ThermoPower_Media_NaturalGas.html#ThermoPower.Media.NaturalGas"
+>Media.NaturalGas</A>,
+    w0=2.02,
+    p0=8.11e5,
+    T=300);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.PressDrop"
+>Gas.PressDrop</A> PressDrop1(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = <A HREF="ThermoPower_Media_FlueGas.html#ThermoPower.Media.FlueGas"
+>Media.FlueGas</A>,
+    FFtype=ThermoPower.Choices.PressDrop.FFtypes.OpPoint,
+    A=1,
+    pstart=8.11e5,
+    dpnom=0.26e5,
+    wnom=102,
+    Tstart=1370,
+    rhonom=2);
+  <A HREF="ThermoPower_Gas.html#ThermoPower.Gas.PressDrop"
+>Gas.PressDrop</A> PressDrop2(
+    pstart=8.3e5,
+    FFtype=ThermoPower.Choices.PressDrop.FFtypes.OpPoint,
+    A=1,
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = <A HREF="ThermoPower_Media_Air.html#ThermoPower.Media.Air"
+>Media.Air</A>,
+    dpnom=0.19e5,
+    wnom=100,
+    rhonom=4.7,
+    Tstart=600);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Mechanics_Rotational_Sensors.html#Modelica.Mechanics.Rotational.Sensors.PowerSensor"
+>Modelica.Mechanics.Rotational.Sensors.PowerSensor</A> powerSensor;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous.FirstOrder"
+>Modelica.Blocks.Continuous.FirstOrder</A> gasFlowActuator(
+    k=1,
+    T=4,
+    y_start=500,
+    initType=Modelica.Blocks.Types.Init.SteadyState);
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous.FirstOrder"
+>Modelica.Blocks.Continuous.FirstOrder</A> powerSensor1(
+    k=1,
+    T=1,
+    y_start=56.8e6,
+    initType=Modelica.Blocks.Types.Init.SteadyState);
+  <A HREF="ThermoPower_PowerPlants_HRSG_Components.html#ThermoPower.PowerPlants.HRSG.Components.StateReader_gas"
+>PowerPlants.HRSG.Components.StateReader_gas</A> stateInletCC(<font color="blue">redeclare </font><font color="blue">package</font>
+      Medium =         <A HREF="ThermoPower_Media_Air.html#ThermoPower.Media.Air"
+>Media.Air</A>);
+  <A HREF="ThermoPower_PowerPlants_HRSG_Components.html#ThermoPower.PowerPlants.HRSG.Components.StateReader_gas"
+>PowerPlants.HRSG.Components.StateReader_gas</A> stateOutletCC(<font color="blue">redeclare </font><font color="blue">package</font>
+      Medium =         <A HREF="ThermoPower_Media_FlueGas.html#ThermoPower.Media.FlueGas"
+>Media.FlueGas</A>);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(network.powerConnection, generator.powerConnection);
+  <font color="red">connect</font>(SourceW1.flange,CombustionChamber1. inf);
+  <font color="red">connect</font>(turbine.outlet,SinkP1. flange);
+  <font color="red">connect</font>(SourceP1.flange,compressor. inlet);
+  <font color="red">connect</font>(PressDrop1.outlet,turbine. inlet);
+  <font color="red">connect</font>(compressor.outlet,PressDrop2. inlet);
+  <font color="red">connect</font>(compressor.shaft_b,turbine. shaft_a);
+  <font color="red">connect</font>(powerSensor.flange_a,turbine. shaft_b);
+  <font color="red">connect</font>(gasFlowActuator.u, combustibleFlowRate);
+  <font color="red">connect</font>(gasFlowActuator.y,SourceW1. in_w0);
+  <font color="red">connect</font>(powerSensor.power,powerSensor1. u);
+  <font color="red">connect</font>(powerSensor1.y, generatedPower);
+  <font color="red">connect</font>(CombustionChamber1.ina,stateInletCC. outlet);
+  <font color="red">connect</font>(stateInletCC.inlet,PressDrop2. outlet);
+  <font color="red">connect</font>(stateOutletCC.inlet,CombustionChamber1. out);
+  <font color="red">connect</font>(stateOutletCC.outlet,PressDrop1. inlet);
+  <font color="red">connect</font>(generator.shaft, powerSensor.flange_b);
+<font color="blue">end </font>Plant;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE OpenLoopSimulator<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Examples.BraytonCycle.OpenLoopSimulator"></A><A HREF="ThermoPower_Examples_BraytonCycle.html#ThermoPower.Examples.BraytonCycle"
+>ThermoPower.Examples.BraytonCycle</A>.OpenLoopSimulator</H2>
+<IMG SRC="ThermoPower.Examples.BraytonCycle.OpenLoopSimulatorD.png" ALT="ThermoPower.Examples.BraytonCycle.OpenLoopSimulator">
+<H3>Information</H3>
+<PRE></pre>
+<p>This model allows to simulate an open loop transients.
+<pre></PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> OpenLoopSimulator
+
+  <A HREF="ThermoPower_Examples_BraytonCycle.html#ThermoPower.Examples.BraytonCycle.Plant"
+>Plant</A> plant;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Step"
+>Modelica.Blocks.Sources.Step</A> combustibleFlowRate(
+    offset=2.02,
+    height=0.3,
+    startTime=500);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(plant.combustibleFlowRate, combustibleFlowRate.y);
+<font color="blue">end </font>OpenLoopSimulator;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ClosedLoopSimulator<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="ThermoPower.Examples.BraytonCycle.ClosedLoopSimulator"></A><A HREF="ThermoPower_Examples_BraytonCycle.html#ThermoPower.Examples.BraytonCycle"
+>ThermoPower.Examples.BraytonCycle</A>.ClosedLoopSimulator</H2>
+<IMG SRC="ThermoPower.Examples.BraytonCycle.ClosedLoopSimulatorD.png" ALT="ThermoPower.Examples.BraytonCycle.ClosedLoopSimulator">
+<H3>Information</H3>
+<PRE></pre>
+<p>This model simulates a simple continuous-time control system for the steam power plant. The generated power is controlled to the set point by a PI controller with anti-windup.</p>
+<p>The model starts at steady state.
+<pre></PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> ClosedLoopSimulator
+
+  <A HREF="ThermoPower_Examples_BraytonCycle.html#ThermoPower.Examples.BraytonCycle.Plant"
+>Plant</A> plant;
+  <A HREF="file:///C:/Programmi/Dymola 6.1/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> powerSetPoint(
+    offset=4e6,
+    height=2e6,
+    duration=10,
+    startTime=500);
+  <A HREF="ThermoPower_Examples_RankineCycle.html#ThermoPower.Examples.RankineCycle.PID"
+>RankineCycle.PID</A> pID(
+    Ti=5,
+    PVmin=2e6,
+    PVmax=12e6,
+    CSmin=0,
+    CSmax=4,
+    steadyStateInit=true,
+    Kp=0.25);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(plant.combustibleFlowRate, pID.CS);
+  <font color="red">connect</font>(pID.SP, powerSetPoint.y);
+  <font color="red">connect</font>(pID.PV, plant.generatedPower);
+<font color="blue">end </font>ClosedLoopSimulator;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Tue Jul 07 01:22:25 2009.
+</address></BODY>
+</HTML>
